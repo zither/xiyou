@@ -55,6 +55,7 @@
     <img src="/fqxy/pic/login/1.jpg" alt="图片"/>
     <p>古典神话网游，持神兵利器，降五爪金龙，携爱行走西游路……</p>
     <p><a href="login.php">开始游戏</a></p>
+    <p><a href="https://github.com/zither/xiyou">下载源代码</a> . 讨论群:39387037 </p>
 </div>
 </body>
 </html>
