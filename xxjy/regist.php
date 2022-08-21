@@ -89,7 +89,7 @@ try {
 
         include("../url/url.php");
         $suffix = config_item('jy_enable_https') ? 's' : '';
-        $xyurl = "http$s://" . $xxjyurl . "/xxjy/xxjyzc.php?zh=$zczh1&mm=$zczh3&aqm=$zczh4";
+        $xyurl = "http$suffix://" . $xxjyurl . "/xxjy/xxjyzc.php?zh=$zczh1&mm=$zczh3&aqm=$zczh4";
         echo "<META HTTP-EQUIV=REFRESH CONTENT='0;URL=$xyurl'>";
         exit;
     }
