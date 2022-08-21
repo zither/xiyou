@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__ . "/../sql/mysql.php";
+
 if ($npcc==1) {
 
 
@@ -3253,52 +3255,44 @@ echo "<font color=black>南城客栈的小二，卖些稀有的补品。</font>"
 
 
   } elseif ($npcc==147) {
-	 
+	//Fixed 逻辑不明，直接修改为 all_ly
+	$q2 = "all_yl";
+	$sql1=mysql_query("select * from $q2 where wjid='$wjid'", $conn);
+	$info1=@mysql_fetch_array($sql1);
+	$yl=$info1['bbyl'];
+	$xyyl=500;
+	if ($yl>=$xyyl) {
+		//更新银两数据库
+		$yll=$yl-$xyyl;
+		$strsql = "update $q2 set bbyl=$yll where wjid=$wjid";//物品id号必改值
+		$result = mysql_query($strsql);
 
+		// 更新银两缓存
+		$inina="yl.ini";
+		$path='ache/'.$wjid;
+		$ininame = $path."/".$inina;
+		# 实例化ini文件操作类，并载入 .ini文件
+		$iniFile = new iniFile($ininame);
+		$iniFile->updItem('背包仓库银两', ['背包银两' => $yll]);
 
+		//Fixed 直接回满血
+        $wjxx1=[];
+        include("wj/ztt.php");
+        include("wj/zfzt.php");
+		include("./ini/zt_ini.php");
+		$iniFile->updItem('玩家信息', ['红' => $wjxx1['血']]);
+		echo "<font color=black>你花了500两银子，往床上一躺，睡了一会，只觉精力充沛！	</font>"."<br>";
+    } else{
+        echo "<font color=black>对不起！休息需要500银两哦！</font>"."<br>";
+    }
 
-
-$q2="yl".$fqidd;
-$sql1=mysql_query("select * from $q2 where id=0",$conn);
-$info1=@mysql_fetch_array($sql1);
-$yl=$info1['yl'];	
-$xyyl=500;
-if ($yl>=$xyyl) {
-$q2="yl".$fqidd;
-$yll=$yl-$xyyl;
-$strsql = "update $q2 set yl=$yll where id=0";//物品id号必改值
-$result = mysql_query($strsql);  
-	
-include("wj/zf.php");
-include("wj/ztt.php");
-$q2="zt".$fqidd;
-$strsql = "update $q2 set hp=$maxhp,mp=$maxmp where id=0";//物品id号必改值
-$result = mysql_query($strsql);  
-echo "<font color=black>你花了500两银子，往床上一躺，睡了一会，只觉精力充沛！	</font>"."<br>"; 
-
-
-
-
-} else{
-	
-echo "<font color=black>对不起！休息需要500银两哦！</font>"."<br>"; 	
-	
-	
-
-}
-
-
-
-
-	 
-
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=10;
-$npc[]=0;
-//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
-//
+	//cmd及超链接值
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=10;
+    $npc[]=0;
+	//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
+	//
 
 	  } elseif ($npcc==148) {
 $npcname="存取物品";
