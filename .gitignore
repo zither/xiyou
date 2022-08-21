@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+*.ini
+*.txt
+**/all_ip
+**/map/cwd77x?
+**/phb/phb?
+*.bat
+config/config.php
+sql/mysql.php
+fqxy/mb/*.php
