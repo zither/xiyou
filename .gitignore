@@ -8,4 +8,4 @@
 *.bat
 config/config.php
 **/sql/mysql.php
-fqxy/mb/*.php
+fqxy/mb/mbmb*.php
