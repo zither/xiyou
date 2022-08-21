@@ -4,21 +4,16 @@
 $inina="phb10.ini";
 $path='acher/phb';
 $file = $path."/".$inina;
-if(file_exists($file))
-{
+if(file_exists($file)) {
 
-
-}
-else
-{
+} else {
     //连接数据库提取数据写入ini
-
     $inina="phb10.ini";
     $path='acher/phb';
     $file = $path."/".$inina;
-//创建文件
+    //创建文件
     file_put_contents($file,"[排行榜信息]");
-# 实例化ini文件操作类，并载入 .ini文件
+    # 实例化ini文件操作类，并载入 .ini文件
     $iniFile = new iniFile($file);
 
     $iniFile->addItem('排行榜名字',['初始' => 123]);
@@ -29,21 +24,16 @@ else
     include("./sql/mysql.php");//调用数据库连接
 
     $q2="all_yd02";
-    mysql_query("set names utf8");
     $str="select * from $q2";
     $result=mysql_query($str) or die('SQL语句有误');
-//把有值的数据存入一个数组
+    //把有值的数据存入一个数组
 
     while(!!$row=mysql_fetch_array($result)){
-
-
         $iniFile->addCategory('排行榜名字', [$row['id']=> $row['wjmz']]);
         $iniFile->addCategory('排行榜值1', [$row['id']=> $row['wjid']]);
         $iniFile->addCategory('排行榜值2', [$row['id']=> $row['ds02']]);
         $iniFile->addCategory('排行榜值3', [$row['id']=> $row['vip']]);
         $iniFile->addCategory('排行榜值4', [$row['id']=> $row['id']]);
-
-
     }
 }
 
