@@ -7,5 +7,5 @@
 **/phb/phb?
 *.bat
 config/config.php
-sql/mysql.php
+**/sql/mysql.php
 fqxy/mb/*.php
