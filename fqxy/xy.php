@@ -330,7 +330,7 @@
             //将cmd最小最大值写入
 
             # 添加一个分类并直接添加子项
-            $iniFile->addCategory('验证信息', ['xcmid值' => $a4, 'dcmid值' => 'a5']);
+            //$iniFile->addCategory('验证信息', ['xcmid值' => $a4, 'dcmid值' => 'a5']);
             # 修改一个分类下子项的值(也可以修改多个)
             $iniFile->updItem('验证信息', ['xcmid值' => $a4, 'dcmid值' => $a5]);
 
