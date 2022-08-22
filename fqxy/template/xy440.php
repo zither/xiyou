@@ -9,7 +9,6 @@
 $ininalock="hdjc.txt";
 $zspd=0;
 $zsspd=0;
-   flock($fp, LOCK_NB);
    //路径
 $path='acher/hdjc';
 $gglockname=$path."/".$ininalock;

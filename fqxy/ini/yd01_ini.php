@@ -38,7 +38,9 @@ $maxidd=$maxid+1;
 $maxidd=$maxid+1;
 }
 $nowtime=date('Y-m-d H:i:s');
-$sql = "insert into $q2 (id,wjid,wjmz,vip,ds01,ds02,dy01_time,yd01,yd02)  values('$maxidd','$wjid','$wjxx['玩家名字']','$wjxx['vip等级']','0','0','$nowtime','yd01','yd02')";
+$wjname=$wjxx['玩家名字'];
+$wjvip = $wjxx['vip等级'];
+$sql = "insert into $q2 (id,wjid,wjmz,vip,ds01,ds02,dy01_time,yd01,yd02)  values('$maxidd','$wjid','$wjname','$wjvip','0','0','$nowtime','0','0')";
  if (!mysql_query($sql,$conn)){
    die('Error: ' . mysql_error());
  }
