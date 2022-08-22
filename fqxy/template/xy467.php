@@ -5,7 +5,6 @@
 $ininalock="jdjc.txt";
 $zspd=0;
 $zsspd=0;
-   flock($fp, LOCK_NB);
    //路径
 $path='acher/hdjc';
 $gglockname=$path."/".$ininalock;
@@ -15,11 +14,6 @@ for($x=0;$x<=30;$x++){
 $fp = fopen($gglockname, "w+");
 if(flock($fp,LOCK_EX | LOCK_NB)){
   $zsspd=1;
- //usleep(800);
- 
- 
-  flock($fp,LOCK_EX);
-
   break;
 }else{
 	//排队等待
