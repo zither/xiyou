@@ -22,12 +22,12 @@ echo "<font color=red>你成功要将".$cwmz1."放生了！</font>"."<br>";
 }
 
 //执行代码
-include("./sql/mysql.php");//调用数据库连接 
+include(__DIR__ . "/../sql/mysql.php");//调用数据库连接
 $arr = explode("_",$cwidd);
 $cwidd1=$arr[0];
 $cwidd2=$arr[1];
 $q2="cw";
-$strsql = "delete from $q2 where where wjid=$wjid and id=$cwidd2";//物品id号必改值
+$strsql = "delete from $q2 where wjid=$wjid and id=$cwidd2";//物品id号必改值
 $result = mysql_query($strsql);
 $q2="cwzbb";
 $strsql = "delete from $q2 where wjid=$wjid and cwid='$cwidd'";//物品id号必改值
