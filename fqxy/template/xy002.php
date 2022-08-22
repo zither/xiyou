@@ -745,21 +745,19 @@ if($zsspd==1){
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>排行</font></a>"."<br>";
 
 
-//cmd及超链接值
-            $cmid=$cmid+1;
-            $cdid[]=$cmid;
-            $clj[]=301;
-            $npc[]=0;
-            echo "<a href='cz/index.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>充值</font></a>";
+            ////cmd及超链接值
+            //$cmid=$cmid+1;
+            //$cdid[]=$cmid;
+            //$clj[]=301;
+            //$npc[]=0;
+            //echo "<a href='cz/index.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>充值</font></a>";
 
-            /*
             //cmd及超链接值
             $cmid=$cmid+1;
             $cdid[]=$cmid;
-            $clj[]=533;
+            $clj[]=675;
             $npc[]=0;
-            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>充值</font></a>";
-            */
+            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>兑奖</font></a>";
 
 
 
@@ -795,12 +793,13 @@ if($zsspd==1){
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>系统</font></a>"."<br>";
 
 
-//cmd及超链接值
-            $cmid=$cmid+1;
-            $cdid[]=$cmid;
-            $clj[]=675;
-            $npc[]=0;
-            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【SDK码兑换】</font></a>"."<br>";
+
+            ////cmd及超链接值
+            //$cmid=$cmid+1;
+            //$cdid[]=$cmid;
+            //$clj[]=675;
+            //$npc[]=0;
+            //echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【SDK码兑换】</font></a>"."<br>";
 
 
 
