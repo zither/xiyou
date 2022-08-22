@@ -309,7 +309,7 @@
             }
 
 
-            if ($wjid == 10000008) {
+            if ($wjid == 10000001) {
                 echo "当前页面id(cmid值/$cmdd)：" . $cmdd . "<br>";
             } else {
 
