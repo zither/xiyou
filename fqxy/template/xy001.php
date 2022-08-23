@@ -187,11 +187,9 @@ if ($zsspd == 1) {
         $hdtime1 = substr($hdtime, 0, 10);
         $nowtime1 = substr($nowtime, 0, 10);
         if ($hdtime1 != $nowtime1 && $hdtime1 != "" && $wjid != 10000001 || $hdlq == 2 && $wjid != 10000001) {//今天不是今天数据验证
-
-
             include("./sql/mysql.php");//调用数据库连接
-            $q2 = "hd" . $wjid;
-            $strsql = "update $q2 set hdtime='$nowtime',hdcs=0 where hdid=$hdid";//物品id号必改值
+            $q2 = "hd";
+            $strsql = "update $q2 set hdtime='$nowtime',hdcs=0 where wjid=$wjid and hdid=$hdid";//物品id号必改值
             $result = mysql_query($strsql);
             include("./ini/hd_ini.php");
             $iniFile->updItem('活动时间', [$hdid => $nowtime]);
@@ -199,8 +197,6 @@ if ($zsspd == 1) {
             $hdcs = 0;
 
             //更新
-
-
             include("./ini/zt_ini.php");
 
 
@@ -231,19 +227,16 @@ if ($zsspd == 1) {
             $phb3 = $wjxx1['max魔攻'];
             $phb4 = $wjxx1['max防御'];
 
-
             $phb5 = $wjdj;
             $phb6 = $yl;
             $phb7 = $jdd;
             $phb8 = $vipjy;
 
-
-            include("./sql/mysql.php");//调用数据库连接
+            include(__DIR__ . "/../sql/mysql.php");//调用数据库连接
             $q2 = "all_phb";
             $sql1 = mysql_query("select wjid from $q2 where wjid=$wjid", $conn);
             $info1 = @mysql_fetch_array($sql1);
             $phwjid = $info1['wjid'];
-
 
             if ($phwjid == "") {
                 //获取最大值
@@ -251,7 +244,6 @@ if ($zsspd == 1) {
                 $sql1 = mysql_query("select MAX(id) from $q2");
                 $abc = mysql_fetch_array($sql1);
                 $maxid = $abc[0];
-
                 if ($maxid == "") {
                     $maxid = 0;
                     $maxidd = $maxid + 1;
@@ -260,32 +252,24 @@ if ($zsspd == 1) {
                 }
 
                 $q2 = "all_phb";
-                mysql_query("set names utf8");
                 $sql = "insert into $q2 (id,wjid,wjmz,vip,phb1,phb2,phb3,phb4,phb5,phb6,phb7,phb8)  values('$maxidd','$wjid','$wjmz','$vip','$phb1','$phb2','$phb3','$phb4','$phb5','$phb6','$phb7','$phb8')";
-
                 if (!mysql_query($sql, $conn)) {
                     die('Error: ' . mysql_error());
                 }
-
-
             } else {
-
                 $q2 = "all_phb";
                 $strsql = "update $q2 set phb1='$phb1',phb2='$phb2',phb3='$phb3',phb4='$phb4',phb5='$phb5',phb6='$phb6',phb7='$phb7',phb8='$phb8',vip='$vip' where wjid=$wjid";//物品id号必改值
                 $result = mysql_query($strsql);
-
-
             }
-
 
             //路径
-            $inina = "phb1.ini";
-            $path = './acher/phb';
-            //判断ini文件是否存在
-            $ininame = $path . "/" . $inina;
-            if (file_exists($ininame)) {
-                unlink($ininame); //删除文件
-            }
+            //$inina = "phb1.ini";
+            //$path = './acher/phb';
+            ////判断ini文件是否存在
+            //$ininame = $path . "/" . $inina;
+            //if (file_exists($ininame)) {
+            //    unlink($ininame); //删除文件
+            //}
             function deldir($dir)
             {
                 //先删除目录下的文件：
@@ -304,12 +288,8 @@ if ($zsspd == 1) {
                 closedir($dh);
 
             }
-
-
             $path = './acher/phb';
             deldir($path);
-
-
         } else {
 
         }
