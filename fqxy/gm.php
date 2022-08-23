@@ -62,17 +62,17 @@
     //ini文件名字
     $inina="user2.ini";
     //路径
-    $path='./ache/gm';
+    $path= __DIR__ . '/../ache/gm';
     //判断ini文件是否存在
     $ininame = $path."/".$inina;
     $filename = $ininame;
     if(file_exists($filename)){
         include("./class/iniclass.php");//调用iniclass文件
         //调用user.ini是否存在
-        $inina="user2.ini";
-        $path='ache/gm';
-        $file = $path."/".$inina;
-        $iniFile = new iniFile($file);
+        //$inina="user2.ini";
+        //$path='ache/gm';
+        //$file = $path."/".$inina;
+        $iniFile = new iniFile($filename);
         # 获取一个分类下某个子项的值
         $pass=($iniFile->getItem('验证信息','玩家验证'));
         if($pass!=""||$password!=""){
@@ -81,7 +81,6 @@
         }
         if($pass==$password){
             include("./url/url.php");
-
             echo "当前GM页面：".$gid."<br>";
             if($gid==1){
                 include("admin/gm01.php");//【玩家管理】和【系统管理】

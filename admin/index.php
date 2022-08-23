@@ -12,6 +12,12 @@
     error_reporting(E_ALL & ~E_NOTICE);
     $wjid = $_GET['wjid'] ?? '';
     $password = $_GET['pass'] ?? '';
+
+    if (empty($wjid) || empty($password)) {
+        header('location: login.php', true, 302);
+        exit;
+    }
+
     //ini文件名字
     $inina="user2.ini";
     //路径
