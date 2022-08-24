@@ -1,18 +1,9 @@
 <?php
 
 
-
-
-
-  
-
-
-
-
-
 echo "<font color=red>【查询玩家】</font>"."<br>";
 if($_POST['submit']){
-$id= $_POST['sl'];
+$id= (int)$_POST['sl'];
 
 if($id >=1&&$id<=9999999){//判断是否属于靓号
 include("./sql/mysql.php");//调用数据库连接 	
