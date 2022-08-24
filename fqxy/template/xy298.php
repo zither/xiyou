@@ -68,13 +68,12 @@ if($zsspd==1){
         include("./ini/zt_ini.php");
 # 修改一个分类下子项的值(也可以修改多个)
         $iniFile->updItem('玩家信息', ['性别' => '1']);
-
     } elseif($npcc ==2){
         echo "<font color=black>你取个霸气威武的名字吧</font><br>";
         echo "<font color=black>你选择了女性</font><br>";
         include("./sql/mysql.php");//调用数据库连接
         $q2="all_zt";
-        $strsql = "update $q2 set sex=1 where wjid=$wjid";//物品id号必改值
+        $strsql = "update $q2 set sex=2 where wjid=$wjid";//物品id号必改值
         $result = mysql_query($strsql);
         include("./ini/zt_ini.php");
 # 修改一个分类下子项的值(也可以修改多个)
