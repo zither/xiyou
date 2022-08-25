@@ -83,7 +83,7 @@ $cwidd1=$arr[0];
 $cwidd2=$arr[1];
 
 $q2="cw";
-strsql = "update $q2 set cwxj='$cw03x' where wjid=$wjid and id=$cwidd2";//物品id号必改值
+$strsql = "update $q2 set cwxj = '$cw03x' where wjid=$wjid and id=$cwidd2";//物品id号必改值
 $result = mysql_query($strsql);
 include("./ini/zt_ini.php");
 
