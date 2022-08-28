@@ -46,7 +46,7 @@ ccmz03,ccid03,ccmz04,ccid04,ccmz05,ccid05,ccmz06,ccid06,bprsmax,bpjymax,bpyl,bps
             $bpid=$maxidd;
 
             $mysql003="bp";
-            $sql = "insert into $mysql003 (usermz,userid,gx,bpswcs,bpjf,lsgx)  values($wjmz','$wjid', '0','0','0','0')";
+            $sql = "insert into $mysql003 (usermz,userid,gx,bpswcs,bpjf,lsgx)  values('$wjmz','$wjid', '0','0','0','0')";
             if (!mysql_query($sql,$conn)) {
                 die('Error: ' . mysql_error());
             }
