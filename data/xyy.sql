@@ -600,6 +600,7 @@ DROP TABLE IF EXISTS `bp`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bp` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bpid` int(10) unsigned NOT NULL DEFAULT 0,
   `usermz` varchar(100) NOT NULL DEFAULT '',
   `userid` int(10) unsigned NOT NULL DEFAULT 0,
   `gx` int(10) unsigned NOT NULL DEFAULT 0,
@@ -1277,4 +1278,4 @@ CREATE TABLE `zzck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-28 16:11:15
+-- Dump completed on 2022-08-28 23:17:09
