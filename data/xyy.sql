@@ -592,6 +592,25 @@ CREATE TABLE `all_zt` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `bp`
+--
+
+DROP TABLE IF EXISTS `bp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bp` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usermz` varchar(100) NOT NULL DEFAULT '',
+  `userid` int(10) unsigned NOT NULL DEFAULT 0,
+  `gx` int(10) unsigned NOT NULL DEFAULT 0,
+  `bpswcs` int(10) unsigned NOT NULL DEFAULT 0,
+  `bpjf` int(10) unsigned NOT NULL DEFAULT 0,
+  `lsgx` int(10) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `ckqt`
 --
 
@@ -980,7 +999,7 @@ CREATE TABLE `o_user_list` (
   `f` int(11) NOT NULL DEFAULT 0 COMMENT '分',
   `m` int(11) NOT NULL DEFAULT 0 COMMENT '秒',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1246,10 +1265,6 @@ CREATE TABLE `zzck` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping events for database 'xyy'
---
-
---
 -- Dumping routines for database 'xyy'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1262,4 +1277,4 @@ CREATE TABLE `zzck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-20 15:04:45
+-- Dump completed on 2022-08-28 16:11:15
