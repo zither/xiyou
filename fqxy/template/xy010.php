@@ -70,11 +70,9 @@ if($zsspd==1){
     }
 
     include("./ini/zd_ini.php");
-# 获取一个分类下所有数据
     $jnnid=($iniFile->getCategory('快捷技能id'));
     $jnnfl=($iniFile->getCategory('快捷分类'));
     $jnnmz=($iniFile->getCategory('快捷名字'));
-//将ini值存入数组方便使用
     foreach(array_keys($jnnid) as $key){
         $keyjnnid[]=$jnnid[$key];
     }

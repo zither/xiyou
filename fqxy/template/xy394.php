@@ -22,7 +22,6 @@ $clj[]=393;
 $npc[]=$pk5;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>脱离战斗</font></a>"."<font color=black></font>"."<br>";
 echo "<font color=black>提示：脱离了战斗对方仍然可以攻击你</font><br>";
-
 echo "<font color=black>------------------------------</font><br>";
 
 echo "<br>";
