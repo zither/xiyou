@@ -73,7 +73,7 @@
     $cmd = "";
     $uid = "";
     $a1 = $_GET['sid'];
-    $cmd = $_GET['cmd'];
+    $cmd = $_GET['cmd'] ?: 0;
     $wjid = $_GET['uid'];
     $inina = "user.ini";
     $path = 'ache/' . $wjid;
@@ -112,46 +112,32 @@
                 $path = 'ache/' . $wjid;
                 //判断ini文件是否存在
                 $ininame = $path . "/" . $inina;
-
                 # 实例化ini文件操作类，并载入 .ini文件
                 $iniFile = new iniFile($ininame);
-                //获取超连接
-                # 获取一个分类下某个子项的值
-                $cljid = ($iniFile->getItem('验证信息', 'cmid值'));
-                $iniFile->updItem('最后页面id', ['页面id' => $cljid]);
 
-                # 获取一个分类下某个子项的值
-                //$cmdd=($iniFile->getItem('最后页面id','页面id'));
+                //获取超连接
+                $cljid = $iniFile->getItem('验证信息', 'cmid值');
                 if ($cljid == 0) {
                     $cljid = 1;
-                    # 修改一个分类下子项的值(也可以修改多个)
                     $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
                 } else {
-                    # 获取一个分类下某个子项的值
-                    $cljid = ($iniFile->getItem('超链接值', $cmd));
+                    $cljid = $iniFile->getItem('超链接值', $cmd);
                     if ($cljid == "") {
-                        # 获取一个分类下某个子项的值
-                        $cljid = ($iniFile->getItem('最后页面id', '页面id'));
-
+                        $cljid = $iniFile->getItem('最后页面id', '页面id');
                         if ($cljid == 3 || $cljid == 4 || $cljid == 5 || $cljid == 6) {
-
                             $cljid = 2;
                             $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
-                        } else {
-
                         }
-                        # 获取一个分类下某个子项的值
-                        $npcc = ($iniFile->getItem('最后页面id', 'npcid'));
+                        $npcc = $iniFile->getItem('最后页面id', 'npcid');
                     } else {
-                        # 修改一个分类下子项的值(也可以修改多个)
                         $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
-                        $npcc = ($iniFile->getItem('超链接npc值', $cmd));
-
+                        $npcc = $iniFile->getItem('超链接npc值', $cmd);
                         $iniFile->updItem('最后页面id', ['npcid' => $npcc]);
                     }
                 }
-                # 获取一个分类下所有数据
-                $user = ($iniFile->getCategory('验证信息'));
+                $iniFile->updItem('最后页面id', ['页面id' => $cljid]);
+
+                $user = $iniFile->getCategory('验证信息');
                 $xyid = "";
                 $xyid = $user['uid'];
                 $tzm = $user['玩家游戏码'];
@@ -167,18 +153,19 @@
 
                 if ($cid == 0) {
                     $cid = 1;
-                } else {
-
                 }
 
+                // 初始化链接数组
+                $cdid = $clj = $npc = [];
                 //最小值
                 $a4 = $dcid + 1;
+
                 //cmd及超链接值
                 $cmid = $dcid + 1;
                 $cdid[] = $cmid;
                 $clj[] = 2;
                 $npc[] = 0;
-                $npc[] = 0;
+
             } else {
                 echo '#1';
                 //(失效)
@@ -222,39 +209,33 @@
                 $h = date('H') * 1;
                 $i = date('i') * 1;
                 $s = date('s') * 1;
-
-                # 修改一个分类下子项的值(也可以修改多个)
                 $iniFile->updItem('验证信息', ['年' => $y, '月' => $m, '日' => $d, '时' => $h, '分' => $i, '秒' => $s]);
             } else {
-                # 获取一个分类下某个子项的值
                 $yymid = ($iniFile->getItem('最后页面id', '页面id'));
-
-                if ($yymid == 458 || $yymid == 27 || $yymid == 28 || $yymid == 30 || $yymid == 31 || $yymid == 32 || $yymid == 33 || $yymid == 34 || $yymid == 37 || $yymid == 21 || $yymid == 38 || $yymid == 39 || $yymid == 40 || $yymid == 41 || $yymid == 55 || $yymid == 97 || $yymid == 108 || $yymid == 122 || $yymid == 124 || $yymid == 171 || $yymid == 185 || $yymid == 218 || $yymid == 212 || $yymid == 221 || $yymid == 224
+                // 检查角色性别和名字
+                include("./ini/zt_ini.php");
+                $jcmz = $iniFile->getItem('玩家信息', '玩家名字');
+                $jcxb = $iniFile->getItem('玩家信息', '性别');
+                if ($jcxb == 0) {
+                    $cmdd = 297;
+                } else if ($jcmz == '') {
+                    $cmdd = 298;
+                } else if ($yymid == 0) {
+                    $cmdd = 1;
+                } else if (
+                    $yymid == 1 || $yymid == 458 || $yymid == 27 || $yymid == 28 || $yymid == 30 || $yymid == 31 || $yymid == 32 || $yymid == 33 || $yymid == 34 || $yymid == 37 || $yymid == 21 || $yymid == 38 || $yymid == 39
+                    || $yymid == 40 || $yymid == 41 || $yymid == 55 || $yymid == 97 || $yymid == 108 || $yymid == 122 || $yymid == 124 || $yymid == 171 || $yymid == 185 || $yymid == 218 || $yymid == 212 || $yymid == 221 || $yymid == 224
                     || $yymid == 228 || $yymid == 235 || $yymid == 238 || $yymid == 241 || $yymid == 258 || $yymid == 259 || $yymid == 271 || $yymid == 276 || $yymid == 290 || $yymid == 292 || $yymid == 319 || $yymid == 369 || $yymid == 334
                     || $yymid == 423 || $yymid == 462 || $yymid == 463 || $yymid == 465 || $yymid == 468 || $yymid == 469 || $yymid == 474 || $yymid == 498 || $yymid == 501 || $yymid == 489 || $yymid == 490 || $yymid == 492 || $yymid == 506
                     || $yymid == 493 || $yymid == 494 || $yymid == 495 || $yymid == 496 || $yymid == 508 || $yymid == 510 || $yymid == 512 || $yymid == 514 || $yymid == 516 || $yymid == 537 || $yymid == 538 || $yymid == 539 || $yymid == 541
-                    || $yymid == 542 || $yymid == 543 || $yymid == 544 || $yymid == 545 || $yymid == 548 || $yymid == 301 || $yymid == 580 || $yymid == 581 || $yymid == 680 || $yymid == 682) {
-
-                    # 获取一个分类下某个子项的值
-                    $cmdd = ($iniFile->getItem('最后页面id', '页面id'));
-
-                    # 修改一个分类下子项的值(也可以修改多个)
-                    $iniFile->updItem('验证信息', ['cmid值' => $cmdd]);
+                    || $yymid == 542 || $yymid == 543 || $yymid == 544 || $yymid == 545 || $yymid == 548 || $yymid == 301 || $yymid == 580 || $yymid == 581 || $yymid == 680 || $yymid == 682)
+                {
+                    $cmdd = $yymid;
                 } else {
-                    include("./ini/zt_ini.php");
-                    $jcmz = ($iniFile->getItem('玩家信息', '玩家名字'));
-                    if ($jcmz == "") {
-                        $cmdd = 298;
-                    } else if ($yymid == 0) {
-                        $cmdd = 1;
-                    } else {
-                        $cmdd = 334;
-                    }
-                    # 修改一个分类下子项的值(也可以修改多个)
-                    $iniFile->updItem('验证信息', ['cmid值' => $cmdd]);
+                    $cmdd = 334;
                 }
+                $iniFile->updItem('验证信息', ['cmid值' => $cmdd]);
             }
-            //$wordpost =1;
 
             //////////////////////////////////////////////////数据结构///////////////////////////////////////
             //调用user.ini是否存在
@@ -263,9 +244,6 @@
             $bugx = ($iniFile->getItem('地图坐标', 'x'));
             $bugy = ($iniFile->getItem('地图坐标', 'y'));
             $bugym = ($iniFile->getItem('最后页面id', '页面id'));
-
-            $clj[] = "";
-            $cdid[] = "";
 
             //npc
             if ($cmdd >= 1 && $cmdd <= 100) {
@@ -285,12 +263,9 @@
             } else {
                 //路径
                 $path = 'ache/' . $wjid;
-
                 //ini文件名字
                 $inina = "user.ini";
                 $ininame = $path . "/" . $inina;
-
-                # 实例化ini文件操作类，并载入 .ini文件
                 $iniFile = new iniFile($ininame);
                 $y = 0;
                 $m = 0;
@@ -298,16 +273,11 @@
                 $h = 0;
                 $i = 0;
                 $s = 0;
-
-                # 修改一个分类下子项的值(也可以修改多个)
                 $iniFile->updItem('验证信息', ['年' => $y, '月' => $m, '日' => $d, '时' => $h, '分' => $i, '秒' => $s]);
-
                 echo '#4';
-
                 include("sx.php");
                 echo "特征4";
             }
-
 
             if ($wjid == 10000001) {
                 echo "当前页面id(cmid值/$cmdd)：" . $cmdd . "<br>";
@@ -317,8 +287,6 @@
 
             //路径
             $path = 'ache/' . $wjid;
-
-            //ini文件名字
             $inina = "user.ini";
             $ininame = $path . "/" . $inina;
 
@@ -328,15 +296,9 @@
             //最大值
             $a5 = $cmid;
             //将cmd最小最大值写入
-
-            # 添加一个分类并直接添加子项
-            //$iniFile->addCategory('验证信息', ['xcmid值' => $a4, 'dcmid值' => 'a5']);
-            # 修改一个分类下子项的值(也可以修改多个)
             $iniFile->updItem('验证信息', ['xcmid值' => $a4, 'dcmid值' => $a5]);
 
             //写入超链接及其所对应的值
-            $cljz1 = "";
-            $cljz2 = "";
             $iniFile->delCategory('超链接值');
             $iniFile->delCategory('超链接npc值');
             $aa = $a5 - $a4 + 1;
@@ -352,29 +314,10 @@
                 $iniFile->addItem('超链接npc值', [$q3 => $q6]);
             }
 
-            //if($npcc==""){
-            //$npcc=0;
-            //}
-
-            //$strsql = "update $q2 set ymid=$q5,npccid=$npcc where id=0";//物品id号必改值
-            //$result = mysql_query($strsql);
-
-            //if($ym==""){
-            //$ym=0;
-            //}
-
-            $etime = microtime(true);
-            $total = $etime - $stime;
-
-            $total = substr($total, 0, 5) * 1000;
-
-            echo "<font color=red>执行耗时:" . $total . "毫秒</font>" . "<br>";
-
             //显示时间
             $h = date('H') * 1;
             $i = date('i') * 1;
             echo "西游报时(" . $h . ":" . $i . ")" . "<br>";
-
         } else {
             include("./ini/user_ini.php");
             $iniFile->updItem('验证信息', ['cmid值' => 2]);
@@ -388,43 +331,25 @@
 
         //调用sjyz.ini是否存在
         include("./ini/sjyz_ini.php");
-        # 修改一个分类下子项的值(也可以修改多个)
         $iniFile->updItem('毫秒时间', ['时间' => $time]);
-
-        //开启缓存
-
-        /*
-        ob_start();
-        ob_flush();
-        echo ob_get_contents();
-        */
-
-        //ini文件名字
         $inina = "user.ini";
-        //路径
         $path = 'ache/' . $wjid;
-        //判断ini文件是否存在
         $ininame = $path . "/" . $inina;
-
-        # 实例化ini文件操作类，并载入 .ini文件
         $iniFile = new iniFile($ininame);
 
-        //获取超连接
-        # 获取一个分类下某个子项的值
         $yymid = ($iniFile->getItem('最后页面id', '页面id'));
-        //获取超连接
-        # 获取一个分类下某个子项的值
         $symid = ($iniFile->getItem('验证信息', 'cmid值'));
         if ($wjid == 10000001) {//gm号可看
-
             echo "<font color=red>----------调试信息-----------</font>" . "<br>";
             echo "<font color=black>上次页面ID(最后页面id-页面id)：" . $yymid . "</font>" . "<br>";
             echo "<font color=black>本次页面ID(cmid值)：" . $symid . "</font>" . "<br>";
             echo "<font color=red>----------调试信息-----------</font>" . "<br>";
-
-        } else {
-
         }
+
+        $etime = microtime(true);
+        $total = $etime - $stime;
+        $total = substr($total, 0, 5) * 1000;
+        echo "<font color=red>执行耗时:" . $total . "毫秒</font>" . "<br>";
     } else {
         echo '#5';
         include("sx.php");

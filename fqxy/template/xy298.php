@@ -71,19 +71,17 @@ if($zsspd==1){
         $iniFile->updItem('玩家信息', ['性别' => '2']);
     } else{
         echo "<font color=black>请取个霸气威武的名字吧</font><br>";
-        //if($jcxb ==1){
-        //    echo "<font color=black>请取个霸气威武的名字吧</font><br>";
-        //    echo "<font color=black>你选择了男性</font><br>";
-        //} else{
-        //    echo "<font color=black>请取个霸气威武的名字吧</font><br>";
-        //    echo "<font color=black>你选择了女性</font><br>";
-        //}
     }
-} else{
 }
+
 //解锁当前使用的ini
 include("./ini/jsini.php");
 //解锁当前使用的ini
+
+//cmd及超链接值
+$cdid[] = ++$cmid;
+$clj[] = 298;
+$npc[] = 0
 
 ?>
 
@@ -94,33 +92,11 @@ include("./ini/jsini.php");
 </form>
 
 
-
-
 <?php
-
 
 echo "<br>";
 echo "----------------------"."<br>";
 //cmd及超链接值
 include("fhgame.php");
-
-
-
-
-
-
-
-
-
-?>
-
-
-
-
-
-
-
-
-
 
 

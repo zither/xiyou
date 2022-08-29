@@ -43,10 +43,7 @@ if (file_exists($file)) {
     $mp = 500;
     $xljykg = 0;
 
-
     if ($bpid >= 1) {
-
-
         include("bp_ini.php");
         # 获取一个分类下所有数据$
         $bpcs = ($iniFile->getCategory('国家信息'));
@@ -67,8 +64,6 @@ if (file_exists($file)) {
         } else {
             $bpzw2 = "成员";
         }
-
-
     } else {
 
     }
@@ -79,7 +74,6 @@ if (file_exists($file)) {
     $file = $path . "/" . $inina;
     //创建文件
     file_put_contents($file, "[玩家]");
-
 
     # 实例化ini文件操作类，并载入 .ini文件
     $iniFile = new iniFile($file);
