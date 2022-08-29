@@ -11,7 +11,6 @@ if($xpjh==1){
 
                 $npcc=$keyxpid[$xpidd];
                 $str=$keyxpid[$xpidd]."_".$xpiddd;
-                var_dump($str);
                 include("./wp/wpxx.php");
 
                 $cmid=$cmid+1;
