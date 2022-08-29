@@ -6,14 +6,10 @@ include("./ini/zsini.php");
 if($zsspd==1){
     if($_POST['submit']){
         $wjtake10= $_POST['wjtoke'];
-        $wjtakes2=iconv_strlen($wjtake10,"UTF-8");
-        $wjtake = iconv("utf-8","gbk",$wjtake10);
+        $wjtakes2 = mb_strlen($wjtake10);
+        $wjtake = $wjtake10;
         if($wjtake10!=""){
-            if($wjtakes2>0&&$wjtakes2<=7||$wjtakes2>0&&$wjtakes2<=7){
-                if($wjtakes2>0){
-                    $wjtake=$wjtake10;
-                } else{
-                }
+            if($wjtakes2>1&&$wjtakes2<=7){
                 if(preg_match("/[ ';~`@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/",$wjtake)){
                     $tszf=2;
                 } else{
@@ -22,14 +18,11 @@ if($zsspd==1){
                 if($tszf==1){
                     include("./sql/mysql.php");//调用数据库连接
                     $q2="all_zt";
-                    mysql_query("set names utf8");
                     $sql1=mysql_query("select username from $q2 where username='$wjtake'",$conn);
                     $info1=@mysql_fetch_array($sql1);
                     $pdbp2=$info1['username'];
                     if($pdbp2==""){
-
                         $q2="all_zt";
-                        mysql_query("set names utf8");
                         $strsql = "update $q2 set username='$wjtake' where wjid=$wjid";//物品id号必改值
                         $result = mysql_query($strsql);
                         include("./ini/zt_ini.php");
@@ -41,7 +34,7 @@ if($zsspd==1){
                         $iniFile->updItem('验证信息', ['cmid值' => $cmdd]);
                         $npcc=0;
                         include("template/xy295.php");
-                    //不走xy.php直接调用xy文件需要加pz01配置
+                        //不走xy.php直接调用xy文件需要加pz01配置
                         include("./pz/pz01.php");
                         exit;
                     } else{
@@ -51,7 +44,7 @@ if($zsspd==1){
                     echo "<font color=red>你输入的名字包含敏感字符请重新输入</font>"."<br>";
                 }
             } else{
-                echo "<font color=red>名字长度不能超过限制</font><br>";
+                echo "<font color=red>名字长度为2到7个汉字</font><br>";
             }
         } else{
             echo "<font color=red>名字不能为空</font><br>";
@@ -66,7 +59,6 @@ if($zsspd==1){
         $strsql = "update $q2 set sex=1 where wjid=$wjid";//物品id号必改值
         $result = mysql_query($strsql);
         include("./ini/zt_ini.php");
-# 修改一个分类下子项的值(也可以修改多个)
         $iniFile->updItem('玩家信息', ['性别' => '1']);
     } elseif($npcc ==2){
         echo "<font color=black>你取个霸气威武的名字吧</font><br>";
@@ -76,7 +68,6 @@ if($zsspd==1){
         $strsql = "update $q2 set sex=2 where wjid=$wjid";//物品id号必改值
         $result = mysql_query($strsql);
         include("./ini/zt_ini.php");
-# 修改一个分类下子项的值(也可以修改多个)
         $iniFile->updItem('玩家信息', ['性别' => '2']);
     } else{
         if($jcxb ==1){
