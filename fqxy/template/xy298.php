@@ -70,13 +70,14 @@ if($zsspd==1){
         include("./ini/zt_ini.php");
         $iniFile->updItem('玩家信息', ['性别' => '2']);
     } else{
-        if($jcxb ==1){
-            echo "<font color=black>请取个霸气威武的名字吧</font><br>";
-            echo "<font color=black>你选择了男性</font><br>";
-        } else{
-            echo "<font color=black>请取个霸气威武的名字吧</font><br>";
-            echo "<font color=black>你选择了女性</font><br>";
-        }
+        echo "<font color=black>请取个霸气威武的名字吧</font><br>";
+        //if($jcxb ==1){
+        //    echo "<font color=black>请取个霸气威武的名字吧</font><br>";
+        //    echo "<font color=black>你选择了男性</font><br>";
+        //} else{
+        //    echo "<font color=black>请取个霸气威武的名字吧</font><br>";
+        //    echo "<font color=black>你选择了女性</font><br>";
+        //}
     }
 } else{
 }

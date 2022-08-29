@@ -98,25 +98,15 @@ if($zsspd==1){
         $jcxb=($iniFile->getItem('玩家信息','性别'));
 
         if($jcmz==""||$jcmp==0||$jcxb==0){
-
-
-
-
             if($jcxb==0){
                 include("template/xy297.php");
-//不走xy.php直接调用xy文件需要加pz01配置
                 include("./pz/pz01.php");
             } elseif($jcmz==""){
                 include("template/xy298.php");
-//不走xy.php直接调用xy文件需要加pz01配置
                 include("./pz/pz01.php");
             } elseif($jcmp==0){
                 include("template/xy295.php");
-//不走xy.php直接调用xy文件需要加pz01配置
                 include("./pz/pz01.php");
-
-
-
             } else{
 
             }

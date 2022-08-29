@@ -335,54 +335,21 @@
             $iniFile->updItem('验证信息', ['xcmid值' => $a4, 'dcmid值' => $a5]);
 
             //写入超链接及其所对应的值
-            if ($a4 >= 1) {
-                $i = -1;
-                $q3 = $cdid[$i + 1];
-                $q4 = $clj[$i + 1];
-                $q6 = $npc[$i + 1];
-
-                $cljz1 = "";
-                $cljz2 = "";
-                $iniFile->delCategory('超链接值');
-                $iniFile->delCategory('超链接npc值');
-
-                # 删除一个子项
-                # 添加一个分类并直接添加子项
-                $iniFile->addCategory('超链接值', [$q3 => $q4]);
-
-                # 添加一个分类并直接添加子项
-                $iniFile->addCategory('超链接npc值', [$q3 => $q6]);
-
-                $aa = $a5 - $a4 + 1;
-                $i = 1;
-                for ($x = 0; $x < $aa - 1; $x++) {
-                    $q3 = $cdid[$i + 1];
-                    $q4 = $clj[$i + 1];
-                    $q6 = $npc[$i + 1];
-                    # 添加一个子项(如果子项存在，则覆盖;)
-                    $iniFile->addItem('超链接值', [$q3 => $q4]);
-                    $iniFile->addItem('超链接npc值', [$q3 => $q6]);
-                    $i = $i + 1;
+            $cljz1 = "";
+            $cljz2 = "";
+            $iniFile->delCategory('超链接值');
+            $iniFile->delCategory('超链接npc值');
+            $aa = $a5 - $a4 + 1;
+            for ($x = 0; $x < $aa; $x++) {
+                $q3 = $cdid[$x];
+                if (empty($q3)) {
+                    continue;
                 }
-
-            } else {
-
-                $iniFile->delCategory('超链接值');
-                $iniFile->delCategory('超链接npc值');
-
-                $aa = $a5 - $a4 + 1;
-                $i = -1;
-
-                for ($x = 0; $x < $aa; $x++) {
-                    $q3 = $cdid[$i + 1];
-                    $q4 = $clj[$i + 1];
-                    $q6 = $npc[$i + 1];
-                    # 添加一个子项(如果子项存在，则覆盖;)
-                    $iniFile->addItem('超链接值', [$q3 => $q4]);
-                    $iniFile->addItem('超链接npc值', [$q3 => $q6]);
-                    $i = $i + 1;
-
-                }
+                $q4 = $clj[$x];
+                $q6 = $npc[$x];
+                # 添加一个子项(如果子项存在，则覆盖;)
+                $iniFile->addItem('超链接值', [$q3 => $q4]);
+                $iniFile->addItem('超链接npc值', [$q3 => $q6]);
             }
 
             //if($npcc==""){
