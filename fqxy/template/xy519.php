@@ -9,7 +9,7 @@ if($zsspd==1){
 	
 	
 if($npcc ==1){
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=25;//宝石id
 $bssl10=1;//宝石数量
@@ -69,7 +69,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==2){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=25;//宝石id
 $bssl10=1;//宝石数量
@@ -130,7 +130,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==3){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=25;//宝石id
 $bssl10=1;//宝石数量
@@ -192,7 +192,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==4){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=25;//宝石id
 $bssl10=1;//宝石数量
@@ -257,7 +257,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==5){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=26;//宝石id
 $bssl10=1;//宝石数量
@@ -324,7 +324,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==6){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=27;//宝石id
 $bssl10=1;//宝石数量
@@ -393,7 +393,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==7){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=28;//宝石id
 $bssl10=1;//宝石数量
@@ -461,7 +461,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==8){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=29;//宝石id
 $bssl10=1;//宝石数量
@@ -529,7 +529,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==9){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=30;//宝石id
 $bssl10=1;//宝石数量
@@ -595,7 +595,7 @@ echo "<font color=red>对不起！！你的负重不足！！</font>"."<br>";
 } elseif($npcc ==10){
 
 
-$ddfz="";//初始
+$ddfz=0;//初始
 //得到第一个物品
 $bsid10=31;//宝石id
 $bssl10=1;//宝石数量
