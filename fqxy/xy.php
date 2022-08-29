@@ -117,6 +117,8 @@
 
                 //获取超连接
                 $cljid = $iniFile->getItem('验证信息', 'cmid值');
+                $iniFile->updItem('最后页面id', ['页面id' => $cljid]);
+
                 if ($cljid == 0) {
                     $cljid = 1;
                     $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
@@ -126,8 +128,8 @@
                         $cljid = $iniFile->getItem('最后页面id', '页面id');
                         if ($cljid == 3 || $cljid == 4 || $cljid == 5 || $cljid == 6) {
                             $cljid = 2;
-                            $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
                         }
+                        $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
                         $npcc = $iniFile->getItem('最后页面id', 'npcid');
                     } else {
                         $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
@@ -135,7 +137,6 @@
                         $iniFile->updItem('最后页面id', ['npcid' => $npcc]);
                     }
                 }
-                $iniFile->updItem('最后页面id', ['页面id' => $cljid]);
 
                 $user = $iniFile->getCategory('验证信息');
                 $xyid = "";
