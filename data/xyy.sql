@@ -1116,6 +1116,7 @@ DROP TABLE IF EXISTS `xp`;
 CREATE TABLE `xp` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号id',
   `wjid` int(10) unsigned NOT NULL DEFAULT 0,
+  `seq` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '星盘顺序编号',
   `xpid` int(11) NOT NULL DEFAULT 0 COMMENT '星盘id',
   `xpkq` int(11) NOT NULL DEFAULT 0 COMMENT '星盘开启',
   PRIMARY KEY (`id`)
@@ -1278,4 +1279,4 @@ CREATE TABLE `zzck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-28 23:17:09
+-- Dump completed on 2022-08-30  0:02:16

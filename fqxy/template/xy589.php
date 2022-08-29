@@ -1,29 +1,22 @@
 <?php
 
-
-
-   
 include("./ini/xp_ini.php");
 # 获取一个分类下所有数据
 $xpkq=($iniFile->getCategory('星盘开启'));
 $xpid=($iniFile->getCategory('星盘id'));
 foreach(array_keys($xpkq) as $key){
-$keyxpkq[]=$xpkq[$key];
+    $keyxpkq[]=$xpkq[$key];
 }
 foreach(array_keys($xpid) as $key){
-$keyxpid[]=$xpid[$key];
+    $keyxpid[]=$xpid[$key];
 }
 
-
 $xpidd=0;
-
-
-	
 echo "<font color=red>我的星盘如下</font>"."<br>";
 $xpjh=1;
 $m=27;
 for($d=0;$d<$m;$d++){
-include("./wj/xpms.php");
+    include("./wj/xpms.php");
 }
 
 

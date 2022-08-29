@@ -24,7 +24,7 @@ include("./pz/ini_pzz026.php");
 if ($pd==2) {
     include("./sql/mysql.php");//调用数据库连接
     $q2="xp";
-    $strsql = "update $q2 set xpkq=2 where wjid=$wjid and id=$xpiddd";//物品id号必改值
+    $strsql = "update $q2 set xpkq=2 where wjid=$wjid and seq=$xpiddd";//物品id号必改值
     $result = mysql_query($strsql);
     //更新缓存数据
     $inina="xp.ini";

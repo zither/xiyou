@@ -8,7 +8,6 @@ if(file_exists($file)){
 
 } else{
     //连接数据库提取数据写入ini
-
     $inina="xp.ini";
     $path='ache/'.$wjid;
     $file = $path."/".$inina;
@@ -26,10 +25,9 @@ if(file_exists($file)){
     $info1=@mysql_fetch_array($sql1);
     $xlpd=$info1['c'];
     if ($xlpd < $m) {
-        $m -= $xlpd;
-        for($d=0;$d<$m;$d++){
+        for($d = $xlpd + 1; $d <= $m; $d++){
             $q2 = "xp";
-            $sql = "insert into $q2 (wjid,xpid,xpkq)  values('$wjid','0','0')";
+            $sql = "insert into $q2 (wjid,seq,xpid,xpkq)  values('$wjid','$d', '0','0')";
             if (!mysql_query($sql, $conn)) {
                 die('Error: ' . mysql_error());
             }
@@ -43,8 +41,8 @@ if(file_exists($file)){
     //把有值的数据存入一个数组
     $m=0;
     while(!!$row=mysql_fetch_array($result)){
-        $iniFile->addCategory('星盘id', [$row['id']=> $row['xpid']]);
-        $iniFile->addCategory('星盘开启', [$row['id']=> $row['xpkq']]);
+        $iniFile->addCategory('星盘id', [$row['seq']=> $row['xpid']]);
+        $iniFile->addCategory('星盘开启', [$row['seq']=> $row['xpkq']]);
     }
 }
 
