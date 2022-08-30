@@ -36,7 +36,6 @@ if ($uid != "") {
         //路径
         $path = '../ache/' . $wjini;
         $dir = $path;
-        //$dir = iconv("UTF-8", "GBK", "$path");
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
         } else {

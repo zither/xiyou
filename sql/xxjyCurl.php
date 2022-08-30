@@ -50,20 +50,13 @@ if ($xxyou_url == $url) {
 
 //将信息回调给游戏
 $post_data = $yxhe . '|' . $wjid . '|' . $xxjy_pass . '|' . $xxyou_qy;
-
 $suffix = config_item('yx_enable_https') ? 's' : '';
-//初始化 curl
 $ch = curl_init();
 $target_url = sprintf('http%s://%s/fqxy/sql/yxCurl.php', $suffix, $xxyou_url);
-//将玩家id和md5值传送给服务器验证防止人为修改
 curl_setopt($ch, CURLOPT_URL, $target_url);
-//这里设置成 post 方式
 curl_setopt($ch, CURLOPT_POST, 1);
-//这里添加需要 post 的数据
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-//开始请求服务器
 $response = curl_exec($ch);
-//打印服务器返回的数据
 curl_close($ch);

@@ -54,6 +54,10 @@
     <?php
     error_reporting(E_ALL & ~E_NOTICE);
     ini_set("date.timezone", "PRC");//时间效准代码
+
+    //时间统计开始计时
+    $stime = microtime(true);
+
     //系统维护10分钟(安全备份)
     //include("aqbf.php");
     $ip1 = $_SERVER['REMOTE_ADDR'];
@@ -61,36 +65,36 @@
     $inina = $ip1 . ".ini";
     $path = './ip';
     $file = $path . "/" . $inina;
-    if (file_exists($file)) {
-    } else {
-        //创建文件
+    if (!file_exists($file)) {
         file_put_contents($file, $ip1);
     }
-    //sleep(1);
     //初始化变量以及接收传过来的数据
-    $a1 = "";
     $a2 = "";
-    $cmd = "";
-    $uid = "";
-    $a1 = $_GET['sid'];
-    $cmd = $_GET['cmd'] ?: 0;
-    $wjid = $_GET['uid'];
-    $inina = "user.ini";
-    $path = 'ache/' . $wjid;
-    $file = $path . "/" . $inina;
+    $a1 = empty($_GET['sid']) ? '' : $_GET['sid'];
+    $cmd = empty($_GET['cmd']) ? 0 : (int)$_GET['cmd'];
+    $wjid = empty($_GET['uid']) ? 0 : (int)$_GET['uid'];
+
+    //调用iniclass文件
+    include __DIR__ . '/class/iniclass.php';
+
+    $file = sprintf("ache/%s/user.ini", $wjid);
     if (file_exists($file)) {
+        //判断特征码是否合法 后面那一串验证数字hash
+        include __DIR__ . '/ini/user_ini.php';
+        $tzm = $iniFile->getItem('验证信息', '玩家游戏码');
+        if ($tzm != $a1) {
+            echo '#2';
+            include("sx.php");
+            exit;
+        }
+
         //获取上次连接游戏时间
         //过快验证
         $stime1 = microtime(true);
 
         //调用sjyz.ini是否存在
-        include("class/iniclass.php");//调用iniclass文件
         include("./ini/sjyz_ini.php");//(时间验证)
-        $inina = "sjyz.ini";
-        $path = 'ache/' . $wjid;
-        $file = $path . "/" . $inina;
 
-        # 获取一个分类下某个子项的值
         $stime2 = ($iniFile->getItem('毫秒时间', '时间'));
         include("./wp/funk1.php");
         $stime1 = calc($stime1, '1000', 'mul');
@@ -99,23 +103,11 @@
 
         //判断刷新间隔是否大于100ms
         if ($stime3 > 100) {
-            $stime = microtime(true);
 
             //判断玩家的验证码是否合法
             if ($wjid > 10000000) {
                 //调用user.ini是否存在
                 include("./ini/user_ini.php");
-
-                //ini文件名字
-                $inina = "user.ini";
-                //路径
-                $path = 'ache/' . $wjid;
-                //判断ini文件是否存在
-                $ininame = $path . "/" . $inina;
-                # 实例化ini文件操作类，并载入 .ini文件
-                $iniFile = new iniFile($ininame);
-
-                //获取超连接
                 $cljid = $iniFile->getItem('验证信息', 'cmid值');
                 $iniFile->updItem('最后页面id', ['页面id' => $cljid]);
 
@@ -173,13 +165,7 @@
                 include("sx.php");
                 exit;
             }
-            //判断特征码是否合法 后面那一串验证数字hash
-            if ($tzm == $a1) {
-            } else {
-                echo '#2';
-                include("sx.php");
-                exit;
-            }
+
 
             //判断验证时间是否超过600秒
             $y = date('Y') * 1;
@@ -282,18 +268,9 @@
 
             if ($wjid == 10000001) {
                 echo "当前页面id(cmid值/$cmdd)：" . $cmdd . "<br>";
-            } else {
-
             }
 
-            //路径
-            $path = 'ache/' . $wjid;
-            $inina = "user.ini";
-            $ininame = $path . "/" . $inina;
-
-            # 实例化ini文件操作类，并载入 .ini文件
-            $iniFile = new iniFile($ininame);
-
+            include __DIR__ . '/ini/user_ini.php';
             //最大值
             $a5 = $cmid;
             //将cmd最小最大值写入
@@ -322,7 +299,6 @@
         } else {
             include("./ini/user_ini.php");
             $iniFile->updItem('验证信息', ['cmid值' => 2]);
-
             //调用过快页面
             include("shuax.php");
         }
@@ -333,11 +309,8 @@
         //调用sjyz.ini是否存在
         include("./ini/sjyz_ini.php");
         $iniFile->updItem('毫秒时间', ['时间' => $time]);
-        $inina = "user.ini";
-        $path = 'ache/' . $wjid;
-        $ininame = $path . "/" . $inina;
-        $iniFile = new iniFile($ininame);
 
+        include __DIR__ . '/ini/user_ini.php';
         $yymid = ($iniFile->getItem('最后页面id', '页面id'));
         $symid = ($iniFile->getItem('验证信息', 'cmid值'));
         if ($wjid == 10000001) {//gm号可看
@@ -349,7 +322,7 @@
 
         $etime = microtime(true);
         $total = $etime - $stime;
-        $total = substr($total, 0, 5) * 1000;
+        $total = substr("$total", 0, 5) * 1000;
         echo "<font color=red>执行耗时:" . $total . "毫秒</font>" . "<br>";
     } else {
         echo '#5';
@@ -360,7 +333,3 @@
 </div>
 </body>
 </html>
-
-
-
-

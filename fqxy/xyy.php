@@ -1,7 +1,3 @@
-<?php
-header("Content-type: text/html; charset=utf-8");
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,16 +5,9 @@ header("Content-type: text/html; charset=utf-8");
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-    <!-- TemplateBeginEditable name="doctitle" -->
-    <title>小轩西游</title>
-    <!-- TemplateEndEditable -->
-    <!-- TemplateBeginEditable name="head" -->
-    <!-- TemplateEndEditable -->
+    <title>幻想西游</title>
 </head>
-
 <body>
-
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
 
 

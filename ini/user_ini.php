@@ -11,7 +11,7 @@ if(file_exists($file)){
     //判断文件夹是否存在
     //路径
     $path='../ache/'.$wjid;
-    $dir = iconv("UTF-8", "GBK", "$path");
+    $dir = $path;
     if (!file_exists($dir)){
         mkdir ($dir,0777,true);
     }

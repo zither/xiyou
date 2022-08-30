@@ -48,8 +48,6 @@ if (file_exists($file)) {
     $iniFile->addItem('地图坐标', ['x' => '0', 'y' => '0']);
     $iniFile->addItem('最后页面id', ['页面id' => '0', 'npcid' => '0']);
     $iniFile->addItem('超链接值', ['初始' => 123]);
-    //file_put_contents($file,"[超链接值]");
-    //file_put_contents($file,"[超链接npc值]");
 
 }
 $iniFile = new iniFile($file);
