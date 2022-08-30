@@ -69,11 +69,8 @@
             echo "<font color=black>---------------------------</font>" . "<br>";
             echo "<font color=black>请将此页面存为书签,方便下次访问</font>" . "<br>";
             echo "<font color=red>特别提示:为了你的账号安全请不要将书签发给任何人,如有遗失后果自负</font>" . "<br>";
-            echo "<br>";
-            echo "<br>";
-            echo "<font color=red>王者绝非偶然,实力打造非凡</font>" . "<br>";
-            echo "<font color=red>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspby:小轩</font>" . "<br>";
             echo "<font color=black>---------------------------</font>" . "<br>";
+            echo "<br>";
             echo "<a href='./xy.php?uid=$wjini&cmd=0&sid=$a10'><font color=blue>【开启游戏之旅】</font></a>" . "<br>";
 
             session_start();
