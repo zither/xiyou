@@ -57,6 +57,7 @@
 
     //时间统计开始计时
     $stime = microtime(true);
+    session_start();
 
     //系统维护10分钟(安全备份)
     //include("aqbf.php");
@@ -70,9 +71,9 @@
     }
     //初始化变量以及接收传过来的数据
     $a2 = "";
-    $a1 = empty($_GET['sid']) ? '' : $_GET['sid'];
+    $a1 = empty($_SESSION['sid']) ? '' : $_SESSION['sid'];
     $cmd = empty($_GET['cmd']) ? 0 : (int)$_GET['cmd'];
-    $wjid = empty($_GET['uid']) ? 0 : (int)$_GET['uid'];
+    $wjid = empty($_SESSION['uid']) ? 0 : $_SESSION['uid'];
 
     //调用iniclass文件
     include __DIR__ . '/class/iniclass.php';

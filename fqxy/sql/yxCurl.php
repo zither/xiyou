@@ -42,7 +42,6 @@ if ($yxhe == 2) {
         //存在用户的信息
 
         $wjid = $wjini;
-
         include("../ini/xuser_ini.php");
 
         # 获取一个分类下某个子项的值

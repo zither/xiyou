@@ -18,6 +18,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 //这里添加需要 post 的数据
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 //开始请求服务器
 $response = curl_exec($ch);

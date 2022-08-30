@@ -1,12 +1,13 @@
 <?php
 
 //连接数据库
-include("../sql/mysql.php");//调用数据库连接
+include(__DIR__ . "/../sql/mysql.php");//调用数据库连接
 
 $sqid = $wjid . "_" . $xxjy_qy;
 $q2 = "o_user_list";
 $sql = mysql_query("select uid,password from $q2 where sqid='$sqid'", $conn);
 $info1 = @mysql_fetch_array($sql);
+
 $uid = $info1['uid'];
 $pass1 = $info1['password'];
 
@@ -38,8 +39,6 @@ if ($uid != "") {
         $dir = $path;
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
-        } else {
-
         }
 
         if ($uid != "") {

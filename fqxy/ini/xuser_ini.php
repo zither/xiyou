@@ -2,7 +2,12 @@
 
 //$d = dirname(dirname(__DIR__));
 $inina = "user.ini";
-$path = '../ache/' . $wjid;
+$path = __DIR__ . '/../ache/' . $wjid;
+
+if (!file_exists($path)) {
+    mkdir($path, 0755, true);
+}
+
 $file = $path . "/" . $inina;
 //随机产生一个玩家的特征码写入数据库验证网址信息
 function randomkeys($length)

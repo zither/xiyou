@@ -48,15 +48,18 @@ if ($xxyou_url == $url) {
     //echo "</br>";
 }
 
-//将信息回调给游戏
-$post_data = $yxhe . '|' . $wjid . '|' . $xxjy_pass . '|' . $xxyou_qy;
-$suffix = config_item('yx_enable_https') ? 's' : '';
-$ch = curl_init();
-$target_url = sprintf('http%s://%s/fqxy/sql/yxCurl.php', $suffix, $xxyou_url);
-curl_setopt($ch, CURLOPT_URL, $target_url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+echo $yxhe;
 
-$response = curl_exec($ch);
-curl_close($ch);
+
+////将信息回调给游戏
+//$post_data = $yxhe . '|' . $wjid . '|' . $xxjy_pass . '|' . $xxyou_qy;
+//$suffix = config_item('yx_enable_https') ? 's' : '';
+//$ch = curl_init();
+//$target_url = sprintf('http%s://%s/fqxy/sql/yxCurl.php', $suffix, $xxyou_url);
+//curl_setopt($ch, CURLOPT_URL, $target_url);
+//curl_setopt($ch, CURLOPT_POST, 1);
+//curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+//
+//$response = curl_exec($ch);
+//curl_close($ch);
