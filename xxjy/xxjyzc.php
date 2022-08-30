@@ -1,6 +1,3 @@
-<?php
-header("Content-type: text/html; charset=utf-8");
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head lang="en">
@@ -10,7 +7,7 @@ header("Content-type: text/html; charset=utf-8");
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">  
-<title>小轩游戏-注册成功</title>
+<title>幻想西游-注册成功</title>
 
 <link rel="stylesheet" href="../css/touchScreen/mobile.css" />
 <link rel="stylesheet" href="../css/touchScreen/ch5game.css" />
