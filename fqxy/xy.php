@@ -76,7 +76,8 @@
     $wjid = empty($_SESSION['uid']) ? 0 : $_SESSION['uid'];
 
     //调用iniclass文件
-    include __DIR__ . '/class/iniclass.php';
+    include_once __DIR__ . '/class/iniclass.php';
+    include_once __DIR__ . '/../config/Common.php';
 
     $file = sprintf("ache/%s/user.ini", $wjid);
     if (file_exists($file)) {

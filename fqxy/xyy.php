@@ -12,6 +12,8 @@
 
 
     <?php
+    error_reporting(E_ALL & ~E_NOTICE);
+
     ini_set("error_reporting", "E_ALL & ~E_NOTICE");//防止报错代码
     date_default_timezone_set("PRC");
     //安全备份
@@ -19,10 +21,12 @@
     //include("aqbf.php");
     //接收账号密码查询
 
-    error_reporting(E_ALL & ~E_NOTICE);
+    include_once __DIR__ . '/../config/Common.php';
+
     $wjid = $_GET['wjid'];
     $password = $_GET['pass'];
     $qy = $_GET['qy'];
+
 
     try {
         if (empty($wjid) || empty($password) || empty($qy)) {
@@ -100,12 +104,18 @@
                 //游戏无数据添加新数据
                 //todo 这里是注册同步数据之后跳转的页面，出现跳转链接问题
                 include __DIR__ . '/xxsql/xxsql.php';
-                include __DIR__ . '/xxjyindex5.php';
+
+                // 同步帐号后直接刷新当前页面
+                $suffix = config_item('yx_enable_https') ? 's' : '';
+                header("Location: http$suffix://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", true, 302);
+                exit;
             }
         }
     } catch (Exception $e) {
-        //重新登录
-        include("xxjyindex.php");
+        $suffix = config_item('jy_enable_https') ? 's' : '';
+        $host = config_item('host');
+        header("Location: http$suffix://$host", true, 302);
+        exit;
     }
     ?>
 
