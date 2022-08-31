@@ -20,7 +20,8 @@ if (empty($xxjyurl)) {
     exit;
 }
 
-$hosts = include __DIR__ . '/../url/fenqu.php';
+include_once(__DIR__ . '/../config/Common.php');
+$hosts = config_item('urls');
 
 ?>
 
@@ -53,7 +54,7 @@ $hosts = include __DIR__ . '/../url/fenqu.php';
             <?php if ($v['status']):?>
                  <a href="http<?=$v['https_suffix']?>://<?=$v['host']?>/fqxy/xyy.php<?php echo $xxjyurl . "&qy=1" ?>" style='color:green'><?=$v['name']?></a>
             <?php else :?>
-                <span style='color:red'><?=$v['name']?></span>
+                <span style='color:red'><?=$v['name']?>（关闭）</span>
             <?php endif;?>
         </li>
         <?php endforeach;?>
