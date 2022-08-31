@@ -11,9 +11,8 @@ if(file_exists($file)){
     //判断文件夹是否存在
     //路径
     $path='../ache/'.$wjid;
-    $dir = $path;
-    if (!file_exists($dir)){
-        mkdir ($dir,0777,true);
+    if (!file_exists($path)){
+        mkdir ($path,0777,true);
     }
     //连接数据库
     include("../sql/mysql.php");//调用数据库连接
@@ -36,9 +35,7 @@ if(file_exists($file)){
         $iniFile->addCategory('验证信息', ['玩家id' => $wjini, '玩家验证' => $pass1,'玩家昵称' => $name]);
     }else{
         $hf=1;
-        if(rmdir("$path"))	{
-        } else {
-        }
+        rmdir("$path");
     }
 }
 
