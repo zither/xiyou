@@ -40,7 +40,6 @@ if ($zsspd == 1) {
         $ip1 = $_SERVER['REMOTE_ADDR'];
         $ip2 = $_SERVER['HTTP_X_FORWARDED_FOR'];
         if ($ip1 != "" && $ip2 == "") {
-
             //更新缓存数据
             $inina = "all_ip_ini.ini";
             $path = 'acher/hdjc';
@@ -71,7 +70,6 @@ if ($zsspd == 1) {
                 $nowtime = date('Y-m-d H:i:s');
                 include("./sql/mysql.php");//调用数据库连接
                 $q2 = "all_ip";
-                mysql_query("set names utf8");
                 $strsql = "delete from $q2 where wjid='$wjid'";//物品id号必改值
                 $result = mysql_query($strsql);
 
@@ -101,7 +99,6 @@ if ($zsspd == 1) {
                 $nowtime = date('Y-m-d H:i:s');
                 include("./sql/mysql.php");//调用数据库连接
                 $q2 = "all_ip";
-                mysql_query("set names utf8");
                 $sql = "insert into $q2 (ip,iptime,wjid,wjname)  values('$ip1','$nowtime','$wjid','$wjname')";
                 if (!mysql_query($sql, $conn)) {
                     die('Error: ' . mysql_error());
@@ -122,30 +119,23 @@ if ($zsspd == 1) {
             include("./sql/mysql.php");//调用数据库连接
 
             $q2 = "all_ip";
-
-            mysql_query("set names utf8");
             $str = "select ip from $q2";
             $result = mysql_query($str) or die('SQL语句有误');
             //把有值的数据存入一个数组
             $m = 0;
 
-
             while (!!$row = mysql_fetch_array($result)) {
-
                 if ($row['ip'] == $ip1) {
                     $m = $m + 1;
-
                 }
             }
             if ($m <= 2) {
 
             } else {
-                include("./xxjyindex2.php");
-                exit;
+                show_message('IP 登录帐号过多，禁止访问！');
             }
         } else {
-            include("./xxjyindex3.php");
-            exit;
+            show_message('登录 IP 异常，禁止访问！');
         }
     } else {
     }

@@ -98,18 +98,16 @@
                 $ininame = $path . "/" . $inina;
                 unlink($ininame);
                 $iniFile = new iniFile($ininame);
-                include(__DIR__ . "/xxjyindex.php");
                 //检测uid是否存在如果存在整么社区号修改过密码需要重新更新游戏数据
             } else {
                 //游戏无数据添加新数据
                 //todo 这里是注册同步数据之后跳转的页面，出现跳转链接问题
                 include __DIR__ . '/xxsql/xxsql.php';
-
-                // 同步帐号后直接刷新当前页面
-                $suffix = config_item('yx_enable_https') ? 's' : '';
-                header("Location: http$suffix://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", true, 302);
-                exit;
             }
+            // 同步帐号后直接刷新当前页面
+            $suffix = config_item('yx_enable_https') ? 's' : '';
+            header("Location: http$suffix://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", true, 302);
+            exit;
         }
     } catch (Exception $e) {
         $suffix = config_item('jy_enable_https') ? 's' : '';

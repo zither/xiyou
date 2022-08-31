@@ -78,6 +78,7 @@
     //调用iniclass文件
     include_once __DIR__ . '/class/iniclass.php';
     include_once __DIR__ . '/../config/Common.php';
+    include_once __DIR__ . '/helper/show_message.php';
 
     $file = sprintf("ache/%s/user.ini", $wjid);
     if (file_exists($file)) {
