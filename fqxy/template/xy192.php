@@ -27,7 +27,7 @@ $inina="gz02.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 
@@ -47,7 +47,7 @@ $inina="gz02.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 
@@ -66,7 +66,7 @@ $inina="xtbl.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 } else{
@@ -108,7 +108,7 @@ $inina="gz02.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 
@@ -127,7 +127,7 @@ $inina="xtbl.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 } else{

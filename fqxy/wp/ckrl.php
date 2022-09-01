@@ -17,7 +17,7 @@ $bbrla1=($iniFile->getItem('仓库已用容量','容量'));
 
 //////仓库已用容量/////////
 if($bbrla1<0){//背包书卷
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //调用bbrl.ini是否存在
    
 include("./ini/ckrl_ini.php");

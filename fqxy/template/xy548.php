@@ -201,49 +201,49 @@ $inina="wp.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==2){ //背包材料
 //更新缓存数据
 $inina="cl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==4){ //背包商城
 //更新缓存数据
 $inina="sc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==5){ //背包丹药
 //更新缓存数据
 $inina="dy.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==6){ //背包任务
 //更新缓存数据
 $inina="rw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==7){ //背包农场
 //更新缓存数据
 $inina="nc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==8){ //背包宝箱
 //更新缓存数据
 $inina="bx.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } else{
 }
 include("./ini/bbrl_ini.php");
@@ -425,49 +425,49 @@ $inina="wp.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==2){ //背包材料
 //更新缓存数据
 $inina="cl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==4){ //背包商城
 //更新缓存数据
 $inina="sc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==5){ //背包丹药
 //更新缓存数据
 $inina="dy.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==6){ //背包任务
 //更新缓存数据
 $inina="rw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==7){ //背包农场
 //更新缓存数据
 $inina="nc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } elseif($wpfl==8){ //背包宝箱
 //更新缓存数据
 $inina="bx.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 } else{
 }
 

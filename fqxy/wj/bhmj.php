@@ -129,7 +129,7 @@ $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
 if (file_exists($ininame)) {
-	unlink($ininame); //删除文件
+	_unlink($ininame); //删除文件
 }
 
 	 flock($fp,LOCK_UN);

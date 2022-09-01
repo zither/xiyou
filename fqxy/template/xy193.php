@@ -75,7 +75,7 @@ $inina="gz01.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 } 
@@ -98,7 +98,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////城池大门//////////
@@ -112,7 +112,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////中门//////////
@@ -125,7 +125,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -139,7 +139,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -152,7 +152,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -165,7 +165,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -232,7 +232,7 @@ $inina="gz04.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 } 
 
@@ -266,7 +266,7 @@ $iniFile->updItem('防守国家id', ['初始' => $bpid]);
 //增加国战积分
 
 $file01="./acher/guoz/zlbp.php";
-unlink($file01); //删除文件  
+_unlink($file01); //删除文件
 $xtmsg=2;	
 $zlbp='$zlbp';
 file_put_contents($file01,"<?php

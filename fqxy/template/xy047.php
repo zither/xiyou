@@ -75,7 +75,7 @@ if($zsspd==1){
     } else{
         echo "<font color=black>暂时还未接受任何副本日常任务</font>"."<br>";
     }
-    
+
     echo "<font color=black>----------</font>"."<br>";
 
     $cmid=$cmid+1;

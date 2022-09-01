@@ -44,7 +44,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 $xtxx=$bossmz."蓄力已满已被召唤开启！！请各路仙友前往击杀（美滋滋的爆率，爽歪歪的宝贝）";
 include("./msg/msgg02.php");

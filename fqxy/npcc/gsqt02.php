@@ -151,7 +151,7 @@ $iniFile->updItem('其他数量', [$npcc => $wpsl]);
 
 
 include("./ini/gsqt_ini.php");
-unlink($file); //删除文件  
+_unlink($file); //删除文件
 
 
 
@@ -306,7 +306,7 @@ $inina="gsqt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 } else{

@@ -21,7 +21,7 @@ $second=floor((strtotime($enddate)-strtotime($startdate))%86400%60);
 if($second <= $msgtime){
 $xtmsg=1;		
 } else{
-unlink($file01); //删除文件  
+_unlink($file01); //删除文件
 $xtmsg=2;	
 $mbsjtime= rand(1, 60);
 $mbtime=date("Y-m-d H:i:s",strtotime("+".$mbsjtime."seconds"));

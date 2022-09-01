@@ -32,7 +32,7 @@ $sql = "insert into $q2 (wjid, txid,txxs)  values('$wjid', $npcc,'1')";
  {
    die('Error: ' . mysql_error());
  }	
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 

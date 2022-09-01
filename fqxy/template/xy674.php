@@ -35,7 +35,7 @@ $inina="color.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  	
+_unlink($ininame); //删除文件
 echo "<font color=black>恭喜你！！重置完毕请在5分钟内抓紧答题</font>"."<br>";
 
 } else{

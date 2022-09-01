@@ -38,7 +38,7 @@ $inina="xydfw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 include("./sql/mysql.php");//调用数据库连接 
 $q2="hd";
 $strsql = "update $q2 set hdtime='$nowtime',hdcs=5 where wjid=$wjid and hdid=$hdid";//物品id号必改值

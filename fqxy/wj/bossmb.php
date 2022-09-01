@@ -62,7 +62,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 $xtxx=$bossmz."已经复活~~请大佬们前往击杀~~击杀！！";
 include("./msg/msgg02.php");

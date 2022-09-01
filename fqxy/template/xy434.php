@@ -81,7 +81,7 @@ $inina="ztt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 echo "<font color=red>恭喜你！！【人物修炼（攻）】成功，实力大幅度提升</font>"."<br>";
@@ -162,7 +162,7 @@ $inina="ztt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 

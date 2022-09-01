@@ -30,7 +30,7 @@ for($d=0;$d<$m;$d++){
 		if($second <= $msgtime){
 			$xtmsg=1;
 		} else{
-			unlink($file01); //删除文件
+			_unlink($file01); //删除文件
 			$xtmsg=2;
 			file_put_contents($file01,"<?php
 echo '<font color=".$msgcolor.">[系统]".$msg."</font>';

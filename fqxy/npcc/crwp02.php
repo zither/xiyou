@@ -140,7 +140,7 @@ $inina="ckwp.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($ymid==262){ //背包材料
 //ini文件名字
@@ -160,7 +160,7 @@ $inina="ckcl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==264){ //背包商城
 //ini文件名字
 $inina="sc.ini";
@@ -180,7 +180,7 @@ $inina="cksc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==265){ //背包丹药
 //ini文件名字
 $inina="dy.ini";
@@ -201,7 +201,7 @@ $inina="ckdy.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($ymid==266){ //背包任务
 //ini文件名字
@@ -221,7 +221,7 @@ $inina="ckrw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($ymid==267){ //背包农场
 //ini文件名字
@@ -242,7 +242,7 @@ $inina="cknc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==268){ //背包宝箱
 //ini文件名字
 $inina="bx.ini";
@@ -261,7 +261,7 @@ $inina="ckbx.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($ymid==269){ //背包其他
 //ini文件名字
@@ -281,7 +281,7 @@ $inina="ckqt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 
@@ -515,7 +515,7 @@ $inina="ckwp.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==262){ //背包材料
 //ini文件名字
 $inina="cl.ini";
@@ -545,7 +545,7 @@ $inina="ckcl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 } elseif($ymid==264){ //背包商城
@@ -577,7 +577,7 @@ $inina="cksc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==265){ //背包丹药
 //ini文件名字
 $inina="dy.ini";
@@ -606,7 +606,7 @@ $inina="ckdy.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==266){ //背包任务
 //ini文件名字
 $inina="rw.ini";
@@ -637,7 +637,7 @@ $inina="ckrw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==267){ //背包农场
 
 //ini文件名字
@@ -666,7 +666,7 @@ $inina="cknc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==268){ //背包宝箱
 //ini文件名字
 $inina="bx.ini";
@@ -695,7 +695,7 @@ $inina="ckbx.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($ymid==269){ //背包其他
 //ini文件名字
 $inina="qt.ini";
@@ -726,7 +726,7 @@ $inina="ckqt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 } else{

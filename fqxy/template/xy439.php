@@ -89,7 +89,7 @@ $inina="phb9.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 
@@ -197,7 +197,7 @@ $inina="phb9.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 echo "<font color=black>对不起！需要〖金豆〗x".$jdsl."</font>"."<br>";
@@ -251,7 +251,7 @@ $inina="phb10.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } else{	
 echo "<font color=red>对不起！您今日在疯狂摇一摇（铂金场）中已达到了最大限制，请于明日再来</font><br>";
 } 
@@ -354,7 +354,7 @@ $inina="phb10.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 echo "<font color=black>对不起！需要〖金豆〗x".$jdsl."</font>"."<br>";
@@ -407,7 +407,7 @@ $inina="phb11.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } else{	
 echo "<font color=red>对不起！您今日在疯狂摇一摇（黄金场）中已达到了最大限制，请于明日再来</font><br>";
 } 
@@ -511,7 +511,7 @@ $inina="phb11.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 echo "<font color=black>对不起！需要〖金豆〗x".$jdsl."</font>"."<br>";
@@ -568,7 +568,7 @@ $inina="phb12.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } else{	
 echo "<font color=red>对不起！您今日在疯狂摇一摇（铂金场）中已达到了最大限制，请于明日再来</font><br>";
 } 
@@ -673,7 +673,7 @@ $inina="phb12.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 echo "<font color=black>对不起！需要〖金豆〗x".$jdsl."</font>"."<br>";

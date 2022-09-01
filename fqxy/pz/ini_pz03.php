@@ -62,7 +62,7 @@ $sql = "insert into $q2 (wjid,bbyl,ckyl)  values($wjid,$wwpsl,'0')";
  }
 	//新增数据
 //更新缓存数据
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 //调用yl.ini是否存在
 include("./ini/yl_ini.php");

@@ -60,7 +60,7 @@ $inina="ztt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 include("wj/ztt.php");
 include("./ini/zt_ini.php");
 $iniFile->updItem('玩家信息', ['红' => $wjxx1['血'],'蓝' => $wjxx1['蓝']]);

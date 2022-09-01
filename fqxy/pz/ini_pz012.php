@@ -45,7 +45,7 @@ $inina="cwztt_".$zbid.".ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 include("./wj/cwztt.php");
 $cwhp=($iniFile->getItem('宠物信息','血'));	
 include("./ini/cw_ini.php");

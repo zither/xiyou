@@ -218,7 +218,7 @@ $inina="mypm.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 if($wpfl==1){
 
@@ -228,7 +228,7 @@ $inina="wp.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==2){ //背包材料
 
@@ -238,7 +238,7 @@ $inina="cl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==4){ //背包商城
 
 //ini文件名字
@@ -247,7 +247,7 @@ $inina="sc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==5){ //背包丹药
 
 //ini文件名字
@@ -256,7 +256,7 @@ $inina="dy.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==6){ //背包任务
 
@@ -266,7 +266,7 @@ $inina="rw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==7){ //背包农场
 
@@ -276,7 +276,7 @@ $inina="nc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==8){ //背包宝箱
 
 //ini文件名字
@@ -285,7 +285,7 @@ $inina="bx.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==9){ //背包其他
 
 //ini文件名字
@@ -294,7 +294,7 @@ $inina="qt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 
@@ -309,7 +309,7 @@ $inina="bbrl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;	
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 
@@ -331,7 +331,7 @@ $inina="mypm.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 echo "<font color=red>对不起，拍卖取回出现位置错位错误</font>"."<br>";
 
 

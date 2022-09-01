@@ -47,7 +47,7 @@ $inina="gz02.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 if($xtbl1==""){
 //新增数据
@@ -62,7 +62,7 @@ $inina="xtbl.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 } else{
 //修改数据
@@ -78,7 +78,7 @@ $inina="gz02.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 }	
 }
@@ -132,7 +132,7 @@ $inina="gz05.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/gz05_ini.php");
 $gztime=($iniFile->getItem('国战判断时间','1'));
@@ -178,13 +178,13 @@ $inina="gz03.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 $inina="gz05.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } 
 //判断是否清掉国战积分榜
 
@@ -207,7 +207,7 @@ $inina="gz05.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/gz05_ini.php");
 $gztime=($iniFile->getItem('国战判断时间','2'));
@@ -247,13 +247,13 @@ $inina="gz04.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 $inina="gz05.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } 
 //判断是否清掉国战积分榜
 
@@ -306,7 +306,7 @@ $inina="gz02.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 ////////////////////将报名的国家写入国战2表内////////////////////////
@@ -339,7 +339,7 @@ $inina="gz03.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 } else{
@@ -358,7 +358,7 @@ $inina="gz03.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 } else{
@@ -397,7 +397,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////城池大门//////////
@@ -411,7 +411,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////中门//////////
@@ -424,7 +424,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -438,7 +438,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -451,7 +451,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -464,7 +464,7 @@ $inina="boss_".$bossid.".ini";
 $path='acher/all_boss';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 include("./ini/boss_ini.php");
 ////////守卫//////////
@@ -475,7 +475,7 @@ $inina="gz06.ini";
 $path='acher/guoz';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 

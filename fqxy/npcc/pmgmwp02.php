@@ -65,7 +65,7 @@ $inina="yl.ini";
 $path='ache/'.$pmmwjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 //ini文件名字
 $inina="mypm.ini";
@@ -73,7 +73,7 @@ $inina="mypm.ini";
 $path='ache/'.$pmmwjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 
@@ -96,7 +96,7 @@ $inina="yl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 
@@ -185,7 +185,7 @@ $inina="wp.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==2){ //背包材料
 
@@ -195,7 +195,7 @@ $inina="cl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==4){ //背包商城
 
 //ini文件名字
@@ -204,7 +204,7 @@ $inina="sc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==5){ //背包丹药
 
 //ini文件名字
@@ -213,7 +213,7 @@ $inina="dy.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==6){ //背包任务
 
@@ -223,7 +223,7 @@ $inina="rw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==7){ //背包农场
 
@@ -233,7 +233,7 @@ $inina="nc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==8){ //背包宝箱
 
 //ini文件名字
@@ -242,7 +242,7 @@ $inina="bx.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==9){ //背包其他
 
 //ini文件名字
@@ -251,7 +251,7 @@ $inina="qt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 
@@ -407,14 +407,14 @@ $inina="yl.ini";
 $path='ache/'.$pmmwjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //ini文件名字
 $inina="mypm.ini";
 //路径
 $path='ache/'.$pmmwjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 $q2="all_yl";
@@ -437,7 +437,7 @@ $inina="yl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 
 
@@ -568,7 +568,7 @@ $inina="wp.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==2){ //背包材料
 
@@ -578,7 +578,7 @@ $inina="cl.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==4){ //背包商城
 
 //ini文件名字
@@ -587,7 +587,7 @@ $inina="sc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==5){ //背包丹药
 
 //ini文件名字
@@ -596,7 +596,7 @@ $inina="dy.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==6){ //背包任务
 
@@ -606,7 +606,7 @@ $inina="rw.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } elseif($wpfl==7){ //背包农场
 
@@ -616,7 +616,7 @@ $inina="nc.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==8){ //背包宝箱
 
 //ini文件名字
@@ -625,7 +625,7 @@ $inina="bx.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 } elseif($wpfl==9){ //背包其他
 
 //ini文件名字
@@ -634,7 +634,7 @@ $inina="qt.ini";
 $path='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 
 } else{
 

@@ -16,7 +16,7 @@ $inina="phb15.ini";
 $path='acher/phb';
 //判断ini文件是否存在	
 $ininame = $path."/".$inina;
-unlink($ininame); //删除文件 
+_unlink($ininame); //删除文件
 //更新缓存数据
 
 $file01="./mb/bhxt0x99999.php";

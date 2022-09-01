@@ -18,7 +18,7 @@ $inina1="fz.ini";
 $path1='ache/'.$wjid;
 //判断ini文件是否存在	
 $ininame1 = $path1."/".$inina1;
-unlink($ininame1); //删除文件 
+_unlink($ininame1); //删除文件
 
 //更新缓存数据
 } else{

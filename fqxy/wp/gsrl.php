@@ -16,7 +16,7 @@ $iniFile = new iniFile($ininame);
 $gsbbrla=($iniFile->getItem('挂售已用容量','容量'));
 //////强制更新掉背包容量/////////
 if($gsbbrla<0){
-unlink($ininame); //删除文件  
+_unlink($ininame); //删除文件
 //调用bbrl.ini是否存在
    
 include("./ini/gsrl_ini.php");

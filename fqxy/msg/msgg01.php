@@ -34,7 +34,7 @@ include($file01);
 echo "</br>";
 } else{
 //删除
-unlink($file01); //删除文件  
+_unlink($file01); //删除文件
 
 } 
 
