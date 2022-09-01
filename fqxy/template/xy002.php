@@ -19,7 +19,7 @@ if($zsspd==1){
     $jy03=($iniFile->getItem('封号信息','解除变量'));
 
 
-
+    $fhbl = 0;
     if($jy01!=2){
 
         if($jy03 >= 1){

@@ -9,24 +9,19 @@
 </head>
 <body>
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
-
-
     <?php
-    error_reporting(E_ALL & ~E_NOTICE);
-
-    ini_set("error_reporting", "E_ALL & ~E_NOTICE");//防止报错代码
+    include_once __DIR__ . '/../includes/constants.php';
     date_default_timezone_set("PRC");
+    $configs = include XY_CONFIG_DIR . '/config.php';
+
     //安全备份
     //系统维护10分钟,11:50以后
     //include("aqbf.php");
     //接收账号密码查询
 
-    include_once __DIR__ . '/../config/Common.php';
-
     $wjid = $_GET['wjid'];
     $password = $_GET['pass'];
     $qy = $_GET['qy'];
-
 
     try {
         if (empty($wjid) || empty($password) || empty($qy)) {
@@ -35,7 +30,8 @@
         //逻辑非常绕，先通过远程请求验证帐号有效性，然后在后台使用对应帐号请求对应页面，再返回页面内容
         //验证家园社区id的合法性
         $response = 1;
-        include("./sql/xxjyCurl.php");//向小轩家园总站发送数据验证
+        //向小轩家园总站发送数据验证
+        include XY_DIR . '/sql/xxjyCurl.php';
         if ($response != 2) {
             throw new Exception('帐号验证失败');
         }
@@ -45,10 +41,10 @@
         $xxjy_qy = $qy;
 
         //生成社区玩家在此游戏的id和验证
-        include __DIR__ . '/class/iniclass.php';
+        include XY_DIR . '/class/iniclass.php';
         $hf = 1;
         //o_user_list中查询是否存在，返回是否合法，合法2，不合法1
-        include __DIR__ . '/ini/yxuser_ini.php';
+        include XY_DIR . '/ini/yxuser_ini.php';
         //社区验证游戏
         //验证成功是合法的信息
         $pass = '';
@@ -59,7 +55,7 @@
         if ($pass == $xxjy_pass && $xxjy_pass != "" && $pass != "") {
             //存在用户的信息
             $wjid = $wjini;
-            include __DIR__ . '/ini/xuser_ini.php';
+            include XY_DIR . '/ini/xuser_ini.php';
 
             # 获取一个分类下某个子项的值
             $uwjid = ($iniFile->getItem('验证信息', '玩家id'));
@@ -87,32 +83,30 @@
             //检测uid是否存在如果存在整么社区号修改过密码需要重新更新游戏数据
             if ($uid != "") {
                 //更改密码后的操作
-                $zcxx1 = "小轩娱乐温馨提醒（由于小轩一站式通行证进行过修改数据验证已同步至游戏，重新登录下即可）";
-                include __DIR__ . '/sql/mysql.php';
+                include XY_DIR . '/sql/mysql.php';
                 $q2 = "o_user_list";
                 $strsql = "update $q2 set password='$xxjy_pass' where sqid='$sqid'";//物品id号必改值
                 $result = mysql_query($strsql);
 
                 $inina = "yxuser.ini";
-                $path =  __DIR__  .'/ache/' . $wjini;
+                $path =  XY_DIR  .'/ache/' . $wjini;
                 $ininame = $path . "/" . $inina;
-                unlink($ininame);
+               _unlink($ininame);
                 $iniFile = new iniFile($ininame);
                 //检测uid是否存在如果存在整么社区号修改过密码需要重新更新游戏数据
             } else {
                 //游戏无数据添加新数据
                 //todo 这里是注册同步数据之后跳转的页面，出现跳转链接问题
-                include __DIR__ . '/xxsql/xxsql.php';
+                include XY_DIR . '/xxsql/xxsql.php';
             }
             // 同步帐号后直接刷新当前页面
-            $suffix = config_item('yx_enable_https') ? 's' : '';
-            header("Location: http$suffix://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", true, 302);
+
+            $url = $configs['xy_url'];
+            header("Location: $url$_SERVER[REQUEST_URI]", true, 302);
             exit;
         }
     } catch (Exception $e) {
-        $suffix = config_item('jy_enable_https') ? 's' : '';
-        $host = config_item('host');
-        header("Location: http$suffix://$host", true, 302);
+        header("Location: {$configs['jy_url']}", true, 302);
         exit;
     }
     ?>

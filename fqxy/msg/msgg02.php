@@ -47,7 +47,7 @@ echo '<font color=".$msgcolor.">[系统]".$msg."</font>';
                 'msg05.php',
             ];
 		    foreach ($msg_files as $v) {
-                file_exists($v)  && unlink($v); //删除文件
+                file_exists($v)  &&_unlink($v); //删除文件
             }
 
 			$file01="msg01.php";

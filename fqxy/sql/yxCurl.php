@@ -84,7 +84,7 @@ if ($yxhe == 2) {
             $iniFile = new iniFile($ininame);
 
             //更新缓存数据
-            unlink($ininame); //删除文件
+           _unlink($ininame); //删除文件
             //更新缓存数据
 
             include("../xxjyindex.php");

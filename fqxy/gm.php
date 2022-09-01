@@ -47,6 +47,11 @@
 </style>
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
     <?php
+
+    include __DIR__ . '/../includes/constants.php';
+    $configs = include XY_CONFIG_DIR . '/config.php';
+    include_once ROOT . '/includes/wrappers.php';
+
     ini_set("error_reporting","E_ALL & ~E_NOTICE");//防止报错代码
     ini_set("date.timezone","PRC");//时间效准代码
     $wjiddd=$_GET['wjid'];
@@ -79,8 +84,10 @@
         }else{
             $pass=1;
         }
+
+        $xxjyurl = $configs['jy_url'];
+        $url = $configs['xy_url'];
         if($pass==$password){
-            include("./url/url.php");
             echo "当前GM页面：".$gid."<br>";
             if($gid==1){
                 include("admin/gm01.php");//【玩家管理】和【系统管理】
@@ -237,14 +244,12 @@
 
         } else {
 
-            include("./url/url.php");
             echo "<font color=red>当前验证信息失效,请重新登录</font>"."<br>";
             echo "<a href=http://".$xxjyurl."/admin/login.php><font color=blue>返回GM登录</font></a>"."<br>";
 
 
         }
     } else {
-        include("./url/url.php");
         echo "<font color=red>当前验证信息失效,请重新登录</font>"."<br>";
         echo "<a href=http://".$xxjyurl."/admin/login.php><font color=blue>返回GM登录</font></a>"."<br>";
     }

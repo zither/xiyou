@@ -9,6 +9,9 @@
 
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
     <?php
+    include_once __DIR__ . '/../includes/constants.php';
+    $configs = include JY_CONFIG_DIR . '/config.php';
+
     error_reporting(E_ALL & ~E_NOTICE);
     $wjid = $_GET['wjid'] ?? '';
     $password = $_GET['pass'] ?? '';
@@ -37,36 +40,24 @@
         }
         if($pass==$password){
             $name=($iniFile->getItem('验证信息','玩家昵称'));
-            include("../url/url.php");
+            $xxjyurl = $configs['jy_url'];
             echo "<font color=red>【请选择你需要要管理的项目】</font>"."<br>";
-            echo "<a href=http://".$xxjyurl."/admin/gm01.php?wjid=$wjid&pass=$password><font color=blue>社区管理（总站）</font></a>"."<br>";
+            echo "<a href=".$xxjyurl."/admin/gm01.php?wjid=$wjid&pass=$password><font color=blue>社区管理（总站）</font></a>"."<br>";
             echo "<br>";
-            $qy=1;
-            include("../url/yxurl.php");
-            echo "<a href=http://".$url."/fqxy/gm.php?wjid=$wjid&pass=$password&gid=1><font color=blue>1.公测一区西游管理（1区）</font></a>"."<br>";
-            echo "<br>";
-            $qy=2;
-            include("../url/yxurl.php");
-            echo "<a href=http://".$url."/fqxy/gm.php?wjid=$wjid&pass=$password&gid=1><font color=blue>2.花果山西游管理（2区）</font></a>"."<br>";
-            echo "<br>";
-            $qy=3;
-            include("../url/yxurl.php");
-            echo "<a href=http://".$url."/fqxy/gm.php?wjid=$wjid&pass=$password&gid=1><font color=blue>3.水帘洞西游管理（3区）</font></a>"."<br>";
-
-            echo "<br>";
-            $qy=4;
-            include("../url/yxurl.php");
-            echo "<a href=http://".$url."/fqxy/gm.php?wjid=$wjid&pass=$password&gid=1><font color=blue>4.乌鸡国西游管理（4区）</font></a>"."<br>";
+            foreach ($configs['urls'] as $i => $v) {
+                if ($v['status'] == 0) {
+                    continue;
+                }
+                echo "<a href=" . $v['url'] . "/fqxy/gm.php?wjid=$wjid&pass=$password&gid=1><font color=blue>" . ($i + 1) . ".{$v['name']}</font></a>" . "<br>";
+                echo "<br>";
+            }
         } else {
-            include("../url/url.php");
-            $xyurl="http://".$xxjyurl."/admin/login.php";
             $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
         }
     } else {
-        include("../url/url.php");
-        $xyurl="http://".$xxjyurl."/admin/login.php";
         $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
     }
+    echo $zcxx;
     ?>
 </div>
 

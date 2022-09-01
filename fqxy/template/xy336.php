@@ -8,7 +8,7 @@ if($zsspd==1){
     $inina="zzck.ini";
     $path='ache/'.$wjid;
     $ininame = $path."/".$inina;
-    unlink($ininame); //删除文件
+   _unlink($ininame); //删除文件
 
     //调用yl.ini是否存在
     include("./ini/yl_ini.php");

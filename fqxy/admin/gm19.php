@@ -78,7 +78,7 @@ if($zsspd==1){
         $path='ache/'.$wjid;
         //判断ini文件是否存在
         $ininame = $path."/".$inina;
-        unlink($ininame); //删除文件
+       _unlink($ininame); //删除文件
         //更新缓存数据
         echo "<font color=black>成功对".$wjname."进行了永久封号处罚！！</font>"."<br>";
     } else{
@@ -94,5 +94,5 @@ echo "<font color=black>---------------------</font>"."<br>";
 echo "<a href='gm.php?wjid=$wjiddd&&pass=$password&&gid=1'><font color=blue>【返回GM管理首页】</font></a>"."<br>";
 echo "<br>";
 echo "<font color=black>---------------------</font>"."<br>";
-echo "<a href=http://".$xxjyurl."/admin/index.php?wjid=$wjid&&pass=$password><font color=blue>返回GM管理平台</font></a>"."<br>";
+echo "<a href=".$xxjyurl."/admin/index.php?wjid=$wjiddd&pass=$password><font color=blue>返回GM管理平台</font></a>"."<br>";
 

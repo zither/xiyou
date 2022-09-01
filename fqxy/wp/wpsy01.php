@@ -78,7 +78,7 @@ if($npcc ==1){//回城卷
         $path='ache/'.$wjid;
 //判断ini文件是否存在	
         $ininame = $path."/".$inina;
-        unlink($ininame); //删除文件
+       _unlink($ininame); //删除文件
 
 
 
@@ -133,7 +133,7 @@ if($npcc ==1){//回城卷
         $path='ache/'.$wjid;
 //判断ini文件是否存在	
         $ininame = $path."/".$inina;
-        unlink($ininame); //删除文件
+       _unlink($ininame); //删除文件
 
 
 
@@ -256,7 +256,7 @@ if($npcc ==1){//回城卷
         $path='ache/'.$wjid;
 //判断ini文件是否存在	
         $ininame = $path."/".$inina;
-        unlink($ininame); //删除文件
+       _unlink($ininame); //删除文件
         $wpsy=2;//使用成功
         echo "<font color=black>恭喜你学会了门派专属技能：".$take1."和".$take3."！！</font>"."<br>";
     }

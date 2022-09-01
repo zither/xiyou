@@ -6,6 +6,6 @@
 **/map/cwd77x?
 **/phb/phb?
 *.bat
-config/config.php
+**/config/config.php
 **/sql/mysql.php
 fqxy/mb/mbmb*.php

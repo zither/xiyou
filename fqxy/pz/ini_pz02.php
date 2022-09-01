@@ -20,6 +20,6 @@ if($wjwp >=1){
     }
     //新增数据
     //更新缓存数据
-    unlink($ininame); //删除文件
+   _unlink($ininame); //删除文件
     //更新缓存数据
 }

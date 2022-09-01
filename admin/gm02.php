@@ -10,6 +10,12 @@
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
     <?php
     error_reporting(E_ALL & ~E_NOTICE);
+
+    include_once __DIR__ . '/../includes/constants.php';
+    $configs = include JY_CONFIG_DIR . '/config.php';
+    $xxjyurl = $configs['jy_url'];
+
+
     $wjid=$_GET['wjid'];
     $password=$_GET['pass'];
     //ini文件名字
@@ -23,7 +29,6 @@
         include("../class/iniclass.php");//调用iniclass文件
         //调用user.ini是否存在
         include("../ini/user2_ini.php");
-# 获取一个分类下某个子项的值
         $pass=($iniFile->getItem('验证信息','玩家验证'));
         if($pass!=""||$password!=""){
         }else{
@@ -31,7 +36,6 @@
         }
         if($pass==$password){
             $name=($iniFile->getItem('验证信息','玩家昵称'));
-            include("../url/url.php");
             include("../sql/mysql.php");//调用数据库连接
             echo "<font color=red>【提取成功】</font>"."<br>";
 
@@ -48,7 +52,6 @@
             $a2="【小|轩|家|园|注册码|】[".$a1."]";
             //获取最大值
             $q2="zem";
-            mysql_query("set names utf8");
             $sql1=mysql_query("select MAX(id) from $q2");
             $abc=mysql_fetch_array($sql1);
             $maxid=$abc[0];
@@ -60,10 +63,8 @@
                 $maxidd=$maxid+1;
             }
             $q2="zem";
-            mysql_query("set names utf8");
             $sql = "insert into $q2 (id,zem,sy)  values('$maxidd','$a2','1')";
-            if (!mysql_query($sql,$conn))
-            {
+            if (!mysql_query($sql,$conn)) {
                 die('Error: ' . mysql_error());
             }
             echo "<font color=black>【注册码】</font>"."<br>";
@@ -72,15 +73,13 @@
             echo "<font color=black>$a2</font>"."<br>";
             echo "<br>";
             echo "<font color=black>---------------------</font>"."<br>";
-            echo "<a href=http://".$xxjyurl."/admin/index.php?wjid=$wjid&&pass=$password><font color=blue>返回GM管理平台</font></a>"."<br>";
+            echo "<a href=".$xxjyurl."/admin/index.php?wjid=$wjid&&pass=$password><font color=blue>返回GM管理平台</font></a>"."<br>";
         } else {
-            include("../url/url.php");
-            $xyurl="http://".$xxjyurl."/admin/login.php";
+            $xyurl= $xxjyurl."/admin/login.php";
             $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
         }
     } else {
-        include("../url/url.php");
-        $xyurl="http://".$xxjyurl."/admin/login.php";
+        $xyurl=$xxjyurl."/admin/login.php";
         $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
     }
     ?>

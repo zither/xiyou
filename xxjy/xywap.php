@@ -1,12 +1,14 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
-include("../class/iniclass.php");//调用iniclass文件
+
+include_once __DIR__ . '/../includes/constants.php';
+include_once ROOT . '/class/iniclass.php';
+
+
 $wjid = $_GET['wjid'];
 $password = $_GET['pass'];
 $xxjyurl = '';
 if ($wjid != "" && $password != "") {
-    //调用user.ini是否存在
-    include("../ini/user_ini.php");
+    include ROOT . '/ini/user_ini.php';
     $pass = ($iniFile->getItem('验证信息', '玩家验证'));
     if ($pass == $password && $password != "" && $pass != "") {
         $name = ($iniFile->getItem('验证信息', '玩家昵称'));
@@ -20,8 +22,8 @@ if (empty($xxjyurl)) {
     exit;
 }
 
-include_once(__DIR__ . '/../config/Common.php');
-$hosts = config_item('urls');
+$configs = include JY_CONFIG_DIR . '/config.php';
+$hosts = $configs['urls'];
 
 ?>
 
@@ -52,7 +54,7 @@ $hosts = config_item('urls');
         <?php foreach ($hosts  as $v): ?>
         <li>
             <?php if ($v['status']):?>
-                 <a href="http<?=$v['https_suffix']?>://<?=$v['host']?>/fqxy/xyy.php<?php echo $xxjyurl . "&qy=1" ?>" style='color:green'><?=$v['name']?></a>
+                 <a href="<?=$v['url']?>/fqxy/xyy.php<?php echo $xxjyurl . "&qy=" . $v['qy'] ?>" style='color:green'><?=$v['name']?></a>
             <?php else :?>
                 <span style='color:red'><?=$v['name']?>（关闭）</span>
             <?php endif;?>

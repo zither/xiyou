@@ -111,7 +111,7 @@ if($sll!=0){
                     # 修改一个分类下子项的值(也可以修改多个)
                     $iniFile->updItem('其他数量', [$npcc => $wpsl]);
                     include("./ini/ckqt_ini.php");
-                    file_exists($file) && unlink($file); //删除文件
+                    file_exists($file) &&_unlink($file); //删除文件
                 } else{
 
                 }

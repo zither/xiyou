@@ -49,7 +49,7 @@ if ($zfn=="") {
 
     }
     //更新缓存数据
-    unlink($ininame); //删除文件
+   _unlink($ininame); //删除文件
     //更新缓存数据
     echo "<font color=black>恭喜你获得".$wwpmz."祝福！！</font><br>";
 } else{

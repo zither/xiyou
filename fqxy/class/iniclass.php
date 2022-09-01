@@ -21,7 +21,7 @@ class iniFile
             $this->iniFileHandle = parse_ini_file($this->iniFilePath, true);
 
             if (empty($this->iniFileHandle)) {
-                unlink($this->iniFilePath); //ɾ���ļ�
+               unlink($this->iniFilePath); //ɾ���ļ�
             }
         } else {
             die($this->iniFilePath . ' file cannot be opened');
@@ -75,7 +75,7 @@ class iniFile
             }
             return $arr;
         } else {
-            return $this->iniFileHandle[$category_name][$item_name];
+            return $this->iniFileHandle[$category_name][$item_name] ?? null;
         }
     }
 

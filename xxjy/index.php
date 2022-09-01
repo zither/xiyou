@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $message = empty($_SESSION['message']) ? '' : $_SESSION['message'];
 $error = empty($_SESSION['error']) ? '' : $_SESSION['error'];

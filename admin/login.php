@@ -55,6 +55,9 @@
 <body>
 
 <?php
+include_once __DIR__ . '/../includes/constants.php';
+$configs = include JY_CONFIG_DIR . '/config.php';
+
 $user=0;
 $zcxx = '';
 error_reporting(E_ALL & ~E_NOTICE);
@@ -94,8 +97,8 @@ try {
         include("../ini/user2_ini.php");
         //成功登录游戏
         //拼接网址
-        include("../url/url.php");
-        $xyurl = "http://" . $xxjyurl . "/admin/index.php?wjid=$wjid&pass=$pass1";
+        $xxjyurl = $configs['jy_url'];
+        $xyurl = $xxjyurl . "/admin/index.php?wjid=$wjid&pass=$pass1";
         echo "<META HTTP-EQUIV=REFRESH CONTENT='0;URL=$xyurl'>";
     }
 } catch (InvalidArgumentException $e) {

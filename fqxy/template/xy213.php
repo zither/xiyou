@@ -49,7 +49,7 @@ if($zsspd==1){
             $inina="sc.ini";
             $path='ache/'.$wjid;
             $ininame = $path."/".$inina;
-            unlink($ininame); //删除文件
+           _unlink($ininame); //删除文件
 
             $kcrl=9;
             //背包容量变更
@@ -102,7 +102,7 @@ if($zsspd==1){
             $inina="sc.ini";
             $path='ache/'.$wjid;
             $ininame = $path."/".$inina;
-            unlink($ininame); //删除文件
+           _unlink($ininame); //删除文件
 
             echo "<font color=red>恭喜你！！获得〖求婚玫瑰〗x1</font>"."<br>";
             echo "<font color=red>失去〖金豆〗x10</font>"."<br>";

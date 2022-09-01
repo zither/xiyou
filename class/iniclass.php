@@ -61,7 +61,7 @@ class iniFile
 			}
 			return $arr;
 		}else{
-			return $this->iniFileHandle[$category_name][$item_name];
+			return $this->iniFileHandle[$category_name][$item_name] ?? null;
 		}
 	}
 	//更改ini

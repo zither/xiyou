@@ -20,7 +20,7 @@ function deldir($dir) {
     if($file!="." && $file!="..") {
       $fullpath=$dir."/".$file;
       if(!is_dir($fullpath)) {
-          unlink($fullpath);
+         _unlink($fullpath);
       } else {
           deldir($fullpath);
       }
@@ -75,7 +75,7 @@ echo "<br>";
 echo "<font color=black>---------------------</font>"."<br>";
 
 
-echo "<a href=http://".$xxjyurl."/admin/index.php?wjid=$wjid&&pass=$password><font color=blue>返回GM管理平台</font></a>"."<br>";
+echo "<a href=".$xxjyurl."/admin/index.php?wjid=$wjiddd&pass=$password><font color=blue>返回GM管理平台</font></a>"."<br>";
 
 
 

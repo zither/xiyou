@@ -52,17 +52,25 @@
 <body>
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
     <?php
-    error_reporting(E_ALL & ~E_NOTICE);
-    ini_set("date.timezone", "PRC");//时间效准代码
-
     //时间统计开始计时
     $stime = microtime(true);
+
+    include_once __DIR__ . '/../includes/constants.php';
+    $configs = include XY_CONFIG_DIR . '/config.php';
+    $error_reporting_level = $configs['debug'] ? E_ALL & ~E_NOTICE : 0;
+    error_reporting($error_reporting_level);
+
+    ini_set("date.timezone", "PRC");//时间效准代码
+
+    // 兼容性代码，批量替换后消除报错
+    include_once ROOT . '/includes/wrappers.php';
+
     session_start();
 
     //系统维护10分钟(安全备份)
     //include("aqbf.php");
     $ip1 = $_SERVER['REMOTE_ADDR'];
-    $ip2 = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    $ip2 = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '';
     $inina = $ip1 . ".ini";
     $path = './ip';
     $file = $path . "/" . $inina;
@@ -76,14 +84,13 @@
     $wjid = empty($_SESSION['uid']) ? 0 : $_SESSION['uid'];
 
     //调用iniclass文件
-    include_once __DIR__ . '/class/iniclass.php';
-    include_once __DIR__ . '/../config/Common.php';
-    include_once __DIR__ . '/helper/show_message.php';
+    include_once ROOT . '/class/iniclass.php';
+    include_once XY_DIR . '/helper/show_message.php';
 
-    $file = sprintf("ache/%s/user.ini", $wjid);
+    $file = sprintf("%s/ache/%s/user.ini", XY_DIR, $wjid);
     if (file_exists($file)) {
         //判断特征码是否合法 后面那一串验证数字hash
-        include __DIR__ . '/ini/user_ini.php';
+        include XY_DIR . '/ini/user_ini.php';
         $tzm = $iniFile->getItem('验证信息', '玩家游戏码');
         if ($tzm != $a1) {
             echo '#2';
@@ -96,10 +103,10 @@
         $stime1 = microtime(true);
 
         //调用sjyz.ini是否存在
-        include("./ini/sjyz_ini.php");//(时间验证)
+        include(XY_DIR . "/ini/sjyz_ini.php");//(时间验证)
 
         $stime2 = ($iniFile->getItem('毫秒时间', '时间'));
-        include("./wp/funk1.php");
+        include(XY_DIR .  "/wp/funk1.php");
         $stime1 = calc($stime1, '1000', 'mul');
         $stime2 = calc($stime2, '1000', 'mul');
         $stime3 = calc($stime1, $stime2, 'sub');
@@ -110,7 +117,8 @@
             //判断玩家的验证码是否合法
             if ($wjid > 10000000) {
                 //调用user.ini是否存在
-                include("./ini/user_ini.php");
+                include(XY_DIR . "/ini/user_ini.php");
+
                 $cljid = $iniFile->getItem('验证信息', 'cmid值');
                 $iniFile->updItem('最后页面id', ['页面id' => $cljid]);
 
@@ -135,7 +143,7 @@
 
                 $user = $iniFile->getCategory('验证信息');
                 $xyid = "";
-                $xyid = $user['uid'];
+                $xyid = $user['uid'] ?? 0;
                 $tzm = $user['玩家游戏码'];
                 $b1 = $user['年'];
                 $b2 = $user['月'];

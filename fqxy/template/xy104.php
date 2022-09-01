@@ -97,7 +97,7 @@ if($zsspd==1&&$zsspd2==1){
         $path='ache/'.$wjid;
 //判断ini文件是否存在	
         $ininame = $path."/".$inina;
-        unlink($ininame); //删除文件
+       _unlink($ininame); //删除文件
 //更新缓存数据
 
         echo "<font color=red>恭喜你！成功将".$ckname."拉进了黑名单</font>"."<br>";

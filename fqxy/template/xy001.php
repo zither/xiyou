@@ -27,7 +27,6 @@ for ($x = 0; $x <= 30; $x++) {
     }
 }
 
-
 if ($zsspd == 1) {
     //登录限制
     include("./ini/zt_ini.php");
@@ -45,7 +44,7 @@ if ($zsspd == 1) {
             $path = 'acher/hdjc';
             //判断ini文件是否存在
             $ininame = $path . "/" . $inina;
-            unlink($ininame); //删除文件
+            _unlink($ininame); //删除文件
             //更新缓存数据
             include("./ini/all_ip_ini.php");
             $ip0 = ($iniFile->getItem('玩家id', $ip1));
@@ -83,7 +82,7 @@ if ($zsspd == 1) {
                 $path = 'acher/hdjc';
                 //判断ini文件是否存在
                 $ininame = $path . "/" . $inina;
-                unlink($ininame); //删除文件
+                _unlink($ininame); //删除文件
                 //更新缓存数据
             } else {
 
@@ -108,7 +107,7 @@ if ($zsspd == 1) {
                 $path = 'acher/hdjc';
                 //判断ini文件是否存在
                 $ininame = $path . "/" . $inina;
-                unlink($ininame); //删除文件
+                _unlink($ininame); //删除文件
                 //更新缓存数据
 
             } else {
@@ -258,7 +257,7 @@ if ($zsspd == 1) {
             ////判断ini文件是否存在
             //$ininame = $path . "/" . $inina;
             //if (file_exists($ininame)) {
-            //    unlink($ininame); //删除文件
+            //   _unlink($ininame); //删除文件
             //}
             function deldir($dir)
             {
@@ -268,7 +267,7 @@ if ($zsspd == 1) {
                     if ($file != "." && $file != "..") {
                         $fullpath = $dir . "/" . $file;
                         if (!is_dir($fullpath)) {
-                            unlink($fullpath);
+                           _unlink($fullpath);
                         } else {
                             deldir($fullpath);
                         }
