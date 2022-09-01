@@ -25,7 +25,6 @@ if (file_exists($file)) {
     include("./sql/mysql.php");//调用数据库连接
 
     $q2 = "yxrw";
-
     $str = "select * from $q2 where wjid=$wjid";
     $result = mysql_query($str) or die('SQL语句有误');
     //把有值的数据存入一个数组
@@ -44,6 +43,3 @@ if (file_exists($file)) {
 }
 
 $iniFile = new iniFile($file);
-
-
-?>
