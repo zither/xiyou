@@ -15,10 +15,11 @@ php + mysql
 
 ## 项目运行
 1. 新建 xyy 和 xxjyuser 数据库，并导入 data 目录中的数据表
-2. 复制 config/config_example.php，重命名为 config/config.php，修改域名和https配置
+2. 复制 config/config_example.php，重命名为 config/config.php，修改家园地址和分区信息
 3. 复制 sql/mysql_example.php，重命名为 sql/mysql.php，修改数据库配置
-4. 复制 fqxy/sql/mysql_example.php，重命名为 fqxy/sql/mysql.php，修改数据库配置
-5. 通过域名进行访问
+4. 复制 fqxy/config/config_example.php，重命名为 fqxy/config/config.php，修改家园地址和分区地址等信息
+5. 复制 fqxy/sql/mysql_example.php，重命名为 fqxy/sql/mysql.php，修改数据库配置
+6. 通过域名进行访问
 
 ## 运行环境
 - php 7.4
