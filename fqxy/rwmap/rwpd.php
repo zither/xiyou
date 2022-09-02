@@ -9,7 +9,7 @@ if ($rwpd=="") {
     $path='./ache/'.$wjid;
     //判断ini文件是否存在
     $ininame = $path."/".$inina;
-   _unlink($ininame); //删除文件
+    _unlink($ininame); //删除文件
     include("./sql/mysql.php");//调用数据库连接
     //获取最大值
     $q2="yxrw";
