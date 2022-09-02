@@ -770,7 +770,13 @@ $cdid[]=$cmid;
 $clj[]=10;
 $npc[]=$npcc;echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
 //
-			  
+	//每日金豆活动
+	$cmid = $cmid + 1;
+	$cdid[] = $cmid;
+	$clj[] = 302;
+	$npc[] = 10001;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><span color=blue>领取每日活跃奖励</span></a><br>";
+
   } elseif ($npcc==41) {
 //cmd及超链接值
 $cmid=$cmid+1;

@@ -63,7 +63,7 @@
     ini_set("date.timezone", "PRC");//时间效准代码
 
     // 兼容性代码，批量替换后消除报错
-    include_once ROOT . '/includes/wrappers.php';
+    include XY_DIR . '/sql/mysql.php';
 
     session_start();
 

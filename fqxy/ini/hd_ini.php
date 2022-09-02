@@ -7,15 +7,12 @@ if(file_exists($file)){
 
 } else{
     //连接数据库提取数据写入ini
-    include("./sql/mysql.php");//调用数据库连接
-//创建文件
+    include(XY_DIR . "/sql/mysql.php");//调用数据库连接
     file_put_contents($file,"[活动数据]");
-# 实例化ini文件操作类，并载入 .ini文件
     $iniFile = new iniFile($file);
     $iniFile->addItem('活动id',['初始' => 123]);
     $iniFile->addItem('活动时间',['初始' => 123]);
     $iniFile->addItem('活动次数',['初始' => 123]);
-    include("./sql/mysql.php");//调用数据库连接
     $q2="hd";
     $str="select * from $q2 where wjid=$wjid";
     $result=mysql_query($str) or die('SQL语句有误');

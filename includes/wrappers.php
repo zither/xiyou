@@ -19,7 +19,7 @@ if (!function_exists('mysql_query')) {
     function mysql_query($sql, $conn = null)
     {
         if (is_null($conn)) {
-            global $conn;
+            $conn = get_mysql_conn();
         }
         return mysqli_query($conn, $sql);
     }
@@ -44,7 +44,17 @@ if (!function_exists('mysql_num_rows')) {
 if (!function_exists('mysql_error')) {
     function mysql_error()
     {
-        global $conn;
+        $conn = get_mysql_conn();
         return mysqli_error($conn);
     }
+}
+
+function get_mysql_conn()
+{
+    global $conn;
+    if (is_null($conn) && !class_exists(DB::class)) {
+        throw new RuntimeException('数据库链接未找到');
+    }
+    $conn = DB::instance();
+    return $conn;
 }

@@ -1821,6 +1821,8 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>宝象国�
 
 
 
+    echo '<img src="pic/ts/ts1.png"alt="图片"/〉';
+    echo "<br>";
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
