@@ -83,10 +83,6 @@ echo "<font color=red>4.每天神仙姐姐送【万能果】x10</font>"."<br>";
 echo "<font color=red>5.每天神仙姐姐送〖万能钥匙〗x10</font>"."<br>";	
 echo "<font color=red>6.每天神仙姐姐送〖金豆〗x5</font>"."<br>";	
 
-
-
-
-
 } else{
 echo "<font color=black>没有找到相对应的特权</font>"."<br>";
 }

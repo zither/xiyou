@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/db.php';
+include_once dirname(__DIR__) . '/../includes/db.php';
 
 $mysql_host = 'mysql';
 $mysql_user = 'root';
