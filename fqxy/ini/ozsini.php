@@ -15,8 +15,6 @@ for($x=0;$x<=30;$x++){
     $fp2 = fopen($gglockname2, "w+");
     if(flock($fp2,LOCK_EX | LOCK_NB)){
         $zsspd2=1;
-        //usleep(800);
-        //flock($fp2,LOCK_EX);
         break;
     }else{
         //排队等待
