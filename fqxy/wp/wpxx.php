@@ -1,6 +1,5 @@
 <?php
 
-var_dump($npcc);
 
 if($npcc >=1&&$npcc<=100){
 include("wpxx01.php");
