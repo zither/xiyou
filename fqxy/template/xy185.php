@@ -32,6 +32,11 @@ if($zsspd==1){
 include("./ini/jsini.php");
 //解锁当前使用的ini
 
+// 捐献银两
+$cmid=$cmid+1;
+$cdid[]=$cmid;
+$clj[]=185;
+$npc[]=0;
 
 ?>
 
