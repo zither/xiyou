@@ -179,16 +179,10 @@ if($zsspd==1){
 
             $zbidd2=$wjfyid."_".$ltmax1;
 
-# 删除一个子项
             $iniFile->delItem('玩家排序', $zbidd2);
-# 删除一个子项
             $iniFile->delItem('玩家id', $ltmax1);
-
-# 删除一个子项
             $iniFile->delItem('玩家vip', $ltmax1);
-# 删除一个子项
             $iniFile->delItem('玩家名字', $ltmax1);
-            # 删除一个子项
             $iniFile->delItem('玩家发言', $ltmax1);
 
 
