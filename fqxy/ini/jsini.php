@@ -1,6 +1,7 @@
 <?php
 
-if ($fp && $zsspd == 1) {
+
+if (gettype($fp) == 'resource') {
     if ($zsspd == 1) {
         flock($fp, LOCK_UN);
     } else {

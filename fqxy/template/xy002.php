@@ -245,11 +245,8 @@ if($zsspd==1){
             }
 //$ltmax1=$ltmax1+1;
 
-# 获取一个分类下某个子项的值
             $wjfy=($iniFile->getItem('玩家发言',$ltmax1));
-# 获取一个分类下某个子项的值
             $wjfymz=($iniFile->getItem('玩家名字',$ltmax1));
-# 获取一个分类下某个子项的值
             $wjfyid=($iniFile->getItem('玩家id',$ltmax1));
             $wjfyvip=($iniFile->getItem('玩家vip',$ltmax1));
 
@@ -284,21 +281,11 @@ if($zsspd==1){
 
             $zbidd2=$wjfyid."_".$ltmax1;
 
-# 删除一个子项
             $iniFile->delItem('玩家排序', $zbidd2);
-# 删除一个子项
             $iniFile->delItem('玩家id', $ltmax1);
-
-# 删除一个子项
             $iniFile->delItem('玩家vip', $ltmax1);
-# 删除一个子项
             $iniFile->delItem('玩家名字', $ltmax1);
-            # 删除一个子项
             $iniFile->delItem('玩家发言', $ltmax1);
-
-
-
-
         } else{
 
         }
