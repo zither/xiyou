@@ -134,9 +134,6 @@ if($zsspd==1){
     include("./wj/jnxx.php");
 
 
-
-
-
     //调用zt.ini是否存在
     include("./ini/zt_ini.php");
     $wjxx=($iniFile->getCategory('玩家信息'));
@@ -169,7 +166,7 @@ if($zsspd==1){
 
 
 
-//获取宠物属性
+    //获取宠物属性
     if($cwcz2==2){
         $zbid=$cwidd;
         include("./ini/cw_ini.php");
