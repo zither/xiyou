@@ -18,16 +18,36 @@ if ($zsspd == 1) {
     $rw5 = ($iniFile->getItem('任务分类', $npcc));
     $rw6 = ($iniFile->getItem('任务名字', $npcc));
 
-    if ($rw5 == 1) {
-        include("./rwxx/zxrwxx.php");//主线
-    } elseif ($rw5 == 2) {
-        include("./rwxx/zzxrwxx.php");//支线
-    } elseif ($rw5 == 5) {
-        include("./rwxx/rcrwxx.php");//日常
-    } elseif ($rw5 == 4) {
-        include("./rwxx/hdrwxx.php");//活动
+    // 老任务系统任务
+    if ($rw1 < 1000) {
+        if ($rw5 == 1) {
+            include("./rwxx/zxrwxx.php");//主线
+        } elseif ($rw5 == 2) {
+            include("./rwxx/zzxrwxx.php");//支线
+        } elseif ($rw5 == 5) {
+            include("./rwxx/rcrwxx.php");//日常
+        } elseif ($rw5 == 4) {
+            include("./rwxx/hdrwxx.php");//活动
+        } else {
+            echo "<font color=black>没有这个任务分类编号" . $rw5 . "请尝试联系gm解决此问题！！</font><br>";
+        }
     } else {
-        echo "<font color=black>没有这个任务分类编号" . $rw5 . "请尝试联系gm解决此问题！！</font><br>";
+        //新任务信息
+        $xrwxx = rwxx($rw1);
+        if (!empty($xrwxx)) {
+            if ($rw2 > RWBL_1) {
+                echo "<span style='color: black'>{$xrwxx['ms1']}</span><br>";
+            }
+            if ($rw2 > RWBL_2) {
+                echo "<span style='color: black'>{$xrwxx['ms2']}</span><br>";
+            }
+            if (!empty($xrwxx['sg'])) {
+                //TODO 增加杀怪要求显示
+            }
+
+        } else {
+            echo "<font color=black>没有这个任务分类编号" . $rw5 . "请尝试联系gm解决此问题！！</font><br>";
+        }
     }
 
     //cmd及超链接值

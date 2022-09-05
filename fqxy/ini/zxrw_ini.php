@@ -31,6 +31,10 @@ if (file_exists($file)) {
     $m = 0;
     while (!!$row = mysql_fetch_array($result)) {
         if ($row['rwfl'] == 1 || $row['rwfl'] == 2 || $row['rwfl'] == 4 || $row['rwfl'] == 5) {
+            //过滤新任务系统已完成的任务
+            if ($row['rwid'] > 1000 && $row['rwbl'] > 3) {
+                continue;
+            }
             $rw_str = $row['rwid'] . "_" . $row['rwfl'];
             $iniFile->addCategory('任务id', [$rw_str => $row['rwid']]);
             $iniFile->addCategory('任务变量', [$rw_str => $row['rwbl']]);
