@@ -200,7 +200,7 @@ $ininame = $path."/".$inina;
 $iniFile = new iniFile($ininame);
 $hkeyltpx1[]="";
 $hltpx1="";
-$arr3="";
+$arr3=[];
 # 获取一个分类下所有数据
 $hltpx1=($iniFile->getCategory('玩家排序'));
 	foreach(array_keys($hltpx1) as $key){
@@ -214,11 +214,12 @@ foreach( $arr3 as $k=>$v) {
     if($tmp1 == $v) unset($arr3[$k]);
 }
 
-$ltmax1= empty($arr3) ? 0 : max($arr3);
-if($ltmax1=="排序"){
-$ltmax1=0;
+	$ltmax1= empty($arr3) ? 0 : max($arr3);
+	if($ltmax1=="排序"){
+		$ltmax1=0;
 	} else{
-	} 
+	}
+	$ltmax1 = (int)$ltmax1;
 $ltmax1=$ltmax1+1;
 $zbidd2=$wjid1."_".$ltmax1;
 
