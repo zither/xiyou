@@ -2216,38 +2216,20 @@ if($zsspd==1){
             ],
         ];
         hdlq($wjid, $npcc, $wp, 1);
+    } elseif ($npcc == 2001) {//宠物指南任务
     } else{
+
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-//cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=2;
     $npc[]=0;
     echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回游戏</font></a>"."<br>";
-
     echo "<font color=black>----------------------</font>"."<br>";
-//cmd及超链接值
     include("fhgame.php");
-
-
-} else{
 }
+
 //解锁当前使用的ini
 include("./ini/jsini.php");
 //解锁当前使用的ini
-
-
-?>

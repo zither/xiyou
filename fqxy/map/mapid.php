@@ -40,10 +40,8 @@ if ($dtx==0) {
     } else{
         include("xsc.php");
     }
-
     $inina="xsc".$dtx."x".$dty.".ini";
     $ininalock="xsc".$dtx."x".$dty.".txt";
-
 } elseif ($dtx==1) {
     //跳转至长安城地图
     if ($fjmap!=92) {

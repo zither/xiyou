@@ -225,6 +225,10 @@ include("template/xy685.php");//详情
 
 
 } else{
+    $template = sprintf('%s/template/xy%d.php', XY_DIR, $cmdd);
+    if (file_exists($template)) {
+        include $template;
+    }
 } 
 
 

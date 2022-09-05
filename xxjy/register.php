@@ -40,8 +40,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 
         //查询账号是否已占有
         $q2 = "o_user_list";
-        $sql1 = mysqli_query($conn, "select uid from $q2 where username='$zczh1'");
-        $info1 = @mysqli_fetch_array($sql1);
+        $sql1 = mysql_query($conn, "select uid from $q2 where username='$zczh1'");
+        $info1 = mysql_fetch_array($sql1);
         if (!empty($info1)) {
             throw new InvalidArgumentException('对不起该账号已存在了');
         }

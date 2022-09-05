@@ -32,18 +32,55 @@ include("npcxx13.php");
 } elseif($npcc >=1301&&$npcc<=1400){
 include("npcxx14.php");
 
-
-
-
 } elseif($npcc ==5196||$npcc==5197){//主线任务特殊npc
 
-
-
-
 } else{
-
-echo "<font color=black>没有这个id编号".$npcc."请尝试联系gm解决此问题！！</font><br>";
-
+    $npcsz = include XY_DIR . '/npc/npcsz.php';
+    $npcxx = [];
+    foreach ($npcsz as $v) {
+        if ($npcc == $v['id']) {
+            $npcxx = $v;
+            break;
+        }
+    }
+    if (!empty($npcxx)) {
+        //名字
+        $nname= $npcxx['mz'];
+        //等级
+        $ndj=$npcxx['dj'];
+        //HP
+        $nhp=$npcxx['hp'];
+        //MAXHP
+        $nmaxhp=$npcxx['max_hp'];
+        //MP
+        $nmp=$npcxx['mp'];
+        //MAXMP
+        $nmaxmp=$npcxx['max_mp'];
+        //攻击
+        $ngj=$npcxx['gj'];
+        //魔攻
+        $nmg=$npcxx['mg'];
+        //防御
+        $nfy=$npcxx['fy'];
+        //魔防
+        $nmf=$npcxx['mf'];
+        //冰攻
+        $nbg=$npcxx['bg'];
+        //火攻
+        $nhg=$npcxx['hg'];
+        //雷攻
+        $nlg=$npcxx['lg'];
+        //冰防
+        $nbf=$npcxx['bf'];
+        //火防
+        $nhf=$npcxx['hf'];
+        //雷防
+        $nlf=$npcxx['lf'];
+        //NPC被攻击说话语
+        $ntake=$npcxx['msg'];
+    } else {
+        echo "<font color=black>没有这个id编号".$npcc."请尝试联系gm解决此问题！！</font><br>";
+    }
 }
 
 

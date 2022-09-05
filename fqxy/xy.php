@@ -64,6 +64,7 @@
 
     // 兼容性代码，批量替换后消除报错
     include XY_DIR . '/sql/mysql.php';
+    include XY_DIR . '/helper/rwpd.php';
 
     session_start();
 
@@ -119,27 +120,26 @@
                 //调用user.ini是否存在
                 include(XY_DIR . "/ini/user_ini.php");
 
-                $cljid = $iniFile->getItem('验证信息', 'cmid值');
-                $iniFile->updItem('最后页面id', ['页面id' => $cljid]);
-
-                if ($cljid == 0) {
-                    $cljid = 1;
-                    $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
-                } else {
-                    $cljid = $iniFile->getItem('超链接值', $cmd);
-                    if ($cljid == "") {
-                        $cljid = $iniFile->getItem('最后页面id', '页面id');
-                        if ($cljid == 3 || $cljid == 4 || $cljid == 5 || $cljid == 6) {
-                            $cljid = 2;
-                        }
-                        $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
-                        $npcc = $iniFile->getItem('最后页面id', 'npcid');
-                    } else {
-                        $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
-                        $npcc = $iniFile->getItem('超链接npc值', $cmd);
-                        $iniFile->updItem('最后页面id', ['npcid' => $npcc]);
-                    }
+                //来源页面信息
+                $kcmid = $iniFile->getItem('验证信息', 'cmid值');
+                $knpc = $iniFile->getItem('验证信息', 'npc值');
+                if ($kcmid == 0) {
+                    $kcmid = 1;
+                    $knpc = 0;
+                    $iniFile->updItem('验证信息', ['cmid值' => $kcmid]);
+                    $iniFile->updItem('验证信息', ['npc值' => $knpc]);
                 }
+                $iniFile->updItem('最后页面id', ['页面id' => $kcmid, 'npcid' => $knpc]);
+
+                //当前页面信息
+                $cljid = $iniFile->getItem('超链接值', $cmd);
+                $npcc = $iniFile->getItem('超链接npc值', $cmd);
+                if ($cljid == "") {
+                    $cljid = 1;
+                    $npcc = 0;
+                }
+                $iniFile->updItem('验证信息', ['cmid值' => $cljid]);
+                $iniFile->updItem('验证信息', ['npc值' => $npcc]);
 
                 $user = $iniFile->getCategory('验证信息');
                 $xyid = "";
@@ -242,6 +242,7 @@
             $bugx = ($iniFile->getItem('地图坐标', 'x'));
             $bugy = ($iniFile->getItem('地图坐标', 'y'));
             $bugym = ($iniFile->getItem('最后页面id', '页面id'));
+
 
             //npc
             if ($cmdd >= 1 && $cmdd <= 100) {
