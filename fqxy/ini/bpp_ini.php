@@ -25,7 +25,6 @@ if(file_exists($file)){
     $iniFile->addItem('国战积分',['初始' => 123]);
 
     include("./sql/mysql.php");//调用数据库连接
-
     $q2="bp";
     $str="select * from $q2 where bpid = $bpid";
     $result=mysql_query($str) or die('SQL语句有误');

@@ -42,6 +42,7 @@ ccmz03,ccid03,ccmz04,ccid04,ccmz05,ccid05,ccmz06,ccid06,bprsmax,bpjymax,bpyl,bps
             include("./ini/zt_ini.php");
             $iniFile->updItem('玩家信息', ['帮派id' => $maxidd]);
             $iniFile->updItem('玩家信息', ['帮派名字' => $wjtake]);
+            $iniFile->updItem('玩家信息', ['帮派职务' => '君主']);
 
             $bpid=$maxidd;
 

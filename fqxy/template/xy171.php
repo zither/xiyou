@@ -37,9 +37,14 @@ if($zsspd==1){
 include("./ini/jsini.php");
 //解锁当前使用的ini
 
+$cmid=$cmid+1;
+$cdid[]=$cmid;
+$clj[]=171;
+$npc[]=0;
+$formurl = sprintf('xy.php?uid=%d&cmd=%d&sid=%s', $wjid, $cmid, $a1);
 ?>
 
-<form  action="" method="POST">
+<form  action="<?php echo $formurl?>" method="POST">
     <input  type="text" name="wjtoke" placeholder="请输入要建立的国家名字"id='search'><br>
     <input  type="submit" name="submit" value="确认"id="search1" ><br>
 </form>
