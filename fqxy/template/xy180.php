@@ -117,7 +117,7 @@ if($zsspd==1&&$zsspd2==1){
 			if($ltmax1=="排序"){
 				$ltmax1=0;
 			}
-			$ltmax1=$ltmax1+1;
+			$ltmax1=(int)$ltmax1+1;
 			$zbidd2=$wjid1."_".$ltmax1;
 			$iniFile->addItem('玩家排序',[$zbidd2 => $ltmax1]);
 			$iniFile->addItem('玩家id',[$ltmax1 => $wjid1]);

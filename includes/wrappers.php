@@ -28,7 +28,7 @@ if (!function_exists('mysql_fetch_array')) {
     function mysql_fetch_array($result, $result_type = MYSQLI_BOTH)
     {
         /** @var \PDOStatement $result */
-        return $result->fetch(PDO::FETCH_ASSOC);
+        return $result->fetch(PDO::FETCH_BOTH);
     }
 }
 

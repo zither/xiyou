@@ -215,7 +215,7 @@ if($ltmax1=="排序"){
 $ltmax1=0;
 	} else{
 	} 
-$ltmax1=$ltmax1+1;
+$ltmax1=(int)$ltmax1+1;
 $zbidd2=$wjid1."_".$ltmax1;
 
 
