@@ -25,7 +25,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         //连接数据库
         include("../sql/mysql.php");//调用数据库连接
         $user=0;
-        $sql=mysql_query("select * from o_user_list where username='$zczh1'",$conn);
+        $sql=mysql_query("select * from o_user_list where username='$zczh1'");
         $info1=@mysql_fetch_array($sql);
         if (empty($info1)) {
             throw new InvalidArgumentException('帐号不存在');

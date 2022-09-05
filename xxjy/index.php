@@ -12,8 +12,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         $username = $_POST['username'];
         //连接数据库
         include(__DIR__ . "/../sql/mysql.php");//调用数据库连接
-        $sql = mysql_query("select uid,password,name from o_user_list where username='$username'", $conn);
-        $info1 = @mysql_fetch_array($sql);
+        $sql = mysql_query("select uid,password,name from o_user_list where username='$username'");
+        $info1 = mysql_fetch_array($sql);
         if (empty($info1)) {
             throw new InvalidArgumentException('无效用户名或密码');
         }

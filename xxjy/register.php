@@ -40,28 +40,24 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 
         //查询账号是否已占有
         $q2 = "o_user_list";
-        $sql1 = mysql_query($conn, "select uid from $q2 where username='$zczh1'");
+        $sql1 = mysql_query("select uid from $q2 where username='$zczh1'");
         $info1 = mysql_fetch_array($sql1);
         if (!empty($info1)) {
             throw new InvalidArgumentException('对不起该账号已存在了');
         }
 
         $q2 = "o_user_list";
-        $sql1 = mysql_query("select name from $q2 where name='$zczh6'", $conn);
-        $info1 = @mysql_fetch_array($sql1);
+        $sql1 = mysql_query("select name from $q2 where name='$zczh6'");
+        $info1 = mysql_fetch_array($sql1);
         if (!empty($info1)) {
             throw new InvalidArgumentException('对不起！这个昵称太火了换一个吧');
         }
 
         //获取最大值
         $q2 = "o_user_list";
-        $sql1 = mysql_query("select MAX(uid) from $q2");
+        $sql1 = mysql_query("select MAX(uid) as i from $q2");
         $abc = mysql_fetch_array($sql1);
-        $maxid = empty($abc) ? 0 : $abc[0];
-        if ($maxid == "") {
-            $maxid = 0;
-        } else {
-        }
+        $maxid = empty($abc) ? 0 : $abc['i'];
         $maxidd = $maxid + 1;
 
         $ma = md5($zczh2 . 'ALL_PS');;
@@ -76,7 +72,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
 
         $q2 = "o_user_list";
         $sql = "insert into $q2 (uid,m_id,name,username,password,n,y,r,s,f,m,ma,aqm)  values('$maxidd','0','$zczh6','$zczh1','$zczh2','$y','$m','$d','$h','$i','$s','$ma','$aqm')";
-        if (!mysql_query($sql, $conn)) {
+        if (!mysql_query($sql)) {
             throw new InvalidArgumentException('帐号创建失败，请联系管理员！');
         }
 

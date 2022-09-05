@@ -26,8 +26,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         include("../sql/mysql.php");//调用数据库连接
         $user = 0;
         $q2 = "o_user_list";
-        $sql1 = mysql_query("select uid,username,ma from $q2 where username='$zczh1'", $conn);
-        $info1 = @mysql_fetch_array($sql1);
+        $sql1 = mysql_query("select uid,username,ma from $q2 where username='$zczh1'");
+        $info1 = mysql_fetch_array($sql1);
         if (empty($info1)) {
             throw new InvalidArgumentException('帐户不存在');
         }
