@@ -23,7 +23,7 @@ $qdcs=2;//签到领取
 if($qdxx2['签到次数']>=$qdcs){
 if($qdxx2['签到1']==1){
 include("./sql/mysql.php");//调用数据库连接 
-$q2="qd".$wjid;
+$q2="all_qd";
 $strsql = "update $q2 set qd1=2 where wjid=$wjid";//物品id号必改值
 $result = mysql_query($strsql);
 $iniFile->updItem('签到信息', ['签到1' => '2']);
@@ -110,7 +110,7 @@ $qdcs=5;//签到领取
 if($qdxx2['签到次数']>=$qdcs){
 if($qdxx2['签到2']==1){
 include("./sql/mysql.php");//调用数据库连接 
-$q2="qd".$wjid;
+$q2="all_qd";
 $strsql = "update $q2 set qd2=2 where wjid=$wjid";//物品id号必改值
 $result = mysql_query($strsql);
 $iniFile->updItem('签到信息', ['签到2' => '2']);
@@ -194,7 +194,7 @@ $qdcs=10;//签到领取
 if($qdxx2['签到次数']>=$qdcs){
 if($qdxx2['签到3']==1){
 include("./sql/mysql.php");//调用数据库连接 
-$q2="qd".$wjid;
+$q2="all_qd";
 $strsql = "update $q2 set qd3=2 where wjid=$wjid";//物品id号必改值
 $result = mysql_query($strsql);
 $iniFile->updItem('签到信息', ['签到3' => '2']);
@@ -294,7 +294,7 @@ $qdcs=15;//签到领取
 if($qdxx2['签到次数']>=$qdcs){
 if($qdxx2['签到4']==1){
 include("./sql/mysql.php");//调用数据库连接 
-$q2="qd".$wjid;
+$q2="all_qd";
 $strsql = "update $q2 set qd4=2 where wjid=$wjid";//物品id号必改值
 $result = mysql_query($strsql);
 $iniFile->updItem('签到信息', ['签到4' => '2']);
@@ -393,7 +393,7 @@ if($qdxx2['签到5']==1){
 
 
 include("./sql/mysql.php");//调用数据库连接 
-$q2="qd".$wjid;
+$q2="all_qd";
 $strsql = "update $q2 set qd5=2 where wjid=$wjid";//物品id号必改值
 $result = mysql_query($strsql);
 $iniFile->updItem('签到信息', ['签到5' => '2']);
