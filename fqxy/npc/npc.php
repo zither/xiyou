@@ -1251,7 +1251,6 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>转门派<
 
 
 
-	/*
 	//cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
@@ -1273,8 +1272,6 @@ $cdid[]=$cmid;
 $clj[]=20;
 $npc[]=156;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>传送至攻城战场</font></a>"."<br>";
-
-*/
 
 
 	echo "<font color=red>报名参战正在抓紧制作中</font>"."<br>";
