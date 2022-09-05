@@ -148,12 +148,6 @@ function cz(int $wjid, array $arr)
         include(XY_DIR . "/pz/ini_pz03.php");
     }
 
-    //经验加
-    if ($arr['jy']) {
-        $jy = $arr['jy'];
-        include(XY_DIR . "/pz/ini_pzz023.php");
-    }
-
     //物品加
     if (!empty($arr['wp'])) {
         $wpdz1 = $wpdz2 = $wpdz3 = $wpdz4 = $wpdz5 = [];
@@ -165,6 +159,12 @@ function cz(int $wjid, array $arr)
             $wpdz5[] = 1;//	重量
         }
         include(XY_DIR . "/rwmap/rwget.php");
+    }
+
+    //经验加放在最后，防止直接中断流程
+    if ($arr['jy']) {
+        $jy = $arr['jy'];
+        include(XY_DIR . "/pz/ini_pzz023.php");
     }
 }
 
