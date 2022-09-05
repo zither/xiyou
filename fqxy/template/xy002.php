@@ -400,15 +400,13 @@ if($zsspd==1){
             $npc[]=0;
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【充值】</font></a>";
             */
-            /*
             //cmd及超链接值
             $cmid=$cmid+1;
             $cdid[]=$cmid;
             $clj[]=489;
             $npc[]=0;
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【拍卖】</font></a>";
-            */
-            //echo "<font color=black>◎</font>";
+            echo "<font color=black>◎</font>";
 
 
             if($sw!=2){

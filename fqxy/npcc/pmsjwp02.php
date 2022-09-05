@@ -90,7 +90,7 @@ $maxidd=$maxid+1;
 include("./wp/wpxx.php");
 include("./ini/zt_ini.php");
 $wjmz=($iniFile->getItem('玩家信息','玩家名字'));
-$timex=time(true);
+$timex=time();
 $nowtime=date('Y-m-d H:i:s');
 $q2="all_pm";
 $sql = "insert into $q2 (id,wjid,wjmz,pmtime,pmwpid,pmwpmz,pmwpsl,pmwpjg,pmsjc,pmwpfl)  values('$maxidd','$wjid','$wjmz','$nowtime','$npcc','$wpmz','$sl','$gsjg','$timex','$wpfl')";

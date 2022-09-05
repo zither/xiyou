@@ -19,14 +19,12 @@ if($zsspd==1){
     echo "<font color=black>重量：".$wpzl."</font>"."<br>";
     echo "<font color=black>是否绑定：".$wpbd."</font>"."<br>";
 
-    /*
     //cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=498;
     $npc[]=$npcc;
     echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖拍卖〗</font></a>";
-    */
 
     //echo "<font color=black>◎</font></a>";
     //cmd及超链接值
