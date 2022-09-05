@@ -102,12 +102,11 @@ foreach( $arr3 as $k=>$v) {
     if($tmp1 == $v) unset($arr3[$k]);
 }
 
-$ltmax1=empty($arr3) ? 0 : max($arr3);
-if($ltmax1=="排序"){
-$ltmax1=0;
-	} else{
-	} 
-$ltmax1=$ltmax1+1;
+    $ltmax1=empty($arr3) ? 0 : max($arr3);
+    if($ltmax1=="排序"){
+        $ltmax1=0;
+    }
+$ltmax1=(int)$ltmax1+1;
 $zbidd2=$wjid1."_".$ltmax1;
 
 
