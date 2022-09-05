@@ -150,124 +150,71 @@ if($npcc ==1){//回城卷
 
 } elseif($npcc ==4){//门派专属技能
 
-//调用zt.ini是否存在
-
     include("./ini/zt_ini.php");
-//ini文件名字
     $inina="zt.ini";
-//路径
     $path='ache/'.$wjid;
-//判断ini文件是否存在	
     $ininame = $path."/".$inina;
-# 实例化ini文件操作类，并载入 .ini文件
     $iniFile = new iniFile($ininame);
-# 获取一个分类下某个子项的值
     $mpp1=($iniFile->getItem('玩家信息','门派'));
-
-
-
     if($mpp1==1){
-
         $jjid1=4;
         $jjid2=5;
         $take1="排山倒海";
         $take3="举火烧天";
-
     } elseif($mpp1==2){
         $jjid1=7;
         $jjid2=8;
         $take1="风波未宁";
         $take3="风波十二叉";
-
     } elseif($mpp1==3){
-
         $jjid1=13;
         $jjid2=14;
         $take1="迷魂心法";
         $take3="回梦心法";
-
-
     } elseif($mpp1==4){
         $jjid1=11;
         $jjid2=12;
         $take1="天师正道";
         $take3="五雷咒";
-
     } elseif($mpp1==5){
         $jjid1=9;
         $jjid2=10;
         $take1="佛光普度";
         $take3="如来神掌";
-
-
     } else{
         $jjid1=9;
         $jjid2=10;
-
-
     }
-//调用jn.ini是否存在
     include("./ini/jn_ini.php");
-//ini文件名字
     $inina="jn.ini";
-//路径
     $path='ache/'.$wjid;
-//判断ini文件是否存在	
     $ininame = $path."/".$inina;
-# 实例化ini文件操作类，并载入 .ini文件
     $iniFile = new iniFile($ininame);
-# 获取一个分类下某个子项的值
     $ujnid1=($iniFile->getItem('技能名字',$jjid1));
-# 获取一个分类下某个子项的值
     $ujnid2=($iniFile->getItem('技能名字',$jjid2));
     if ($take1==$ujnid1||$take3==$ujnid2) {
-
-
-
-
         $wpsy=1;//使用失败
         echo "<font color=black>你已经学会了门派专属技能无需再学习！！</font>"."<br>";
-
     } else{
-
-
         include("./sql/mysql.php");//调用数据库连接
-
-
-//获取最大值	
         $q2="jnn";
         $sql = "insert into $q2 (wjid,jnid,jndj)  values($wjid,$jjid1,'1')";
-        if (!mysql_query($sql,$conn))
+        if (!mysql_query($sql))
         {
             die('Error: ' . mysql_error());
         }
-        //include("./sql/mysql.php");//调用数据库连接
         $sql = "insert into $q2 (wjid,jnid,jndj)  values($wjid,$jjid2,'1')";
-
-
-        if (!mysql_query($sql,$conn))
-        {
+        if (!mysql_query($sql)) {
             die('Error: ' . mysql_error());
         }
-//强制更新jn-ini
-        //ini文件名字
+        //强制更新jn-ini
         $inina="jn.ini";
-//路径
         $path='ache/'.$wjid;
-//判断ini文件是否存在	
         $ininame = $path."/".$inina;
-       _unlink($ininame); //删除文件
+        _unlink($ininame); //删除文件
         $wpsy=2;//使用成功
         echo "<font color=black>恭喜你学会了门派专属技能：".$take1."和".$take3."！！</font>"."<br>";
     }
-
-
-
-
-
-
-
-
 
 } elseif($npcc ==8){//腾云符
 

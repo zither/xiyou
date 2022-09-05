@@ -36,14 +36,13 @@ if ($npcc==1) {
 
 
 	echo "<font color=red>渔夫</font>"."<br>";
-
-//cmd及超链接值
+	echo "<font color=black>看起来强壮很结实的渔夫！</font>"."<br>";
+	//cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;
 	$npc[]=$npcc;echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击渔夫</font></a>"."<br>";
-
-	echo "<font color=black>看起来强壮很结实的渔夫！</font>"."<br>";
+    echo npc_rw($wjid, 4, $a1, $cmid, $cdid, $clj, $npc);
 	include("./rwmap/rwpdd2.php");//调用一个npc同时有两个任务
 
 //
@@ -2698,6 +2697,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 	$cdid[]=$cmid;
 	$clj[]=10;
 	$npc[]=$npcc;echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
+	echo npc_rw($wjid, 121, $a1, $cmid, $cdid, $clj, $npc);
 //
 
 } elseif ($npcc==122) {
@@ -3679,12 +3679,13 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 
 
 	echo "<font color=red>$npcname</font>"."<br>";
+	echo "<font color=black>$npctake</font>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;
 	$npc[]=$npcc;echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
-	echo "<font color=black>$npctake</font>"."<br>";
+	echo npc_rw($wjid, 171, $a1, $cmid, $cdid, $clj, $npc);
 	echo "<font color=black>要移动到哪个区域？</font>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
@@ -4148,12 +4149,14 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 	$npcname="痴梦仙姑";
 	$npctake="痴梦仙姑不受金银之谢，但遇有缘者渡之！";
 	echo "<font color=red>$npcname</font>"."<br>";
+	echo "<font color=black>$npctake</font>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;
 	$npc[]=$npcc;echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
-	echo "<font color=black>$npctake</font>"."<br>";
+
+	echo npc_rw($wjid, 190, $a1, $cmid, $cdid, $clj, $npc);
 
 
 	echo "<font color=black>要移动到哪个区域？</font>"."<br>";
@@ -4326,13 +4329,14 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 	$npcname="山门迎客晨月";
 	$npctake="方寸山虽是清修之地，也难断俗尘，为百姓做些消灾避难之事！"."<br>"."一个小道士，负责在山门迎接远道而来的客人。";
 	echo "<font color=red>$npcname</font>"."<br>";
-
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;
 	$npc[]=$npcc;echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
 	echo "<font color=black>$npctake</font>"."<br>";
+
+	echo npc_rw($wjid, 201, $a1, $cmid, $cdid, $clj, $npc);
 	echo "<font color=black>要移动到哪个区域？</font>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
@@ -4624,12 +4628,14 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 	$npcname="知客僧";
 	$npctake="施主～渡海而来！一定辛苦了！里边请茶！";
 	echo "<font color=red>$npcname</font>"."<br>";
+	echo "<font color=black>$npctake</font>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;
 	$npc[]=$npcc;echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
-	echo "<font color=black>$npctake</font>"."<br>";
+
+	echo npc_rw($wjid, 211, $a1, $cmid, $cdid, $clj, $npc);
 	echo "<font color=black>要移动到哪个区域？</font>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;

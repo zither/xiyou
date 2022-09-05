@@ -46,6 +46,7 @@ $clj[]=43;
 $npc[]=$strr1;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>渔夫</font></a>"."<br>";
 } else {
+    echo npc_ts($wjid, 4);
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;

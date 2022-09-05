@@ -14,9 +14,10 @@ if ($rwpd=="") {
     //获取最大值
     $q2="yxrw";
     $sql = "insert into $q2 (wjid,rwid,rwbl,rwmz,ysg,yisg,rwfl)  values('$wjid','$rwidd','1','$rwmz','0','0',$rwfl)";
-    if (!mysql_query($sql,$conn)){
+    if (!mysql_query($sql)){
         die('Error: ' . mysql_error());
     }
+
     include("./ini/zxrw_ini.php");
 } else {
 

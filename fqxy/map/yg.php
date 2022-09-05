@@ -14,6 +14,8 @@ $cdid[]=$cmid;
 $clj[]=7;
 $npc[]=189;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>月宫管家麻姑（装备打造）</font></a>"."<br>";
+
+    echo npc_ts($wjid, 190);
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;

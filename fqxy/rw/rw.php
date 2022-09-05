@@ -23,6 +23,7 @@ $rwstr = $rwstr ?? $rwidd."_".$rwfl;
 $rcrwbl=($iniFile->getItem('任务变量',$rwstr));
 $rw5=$rwfl;
 $rw1=$rwidd;
+
 if ($rcrwbl==1) {
     //任务描述
     echo "<font color=black>{$rwxx['ms1']}</font>"."<br>";
@@ -62,6 +63,14 @@ if ($rcrwbl==1) {
             $ydfy = $rwxx['ksrw_fy'];
             include(XY_DIR . "/rw/ksrw.php");
         }
+        // 继续聊
+        if ($rwxx['jxl_1']) {
+            $cmid = $cmid + 1;
+            $cdid[] = $cmid;
+            $clj[] = 686;
+            $npc[] = $rwxx['id'];
+            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><span style='color: blue'>继续</span></a><br>";
+        }
     }
 } elseif ($rcrwbl==2) {
     if ($rwxx['zdwc']) {
@@ -83,6 +92,14 @@ if ($rcrwbl==1) {
             $ydy = $rwxx['fhrw_y'];
             $ydfy = $rwxx['fhrw_fy'];
             include(XY_DIR . "/rw/ksrw.php");
+        }
+        // 继续聊
+        if ($rwxx['jxl_2']) {
+            $cmid = $cmid + 1;
+            $cdid[] = $cmid;
+            $clj[] = 686;
+            $npc[] = $rwxx['id'];
+            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><span style='color: blue'>继续</span></a><br>";
         }
     } else {
         echo "<font color=black>{$rwxx['ms1']}</font>" . "<br>";
