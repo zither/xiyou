@@ -2,7 +2,7 @@
 
 $arr1 = explode("_",$npcc);
 if (count($arr1) == 2) {
-    $jnid = $arr[0];
+    $jnid = $arr1[0];
     $ckid=$arr1[1];
 } else {
     $jnid = 0;
