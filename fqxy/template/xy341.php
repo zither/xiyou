@@ -30,10 +30,9 @@ $result = mysql_query($strsql);
 $q2="all_bp";
 $strsql = "delete from $q2 where bpid=$bpid ";//物品id号必改值
 $result = mysql_query($strsql);
-$bpbb="bp".$bpid;
-
-$sql = "DROP TABLE $bpbb";
-mysql_query($sql,$conn);
+$bpbb="bp";
+$sql = "delete from $bpbb where bpid = $bpid";
+mysql_query($sql);
 
 
 
