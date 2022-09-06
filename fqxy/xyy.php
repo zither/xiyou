@@ -91,7 +91,7 @@
                 $inina = "yxuser.ini";
                 $path =  XY_DIR  .'/ache/' . $wjini;
                 $ininame = $path . "/" . $inina;
-               _unlink($ininame);
+                _unlink($ininame);
                 $iniFile = new iniFile($ininame);
                 //检测uid是否存在如果存在整么社区号修改过密码需要重新更新游戏数据
             } else {
