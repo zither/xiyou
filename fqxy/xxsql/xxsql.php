@@ -166,11 +166,11 @@ $mysql003 = "jnn";
 //DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 //mysql_query($sql, $conn);
 $sql = "insert into $mysql003 (wjid,jnid,jndj)  values('$wjid','15','1')";
-if (!mysql_query($sql, $conn)) {
+if (!mysql_query($sql)) {
     die('Error: ' . mysql_error());
 }
 $sql = "insert into $mysql003 (wjid,jnid,jndj)  values('$wjid','1','1')";
-if (!mysql_query($sql, $conn)) {
+if (!mysql_query($sql)) {
     die('Error: ' . mysql_error());
 }
 
