@@ -1,49 +1,33 @@
 <?php
-
-
-
-
-
-
 $hff=1;
 $dqwp=0;
-
 if($hff==1){
-if($_POST['submit']){
-$sl= $_POST['sl'];
-$gsjg= $_POST['gsjg'];
-$sll=preg_match('/^\d+$/i', $sl);
-$gsjgl=preg_match('/^\d+$/i', $gsjg);
-$dqwp=1;
-include("gszb02.php");
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
+    if($_POST['submit']){
+        $sl= $_POST['sl'];
+        $gsjg= $_POST['gsjg'];
+        $sll=preg_match('/^\d+$/i', $sl);
+        $gsjgl=preg_match('/^\d+$/i', $gsjg);
+        $dqwp=1;
+        include("gszb02.php");
+    }
 }
 
 if($dqwp==1){
-exit();
+    exit();
 }
-
 
 echo "<font color=black>请输入你要挂售".$wp1."价格</font>"."<br>";
 
+$cmid=$cmid+1;
+$cdid[]=$cmid;
+$clj[]=228;
+$npc[]=$zbid;
+$formurl = sprintf('xy.php?uid=%d&cmd=%d&sid=%s', $wjid, $cmid, $a1);
+
 ?>
-<form  action="" method="POST">
-价格：<input type="tel" name="gsjg" placeholder="价格"id='search'onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"><br>
-<input  type="submit" name="submit"  value="挂售" id="search1"><br>
+<form  action="<?php echo $formurl?>" method="POST">
+    价格：<input type="tel" name="gsjg" placeholder="价格"id='search'onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"><br>
+    <input  type="submit" name="submit"  value="挂售" id="search1"><br>
 </form>
 <?php
 
