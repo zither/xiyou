@@ -26,6 +26,9 @@ $zsspd=0;
 $ininalock="phb15";
 $path='acher/phb';
 $gglockname=$path."/".$ininalock;
+if (!file_exists($gglockname)) {
+    touch($gglockname);
+}
 for($x=0;$x<=30;$x++){
     $fp = fopen($gglockname, "w+");
     if(flock($fp,LOCK_EX | LOCK_NB)){
