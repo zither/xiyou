@@ -4,7 +4,7 @@
 *.txt
 **/all_ip
 **/map/cwd77x?
-**/phb/phb?
+**/phb/phb*
 *.bat
 **/config/config.php
 **/sql/mysql.php
