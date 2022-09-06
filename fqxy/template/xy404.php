@@ -1,6 +1,6 @@
 <?php
 
-echo "<font color=red>小轩西游攻略一览</font>"."<br>";
+echo "<font color=red>幻想西游攻略一览</font>"."<br>";
 	//cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
