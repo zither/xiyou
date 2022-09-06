@@ -34,9 +34,14 @@ $wpsl=0;
 
 echo "<font color=black>你要赠送给".$ckname."(".$ckid.")多少".$wpmz."呢？(最多可赠".$wpsl."个)</font><br>";
 
+$cmid=$cmid+1;
+$cdid[]=$cmid;
+$clj[]=548;
+$npc[]=$npcc;
+$formurl = sprintf('xy.php?uid=%d&cmd=%d&sid=%s', $wjid, $cmid, $a1);
 
 ?>
-<form  action="" method="POST">
+<form  action="<?php echo $formurl?>" method="POST">
 <input  type="text" name="sl" placeholder="请输入数量"id='search'><br>
 <input  type="submit" name="submit" value="赠送"id="search1" ><br>
 </form>

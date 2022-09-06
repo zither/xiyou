@@ -18,9 +18,9 @@ if($bpid==""||$bpid==0){
         $pdbp2=$info1['bpid'];
         if($pdbp2==""){
             $q2="all_bp";
-            $sql1=mysql_query("select MAX(bpid) from $q2");
+            $sql1=mysql_query("select MAX(bpid) as i from $q2");
             $abc=mysql_fetch_array($sql1);
-            $maxid=$abc[0];
+            $maxid=$abc['i'];
             if($maxid ==""){
                 $maxid=0;
                 $maxidd=$maxid+1;
