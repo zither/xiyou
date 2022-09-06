@@ -125,6 +125,13 @@ $clj[]=7;
 $npc[]=21;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>张果老(区域传送)</font></a>"."<br>";
 
+    echo npc_ts($wjid, 10002);
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=7;
+    $npc[]=10002;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>西游补偿大使</font></a>"."<br>";
+
 
 
 

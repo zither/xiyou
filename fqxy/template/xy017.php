@@ -46,7 +46,8 @@ if($zsspd==1){
 
     $jnidd=$npcc;
     //调用技能信息
-    include("./wp/jnxx.php");
+    //include("./wp/jnxx.php");
+    include XY_DIR . '/helper/jn.php';
     $iniFile->updItem('快捷名字', [$szmz => $jnmz]);
 
     echo "<font color=black>成功将".$szmz."设置为了".$jnmz."</font>"."<br>";

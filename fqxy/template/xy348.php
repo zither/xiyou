@@ -22,7 +22,8 @@ if($zsspd==1){
         include("./npc/npcxx.php");
     }
 
-    include("./wp/jnxx.php");
+    //include("./wp/jnxx.php");
+    include XY_DIR . '/helper/jn.php';
     $dgts="<font color=black>你对".$nname."使用了一招".$jnmz."</font>"."<br>";
 
     include("./wj/sh01.php");//调用怪物和自己基础数据

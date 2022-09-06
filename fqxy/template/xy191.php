@@ -6,6 +6,7 @@ if($week==6){
 } else{
     include("./wj/gztime.php");//调用国战时间
 
+
     if($gztime==2){
         echo "<font color=black>报名参与国战的时间已过或者国战已结束,请明天不要再迟到了哦（除周六每天00:00-20:55期间报名）</font>"."<br>";
     } else{

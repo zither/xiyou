@@ -399,6 +399,14 @@ echo "<font color=black>$name</font>"."<font color=black>：前～前辈？</fon
 $jy=5000;	
 include("./pz/ini_pzz023.php");
 
+//获得无名仙法
+    $wpdz1[]="无名仙法";//名字
+    $wpdz2[]=1;//物品分类
+    $wpdz3[]=1107;//物品id
+    $wpdz4[]=1;//	量
+    $wpdz5[]=1;//	重量
+    include("./rwmap/rwget.php");
+
 //任务进程改变
 $rwjc1=73;//任务进程id
 $rwjc2=0;//任务已杀怪

@@ -11,9 +11,12 @@ if($jnidd ==1){
     $jnms="战斗中使用可将对手收为宠物(对玩家无效)";
 } elseif($jnidd ==4){
     $jnmz="排山倒海";
-    $jnms="将军府专用特殊技能";
+    $jnms="酒剑仙传授的仙法";
 } elseif($jnidd ==5){
     $jnmz="举火烧天";
+    $jnms="将军府专用特殊技能";
+} elseif($jnidd ==6){
+    $jnmz="霸王枪";
     $jnms="将军府专用特殊技能";
 } elseif($jnidd ==7){
     $jnmz="风波未宁";

@@ -12,9 +12,7 @@ if (file_exists($file)) {
     $inina = "jn.ini";
     $path = 'ache/' . $wjid;
     $file = $path . "/" . $inina;
-    //创建文件
     file_put_contents($file, "[玩家技能]");
-    # 实例化ini文件操作类，并载入 .ini文件
     $iniFile = new iniFile($file);
     $iniFile->addItem('序列', ['初始' => 123]);
     $iniFile->addItem('技能id', ['初始' => 1]);
@@ -24,7 +22,6 @@ if (file_exists($file)) {
     $q2 = "jnn" ;
     $str = "select id,jnid,jndj from $q2 where wjid=$wjid";
     $result = mysql_query($str) or die('SQL语句有误');
-    //把有值的数据存入一个数组
     $m = 0;
     while (!!$row = mysql_fetch_array($result)) {
         $m = $m + 1;
@@ -32,12 +29,10 @@ if (file_exists($file)) {
         $iniFile->addCategory('技能id', [$m => $row['jnid']]);
         $iniFile->addCategory('技能等级', [$row['jnid'] => $row['jndj']]);
         $jnidd = $row['jnid'];
-        //调用技能信息
-        include("./wp/jnxx.php");
+        //include("./wp/jnxx.php");
+        include XY_DIR . '/helper/jn.php';
         $iniFile->addCategory('技能名字', [$row['jnid'] => $jnmz]);
     }
 }
 
 $iniFile = new iniFile($file);
-
-?>

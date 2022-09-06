@@ -24,6 +24,8 @@ if($iii ==1){//回城卷
 		include("wpsy10.php");
 	} elseif($npcc >=1001&&$npcc<=1100){
 		include("wpsy11.php");
+    } elseif($npcc >=1101&&$npcc<=1200){
+        include("wpsy12.php");
 	} else{
 		include("wpsyts.php");
 	}

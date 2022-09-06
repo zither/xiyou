@@ -76,7 +76,8 @@ if($zsspd==1){
 
     $jnidd=$npcc;
     //调用技能信息
-    include("./wp/jnxx.php");
+    //include("./wp/jnxx.php");
+    include XY_DIR . '/helper/jn.php';
     echo "<font color=red>".$jnmz."</font>"."<br>";
     echo "<font color=black>等级:".$ujndj."级</font>"."<br>";
     echo "<font color=black>描述:</font>".$jnms."<br>";

@@ -11,7 +11,8 @@ include("npc/npcxx.php");//攻击模板
 
 
 
-include("./wp/jnxx.php");
+//include("./wp/jnxx.php");
+include XY_DIR . '/helper/jn.php';
 $dgts="<font color=black>你对".$nname."使用了一招".$jnmz."</font>"."<br>";
 include("./wj/sh01.php");//调用怪物和自己基础数据
 include("./wj/sh02.php");//运算伤害数据

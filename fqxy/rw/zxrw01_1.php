@@ -7,7 +7,7 @@ $npcname="村长";
 if ($rid==1) {
 echo "<font color=black>村长：【</font>"."<font color=black>$name</font>"."<font color=black>】你来了，是这样的，村外沙滩上出现了很多具有攻击性的螃蟹，你去帮我除掉一些！
 </font>"."<br>";
-echo "<font color=red>欢迎来到番茄西游（温馨提示，使用新手礼包，戴上装备，用门派技能去杀螃蟹！）</font>"."<br>";
+echo "<font color=red>欢迎来到幻想西游（温馨提示，使用新手礼包，戴上装备去杀螃蟹！）</font>"."<br>";
 
 //快速任务
 $ydx=0;//移动坐标x

@@ -95,54 +95,29 @@ if($npcc ==1){//回城卷
 } elseif($npcc ==3){//捕捉
 //调用jn.ini是否存在
     include("./ini/jn_ini.php");
-
-
-//ini文件名字
     $inina="jn.ini";
-//路径
     $path='ache/'.$wjid;
-//判断ini文件是否存在	
     $ininame = $path."/".$inina;
-# 实例化ini文件操作类，并载入 .ini文件
     $iniFile = new iniFile($ininame);
-
     $jnid=3;
-# 获取一个分类下某个子项的值
     $ujnid=($iniFile->getItem('技能名字',$jnid));
     if ($ujnid=="捕捉") {
         $wpsy=1;//使用失败
         echo "<font color=black>你已经学会了宠物捕捉技能无需再学习！！</font>"."<br>";
-
     } else{
-
-
         include("./sql/mysql.php");//调用数据库连接
-
-
-//获取最大值	
         $q2="jnn";
         $sql = "insert into $q2 (wjid,jnid,jndj)  values($wjid,'3','1')";
-        if (!mysql_query($sql,$conn))
-        {
+        if (!mysql_query($sql,$conn)) {
             die('Error: ' . mysql_error());
         }
-//强制更新jn-ini
-        //ini文件名字
         $inina="jn.ini";
-//路径
         $path='ache/'.$wjid;
-//判断ini文件是否存在	
         $ininame = $path."/".$inina;
-       _unlink($ininame); //删除文件
-
-
+        _unlink($ininame); //删除文件
 
         $wpsy=2;//使用成功
         echo "<font color=black>恭喜你学会了宠物捕捉技能！！</font>"."<br>";
-
-
-
-
     }
 
 
@@ -157,10 +132,10 @@ if($npcc ==1){//回城卷
     $iniFile = new iniFile($ininame);
     $mpp1=($iniFile->getItem('玩家信息','门派'));
     if($mpp1==1){
-        $jjid1=4;
-        $jjid2=5;
-        $take1="排山倒海";
-        $take3="举火烧天";
+        $jjid1=5;
+        $jjid2=6;
+        $take1="举火烧天";
+        $take3="霸王枪";
     } elseif($mpp1==2){
         $jjid1=7;
         $jjid2=8;

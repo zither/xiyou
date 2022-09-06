@@ -63,7 +63,8 @@ $jnidd=$npcc;
 include("./ini/pkxx_ini.php");
 $nwjxx=($iniFile->getCategory('怪物1号属性'));
 
-include("./wp/jnxx.php");
+//include("./wp/jnxx.php");
+    include XY_DIR . '/helper/jn.php';
 if($ncww02 ==2){//优先获得宠物数据
 echo "<font color=black>你对".$nwjxx['名字']."的".$ncww01."使用了一招".$jnmz."</font>"."<br>";
 } else{
