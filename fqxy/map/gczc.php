@@ -83,7 +83,6 @@ if($yjf <=0){
     echo "<font color=black>".$yjf."分".$yjm."秒</font>"."<br>";
 }
 
-$gzjs=0;
 //国战结束
 if($gzjs==1){
     include("template/xy397.php");
@@ -105,7 +104,7 @@ include("./ini/gz06_ini.php");//更新防守时间
 $hdtime=($iniFile->getItem('防守时间','初始'));
 $fsgj=($iniFile->getItem('防守国家','初始'));
 $fsgjid=($iniFile->getItem('防守国家id','初始'));
-$vipqytime=300;//秒数30分钟
+$vipqytime=300;//秒数5分钟
 if ($hdtime!="") {
     $startdate=$hdtime;
     $enddate=date('Y-m-d H:i:s');
