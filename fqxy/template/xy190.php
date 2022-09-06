@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 /*
 //更新国家积分榜
 include("./ini/gz03_ini.php");
@@ -65,82 +62,80 @@ $mt=$mt+1;
 
 
 
-
-
-
-
 include("./ini/gz01_ini.php");
 
 $zlf1=($iniFile->getItem('国家名字','1'));
 if($zlf1 ==""){
-$zlf1="未";
+    $zlf1="未";
 } else{
 }
 $zlf2=($iniFile->getItem('国家名字','2'));
 if($zlf2 ==""){
-$zlf2="未";
+    $zlf2="未";
 } else{
 }
 $zlf3=($iniFile->getItem('国家名字','3'));
 if($zlf3 ==""){
-$zlf3="未";
+    $zlf3="未";
 } else{
 }
 $zlf4=($iniFile->getItem('国家名字','4'));
 if($zlf4 ==""){
-$zlf4="未";
+    $zlf4="未";
 } else{
 }
 $zlf5=($iniFile->getItem('国家名字','5'));
 if($zlf5 ==""){
-$zlf5="未";
+    $zlf5="未";
 } else{
 }
 $zlf7=($iniFile->getItem('国家名字','7'));
 if($zlf7 ==""){
-$zlf7="未";
+    $zlf7="未";
 } else{
 }
+
 $weekarray=array("7","1","2","3","4","5","6");
 $week=$weekarray[date("w")];
+
 if($week ==6){
-$zlgj="无";
-$gjjz="休整";
+    $zlgj="无";
+    $gjjz="休整";
 } else{
-$zlgj=($iniFile->getItem('国家名字',$week));
-$gjjz=($iniFile->getItem('君主名字',$week));
-if($zlgj ==""){
-$zlgj="无";
-$gjjz="无";
-}
+    $zlgj=($iniFile->getItem('国家名字',$week));
+    $gjjz=($iniFile->getItem('君主名字',$week));
+    if($zlgj ==""){
+        $zlgj="无";
+        $gjjz="无";
+    }
 }
 
 
 
 
 if($week ==1){
-$zcwz="傲来国";
-$kfsj="今天21:00-21:30";
+    $zcwz="傲来国";
+    $kfsj="今天21:00-21:30";
 } elseif($week ==2){
-$zcwz="宝象国";
-$kfsj="今天21:00-21:30";
+    $zcwz="宝象国";
+    $kfsj="今天21:00-21:30";
 } elseif($week ==3){
-$zcwz="乌鸡国";
-$kfsj="今天21:00-21:30";
+    $zcwz="乌鸡国";
+    $kfsj="今天21:00-21:30";
 } elseif($week ==4){
-$zcwz="女儿国";
-$kfsj="今天21:00-21:30";
+    $zcwz="女儿国";
+    $kfsj="今天21:00-21:30";
 } elseif($week ==5){
-$zcwz="车迟国";
-$kfsj="今天21:00-21:30";
+    $zcwz="车迟国";
+    $kfsj="今天21:00-21:30";
 } elseif($week ==6){
-$zcwz="无";
-$kfsj="休整";
+    $zcwz="无";
+    $kfsj="休整";
 } elseif($week ==7){
-$zcwz="祭赛国";
-$kfsj="今天21:00-21:30";
+    $zcwz="祭赛国";
+    $kfsj="今天21:00-21:30";
 } else{
-$zcwz="无";
+    $zcwz="无";
 
 }
 
@@ -177,11 +172,3 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回游�
 echo "<font color=black>----------------------</font>"."<br>";
 //cmd及超链接值
 include("fhgame.php");
-
-
-
-
-
-
-
-?>
