@@ -1,4 +1,7 @@
 <?php
+include_once __DIR__ . '/../includes/constants.php';
+include_once ROOT . '/sql/mysql.php';
+
 session_start();
 $message = empty($_SESSION['message']) ? '' : $_SESSION['message'];
 $error = empty($_SESSION['error']) ? '' : $_SESSION['error'];
@@ -10,8 +13,6 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
             throw new InvalidArgumentException('无效用户名或密码');
         }
         $username = $_POST['username'];
-        //连接数据库
-        include(__DIR__ . "/../sql/mysql.php");//调用数据库连接
         $sql = mysql_query("select uid,password,name from o_user_list where username='$username'");
         $info1 = mysql_fetch_array($sql);
         if (empty($info1)) {

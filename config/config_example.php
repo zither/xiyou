@@ -2,6 +2,7 @@
 
 //家园地址
 $config['jy_url'] = 'http://127.0.0.1';
+
 //分区列表
 $config['urls'] = [
     [
@@ -17,6 +18,15 @@ $config['urls'] = [
         'status' => 0, // 无效分区示例，请勿修改
     ],
 ];
+
+//家园数据库配置
+$config['mysql'] = [
+    'host' => 'localhost',
+    'user' => 'root',
+    'password' => 'root',
+    'database' =>'xxjyuser',
+];
+
 //是否开启调试信息
 $config['debug'] = false;
 

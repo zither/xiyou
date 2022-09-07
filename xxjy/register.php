@@ -1,4 +1,6 @@
 <?php
+include_once __DIR__ . '/../includes/constants.php';
+include_once ROOT . '/sql/mysql.php';
 
 session_start();
 $message = empty($_SESSION['message']) ? '' : $_SESSION['message'];
@@ -34,9 +36,6 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         $zczh3 = $_POST['zc3']; // 确认密码
         $zczh6 = $_POST['zc6']; // 昵称
         $zczh4 = $_POST['zc4']; // 安全码
-
-        //连接数据库
-        include("../sql/mysql.php");//调用数据库连接
 
         //查询账号是否已占有
         $q2 = "o_user_list";

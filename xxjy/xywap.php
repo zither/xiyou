@@ -1,8 +1,7 @@
 <?php
-
 include_once __DIR__ . '/../includes/constants.php';
+include_once ROOT . '/sql/mysql.php';
 include_once ROOT . '/class/iniclass.php';
-
 
 $wjid = $_GET['wjid'];
 $password = $_GET['pass'];

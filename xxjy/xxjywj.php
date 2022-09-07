@@ -1,4 +1,6 @@
 <?php
+include_once __DIR__ . '/../includes/constants.php';
+include_once ROOT . '/sql/mysql.php';
 
 session_start();
 $message = empty($_SESSION['message']) ? '' : $_SESSION['message'];
@@ -22,8 +24,6 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         $zczh3 = $_POST['zc3'];
         $zczh4 = $_POST['zc4'];
 
-        //连接数据库
-        include("../sql/mysql.php");//调用数据库连接
         $user=0;
         $sql=mysql_query("select * from o_user_list where username='$zczh1'");
         $info1=@mysql_fetch_array($sql);
