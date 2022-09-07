@@ -8,6 +8,8 @@ include("template/xy302.php");//活动领取
 include("template/xy303.php");//石头升级
 } elseif($cmdd==304){   
 include("template/xy304.php");//石头升级
+} elseif($cmdd==305){
+    include("template/xy305.php");//重置快捷键
 } elseif($cmdd==306){   
 include("template/xy306.php");//VIP特权介绍
 } elseif($cmdd==307){   
