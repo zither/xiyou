@@ -89,7 +89,7 @@
     include_once XY_DIR . '/helper/show_message.php';
 
     $file = sprintf("%s/ache/%s/user.ini", XY_DIR, $wjid);
-    if (file_exists($file)) {
+    if ($wjid && file_exists($file)) {
         //判断特征码是否合法 后面那一串验证数字hash
         include XY_DIR . '/ini/user_ini.php';
         $tzm = $iniFile->getItem('验证信息', '玩家游戏码');
