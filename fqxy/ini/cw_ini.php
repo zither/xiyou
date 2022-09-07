@@ -4,7 +4,6 @@
 $inina="cw.ini";
 $path='ache/'.$wjid;
 $file = $path."/".$inina;
-include("./sql/mysql.php");//调用数据库连接
 if(file_exists($file)){
 
 } else{
@@ -49,9 +48,9 @@ if(file_exists($file)){
     $m=0;
     while(!!$row=mysql_fetch_array($result)) {
         $m=$m+1;
-        $npcc=$row['cwid'];
+        $npcc0=$row['cwid'];
         $npcc1=$row['id'];
-        $cwidd=$npcc."_".$npcc1;
+        $cwidd=$npcc0."_".$npcc1;
         $iniFile->addCategory('序列', [$cwidd=>$m ]);
         $iniFile->addCategory('宠物id', [$cwidd=> $cwidd]);
         $iniFile->addCategory('宠物名字', [$cwidd=> $row['cwmz']]);
@@ -60,7 +59,7 @@ if(file_exists($file)){
         $iniFile->addCategory('宠物变异', [$cwidd=> $row['cwby']]);
         $iniFile->addCategory('宠物品质', [$cwidd=> $row['cwxb']]);
         $iniFile->addCategory('宠物出战状态', [$cwidd=> $row['cwcz']]);
-        $cwid=$npcc;
+        $cwid=$npcc0;
 //调用宠物基础信息
         include("./cw/cwxx.php");
         $iniFile->addCategory('宠物原始名字', [$cwidd=> $nname]);
@@ -83,5 +82,3 @@ if(file_exists($file)){
 }
 
 $iniFile = new iniFile($file);
-
-?>

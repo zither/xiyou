@@ -21,7 +21,7 @@ if($rw1 ==1){//按照npc进行分支每10个一个php文件
     } elseif($npcc==163||$npcc==202||$npcc==204||$npcc==143||$npcc==20||$npcc==84||$npcc==463||$npcc==120||$npcc==466||$npcc==697){
         include("zxrw01_3.php");
     } else{
-        echo "<font color=black>没有这个任务变量编号".$rw2."请尝试联系gm解决此问题！！</font><br>";
+        echo "<font color=black>#zx 没有这个任务变量编号".$rw2."请尝试联系gm解决此问题！！</font><br>";
     }
 } else{
     echo "<font color=black>没有这个任务id编号".$rw1."请尝试联系gm解决此问题！！</font><br>";

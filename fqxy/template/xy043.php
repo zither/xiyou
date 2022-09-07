@@ -4,6 +4,7 @@
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");
 if($zsspd==1){
+    $kknpc = $npcc;
     $arr = explode("_",$npcc);
     $str1=$arr[0];
     $str2=$arr[1];
@@ -44,7 +45,9 @@ if($zsspd==1){
     }
 
 
-    if($str3==5196||$str3==5197||$str3==500){
+    //无效NPCID，在npc.php 中不存在，不能返回
+    $bfh = [695, 696];
+    if($str3==5196||$str3==5197||$str3==500 || in_array($str3, $bfh)){
 
     } else{
         echo "<br>";

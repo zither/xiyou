@@ -7,9 +7,6 @@ $wpbv3=0;
 for($d=0;$d<$ccm;$d++){
     $ii=$ii+1;
     $wpbv3=$wpbv3+1;
-    if ($wpbv3==1) {//符合条件爆出
-        include("./sql/mysql.php");//调用数据库连接
-    }
     if ($wpdz2[$ii]==3) {//装备
         $jjmz=$wpdz1[$ii];
         $wwpfl=$wpdz2[$ii];//物品分类

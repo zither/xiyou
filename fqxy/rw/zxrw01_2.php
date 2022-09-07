@@ -448,11 +448,11 @@ $wpdz3[]=244;//物品id
 $wpdz4[]=15;//	量
 $wpdz5[]=1;//	重量
 
+    //备份 $npcc 值
+$bfnpcc = $npcc;
 include("./rwmap/rwget.php");
+$npcc = $bfnpcc;
 //物品加
-
-
-
 
 //任务进程改变
 $rwjc1=100;//任务进程id

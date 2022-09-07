@@ -22,7 +22,6 @@ if (file_exists($file)) {
     $iniFile->addItem('要杀怪', ['初始' => 123]);
     $iniFile->addItem('任务分类', ['初始' => 123]);
     $iniFile->addItem('任务名字', ['初始' => 123]);
-    include("./sql/mysql.php");//调用数据库连接
 
     $q2 = "yxrw";
     $str = "select * from $q2 where wjid=$wjid";
