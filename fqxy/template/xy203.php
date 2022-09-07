@@ -30,22 +30,22 @@ echo "<br>";
 
 
 
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=299;
-$npc[]=1;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻略大全</font></a>";
-echo "<font color=black>-</font>";
-
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=299;
-$npc[]=2;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>在线客服</font></a>";
-
-echo "<br>";
+////cmd及超链接值
+//$cmid=$cmid+1;
+//$cdid[]=$cmid;
+//$clj[]=299;
+//$npc[]=1;
+//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻略大全</font></a>";
+//echo "<font color=black>-</font>";
+//
+////cmd及超链接值
+//$cmid=$cmid+1;
+//$cdid[]=$cmid;
+//$clj[]=299;
+//$npc[]=2;
+//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>在线客服</font></a>";
+//
+//echo "<br>";
 
 
 
