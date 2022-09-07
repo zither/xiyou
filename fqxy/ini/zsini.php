@@ -2,15 +2,8 @@
 
 if ($wjid==10000001) {//gm号可看
     echo "<font color=black>操作ID：</font>".$wjid."<br>";
-} else{
-
 }
 
-$zspd=0;
-$zsspd=0;
-if (!empty($fp)) {
-    //flock($fp, LOCK_NB);
-}
 //路径
 $path='./ache/'.$wjid;
 $gglockname=$path."/".$ininalock;
@@ -21,8 +14,6 @@ for($x=0;$x<=30;$x++){
     $fp = fopen($gglockname, "w+");
     if(flock($fp,LOCK_EX | LOCK_NB)){
         $zsspd=1;
-        //flock($fp,LOCK_EX);
-        //sleep(1);
         break;
     }else{
         //排队等待
