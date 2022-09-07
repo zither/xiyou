@@ -1,6 +1,7 @@
 <?php
 
-
+//使用原始NPC值
+$rw10 = $kknpcid ?? $rw10;
 $rwcurl=$rw1."_".$rw5."_".$rw10;
 
 //cmd及超链接值

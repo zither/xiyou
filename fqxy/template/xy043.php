@@ -4,15 +4,19 @@
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");
 if($zsspd==1){
-    $kknpc = $npcc;
+    //备份原始值
+    $kknpcc = $npcc;
     $arr = explode("_",$npcc);
     $str1=$arr[0];
     $str2=$arr[1];
     $str3=$arr[2];
-    $npcc=$str3;
+    //备份npcid
+    $kknpcid = $npcc = $str3;
     $str4=$str1."_".$str2;
 
     include("./npc/npcxx.php");//取得npc名字
+    // 备份NPC名字
+    $kknpcmz = $nname;
 
     $ckmb=43;
     include("./ini/zt_ini.php");
@@ -55,8 +59,8 @@ if($zsspd==1){
         $cmid=$cmid+1;
         $cdid[]=$cmid;
         $clj[]=7;
-        $npc[]=$str3;
-        echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回".$nname."</font></a>"."<br>";
+        $npc[]=$kknpcid;
+        echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回".$kknpcmz."</font></a>"."<br>";
     }
     echo "<br>";
 
