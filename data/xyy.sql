@@ -830,24 +830,8 @@ CREATE TABLE `gz01` (
   `gjjz` text NOT NULL,
   `gjjzid` int(11) NOT NULL,
   `czz` text NOT NULL,
-  `czzid` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `gz02`
---
-
-DROP TABLE IF EXISTS `gz02`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `gz02` (
-  `id` int(11) NOT NULL,
-  `gjmz` text NOT NULL,
-  `gjid` int(11) NOT NULL,
-  `jzmz` text NOT NULL,
-  `jzid` int(11) NOT NULL,
-  `gjjf` int(11) NOT NULL
+  `czzid` int(11) NOT NULL,
+  `zlsj` char(8) NOT NULL DEFAULT '' COMMENT '占领时间'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -860,12 +844,15 @@ DROP TABLE IF EXISTS `gz03`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `gz03` (
   `id` int(11) NOT NULL,
-  `gjmz` text NOT NULL,
-  `gjid` int(11) NOT NULL,
-  `jzmz` text NOT NULL,
-  `jzid` int(11) NOT NULL,
-  `gjjf` int(11) NOT NULL,
-  `lq` int(11) NOT NULL
+  `gjmz` varchar(16) NOT NULL DEFAULT '',
+  `gjid` int(11) NOT NULL DEFAULT 0,
+  `jzmz` varchar(16) NOT NULL DEFAULT '',
+  `jzid` int(11) NOT NULL DEFAULT 0,
+  `zjf` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '周积分',
+  `rjf` int(11) NOT NULL DEFAULT 0 COMMENT '日积分',
+  `cjsj` char(8) NOT NULL DEFAULT '' COMMENT '参加时间',
+  `zlq` int(11) NOT NULL DEFAULT 0,
+  `rlq` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '日领取'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -877,11 +864,16 @@ DROP TABLE IF EXISTS `gz04`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `gz04` (
-  `id` int(11) NOT NULL,
-  `wjname` text NOT NULL,
-  `wjid` int(11) NOT NULL,
-  `wjgzjf` int(11) NOT NULL,
-  `wjlq` int(11) NOT NULL
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `wjid` int(11) NOT NULL DEFAULT 0,
+  `wjmz` varchar(16) NOT NULL,
+  `zjf` int(11) NOT NULL DEFAULT 0 COMMENT '周积分',
+  `rjf` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '日积分',
+  `swcs` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '死亡次数',
+  `swsj` timestamp NULL DEFAULT NULL COMMENT '死亡时间',
+  `cjsj` char(8) NOT NULL DEFAULT '' COMMENT '参加时间',
+  `lq` int(11) NOT NULL DEFAULT 0 COMMENT '是否领取',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -896,6 +888,22 @@ CREATE TABLE `gz05` (
   `id` int(11) NOT NULL,
   `gztime` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `gz06`
+--
+
+DROP TABLE IF EXISTS `gz06`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `gz06` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `fsgjid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '防守国家id',
+  `fsgj` varchar(16) NOT NULL DEFAULT '' COMMENT '防守国家',
+  `fssj` timestamp NULL DEFAULT NULL COMMENT '防守时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1267,6 +1275,10 @@ CREATE TABLE `zzck` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping events for database 'xyy'
+--
+
+--
 -- Dumping routines for database 'xyy'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1279,4 +1291,4 @@ CREATE TABLE `zzck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-30  0:02:16
+-- Dump completed on 2022-09-08 21:06:17
