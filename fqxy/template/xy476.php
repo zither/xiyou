@@ -127,8 +127,8 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>回春药�
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=123;
-$npc[]=4;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>镖局</font></a>";
+$npc[]=68;
+echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>国战</font></a>";
 echo "<font color=black>|</font></a>";
 
 //cmd及超链接值
