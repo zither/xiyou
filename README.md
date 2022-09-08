@@ -11,8 +11,9 @@
 ## 代码演示
  - http://81.68.206.179:81
 
-## 技术栈
-php + mysql
+## 运行环境
+- php 7.4
+- mysql 5.7+
 
 ## 项目运行
 1. 新建 xyy 和 xxjyuser 数据库，并导入 data 目录中的数据表
@@ -20,12 +21,10 @@ php + mysql
 4. 复制 fqxy/config/config_example.php，重命名为 fqxy/config/config.php，修改分区地址和数据库配置
 6. 通过域名进行访问
 
-## 运行环境
-- php 7.4
-- mysql 5.7.22
-
 ## 技术交流
 qq群：39387037
+
+交流群仅限游戏代码修复、优化、增加新功能等技术讨论，不提供游戏源码安装等基础问题咨询，谢谢配合。
 
 ![群二维码](images/qun.jpg)
 
