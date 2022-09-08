@@ -143,8 +143,8 @@ echo "<font color=black>|</font></a>";
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=123;
-$npc[]=6;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>装备锻造</font></a>"."<br>";
+$npc[]=69;
+echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>房屋交易</font></a>"."<br>";
 
 echo "<font color=black>【主城区域】</font></a>"."<br>";
 

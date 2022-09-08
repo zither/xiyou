@@ -579,6 +579,12 @@ if($zsspd==1){
                 'dtx' => 1,
                 'dty' => 25,
             ],
+            [
+                'npcc' => 69,
+                'mz' => '房屋管理所',
+                'dtx' => 70,
+                'dty' => 4,
+            ],
         ];
         $cs = [];
         foreach ($didian as $v) {
