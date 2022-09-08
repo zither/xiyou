@@ -106,7 +106,7 @@ echo "<font color=black>进入住宅出现问题请联系小轩GM解决</font>".
 
 
 } else{	
-echo "<font color=black>你暂时还没有住宅,请前往开封广场进行选购</font>"."<br>";
+echo "<font color=black>你暂时还没有住宅,请前往房屋管理所进行选购</font>"."<br>";
 }
 
 
