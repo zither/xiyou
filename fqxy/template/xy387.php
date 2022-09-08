@@ -33,73 +33,9 @@ if($bossid==1||$bossid==2){//国战大门中门
         echo "<font color=black>".$nname."被你打死了！！！</font>"."<br>";
 
         //增加国战积分
-        include("./ini/gz03_ini.php");
-        $gjjf=($iniFile->getItem('国家积分',$bpid));
-        $gjjf=$gjjf+10;
-        include("./ini/bpp_ini.php");
-        $xl=($iniFile->getItem('序列',$wjid));
-        $gj06=($iniFile->getItem('国战积分',$xl));
-
-        if($xl >=1){
-            $bpjf=$gj06+10;
-            include("./ini/gz03_ini.php");
-            $iniFile->updItem('国家积分', [$bpid => $gjjf]);
-            include("./ini/gz02_ini.php");
-            $xl=($iniFile->getItem('idd',$bpid));
-            if($xl >=1){
-                $iniFile->updItem('国家积分', [$xl => $gjjf]);
-                include("./ini/bpp_ini.php");
-                $xl=($iniFile->getItem('序列',$wjid));
-                $iniFile->updItem('国战积分', [$xl => $bpjf]);
-
-                //将积分写入排行榜
-                include("./ini/gz04_ini.php");
-                $jfpd=($iniFile->getItem('玩家id', $wjid));
-                if($jfpd!=""){
-                    $db = DB::instance();
-                    $db->update('gz04', ['wjgzjf' => $bpjf], ['wjid' => $wjid]);
-
-                    $inina="gz04.ini";
-                    $path='acher/guoz';
-                    $file = $path."/".$inina;
-                    _unlink($file);
-
-                    //TODO 这里直接用国家积分需要检查是否正确
-                    //include("./ini/gz04_ini.php");
-                    //$iniFile->updItem('个人积分', [$wjid => $gjjf]);
-                } else{
-                    $q2="gz04";
-                    $sql1=mysql_query("select MAX(id) from $q2");
-                    $abc=mysql_fetch_array($sql1);
-                    $maxid=$abc[0];
-                    if($maxid ==""){
-                        $maxid=0;
-                    }
-                    include("./ini/zt_ini.php");
-                    $uname=($iniFile->getItem('玩家信息','玩家名字'));
-                    $q2="gz04";
-                    $maxidd=$maxid+1;
-                    //TODO 需要检查到底是gjjf还是bpjf
-                    $sql = "insert into $q2 (id,wjid,wjname,wjgzjf,wjlq)  values('$maxidd','$wjid','$uname','$bpjf','1')";
-                    if (!mysql_query($sql,$conn)) {
-                        die('Error: ' . mysql_error());
-                    }
-
-                    //更新缓存数据
-                    $inina="gz04.ini";
-                    $path='acher/guoz';
-                    $ininame = $path."/".$inina;
-                    _unlink($ininame); //删除文件
-                }
-
-                echo "<font color=blue>击杀敌对国家玩家获得国家积分+10，个人积分+10</font>"."<br>";
-            } else{
-                echo "<font color=blue>不会获得任何积分（造成这种情况因为之前参加国战后没有出去过，请自行解决否则不会获得任何积分）</font>"."<br>";
-            }
-        } else{
-            echo "<font color=blue>不会获得任何积分（造成这种情况因为之前参加国战后没有出去过，请自行解决否则不会获得任何积分）</font>"."<br>";
-        }
-
+        gz03_zj($bpid, 10);
+        gz04_zj($wjid, 10);
+        echo "<font color=blue>击杀敌对国家玩家获得国家积分+10，个人积分+10</font>"."<br>";
         $xtxx="【神兽守卫】已被".$bpmz."的".$uname."击杀了，请防守方加强防守！！";
         include("./msg/msgg02.php");
         echo "<font color=black>获得国家积分+10</font>"."<br>";

@@ -1,6 +1,7 @@
 <?php
 
-include("./acher/guoz/zlbp.php");
+$zlbp = zlbp(zcid());
+
 include("./ini/wjxtbl_ini.php");
 $dzzx=($iniFile->getItem('国战变量','夺仗'));
 if($zlbp==$dzzx){
@@ -45,8 +46,7 @@ if($gjqz==1){
     exit;
 }
 
-$weekarray=array("7","1","2","3","4","5","6");
-$week=$weekarray[date("w")];
+$week = zcid();
 if($week ==1){
     $zcwz="傲来国";
 } elseif($week ==2){
@@ -57,13 +57,11 @@ if($week ==1){
     $zcwz="女儿国";
 } elseif($week ==5){
     $zcwz="车迟国";
-} elseif($week ==6){
-    $zcwz="无";
-    $kfsj="休整";
 } elseif($week ==7){
     $zcwz="祭赛国";
 } else{
     $zcwz="无";
+    $kfsj="休整";
 }
 $gzjs=0;
 $i= date('i')*1;
@@ -83,6 +81,8 @@ if($yjf <=0){
     echo "<font color=black>".$yjf."分".$yjm."秒</font>"."<br>";
 }
 
+//开发测试
+//$gzjs = 0;
 //国战结束
 if($gzjs==1){
     include("template/xy397.php");
@@ -100,23 +100,29 @@ if($zlbp==$bpid){
 } else{
     echo "<font color=black>【国家状态】--进攻方--</font>"."<br>";
 }
-include("./ini/gz06_ini.php");//更新防守时间
+
+include(XY_DIR . "/ini/gz06_ini.php");//更新防守时间
 $hdtime=($iniFile->getItem('防守时间','初始'));
 $fsgj=($iniFile->getItem('防守国家','初始'));
 $fsgjid=($iniFile->getItem('防守国家id','初始'));
 $vipqytime=300;//秒数5分钟
-if ($hdtime!="") {
-    $startdate=$hdtime;
-    $enddate=date('Y-m-d H:i:s');
-    $minute=floor((strtotime($enddate)-strtotime($startdate)));
-    if($minute >= $vipqytime){
-        $vipqy=2;
+if (!$fsgjid) {
+    $vipqy = 2;
+} else {
+    if ($hdtime!="") {
+        $startdate=$hdtime;
+        $enddate=date('Y-m-d H:i:s');
+        $minute=floor((strtotime($enddate)-strtotime($startdate)));
+        if($minute >= $vipqytime){
+            $vipqy=2;
+        } else{
+            $vipqy=1;
+        }
     } else{
         $vipqy=1;
     }
-} else{
-    $vipqy=1;
 }
+
 
 if($vipqy ==1){
     echo "<font color=black>【".$fsgj."】防守</font>";
@@ -129,23 +135,17 @@ if($vipqy ==1){
         echo "<font color=black>[".$second."秒]</font>";
     }
 } else{
-    //增加国战积分
-    $bpid=$fsgjid;
-    include("./ini/gz03_ini.php");
-    $gjjf=($iniFile->getItem('国家积分',$bpid));
-    $gjjf=$gjjf+10;
-    $iniFile->updItem('国家积分', [$bpid => $gjjf]);
-    include("./ini/gz02_ini.php");
-    $xl=($iniFile->getItem('idd',$bpid));
-    if($xl >=1){
-        $iniFile->updItem('国家积分', [$xl => $gjjf]);
+    if ($fsgj) {
+        //增加国战积分
+        $bpid = $fsgjid;
+        gz03_zj($bpid, 10);
         include("./ini/gz06_ini.php");//更新防守时间
-        $enddate=date('Y-m-d H:i:s');
+        $enddate = date('Y-m-d H:i:s');
         $iniFile->updItem('防守时间', ['初始' => $enddate]);
         $iniFile->updItem('防守国家', ['初始' => $fsgj]);
         $iniFile->updItem('防守国家id', ['初始' => $bpid]);
         //增加国战积分
-        $xtxx=$fsgj."防守5分钟成功！！获得国家积分+10，请进攻国抓紧时间拿下权杖";
+        $xtxx = $fsgj . "防守5分钟成功！！获得国家积分+10，请进攻国抓紧时间拿下权杖";
         include("./msg/msgg02.php");
     }
 }
@@ -1688,8 +1688,6 @@ if ($dty==0) {
 
     //出口
     echo "<font color=black>请选择出口</font>"."<br>";
-
-
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=5;

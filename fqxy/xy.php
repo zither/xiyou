@@ -43,8 +43,10 @@
     $wjid = empty($_SESSION['uid']) ? 0 : $_SESSION['uid'];
 
     //调用iniclass文件
-    include_once ROOT . '/class/iniclass.php';
+    include_once XY_DIR . '/class/iniclass.php';
     include_once XY_DIR . '/helper/show_message.php';
+    include_once XY_DIR . '/helper/gz.php';
+    include_once XY_DIR . '/helper/wj.php';
 
     $file = sprintf("%s/ache/%s/user.ini", XY_DIR, $wjid);
     if ($wjid && file_exists($file)) {

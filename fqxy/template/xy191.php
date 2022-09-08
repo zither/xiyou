@@ -1,10 +1,12 @@
 <?php
-$weekarray=array("7","1","2","3","4","5","6");
-$week=$weekarray[date("w")];
+
+//当日攻城的主城编号
+$week = zcid();
 if($week==6){
     echo "<font color=black>全体人员进行休整今天不开放国战哦！请于明天再来（周六停战）</font>"."<br>";
 } else{
     include("./wj/gztime.php");//调用国战时间
+    //开发调试
     if($gztime==2){
         echo "<font color=black>报名参与国战的时间已过或者国战已结束,请明天不要再迟到了哦（除周六每天00:00-20:55期间报名）</font>"."<br>";
     } else{
@@ -19,45 +21,14 @@ if($week==6){
             $bp=($iniFile->getCategory('国家信息'));
             $xbzmz=$bp['现任君主'];
             $xwjid=$bp['现任君主id'];
+
             //判断攻城报名表是否合法
-            include("./ini/xtbl_ini.php");
-            $m= date('m')*1;
-            $d= date('d')*1;
-
-            if($xtbl1==$m&&$xtbl2==$d){
-            } else{
-                //清空报名表
-                $q2="gz02";
-                $strsql = "truncate table $q2";
-                $result = mysql_query($strsql);
-                $inina="gz02.ini";
-                $path='acher/guoz';
-                $ininame = $path."/".$inina;
-                _unlink($ininame); //删除文件
-
-                if($xtbl1==""){
-                    $q2="xtbl";
-                    $sql = "insert into $q2 (id,bl1,bl2)  values('1','$m','$d')";
-                    if (!mysql_query($sql)){
-                        die('Error: ' . mysql_error());
-                    }
-                    $inina="xtbl.ini";
-                    $path='acher/guoz';
-                    $ininame = $path."/".$inina;
-                    _unlink($ininame); //删除文件
-                } else{
-                    $q2="xtbl";
-                    $strsql = "update $q2 set bl1=$m,bl2=$d where id=1";//物品id号必改值
-                    $result = mysql_query($strsql);
-                    include("./ini/xtbl_ini.php");
-                    $iniFile->updItem('国战判断时间', ['月' => $m]);
-                    $iniFile->updItem('国战判断时间', ['日' => $d]);
-
-                    $inina="gz02.ini";
-                    $path='acher/guoz';
-                    $ininame = $path."/".$inina;
-                    _unlink($ininame); //删除文件
-                }
+            include XY_DIR . '/ini/xtbl_ini.php';
+            $m= date('n');
+            $d= date('j');
+            if($xtbl1 !=$m || $xtbl2 != $d){
+                // 更新系统变量
+                gz_xtbl(1, $m, $d);
             }
 
             //调用zt.ini是否存在
@@ -90,186 +61,67 @@ if($week==6){
                     include("./ini/gz05_ini.php");
                     $gztime=($iniFile->getItem('国战判断时间','1'));
                     if($gztime==""){
-                        $nowtime=date('Y-m-d H:i:s');
-                        $q2="gz05";
-                        $sql = "insert  into $q2(id,gztime)  values('1','$nowtime')";
-                        $query = mysql_query($sql);
-
-                        $inina="gz05.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
-
-                        include("./ini/gz05_ini.php");
-                        $gztime=($iniFile->getItem('国战判断时间','1'));
-                    } else{
-                        include("./ini/gz05_ini.php");
-                        $gztime=($iniFile->getItem('国战判断时间','1'));
+                        $gztime = date('Y-m-d H:i:s');
+                        gz05(1, $gztime);
                     }
 
                     //判断是否清掉国战积分榜
                     $nowtime=date('Y-m-d H:i:s');
                     $gztime1 = substr($gztime,0,10);
                     $nowtime1 = substr($nowtime,0,10);
-                    if($gztime1==$nowtime1&&$gztime1!=""){//今天不是今天数据验证
-
-                    } else{
-                        $q2="gz03";
-                        $strsql = "truncate table $q2";//物品id号必改值
-                        $result = mysql_query($strsql);
-                        $q2="gz05";
-                        $strsql = "truncate table $q2";//物品id号必改值
-                        $result = mysql_query($strsql);
-
-                        $nowtime=date('Y-m-d H:i:s');
-                        $sql = "insert  into $q2(id,gztime)  values('1','$nowtime') ";
-                        $query = mysql_query($sql);
-
-                        $inina="gz03.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
-
-                        $inina="gz05.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
+                    if($gztime1 !=$nowtime1){//今天不是今天数据验证
+                        gz05(1, $nowtime);
                     }
 
                     //排行榜计时器
-                    include("./ini/gz05_ini.php");
                     $gztime=($iniFile->getItem('国战判断时间','2'));
                     if($gztime==""){
-                        $nowtime=date('Y-m-d H:i:s');
-                        $q2="gz05";
-                        $sql = "insert  into $q2(id,gztime)  values('2','$nowtime')";
-                        $query = mysql_query($sql);
-
-                        $inina="gz05.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
-
-                        include("./ini/gz05_ini.php");
-                        $gztime=($iniFile->getItem('国战判断时间','2'));
-                    } else{
-                        include("./ini/gz05_ini.php");
-                        $gztime=($iniFile->getItem('国战判断时间','2'));
+                        $gztime = date('Y-m-d H:i:s');
+                        gz05(2, $gztime);
                     }
 
                     //判断是否清掉国战个人积分榜
                     $nowtime=date('Y-m-d H:i:s');
                     $gztime1 = substr($gztime,0,10);
                     $nowtime1 = substr($nowtime,0,10);
-                    if($gztime1==$nowtime1&&$gztime1!=""){//今天不是今天数据验证
-
-                    } else{
-                        include("./sql/mysql.php");//调用数据库连接
-                        $q2="gz04";
-                        $strsql = "truncate table $q2";//物品id号必改值
-
-                        $result = mysql_query($strsql);
-                        $q2="gz05";
-                        $strsql = "truncate table $q2";//物品id号必改值
-                        $result = mysql_query($strsql);
-
-                        //重新写入排行榜计时
-                        $nowtime=date('Y-m-d H:i:s');
-                        $sql = "insert  into $q2(id,gztime)  values('2','$nowtime') ";
-                        $query = mysql_query($sql);
-
-                        $inina="gz04.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
-
-                        $inina="gz05.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
+                    if($gztime1 !=$nowtime1){//今天不是今天数据验证
+                        gz05(2, $nowtime);
                     }
 
-                    $q2="gz02";
-                    $sql1=mysql_query("select * from $q2 where gjmz='$bpmzr'");
-                    $info1=mysql_fetch_array($sql1);
-                    $gjmz=$info1['gjmz'];
-
-                    if($gjmz!=$bpmzr){
-                        ////////////////////将报名的国家写入国战2表内////////////////////////
-                        $q2="gz02";
-                        $sql1=mysql_query("select MAX(id) from $q2");
-                        $abc=mysql_fetch_array($sql1);
-                        $maxid=$abc[0];
-                        if($maxid ==""){
-                            $maxid=0;
-                            $maxidd=$maxid+1;
-                            $sql = "insert into $q2 (id,gjmz,gjid,jzmz,jzid,gjjf)  values('$maxidd','$bpmzr','$bpid','$xbzmz','$xwjid','0')";
+                    $db = DB::instance();
+                    $gz03 = gz03($bpid);
+                    $jt = date('Ymd');
+                    if(empty($gz03) || $gz03['cjsj'] != $jt){
+                        if (empty($gz03)) {
+                            ////////////////////将报名的国家写入国战2表内////////////////////////
+                            $q2 = "gz03";
+                            $sql1 = mysql_query("select MAX(id) from $q2");
+                            $abc = mysql_fetch_array($sql1);
+                            $maxid = $abc[0];
+                            if ($maxid == "") {
+                                $maxid = 0;
+                            }
+                            $maxidd = $maxid + 1;
+                            $sql = "insert into $q2 (id,gjmz,gjid,jzmz,jzid,zjf,rjf,cjsj, zlq, rlq)  values('$maxidd','$bpmzr','$bpid','$xbzmz','$xwjid','0', '0', '$jt', 0, 0)";
                             if (!mysql_query($sql)) {
                                 die('Error: ' . mysql_error());
                             }
-                        } else{
-                            $maxidd=$maxid+1;
-                            $sql = "insert into $q2 (id,gjmz,gjid,jzmz,jzid,gjjf)  values('$maxidd','$bpmzr','$bpid','$xbzmz','$xwjid','0')";
-                            if (!mysql_query($sql,$conn)) {
-                                die('Error: ' . mysql_error());
-                            }
+                        } else {
+                            $db->update('gz03', [
+                                'rjf' => 0,
+                                'rlq' => 0,
+                                'cjsj' => $jt,
+                            ], ['gjid' => $bpid]);
                         }
 
-                        $inina="gz02.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
-
-                        //更新国家积分榜
-                        include("./ini/gz03_ini.php");
-                        $gjmz=($iniFile->getItem('已报名国家','国家名字'));
-                        if($gjmz==""){
-                            $q2="gz03";
-                            $sql1=mysql_query("select MAX(id) from $q2");
-                            $abc=mysql_fetch_array($sql1);
-                            $maxid=$abc[0];
-                            if($maxid ==""){
-                                $maxid=0;
-                                $maxidd=$maxid+1;
-                                $sql = "insert into $q2 (id,gjmz,gjid,jzmz,jzid,gjjf,lq)  values('$maxidd','$bpmzr','$bpid','$xbzmz','$xwjid','0','0')";
-                                if (!mysql_query($sql,$conn)) {
-                                    die('Error: ' . mysql_error());
-                                }
-
-                                $inina="gz03.ini";
-                                $path='acher/guoz';
-                                $ininame = $path."/".$inina;
-                                _unlink($ininame); //删除文件
-                            } else{
-                                $maxidd=$maxid+1;
-                                $sql = "insert into $q2 (id,gjmz,gjid,jzmz,jzid,gjjf,lq)  values('$maxidd','$bpmzr','$bpid','$xbzmz','$xwjid','0','0')";
-                                if (!mysql_query($sql,$conn)) {
-                                    die('Error: ' . mysql_error());
-                                }
-                            }
-
-                            $inina="gz03.ini";
-                            $path='acher/guoz';
-                            $ininame = $path."/".$inina;
-                            _unlink($ininame); //删除文件
-                        } else{
-                            $q2="gz03";
-                            $strsql = "update $q2 set gjjf=0,lq=0 where gjid=$bpid";//国家官员死亡次数
-                            $result = mysql_query($strsql);
+////////////////////更新国战个人死亡次数////////////////////////
+////////////////////更新国战个人死亡次数////////////////////////
+////////////////////更新国战防守方////////////////////////
+////////////////////更新国战防守方////////////////////////
+                        $zcid = zcid();
+                        if ($zcid) {
+                            zlbp_cz($zcid);
                         }
-
-//更新国家积分榜
-
-////////////////////更新国战个人死亡次数////////////////////////
-
-
-////////////////////更新国战个人死亡次数////////////////////////
-
-
-////////////////////更新国战防守方////////////////////////
-
-
-////////////////////更新国战防守方////////////////////////
 
                         ////////////////////更新国战地图神兽大门血量//////////////
                         ////////城池大门//////////
@@ -326,11 +178,8 @@ if($week==6){
                         _unlink($ininame); //删除文件
                         include("./ini/boss_ini.php");
 
-                        $inina="gz06.ini";
-                        $path='acher/guoz';
-                        $ininame = $path."/".$inina;
-                        _unlink($ininame); //删除文件
-
+                        //重置防守时间
+                        gz06_cz();
                         echo "<font color=black>恭喜你报名成功！请于21:00整前来参加国战</font>"."<br>";
                     } else{
                         echo "<font color=black>对不起！你的国家".$bpmzr."已经报名参与了今天的攻城战无需重复报名</font>"."<br>";

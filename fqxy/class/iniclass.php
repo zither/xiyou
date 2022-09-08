@@ -1,34 +1,33 @@
 <?php
-/**
- * PHP����ini�ļ���
- * @author Wigiesen - ��������
- * @version v1.0
- * @link https://xinyu19.com
- * ע��ini�ļ��ɽڡ�����ֵ��ɣ�Ϊ�˷���
- * ���е�[��]���ǽ���[����]��[��=>ֵ]��Ϊ[����]
- */
-
 class iniFile
 {
     public $iniFilePath;
-    public $iniFileHandle;
+    public $iniFileHandle = [];
 
-    function __construct($iniFilePath)
+    /**
+     * @var bool fake 为真时不进行任何文件操作
+     */
+    public $fake;
+
+    function __construct($iniFilePath, bool $fake = false)
     {
         $this->iniFilePath = $iniFilePath;
-        # ���� .ini �ļ��������
+        $this->fake = $fake;
+        if ($this->fake) {
+            return;
+        }
+
         if (file_exists($this->iniFilePath)) {
             $this->iniFileHandle = parse_ini_file($this->iniFilePath, true);
 
             if (empty($this->iniFileHandle)) {
-               unlink($this->iniFilePath); //ɾ���ļ�
+               unlink($this->iniFilePath);
             }
         } else {
             die($this->iniFilePath . ' file cannot be opened');
         }
     }
 
-    //���ӷ���
     public function addCategory($category_name, array $item = [])
     {
         if (!isset($this->iniFileHandle[$category_name])) {
@@ -43,7 +42,6 @@ class iniFile
         $this->save();
     }
 
-    //��������[������ӷ����ͬʱ�������]
     public function addItem($category_name, array $item)
     {
         foreach ($item as $key => $value) {
@@ -52,22 +50,18 @@ class iniFile
         $this->save();
     }
 
-    //��ȡ����
     public function getAll()
     {
         return $this->iniFileHandle;
     }
 
-    //��ȡ��������
     public function getCategory($category_name)
     {
         return $this->iniFileHandle[$category_name];
     }
 
-    //��ȡ����ֵ
     public function getItem($category_name, $item_name)
     {
-        # ����ǻ�ȡ�������,��ѭ����ȡ�����±���
         if (is_array($item_name)) {
             $arr = array();
             foreach ($item_name as $value) {
@@ -79,7 +73,6 @@ class iniFile
         }
     }
 
-    //����ini
     public function updItem($category_name, array $item)
     {
         foreach ($item as $key => $value) {
@@ -88,25 +81,25 @@ class iniFile
         $this->save();
     }
 
-    //ɾ������
     public function delCategory($category_name)
     {
         unset($this->iniFileHandle[$category_name]);
         $this->save();
     }
 
-    //ɾ������
     public function delItem($category_name, $item_name)
     {
         unset($this->iniFileHandle[$category_name][$item_name]);
         $this->save();
     }
 
-    //����.ini�ļ�
     public function save()
     {
+        // 不做任何保存操作
+        if ($this->fake) {
+            return true;
+        }
         $string = '';
-        # ѭ�������ƴ�ӳ�ini��ʽ���ַ���
         foreach ($this->iniFileHandle as $key => $value) {
             $string .= '[' . $key . ']' . "\r\n";
             foreach ($value as $k => $v) {

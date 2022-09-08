@@ -416,13 +416,11 @@ if($csm ==100){
             if($bpid>=1){
                 //判断攻城报名表是否合法
                 include("./ini/xtbl_ini.php");
-                $m= date('m')*1;
-                $d= date('d')*1;
-                $q2="gz02";
-                $sql1=mysql_query("select * from $q2 where gjid=$bpid");
-                $info1=mysql_fetch_array($sql1);
-                $gjmz=$info1['gjmz'];
-                if($gjmz==""){
+
+                $db = DB::instance();
+                $sj = date('Ymd');
+                $gz03 = $db->get('gz03', '*', ['gjid' => $bpid, 'cjsj' => $sj]);
+                if(empty($gz03)){
                     echo "<font color=red>[系统]对不起！你还未加入国家或者你的国家没有报名参与本次国家！</font>"."<br>";
                 } else{
                     $npcc=8;
@@ -439,6 +437,7 @@ if($csm ==100){
                     $nowtime=date('Y-m-d H:i:s');
                     $hdtime1 = substr($hdtime,0,10);
                     $nowtime1 = substr($nowtime,0,10);
+                    //开发测试
                     if($hdtime1!=$nowtime1&&$hdtime1!=""||$hdlq==2){//今天不是今天数据验证
                         $q2="hd";
                         $strsql = "update $q2 set hdtime='$nowtime' where wjid=$wjid and hdid=$npcc";//物品id号必改值
@@ -446,6 +445,7 @@ if($csm ==100){
                         include("./ini/hd_ini.php");
                         $iniFile->updItem('活动时间', [$npcc => $nowtime]);
                         include("./ini/zt_ini.php");
+                        $wjname=($iniFile->getItem('玩家信息','玩家名字'));
                         $bpzw=($iniFile->getItem('玩家信息','帮派职务'));
                         if($bpzw=="辅助大臣"){
                             $bpzw=2;
@@ -464,27 +464,39 @@ if($csm ==100){
                         } else{
                             $bpzw=1;
                         }
-                        $q2="bp";
+
+                        // 个人死亡次数和积分都移动到gz04表中
                         if($bpzw>=2&&$bpzw<=7){
                             $sw=20;
-                            $strsql = "update $q2 set bpswcs=$sw,bpjf=0 where userid=$wjid and bpid=$bpid";//国家官员死亡次数
-                            $result = mysql_query($strsql);
                         } elseif($bpzw==8){
                             $sw=30;
-                            $strsql = "update $q2 set bpswcs=$sw,bpjf=0 where userid=$wjid and bpid=$bpid";//君主死亡次数
-                            $result = mysql_query($strsql);
                         } elseif($bpzw==1){
                             $sw=10;
-                            $strsql = "update $q2 set bpswcs=$sw,bpjf=0 where userid=$wjid and bpid=$bpid";//普通成员死亡次数
-                            $result = mysql_query($strsql);
                         } else{
                             $sw=0;
                         }
-
-                        include("./ini/bpp_ini.php");
-                        $xl=($iniFile->getItem('序列',$wjid));
-                        $iniFile->updItem('国战死亡次数', [$xl => $sw]);
-                        $iniFile->updItem('国战积分', [$xl => '0']);
+                        $db = DB::instance();
+                        $exists = $db->get('gz04', 'id', ['wjid' => $wjid]);
+                        if ($exists) {
+                            $data = [
+                                'swcs' => $sw,
+                                'rjf' => 0,
+                                'cjsj' => date('Ymd'),
+                            ];
+                            //一周开始，清空周积分
+                            if ($week == 7) {
+                                $data['zjf'] = 0;
+                            }
+                            $db->update('gz04', $data, ['wjid' => $wjid]);
+                        } else {
+                            $db->insert('gz04', [
+                                'wjmz' => $wjname,
+                                'wjid' => $wjid,
+                                'swcs' => $sw,
+                                'swsj' => strtotime('2000-01-01 01:01:01'),
+                                'cjsj' => date('Ymd'),
+                            ]);
+                        }
 
                         echo "<font color=red>恭喜你！来到了今日的战场！</font></br>";
                         echo "<font color=red>温馨提示：国战期间一旦出去今天将无法再次参与</font></br>";

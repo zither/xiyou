@@ -93,6 +93,11 @@ if($zsspd==1&&$zsspd2==1){
             $wjid=$ckid;
             include("./ini/zt_ini.php");
             $wjxx=($iniFile->getCategory('玩家信息'));
+            $nbpid = $wjxx['帮派id'];
+            $nbpmz = $wjxx['帮派名字'];
+            $nbpzw = $wjxx['帮派职务'];
+            $nvip = $wjxx['vip等级'];
+
             include("./wj/ztt.php");
             include("./wj/zfzt.php");
 
@@ -112,9 +117,16 @@ if($zsspd==1&&$zsspd2==1){
             //获取自己的属性
             $wjxx="";//初始防止冲突
             $wjxx1="";//初始防止冲突
+
+
             $wjid=$wjid1;
             include("./ini/zt_ini.php");
             $wjxx=($iniFile->getCategory('玩家信息'));
+            $obpmz = $wjxx['帮派名字'];
+            $obpid = $wjxx['帮派id'];
+            $obpzw = $wjxx['帮派职务'];
+            $ovip = $wjxx['vip等级'];
+
             include("./wj/ztt.php");
             include("./wj/zfzt.php");
 
@@ -142,9 +154,9 @@ if($zsspd==1&&$zsspd2==1){
             $wjid=$ckid;
             include("./ini/zt_ini.php");
             $wjxx=($iniFile->getCategory('玩家信息'));
+            $nmz=$wjxx['玩家名字'];
             include("./wj/ztt.php");
             include("./wj/zfzt.php");
-            $nmz=$wjxx['玩家名字'];
             $nhp=$wjxx['红'];
             $nmp=$wjxx['蓝'];
             $nmaxhp=$wjxx1['血'];
@@ -166,181 +178,326 @@ if($zsspd==1&&$zsspd2==1){
             $omaxmp=$wjxx1['蓝'];
             //获取自己的属性
 
-            //判断对手或者自己死亡
-            if($nhp<=1){
-                $wjid=$ckid;
-                echo "<font color=red>".$nmz."被你打死了</font>"."<br>";
-                //死亡
-                include("./ini/pksw_ini.php");
-                $nowtime=date('Y-m-d H:i:s');
-                $iniFile->updItem('死亡时间', ['初始' => $nowtime]);
-                $iniFile->updItem('玩家名字', ['初始' => $omz]);
-                $iniFile->updItem('玩家id', ['初始' => $wjid1]);
-                $iniFile->updItem('pk验证', ['初始' => '123']);
-                include("./ini/pkbl_ini.php");
-                $iniFile->updItem('被打死', [$wjid1 => '2']);
+            // 非国战地图判断
+            if ($dtx != 74) {
+                //判断对手死亡
+                if ($nhp <= 1) {
+                    $wjid = $ckid;
+                    echo "<font color=red>" . $nmz . "被你打死了</font>" . "<br>";
+                    //死亡
+                    include("./ini/pksw_ini.php");
+                    $nowtime = date('Y-m-d H:i:s');
+                    $iniFile->updItem('死亡时间', ['初始' => $nowtime]);
+                    $iniFile->updItem('玩家名字', ['初始' => $omz]);
+                    $iniFile->updItem('玩家id', ['初始' => $wjid1]);
+                    $iniFile->updItem('pk验证', ['初始' => '123']);
+                    include("./ini/pkbl_ini.php");
+                    $iniFile->updItem('被打死', [$wjid1 => '2']);
 
-                //恢复对手满血
-                include("./ini/zt_ini.php");
-                $npkzzz=($iniFile->getItem('玩家信息','恶名值'));
-                $iniFile->updItem('玩家信息', ['红' => $nmaxhp]);
+                    //恢复对手满血
+                    include("./ini/zt_ini.php");
+                    $npkzzz = ($iniFile->getItem('玩家信息', '恶名值'));
+                    $iniFile->updItem('玩家信息', ['红' => $nmaxhp]);
 
-                //更改位置
-                if($npkzzz>=10){
+                    //更改位置
+                    if ($npkzzz >= 10) {
+                        include("./ini/user_ini.php");
+                        $iniFile->updItem('地图坐标', ['x' => '1']);
+                        $iniFile->updItem('地图坐标', ['y' => '46']);
+                        //更新缓存数据
+                        $xtxx = $nmz . "杀人如麻~~必遭天谴！！（已被" . $omz . "抓进天牢）";
+                        include("./msg/msgg02.php");
+                    } else {
+                        include("./ini/user_ini.php");
+                        $iniFile->updItem('地图坐标', ['x' => '22']);
+                        $iniFile->updItem('地图坐标', ['y' => '22']);
+
+                        /*
+                        if($npkzzz==0){
+                        $wjid=$wjid1;
+
+                        //加pk值
+                        include("./ini/zt_ini.php");
+                        $pkzzz=($iniFile->getItem('玩家信息','恶名值'));
+                        $pkzzz=$pkzzz+1;
+                        $iniFile->updItem('玩家信息', ['恶名值' => $pkzzz]);
+                        echo "<font color=red>由于你主动发起恶名值+1（当前恶名:".$pkzzz."）</font>"."<br>";
+                        //加pk值
+                        } else{
+                        }
+                        */
+
+                    }
+
+                    $wjid = $wjid1;
+                    //清除附近位置
                     include("./ini/user_ini.php");
-                    $iniFile->updItem('地图坐标', ['x' => '1']);
-                    $iniFile->updItem('地图坐标', ['y' => '46']);
-                    //更新缓存数据
-                    $xtxx=$nmz."杀人如麻~~必遭天谴！！（已被".$omz."抓进天牢）";
-                    include("./msg/msgg02.php");
-                } else{
+                    $dtx = ($iniFile->getItem('地图坐标', 'x'));
+                    $dty = ($iniFile->getItem('地图坐标', 'y'));
+                    //路径
+                    $ydtx = $dtx;
+                    $ydty = $dty;
+                    include("./wj/mapid.php");
+                    $path = 'acher/map';
+                    $ininame = $path . "/" . $inina;
+                    $iniFile = new iniFile($ininame);
+                    $iniFile->delItem('玩家时间值' . $dtx . 'x' . $dty, $ckid);
+                    $iniFile->delItem('玩家vip值' . $dtx . 'x' . $dty, $ckid);
+                    $iniFile->delItem('玩家id值' . $dtx . 'x' . $dty, $ckid);
+                    $iniFile->delItem('玩家名字值' . $dtx . 'x' . $dty, $ckid);
+                    $iniFile->delItem('国家名字值' . $dtx . 'x' . $dty, $ckid);
+                    $iniFile->delItem('国家职务名字值' . $dtx . 'x' . $dty, $ckid);
+
+                    $wjid = $wjid1;
+                    include("./ini/pkbl_ini.php");
+                    $iniFile->delItem('玩家id', $ckid);
+                    $iniFile->delItem('玩家pk', $ckid);
+                    $iniFile->delItem('玩家名字', $ckid);
+                    $iniFile->delItem('玩家伤害', $ckid);
+                    $iniFile->delItem('玩家攻击语', $ckid);
+                    $iniFile->delItem('被打死', $ckid);
+
+                    include("template/xy523.php");
+                    //不走xy.php直接调用xy文件需要加pz01配置
+                    include("./pz/pz01.php");
+
+                    //解锁当前使用的ini
+                    include("./ini/ojsini.php");
+                    //解锁当前使用的ini
+                    exit;
+                }
+
+                if ($ohp <= 1) {
+                    $wjid = $wjid1;
+                    echo "<font color=red>很遗憾！！你被" . $nmz . "打死掉了</font>" . "<br>";
+                    //死亡
+                    include("./ini/pksw_ini.php");
+
+                    $nowtime = date('Y-m-d H:i:s');
+                    $iniFile->updItem('死亡时间', ['初始' => $nowtime]);
+                    $iniFile->updItem('玩家名字', ['初始' => $nmz]);
+                    $iniFile->updItem('玩家id', ['初始' => $ckid]);
+                    $iniFile->updItem('pk验证', ['初始' => '123']);
+
+                    include("./ini/pkbl_ini.php");
+                    $iniFile->updItem('被打死', [$ckid => '2']);
+
+                    //恢复自己满血
+                    include("./ini/zt_ini.php");
+                    $iniFile->updItem('玩家信息', ['红' => $omaxhp]);
+
+                    $wjid = $wjid1;
+                    //清除附近位置
                     include("./ini/user_ini.php");
+                    $dtx = ($iniFile->getItem('地图坐标', 'x'));
+                    $dty = ($iniFile->getItem('地图坐标', 'y'));
+                    include("./ini/user_ini.php");
+                    //更改位置
                     $iniFile->updItem('地图坐标', ['x' => '22']);
                     $iniFile->updItem('地图坐标', ['y' => '22']);
 
-                    /*
-                    if($npkzzz==0){
-                    $wjid=$wjid1;
-
-                    //加pk值
                     include("./ini/zt_ini.php");
-                    $pkzzz=($iniFile->getItem('玩家信息','恶名值'));
-                    $pkzzz=$pkzzz+1;
-                    $iniFile->updItem('玩家信息', ['恶名值' => $pkzzz]);
-                    echo "<font color=red>由于你主动发起恶名值+1（当前恶名:".$pkzzz."）</font>"."<br>";
-                    //加pk值
-                    } else{
+                    $npkzzz = ($iniFile->getItem('玩家信息', '恶名值'));
+
+                    //更改位置
+                    if ($npkzzz >= 10) {
+                        include("./ini/user_ini.php");
+                        $iniFile->updItem('地图坐标', ['x' => '1']);
+                        $iniFile->updItem('地图坐标', ['y' => '46']);
+                        $xtxx = $omz . "杀人如麻~~必遭天谴！！（已被" . $nmz . "抓进天牢）";
+                        include("./msg/msgg02.php");
+                    } else {
+                        include("./ini/user_ini.php");
+                        $iniFile->updItem('地图坐标', ['x' => '22']);
+                        $iniFile->updItem('地图坐标', ['y' => '22']);
+                        /*
+                        $wjid=$ckid;
+                        include("./ini/zt_ini.php");
+                        $npkzzzq=($iniFile->getItem('玩家信息','恶名值'));
+
+                        if($npkzzzq==0){
+                        $wjid=$wjid1;
+                        //加pk值
+                        include("./ini/zt_ini.php");
+                        $pkzzz=($iniFile->getItem('玩家信息','恶名值'));
+                        $pkzzz=$pkzzz+1;
+                        $iniFile->updItem('玩家信息', ['恶名值' => $pkzzz]);
+                        echo "<font color=red>由于你主动发起恶名值+1（当前恶名:".$pkzzz."）</font>"."<br>";
+                        //加pk值
+                        } else{
+                        }
+                        */
                     }
-                    */
+                    $wjid = $wjid1;
+                    //路径
+                    $ydtx = $dtx;
+                    $ydty = $dty;
+                    include("./wj/mapid.php");
+                    $path = 'acher/map';
+                    $ininame = $path . "/" . $inina;
 
+                    $iniFile = new iniFile($ininame);
+                    $iniFile->delItem('玩家时间值' . $dtx . 'x' . $dty, $wjid);
+                    $iniFile->delItem('玩家vip值' . $dtx . 'x' . $dty, $wjid);
+                    $iniFile->delItem('玩家id值' . $dtx . 'x' . $dty, $wjid);
+                    $iniFile->delItem('玩家名字值' . $dtx . 'x' . $dty, $wjid);
+                    $iniFile->delItem('国家名字值' . $dtx . 'x' . $dty, $wjid);
+                    $iniFile->delItem('国家职务名字值' . $dtx . 'x' . $dty, $wjid);
+
+                    include("template/xy395.php");
+                    //不走xy.php直接调用xy文件需要加pz01配置
+                    include("./pz/pz01.php");
+
+
+                    //解锁当前使用的ini
+                    include("./ini/ojsini.php");
+                    //解锁当前使用的ini
+                    exit;
                 }
+            } else {
+                //国战地图死亡
+                //判断对手死亡
+                if ($nhp <= 1) {
+                    $wjid = $ckid;
+                    echo "<font color=red>" . $nmz . "被你打死了</font>" . "<br>";
+                    //死亡
+                    include(XY_DIR . "/ini/pksw_ini.php");
+                    $nowtime = date('Y-m-d H:i:s');
+                    $iniFile->updItem('死亡时间', ['初始' => $nowtime]);
+                    $iniFile->updItem('玩家名字', ['初始' => $omz]);
+                    $iniFile->updItem('玩家id', ['初始' => $wjid1]);
+                    $iniFile->updItem('pk验证', ['初始' => '123']);
+                    include(XY_DIR . "/ini/pkbl_ini.php");
+                    $iniFile->updItem('被打死', [$wjid1 => '2']);
 
-                $wjid=$wjid1;
-                //清除附近位置
-                include("./ini/user_ini.php");
-                $dtx=($iniFile->getItem('地图坐标','x'));
-                $dty=($iniFile->getItem('地图坐标','y'));
-                //路径
-                $ydtx=$dtx;
-                $ydty=$dty;
-                include("./wj/mapid.php");
-                $path='acher/map';
-                $ininame = $path."/".$inina;
-                $iniFile = new iniFile($ininame);
-                $iniFile->delItem('玩家时间值'.$dtx.'x'.$dty, $ckid);
-                $iniFile->delItem('玩家vip值'.$dtx.'x'.$dty, $ckid);
-                $iniFile->delItem('玩家id值'.$dtx.'x'.$dty, $ckid);
-                $iniFile->delItem('玩家名字值'.$dtx.'x'.$dty, $ckid);
-                $iniFile->delItem('国家名字值'.$dtx.'x'.$dty, $ckid);
-                $iniFile->delItem('国家职务名字值'.$dtx.'x'.$dty, $ckid);
+                    //恢复对手满血
+                    include(XY_DIR . "/ini/zt_ini.php");
+                    $iniFile->updItem('玩家信息', ['红' => $nmaxhp]);
 
-                $wjid=$wjid1;
-                include("./ini/pkbl_ini.php");
-                $iniFile->delItem('玩家id', $ckid);
-                $iniFile->delItem('玩家pk', $ckid);
-                $iniFile->delItem('玩家名字', $ckid);
-                $iniFile->delItem('玩家伤害', $ckid);
-                $iniFile->delItem('玩家攻击语', $ckid);
-                $iniFile->delItem('被打死', $ckid);
 
-                include("template/xy523.php");
-                //不走xy.php直接调用xy文件需要加pz01配置
-                include("./pz/pz01.php");
+                    $zlbp = zlbp(zcid());
+                    // 更新死亡次数
+                    $wjswcs = gz04_sw($wjid);
+                    if ($wjswcs > 0) {
+                        // 还有剩余死亡次数，传送到复活点
+                        if ($nbpid == $zlbp) {
+                            //守方墓地
+                            $xdtx = 74;
+                            $xdty = 22;
+                        } else {
+                            //攻方墓地
+                            $xdtx = 74;
+                            $xdty = 16;
+                        }
+                    } else {
+                        // 死亡次数达到限制，传送出战场
+                        // 封榜堂坐标
+                        $xdtx = 1;
+                        $xdty = 25;
+                    }
+                    //移动玩家
+                    wjyd($ckid, $xdtx, $xdty);
 
-                //解锁当前使用的ini
-                include("./ini/ojsini.php");
-                //解锁当前使用的ini
-                exit;
-            }
-
-            if($ohp<=1){
-                $wjid=$wjid1;
-                echo "<font color=red>很遗憾！！你被".$nmz."打死掉了</font>"."<br>";
-                //死亡
-                include("./ini/pksw_ini.php");
-
-                $nowtime=date('Y-m-d H:i:s');
-                $iniFile->updItem('死亡时间', ['初始' => $nowtime]);
-                $iniFile->updItem('玩家名字', ['初始' => $nmz]);
-                $iniFile->updItem('玩家id', ['初始' => $ckid]);
-                $iniFile->updItem('pk验证', ['初始' => '123']);
-
-                include("./ini/pkbl_ini.php");
-                $iniFile->updItem('被打死', [$ckid => '2']);
-
-                //恢复自己满血
-                include("./ini/zt_ini.php");
-                $iniFile->updItem('玩家信息', ['红' => $omaxhp]);
-
-                $wjid=$wjid1;
-                //清除附近位置
-                include("./ini/user_ini.php");
-                $dtx=($iniFile->getItem('地图坐标','x'));
-                $dty=($iniFile->getItem('地图坐标','y'));
-                include("./ini/user_ini.php");
-                //更改位置
-                $iniFile->updItem('地图坐标', ['x' => '22']);
-                $iniFile->updItem('地图坐标', ['y' => '22']);
-
-                include("./ini/zt_ini.php");
-                $npkzzz=($iniFile->getItem('玩家信息','恶名值'));
-
-                //更改位置
-                if($npkzzz>=10){
-                    include("./ini/user_ini.php");
-                    $iniFile->updItem('地图坐标', ['x' => '1']);
-                    $iniFile->updItem('地图坐标', ['y' => '46']);
-                    $xtxx=$omz."杀人如麻~~必遭天谴！！（已被".$nmz."抓进天牢）";
+                    if ($wjswcs) {
+                        $xtxx = sprintf('【%s】%s在国战中被【%s】%s一声怒吼吓得落荒而逃！', $nbpmz, $nmz, $obpmz, $omz);
+                    } else {
+                        $xtxx = sprintf('【%s】%s在国战中被【%s】%s斩落下马，瞬间没了呼吸!', $nbpmz, $nmz, $obpmz, $omz);
+                    }
                     include("./msg/msgg02.php");
-                } else{
-                    include("./ini/user_ini.php");
-                    $iniFile->updItem('地图坐标', ['x' => '22']);
-                    $iniFile->updItem('地图坐标', ['y' => '22']);
-                    /*
-                    $wjid=$ckid;
-                    include("./ini/zt_ini.php");
-                    $npkzzzq=($iniFile->getItem('玩家信息','恶名值'));
 
-                    if($npkzzzq==0){
-                    $wjid=$wjid1;
-                    //加pk值
-                    include("./ini/zt_ini.php");
-                    $pkzzz=($iniFile->getItem('玩家信息','恶名值'));
-                    $pkzzz=$pkzzz+1;
-                    $iniFile->updItem('玩家信息', ['恶名值' => $pkzzz]);
-                    echo "<font color=red>由于你主动发起恶名值+1（当前恶名:".$pkzzz."）</font>"."<br>";
-                    //加pk值
+                    $wjid = $wjid1;
+                    include(XY_DIR . "/ini/pkbl_ini.php");
+                    $iniFile->delItem('玩家id', $ckid);
+                    $iniFile->delItem('玩家pk', $ckid);
+                    $iniFile->delItem('玩家名字', $ckid);
+                    $iniFile->delItem('玩家伤害', $ckid);
+                    $iniFile->delItem('玩家攻击语', $ckid);
+                    $iniFile->delItem('被打死', $ckid);
+
+                    $gj04  = DB::instance()->get('gz04', '*', ['wjid' => $wjid]);
+                    if(!empty($gj04)){
+                        //增加国家积分
+                        gz03_zj($obpid, 10);
+                        //增加个人积分
+                        gz04_zj($wjid, 10);
+                        echo "<font color=blue>击杀敌对国家玩家获得国家积分+10，个人积分+10</font>"."<br>";
                     } else{
+                        echo "<font color=blue>不会获得任何积分（造成这种情况因为之前参加国战后没有出去过，请自行解决否则不会获得任何积分）</font>"."<br>";
                     }
-                    */
+
+                    include("template/xy523.php");
+                    //不走xy.php直接调用xy文件需要加pz01配置
+                    include("./pz/pz01.php");
+
+                    //解锁当前使用的ini
+                    include("./ini/ojsini.php");
+                    //解锁当前使用的ini
+                    exit;
                 }
-                $wjid=$wjid1;
-                //路径
-                $ydtx=$dtx;
-                $ydty=$dty;
-                include("./wj/mapid.php");
-                $path='acher/map';
-                $ininame = $path."/".$inina;
 
-                $iniFile = new iniFile($ininame);
-                $iniFile->delItem('玩家时间值'.$dtx.'x'.$dty, $wjid);
-                $iniFile->delItem('玩家vip值'.$dtx.'x'.$dty, $wjid);
-                $iniFile->delItem('玩家id值'.$dtx.'x'.$dty, $wjid);
-                $iniFile->delItem('玩家名字值'.$dtx.'x'.$dty, $wjid);
-                $iniFile->delItem('国家名字值'.$dtx.'x'.$dty, $wjid);
-                $iniFile->delItem('国家职务名字值'.$dtx.'x'.$dty, $wjid);
+                if ($ohp <= 1) {
+                    $wjid = $wjid1;
+                    echo "<font color=red>很遗憾！！你被" . $nmz . "打死掉了</font>" . "<br>";
+                    //死亡
+                    include(XY_DIR . "/ini/pksw_ini.php");
+                    $nowtime = date('Y-m-d H:i:s');
+                    $iniFile->updItem('死亡时间', ['初始' => $nowtime]);
+                    $iniFile->updItem('玩家名字', ['初始' => $nmz]);
+                    $iniFile->updItem('玩家id', ['初始' => $ckid]);
+                    $iniFile->updItem('pk验证', ['初始' => '123']);
 
-                include("template/xy395.php");
-                //不走xy.php直接调用xy文件需要加pz01配置
-                include("./pz/pz01.php");
+                    include(XY_DIR . "/ini/pkbl_ini.php");
+                    $iniFile->updItem('被打死', [$ckid => '2']);
 
+                    //恢复自己满血
+                    include(XY_DIR . "/ini/zt_ini.php");
+                    $iniFile->updItem('玩家信息', ['红' => $omaxhp]);
 
-                //解锁当前使用的ini
-                include("./ini/ojsini.php");
-                //解锁当前使用的ini
-                exit;
+                    $zlbp = zlbp(zcid());
+                    // 更新死亡次数
+                    $wjswcs = gz04_sw($wjid);
+                    if ($wjswcs > 0) {
+                        // 还有剩余死亡次数，传送到复活点
+                        if ($obpid == $zlbp) {
+                            //守方墓地
+                            $xdtx = 74;
+                            $xdty = 22;
+                        } else {
+                            //攻方墓地
+                            $xdtx = 74;
+                            $xdty = 16;
+                        }
+                    } else {
+                        // 死亡次数达到限制，传送出战场
+                        // 封榜堂坐标
+                        $xdtx = 1;
+                        $xdty = 25;
+                    }
+                    wjyd($wjid, $xdtx, $xdty);
+
+                    if ($wjswcs) {
+                        $xtxx = sprintf('【%s】%s在国战中被【%s】%s一声怒吼吓得落荒而逃！', $obpmz, $omz, $nbpmz, $nmz);
+                    } else {
+                        $xtxx = sprintf('【%s】%s在国战中被【%s】%s斩落下马，瞬间没了呼吸!', $obpmz, $omz, $nbpmz, $nmz);
+                    }
+                    include("./msg/msgg02.php");
+
+                    // 增加对手积分
+
+                    //增加国家积分
+                    gz03_zj($nbpid, 10);
+                    //增加个人积分
+                    gz04_zj($ckid, 10);
+
+                    include("template/xy395.php");
+                    //不走xy.php直接调用xy文件需要加pz01配置
+                    include("./pz/pz01.php");
+                    //解锁当前使用的ini
+                    include("./ini/ojsini.php");
+                    //解锁当前使用的ini
+                    exit;
+                }
             }
-
 
 
 
@@ -539,16 +696,13 @@ if($zsspd==1&&$zsspd2==1){
         } else{
             echo "<font color=black>对手还在投胎中（死亡状态）</font>"."<br>";
         }
-
         //cmd及超链接值
         $cmid=$cmid+1;
         $cdid[]=$cmid;
         $clj[]=2;
         $npc[]=0;
         echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回游戏</font></a>"."<br>";
-
     }
-
 }
 
 //解锁当前使用的ini
