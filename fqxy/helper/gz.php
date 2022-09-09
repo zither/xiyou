@@ -83,6 +83,7 @@ function zlzc(int $zcid, int $bpid, int $wjid)
         return true;
     }
     $db->update('gz01', $data, ['zcid' => $zcid]);
+    gz06_cz($bpxx['bpid']);
     return true;
 }
 
