@@ -145,7 +145,7 @@ if($zsspd==1){
                 if($tmp1 == $v) unset($arr3[$k]);
             }
 
-            $ltmax1=empty($arr3) ? 0 : max($arr3);
+            $ltmax1=empty($arr3) ? 0 : (int)max($arr3);
             if($ltmax1=="排序"){
                 $ltmax1=0;
             }
