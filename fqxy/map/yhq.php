@@ -14,7 +14,7 @@ echo "<font color=black>乾方集</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=7;
-$npc[]=5377;//需要改动
+$npc[]=627;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>玉华郡车夫（传送）</font></a>"."<br>";
   //出口
 

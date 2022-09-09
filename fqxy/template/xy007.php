@@ -10,7 +10,7 @@ if($zsspd==1){
     }
 
     //npc页面
-    include("npc/npc.php");
+    include(XY_DIR . "/npc/npc.php");
 
     //写入npcid
     include("./ini/npc_ini.php");

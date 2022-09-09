@@ -14,7 +14,7 @@ echo "<font color=black>【止戈镇中心】</font>"."<a href='xy.php?uid=$wjid
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=7;
-$npc[]=5380;//需要改动
+$npc[]=630;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>止戈将军（传送）</font></a>"."<br>";
   //出口
   echo "<font color=black>请选择出口</font>"."<br>";

@@ -15,7 +15,7 @@ echo "<font color=black>广场</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&si
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=7;
-$npc[]=5372;//需要改动
+$npc[]=622;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>祭赛国车夫（传送）</font></a>"."<br>";
 	
   //出口
