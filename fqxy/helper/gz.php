@@ -214,6 +214,7 @@ function gz06()
     $gz06 = $db->get('gz06', '*', ['id' => 1]);
     if (empty($gz06)) {
         $data = [
+            'id' =>1,
             'fsgjid' => 0,
             'fsgj' => '',
             'fssj' => date('Y-m-d H:i:s'),
@@ -225,12 +226,13 @@ function gz06()
     return $gz06;
 }
 
-function gz06_cz(int $gjid = 0, string $gjmz = '')
+function gz06_cz(int $gjid)
 {
     $db = DB::instance();
+    $bpmz = $db->get('all_bp', 'bpmz', ['bpid' => $gjid]);
     $data = [
         'fsgjid' => $gjid,
-        'fsgj' => $gjmz,
+        'fsgj' => $bpmz,
         'fssj' => date('Y-m-d H:i:s'),
     ];
     $db->update('gz06', $data, ['id' => 1]);

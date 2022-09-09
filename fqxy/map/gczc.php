@@ -139,11 +139,7 @@ if($vipqy ==1){
         //增加国战积分
         $bpid = $fsgjid;
         gz03_zj($bpid, 10);
-        include("./ini/gz06_ini.php");//更新防守时间
-        $enddate = date('Y-m-d H:i:s');
-        $iniFile->updItem('防守时间', ['初始' => $enddate]);
-        $iniFile->updItem('防守国家', ['初始' => $fsgj]);
-        $iniFile->updItem('防守国家id', ['初始' => $bpid]);
+        gz06_cz($bpid);
         //增加国战积分
         $xtxx = $fsgj . "防守5分钟成功！！获得国家积分+10，请进攻国抓紧时间拿下权杖";
         include("./msg/msgg02.php");
