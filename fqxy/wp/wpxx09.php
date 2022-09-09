@@ -223,10 +223,12 @@ $wpfl=4;//分类
 
 
 	
-	
-	//小轩专业检测恶意刷bug20年===杀无赦
-include("./ini/bug_ini.php");
-//小轩专业检测恶意刷bug20年===杀无赦
+
+    if (!isset($skipBug) || !$skipBug) {
+        //小轩专业检测恶意刷bug20年===杀无赦
+        include XY_DIR . "/ini/bug_ini.php";
+        //小轩专业检测恶意刷bug20年===杀无赦
+    }
 	
 	
 	

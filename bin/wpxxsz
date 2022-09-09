@@ -1,0 +1,66 @@
+#!/usr/bin/env php
+
+<?php
+
+include_once __DIR__ . '/../includes/constants.php';
+include XY_DIR . '/sql/mysql.php';
+
+try {
+    $db = DB::instance();
+    $dropTableSql = 'DROP TABLE IF EXISTS `xyy`.`wpxx`';
+    $db->query($dropTableSql);
+
+    $createTableSql = <<<SQL
+CREATE TABLE `xyy`.`wpxx` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '物品编号',
+  `mz` varchar(32) NOT NULL DEFAULT '' COMMENT '物品名字',
+  `ms` varchar(100) NOT NULL DEFAULT '' COMMENT '描述',
+  `fl` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '分类',
+  `jd` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '金豆价格',
+  `jg` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '价格',
+  `dj` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '等级',
+  `zl` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '重量',
+  `bd` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '是否绑定',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+SQL;
+    $result = $db->query($createTableSql);
+}catch (PDOException $e){
+    echo "数据库创建失败，程序退出: {$e->getMessage()}\n";
+    exit;
+}
+echo "数据库创建成功成功，开始导入物品数据\n";
+
+$items = [];
+$maxItemId = 2000;
+$count = 0;
+for ($i = 1; $i <= $maxItemId; $i++) {
+    $npcc = $i;
+    ob_start();
+    $skipBug = true;
+    include XY_DIR . '/wp/wpxx.php';
+    ob_end_clean();
+    if (isset($wpmz)) {
+        $items[] = [
+            'id' => $npcc,
+            'mz' => $wpmz,
+            'ms' => $wpms,
+            'jd' => $wpjd,
+            'jg' => $wpjg,
+            'dj' => $wpdj,
+            'zl' => $wpzl,
+            'bd' => $wpbd,
+            'fl' => $wpfl,
+        ];
+    }
+    if (count($items) >= 20) {
+        $result = $db->insert('wpxx', $items);
+        $count += $result->rowCount();
+        $items = [];
+        echo "物品信息入库成功，当前物品ID: $npcc\n";
+    }
+    unset($npcc, $wpmz, $wpms, $wpjd, $wpjg, $wpdj, $wpzl, $wpbd, $wpfl);
+}
+
+echo "导入完成，共导入物品{$count}个\n";
+
