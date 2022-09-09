@@ -248,13 +248,23 @@ $clj[]=608;
 $npc[]=0;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【巡天神将】（秘宝兑换）</font></a>"."<br>";
 
+    $img='pic/ts/ts1.png';
+    echo '<img src="'.$img.' "alt="图片"/>';
+//cmd及超链接值
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=7;
+    $npc[]=637;//需要改动
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>如意传送员(VIP练级区)</font></a>"."<br>";
+
+
 
 //cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=7;
-$npc[]=1081;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>龟仙人（时装兑换）</font></a>"."<br>";
+//$cmid=$cmid+1;
+//$cdid[]=$cmid;
+//$clj[]=7;
+//$npc[]=1081;//需要改动
+//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>龟仙人（时装兑换）</font></a>"."<br>";
 
 
 
@@ -784,14 +794,6 @@ $npc[]=0;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗农场</font></a>"."<br>";
 
 */
-$img='pic/ts/ts1.png';
-echo '<img src="'.$img.' "alt="图片"/>';
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=7;
-$npc[]=637;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>如意传送员(VIP练级区)</font></a>"."<br>";
 
 $img='pic/ts/ts1.png';
 echo '<img src="'.$img.' "alt="图片"/>';
