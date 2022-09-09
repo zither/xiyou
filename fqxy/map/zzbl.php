@@ -512,17 +512,17 @@ $clj[]=20;
 $npc[]=108;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>进入【变异竹林】</font></a>"."<br>";
 
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=2;
-$npc[]=0;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>兑换【洛书】</font></a>"."<br>";
-
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=2;
-$npc[]=0;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖金豆〗兑换雷晶</font></a>"."<br>";
+//$cmid=$cmid+1;
+//$cdid[]=$cmid;
+//$clj[]=2;
+//$npc[]=0;
+//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>兑换【洛书】</font></a>"."<br>";
+//
+//$cmid=$cmid+1;
+//$cdid[]=$cmid;
+//$clj[]=2;
+//$npc[]=0;
+//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖金豆〗兑换雷晶</font></a>"."<br>";
 
 
     //cmd及超链接值
