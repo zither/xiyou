@@ -27,7 +27,7 @@ if ($ydtx == 74) {
         }
     }
     wjyd($wjid, $xdtx, $xdty);
-    $xtxx = "<span style='color: red'>{$wjmz}被{$nname}打得遍体鳞伤，奄奄一息的死掉了！！！</span><br>";
+    $xtxx = "<span style=\"color: red\">{$wjmz}被{$nname}打得遍体鳞伤，奄奄一息的死掉了！！！</span><br>";
     include("./msg/msgg02.php");
 }
 
