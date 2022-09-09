@@ -9984,7 +9984,6 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>提交</fo
 	echo "<font color=black>$npctake</font>"."<br>";
 	echo "<font color=red>提示充值〖嫦娥月饼礼盒〗【糯米粉】哦宝贝多多~~具体关注首页公告</font>"."<br>";
 
-
 	echo "<font color=black>【糯米粉】x10（〖金豆〗x1）</font>";
 //cmd及超链接值
 	$cmid=$cmid+1;
@@ -10070,29 +10069,34 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>提交</fo
 
 
 	echo "<font color=black>〖鸿福月饼礼盒〗x10</font>";
-//cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=312;
 	$npc[]=242;
-	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>制作</font></a>"."<br>";
+	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>制作</font></a><br><br>";
 
 
+	$jf = DB::instance()->get('all_hdph01', 'ds01', ['wjid' => $wjid]);
+	echo "<span style='color: red'>【中秋积分】当前中秋积分：$jf</span><br>";
+    echo "<font color=red>〖玉兔月饼〗（〖玉兔月饼〗=1中秋积分）</font>";
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=609;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>一键提交</font></a>"."<br>";
+    echo "<font color=red>【桂花糕】x1（中秋积分 x10）</font>";
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=688;
+    $npc[]=1;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>兑换</font></a>"."<br>";
 
-	echo "<br>";
-
-	/*
-echo "<font color=red>〖玉兔月饼〗（〖玉兔月饼〗=1中秋积分）</font>";
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=609;
-$npc[]=0;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>一键提交</font></a>"."<br>";
-
-*/
-
-
+    echo "<font color=red>【桂花糕】x10（中秋积分 x100）</font>";
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=688;
+    $npc[]=10;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>兑换</font></a>"."<br>";
 
 } elseif ($npcc==1081) {
 	$npcname="龟仙人（时装兑换）";

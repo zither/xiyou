@@ -21,3 +21,16 @@ function wjyd(int $wjid, int $dtx, int $dty)
         $iniFile->delItem('国家职务名字值' . $ydtx . 'x' . $ydty, $wjid);
     }
 }
+
+function hdwp(int $wjid, int $wpid, int $sl)
+{
+    $wpdz1 = $wpdz2 = $wpdz3 = $wpdz4 = $wpdz5 = [];
+    $npcc = $wpid;
+    include XY_DIR . '/wp/wpxx.php';
+    $wpdz1[] = $wpmz;//名字
+    $wpdz2[] = $wpfl;//物品分类
+    $wpdz3[] = $wpid;//物品id
+    $wpdz4[] = $sl;//	量
+    $wpdz5[] = $wpzl;//	重量
+    include XY_DIR . "/rwmap/rwget.php";
+}
