@@ -9870,16 +9870,12 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>提交</fo
 	$npctake="赏花赏月赏秋香~~~";
 	echo "<font color=black>$npctake</font>"."<br>";
 
-	/*
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=302;
-$npc[]=296;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>中秋赏月（每天一次）</font></a>"."<br>";
-*/
-
-
+    //cmd及超链接值
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=302;
+    $npc[]=296;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>中秋赏月（每天一次）</font></a>"."<br>";
 
 
 	echo "<font color=red>备注：以下称号，具体信息查看人物状态</font>"."<br>";

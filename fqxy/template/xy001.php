@@ -459,14 +459,16 @@ if ($zsspd == 1) {
     $clj[]=107;
     $npc[]=26;
     echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【活动-花果山新区活动】(9-16~~~9-25(23:50))</font></a>"."<br>";
+    */
 
 
+    /*
     //cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=107;
     $npc[]=25;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【活动-中秋活动】(9-16~~~9-25(23:50))</font></a>"."<br>";
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【活动-中秋活动】(9-9~~~9-17(23:50))</font></a>"."<br>";
     */
 
 
