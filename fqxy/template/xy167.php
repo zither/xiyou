@@ -66,12 +66,11 @@ foreach( $arr1 as $k=>$v) {
     if($tmp1 == $v) unset($arr1[$k]);
 }
 
-$ltmax1=max($arr1);
-if($ltmax1=="排序"){
-$ltmax1=0;
-	} else{
-	} 
-$ltmax1=$ltmax1+1;
+        $ltmax1= empty($arr1) ? 0 : (int)max($arr1);
+        if($ltmax1=="排序"){
+            $ltmax1=0;
+        }
+        $ltmax1=$ltmax1+1;
 	
 	$wjzd1=($iniFile->getItem('玩家排序1',$wjid1));
 $wjzd=($iniFile->getItem('玩家住宅',$wjzd1));

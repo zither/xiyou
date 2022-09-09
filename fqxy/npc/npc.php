@@ -7645,86 +7645,55 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>兑换</fo
 
 
 } elseif ($npcc==5387) {
+	//查询是否的参观模式
+	//$q2="bl".$fqidd;
+	//$sql1=mysql_query("select * from $q2 where id=2",$conn);
+	//$info1=@mysql_fetch_array($sql1);
+	//$bll1=$info1['bll1'];
 
+    //调用zt.ini是否存在
+    include(XY_DIR . "/ini/fz_ini.php");
+    $fzpd=($iniFile->getItem('所处房间人id','初始'));
+	$npcname="管家";
 
-//查询是否的参观模式
-	$q2="bl".$fqidd;
-	$sql1=mysql_query("select * from $q2 where id=2",$conn);
-	$info1=@mysql_fetch_array($sql1);
-	$bll1=$info1['bll1'];
-
-	if ($bll1>=1) {
-		$npcname="管家";
+	if ($fzpd != 123) {
 		$npctake="尊贵的贵客！！在这里到处走走可以可别把主人惹生气了哟";
 		echo "<font color=red>$npcname</font>"."<br>";
 		echo "<font color=black>$npctake</font>"."<br>";
-//cmd及超链接值
+	} else{
+		$npctake="主人,有什么我能帮助你的吗？";
+		echo "<font color=red>$npcname</font>"."<br>";
+		echo "<font color=black>$npctake</font>"."<br>";
+
 		$cmid=$cmid+1;
 		$cdid[]=$cmid;
-		$clj[]=10;
+		$clj[]=165;
 		$npc[]=0;
-//
-	} else{
-		$npcname="管家";
+		echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>房屋改名</font></a>"."<br>";
 
-		//调用zt.ini是否存在
-		include("./ini/fz_ini.php");
-		$fzpd=($iniFile->getItem('所处房间人id','初始'));
+		$cmid=$cmid+1;
+		$cdid[]=$cmid;
+		$clj[]=157;
+		$npc[]=0;
+		echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>打造家具</font></a>"."<br>";
 
-		if($fzpd==123){
-			$npctake="主人,有什么我能帮助你的吗？";
-			echo "<font color=red>$npcname</font>"."<br>";
-			echo "<font color=black>$npctake</font>"."<br>";
+		$cmid=$cmid+1;
+		$cdid[]=$cmid;
+		$clj[]=160;
+		$npc[]=0;
+		echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>查看家具及摆放情况</font></a>"."<br>";
 
+		$cmid=$cmid+1;
+		$cdid[]=$cmid;
+		$clj[]=166;
+		$npc[]=0;
+		echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>邀请好友</font></a>"."<br>";
 
-//cmd及超链接值
-			$cmid=$cmid+1;
-			$cdid[]=$cmid;
-			$clj[]=165;
-			$npc[]=0;
-			echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>房屋改名</font></a>"."<br>";
-
-//cmd及超链接值
-			$cmid=$cmid+1;
-			$cdid[]=$cmid;
-			$clj[]=157;
-			$npc[]=0;
-			echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>打造家具</font></a>"."<br>";
-//cmd及超链接值
-			$cmid=$cmid+1;
-			$cdid[]=$cmid;
-			$clj[]=160;
-			$npc[]=0;
-			echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>查看家具及摆放情况</font></a>"."<br>";
-//cmd及超链接值
-			$cmid=$cmid+1;
-			$cdid[]=$cmid;
-			$clj[]=166;
-			$npc[]=0;
-			echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>邀请好友</font></a>"."<br>";
-
-//cmd及超链接值
-			$cmid=$cmid+1;
-			$cdid[]=$cmid;
-			$clj[]=169;
-			$npc[]=0;
-			echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>踢出玩家</font></a>"."<br>";
-
-//
-
-		} else{
-			$npctake="亲爱的客人！欢迎参观可不要惹主人生气哦";
-			echo "<font color=red>$npcname</font>"."<br>";
-			echo "<font color=black>$npctake</font>"."<br>";
-		}
-
-
-
-
-
-
-
-
+		$cmid=$cmid+1;
+		$cdid[]=$cmid;
+		$clj[]=169;
+		$npc[]=0;
+		echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>踢出玩家</font></a>"."<br>";
 	}
 
 

@@ -25,10 +25,9 @@ for($x=0;$x<=30;$x++){
 }
 if($zsspd==1){
 	//路径
-	$path='acher/map';
-	$dir = iconv("UTF-8", "GBK", "$path");
-	if (!file_exists($dir)){
-		mkdir ($dir,0777,true);
+	$path= XY_DIR . '/acher/map';
+	if (!file_exists($path)){
+		mkdir ($path,0777,true);
 	}
 	//判断ini文件是否存在	
 	$ininame = $path."/".$inina;
