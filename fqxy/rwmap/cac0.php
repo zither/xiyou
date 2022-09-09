@@ -23,11 +23,19 @@ $xrwidd=$rwidd;
 $xrwfl=$rwfl;
 //第一个必须加变量转换
 
-////////////////////任务属性//////////////
-$rwidd=1;//任务的id
-$rwfl=2;//任务的分类1主线2支线5日常4活动
-$rwmz="159转职任务〖关键〗";
-include("./rwmap/rwpd.php");
+
+$zt_ini = ini_file($wjid, XY_DIR . '/ini/zt_ini.php');
+if ($zt_ini) {
+	$wjdj =  $zt_ini->getItem('玩家信息', '等级');
+	if ($wjdj > 150) {
+		////////////////////任务属性//////////////
+		$rwidd=1;//任务的id
+		$rwfl=2;//任务的分类1主线2支线5日常4活动
+		$rwmz="159转职任务〖关键〗";
+		include XY_DIR . "/rwmap/rwpd.php";
+	}
+}
+
 
 /*
 //首次接取任务	

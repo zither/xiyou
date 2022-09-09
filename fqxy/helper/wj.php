@@ -34,3 +34,22 @@ function hdwp(int $wjid, int $wpid, int $sl)
     $wpdz5[] = $wpzl;//	重量
     include XY_DIR . "/rwmap/rwget.php";
 }
+
+function wjid()
+{
+    return $_SESSION['uid'] ?? 0;
+}
+
+function ini_file(int $wjid, string $file, array $params = []): iniFile
+{
+    if (!empty($params)) {
+        extract($params);
+    }
+    if (file_exists($file)) {
+        include $file;
+    }
+    if (isset($iniFile)) {
+        return $iniFile;
+    }
+    return null;
+}
