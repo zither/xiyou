@@ -408,7 +408,7 @@ if($csm ==100){
     if($week==6){
         echo "<font color=red>[系统]全体人员进行休整今天不开放国战哦！请于明天再来（周六停战）</font>"."<br>";
     } else{
-        if(($h!=21||$h==21&&$i>30) && false) {
+        if($h!=21||$h==21&&$i>30) {
             echo "<font color=red>[系统]参与国战的时间已过或者国战已结束！</font>"."<br>";
         } else{
             include("./ini/zt_ini.php");
