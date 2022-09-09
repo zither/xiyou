@@ -471,6 +471,12 @@ if ($zsspd == 1) {
     echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【活动-中秋活动】(9-9~~~9-17(23:50))</font></a>"."<br>";
     */
 
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=20;
+    $npc[]=194;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【活动-中秋活动】(9-9~~~9-12(23:50))</font></a>"."<br>";
+
 
     /*
     //cmd及超链接值
