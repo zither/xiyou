@@ -190,7 +190,7 @@ $zcwz="无";
 
 if ($week ==1||$week ==2||$week ==3||$week ==4||$week ==5||$week ==7) {
 
-//echo"<font color=red>[系统]【".$zcwz."】国战将于21:00开始,请还没报名的国家前往长安城-封榜堂,大宰相.房玄龄处进行报名</font></a>"."<br>";
+echo"<font color=red>[系统]【".$zcwz."】国战将于21:00开始,请还没报名的国家前往长安城-封榜堂,大宰相.房玄龄处进行报名</font></a>"."<br>";
 } else{
 
 
@@ -224,7 +224,7 @@ $zcwz="无";
 
 if ($week ==1||$week ==2||$week ==3||$week ==4||$week ==5||$week ==7) {
 
-//echo"<font color=red>[系统]【".$zcwz."】国战已经火热开启了,请各位仙友前往战场争夺属于国家的荣誉吧！</font></a>"."<br>";
+echo"<font color=red>[系统]【".$zcwz."】国战已经火热开启了,请各位仙友前往战场争夺属于国家的荣誉吧！</font></a>"."<br>";
 } else{
 
 
