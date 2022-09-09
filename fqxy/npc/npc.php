@@ -10077,6 +10077,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>提交</fo
 
 
 	$jf = DB::instance()->get('all_hdph01', 'ds01', ['wjid' => $wjid]);
+	$jf = empty($jf) ? 0 : $jf;
 	echo "<span style='color: red'>【中秋积分】当前中秋积分：$jf</span><br>";
     echo "<font color=red>〖玉兔月饼〗（〖玉兔月饼〗=1中秋积分）</font>";
     $cmid=$cmid+1;
