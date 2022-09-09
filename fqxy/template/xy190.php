@@ -95,6 +95,13 @@ if($zlf7 ==""){
 } else{
 }
 
+for ($i = 1; $i <= 7; $i++) {
+    $zlf = 'zlf' . $i;
+    if ($$zlf !== '未') {
+        $$zlf = sprintf('<span style="color: red">%s</span>', $$zlf);
+    }
+}
+
 $weekarray=array("7","1","2","3","4","5","6");
 $week=$weekarray[date("w")];
 
