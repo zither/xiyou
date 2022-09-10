@@ -248,6 +248,13 @@ $clj[]=608;
 $npc[]=0;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【巡天神将】（秘宝兑换）</font></a>"."<br>";
 
+//cmd及超链接值
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=7;
+    $npc[]=1081;//需要改动
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>龟仙人（时装兑换）</font></a>"."<br>";
+
     $img='pic/ts/ts1.png';
     echo '<img src="'.$img.' "alt="图片"/>';
 //cmd及超链接值
@@ -256,17 +263,6 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【巡天�
     $clj[]=7;
     $npc[]=637;//需要改动
     echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>如意传送员(VIP练级区)</font></a>"."<br>";
-
-
-
-//cmd及超链接值
-//$cmid=$cmid+1;
-//$cdid[]=$cmid;
-//$clj[]=7;
-//$npc[]=1081;//需要改动
-//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>龟仙人（时装兑换）</font></a>"."<br>";
-
-
 
 
 $img='pic/ts/ts1.png';
@@ -2358,26 +2354,34 @@ $npc[]=0;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【一键】熔炼〖财宝箱〗〖大财宝箱〗</font></a>"."<br>";
 
 
-$img='pic/ts/ts1.png';
-	echo '<img src="'.$img.' "alt="图片"/〉';
-	echo "<br>";
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=317;
-$npc[]=0;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【一键】副本材料兑换西游声望</font></a>"."<br>";
+
 
 $img='pic/ts/ts1.png';
 	echo '<img src="'.$img.' "alt="图片"/〉';
 	echo "<br>";
-//cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=647;
 $npc[]=0;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【一键】各类修炼丹兑换修炼经验</font></a>"."<br>";
 
+    $img='pic/ts/ts1.png';
+    echo '<img src="'.$img.' "alt="图片"/〉';
+    echo "<br>";
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=317;
+    $npc[]=0;//需要改动
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【一键】副本材料兑换西游声望</font></a>"."<br>";
+
+    $img='pic/ts/ts1.png';
+    echo '<img src="'.$img.' "alt="图片"/〉';
+    echo "<br>";
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=689;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【一键】任务材料兑换西游声望</font></a>"."<br>";
 
 
 
