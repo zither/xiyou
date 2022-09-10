@@ -1,10 +1,13 @@
 <?php
 
-function zcid()
+function zcid(bool $real_id = false)
 {
     $week = [7, 1, 2, 3, 4, 5, 6];
     $day = date('w');
     $zcid = $week[$day];
+    if ($real_id) {
+        return $zcid;
+    }
     return $zcid == 6 ? 0 : $zcid;
 }
 
@@ -241,4 +244,34 @@ function gz06_cz(int $gjid = 0)
         'fssj' => date('Y-m-d H:i:s'),
     ];
     $db->update('gz06', $data, ['id' => 1]);
+}
+
+
+/**
+ * 检查是否是新的国战周期，新周期需要重置周积分榜
+ *
+ * @param string $date
+ * @param string|null $date2
+ * @return bool
+ * @throws Exception
+ */
+function new_week(string $date, string $date2 = null)
+{
+    $timezone = new DateTimeZone('Asia/ShangHai');
+    $dateTime = DateTime::createFromFormat('Ymd', $date, $timezone);
+
+    if ($date2) {
+        $dateTime2 = DateTime::createFromFormat('Ymd', $date2, $timezone);
+    } else {
+        $dateTime2 = new DateTime('now', $timezone);
+    }
+
+    $is_sunday = $dateTime2->format('w') == 0;
+    if ($is_sunday) {
+        return true;
+    }
+    if ($dateTime->format('oW') == $dateTime2->format('oW')) {
+        return false;
+    }
+    return true;
 }

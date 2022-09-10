@@ -20,29 +20,38 @@ if($zsspd==1) {
     $db = DB::instance();
     if ($lq) {
         //领取奖励
+        $zcid = zcid();
+        if ($zcid && ($fl == 1 || $fl == 3)) {
+            echo "<span style='color: red'>积分周榜奖励需要在休战期（周六）领取！</span><br>";
+            goto FANHUI;
+        }
+
         //领取字段
         $lqzd = $fl == 1 || $fl == 3 ? 'zlq' : 'rlq';
+        //领取后更新字段
+        $data = [$lqzd => 1];
         if ($fl == 1 || $fl == 2) {
             include XY_DIR . '/ini/zt_ini.php';
             $bpid = $iniFile->getItem('玩家信息', '帮派id');
             $bpzw = $iniFile->getItem('玩家信息', '帮派职务');
             if (empty($bpzw)) {
                 echo "<span style='color: red'>国家职位不足，领取国家奖励需要君主和官员。</span><br>";
+                goto FANHUI;
+            }
+
+            $gz03 = $db->get('gz03', '*', ['gjid' => $bpid]);
+            $jf = $gz03[$key] ?? 0;
+            if (empty($jf)) {
+                echo "<span style='color: red'>国家积分为0，领取失败</span><br>";
+            } elseif ($gz03[$lqzd]) {
+                echo "<span style='color: red'>奖励已领取！</span><br>";
             } else {
-                $gz03 = $db->get('gz03', '*', ['gjid' => $bpid]);
-                $jf = $gz03[$key] ?? 0;
-                if (empty($jf)) {
-                    echo "<span style='color: red'>国家积分为0，领取失败</span><br>";
-                } elseif ($gz03[$lqzd]) {
-                    echo "<span style='color: red'>奖励已领取！</span><br>";
-                } else {
-                    //奖励占位，目前只增加国家经验和声望
-                    $gxx = 0;//个人贡献
-                    $gxx02 = $gz03[$key] * 10;//国家经验
-                    $gxx03 = $gz03[$key] * 10;//国家声望
-                    include(XY_DIR . "/yxpz/gjgx_pz.php");
-                    $db->update('gz03', [$lqzd => 1], ['gjid' => $bpid]);
-                }
+                //奖励占位，目前只增加国家经验和声望
+                $gxx = 0;//个人贡献
+                $gxx02 = $gz03[$key] * 10;//国家经验
+                $gxx03 = $gz03[$key] * 10;//国家声望
+                include(XY_DIR . "/yxpz/gjgx_pz.php");
+                $db->update('gz03', $data, ['gjid' => $bpid]);
             }
         } else {
             $gz04 = $db->get('gz04', '*', ['wjid' => $wjid]);
@@ -57,7 +66,7 @@ if($zsspd==1) {
                 $gxx02 = 0;//国家经验
                 $gxx03 = 0;//国家声望
                 include(XY_DIR . "/yxpz/gjgx_pz.php");
-                $db->update('gz04', [$lqzd => 1], ['wjid' => $wjid]);
+                $db->update('gz04', $data, ['wjid' => $wjid]);
             }
         }
 
@@ -162,6 +171,7 @@ if($zsspd==1) {
         echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>领取奖励</a><br>";
     }
 
+FANHUI:
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[] = 206;
@@ -170,9 +180,9 @@ if($zsspd==1) {
 
     $cmid=$cmid+1;
     $cdid[]=$cmid;
-    $clj[] = 2;
-    $npc[] = 0;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回游戏</font></a>"."<br>";
+    $clj[] = 7;
+    $npc[] = 62;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回上级</font></a>"."<br>";
     echo "<font color=black>----------------------</font>"."<br>";
     include("fhgame.php");
 }

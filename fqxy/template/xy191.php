@@ -1,11 +1,11 @@
 <?php
 
 //当日攻城的主城编号
-$week = zcid();
+$week = zcid(true);
 if($week==6){
     echo "<font color=black>全体人员进行休整今天不开放国战哦！请于明天再来（周六停战）</font>"."<br>";
 } else{
-    include("./wj/gztime.php");//调用国战时间
+    include(XY_DIR . "/wj/gztime.php");//调用国战时间
     //开发调试
     if($gztime==2){
         echo "<font color=black>报名参与国战的时间已过或者国战已结束,请明天不要再迟到了哦（除周六每天00:00-20:55期间报名）</font>"."<br>";
@@ -107,11 +107,18 @@ if($week==6){
                                 die('Error: ' . mysql_error());
                             }
                         } else {
-                            $db->update('gz03', [
+                            $data = [
                                 'rjf' => 0,
                                 'rlq' => 0,
                                 'cjsj' => $jt,
-                            ], ['gjid' => $bpid]);
+                            ];
+
+                            //如果是新的国战周期，重置周积分榜
+                            if (empty($gz03['cjsj']) ||  new_week($gz03['cjsj'])) {
+                                $data['zjf'] = 0;
+                                $data['zlq'] = 0;
+                            }
+                            $db->update('gz03', $data, ['gjid' => $bpid]);
                         }
 
 ////////////////////更新国战个人死亡次数////////////////////////

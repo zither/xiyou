@@ -1229,9 +1229,6 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>转门派<
 	echo "<font color=red>攻城属于测试阶段，有问题请交流群反馈！</font>"."<br>";
 
 
-
-
-//cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;
@@ -1246,33 +1243,53 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>转门派<
 	$clj[]=171;
 	$npc[]=0;
 	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>建立国家</font></a>"."<br>";
+    echo "<font color=black>--------------</font>"."<br>";
 
 
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=190;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>查看攻城信息</font></a>"."<br>";
+
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=188;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻城说明</font></a>"."<br>";
+
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=192;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>已报名国家</font></a>"."<br>";
+
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=189;
+    $npc[]=29;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>查看地图</font></a>"."<br>";
+
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=206;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1' style='color: red' ><font color=red>排行榜(领奖)</font></a>"."<br>";
+
+    echo "<font color=black>--------------</font>"."<br>";
+
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=191;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>报名参战</font></a>"."<br>";
 
 
-
-	//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=187;
-$npc[]=0;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻城管理</font></a>"."<br>";
-
-	//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=191;
-$npc[]=0;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>报名参战</font></a>"."<br>";
-
-
-	//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=20;
-$npc[]=156;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>传送至攻城战场</font></a>"."<br>";
-
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=20;
+    $npc[]=156;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>传送至攻城战场</font></a>"."<br>";
 	echo "<br>";
 
 //

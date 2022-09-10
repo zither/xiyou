@@ -12,7 +12,7 @@ echo "<font color=black>【国家积分规则】</font>"."<br>";
 echo "<font color=black>击杀神兽积分:10分,击杀官员1分，击杀帮众1分，击杀携带权杖玩家积分1分</font>"."<br>";
 
 echo "<font color=black>【奖励发放】</font>"."<br>";
-echo "<font color=black>国家积分排行攻城结束即可领取,其他三大个人排行榜需要在周六领取！</font>"."<br>";
+echo "<font color=black>日积分奖励攻城结束即可领取，周积分奖励需要在周六领取！</font>"."<br>";
 
 
 
@@ -27,8 +27,8 @@ echo "<br>";
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
-$clj[]=187;
-$npc[]=0;
+$clj[]=7;
+$npc[]=62;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回上级</font></a>"."<br>";
 //cmd及超链接值
 $cmid=$cmid+1;

@@ -155,7 +155,8 @@ echo "<font color=black>2.宝象国|（".$zlf2."占领）</font>"."<br>";
 echo "<font color=black>3.乌鸡国|（".$zlf3."占领）</font>"."<br>";
 echo "<font color=black>4.女儿国|（".$zlf4."占领）</font>"."<br>";
 echo "<font color=black>5.车迟国|（".$zlf5."占领）</font>"."<br>";
-echo "<font color=black>6.祭赛国|（".$zlf7."占领）</font>"."<br>";
+echo "<font color=black>7.祭赛国|（".$zlf7."占领）</font>"."<br>";
+echo "<font color=black>--------------</font>"."<br>";
 echo "<font color=black>战场位置：".$zcwz."</font>"."<br>";
 echo "<font color=black>开放时间：".$kfsj."</font>"."<br>";
 echo "<font color=black>开放等级：60级以上</font>"."<br>";
@@ -165,8 +166,8 @@ echo "<br>";
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
-$clj[]=187;
-$npc[]=0;
+$clj[]=7;
+$npc[]=62;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回上级</font></a>"."<br>";
 
 //cmd及超链接值

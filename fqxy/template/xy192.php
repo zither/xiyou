@@ -48,8 +48,8 @@ echo "<br>";
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
-$clj[]=187;
-$npc[]=0;
+$clj[]=7;
+$npc[]=62;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>返回上级</font></a>"."<br>";
 
 
