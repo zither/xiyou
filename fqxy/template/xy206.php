@@ -67,7 +67,7 @@ if($zsspd==1) {
             }
 
             $jf = $gz04[$key] ?? 0;
-            if (empty($gz04[$lqzd])) {
+            if (!empty($gz04[$lqzd])) {
                 echo "<span style='color: red'>奖励已领取，请勿操作！</span><br>";
             } elseif (empty($jf)) {
                 echo "<span style='color: red'>玩家积分为0，没有奖励可供领取</span><br>";
