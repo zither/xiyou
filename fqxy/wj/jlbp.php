@@ -13,8 +13,8 @@ if($bpid==""||$bpid==0){
         //查询国家名字是否存在
         include("./sql/mysql.php");//调用数据库连接
         $q2="all_bp";
-        $sql1=mysql_query("select bpid from $q2 where bpmz='$wjtake'",$conn);
-        $info1=@mysql_fetch_array($sql1);
+        $sql1=mysql_query("select bpid from $q2 where bpmz='$wjtake'");
+        $info1=mysql_fetch_array($sql1);
         $pdbp2=$info1['bpid'];
         if($pdbp2==""){
             $q2="all_bp";
@@ -30,9 +30,9 @@ if($bpid==""||$bpid==0){
 
             $q2="all_bp";
             $sql = "insert into $q2 (bpid,bpdj,bpmz,cbpmz,cwjid,xbpmz,xwjid,ccmz01,ccid01,ccmz02,ccid02,
-ccmz03,ccid03,ccmz04,ccid04,ccmz05,ccid05,ccmz06,ccid06,bprsmax,bpjymax,bpyl,bpsw)  values('$maxidd','1','$wjtake',
-'$wjmz','$wjid','$wjmz','$wjid','0','0','0','0','0','0','0','0','0','0','0','0','20','1000','0','0')";
-            if (!mysql_query($sql,$conn)) {
+ccmz03,ccid03,ccmz04,ccid04,ccmz05,ccid05,ccmz06,ccid06,bprsmax,bpjymax,bpyl,bpsw,bprs,bpjy)  values('$maxidd','1','$wjtake',
+'$wjmz','$wjid','$wjmz','$wjid','0','0','0','0','0','0','0','0','0','0','0','0','20','1000','0','0', '1', '0')";
+            if (!mysql_query($sql)) {
                 die('Error: ' . mysql_error());
             }
             $q2="all_zt";

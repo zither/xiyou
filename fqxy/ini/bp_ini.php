@@ -33,6 +33,8 @@ if(file_exists($file)) {
     $bpjymax=$info1['bpjymax'];
     $bpyl=$info1['bpyl'];
     $bpsw=$info1['bpsw'];
+    $bpjy=$info1['bpjy'];
+    $bprs=$info1['bprs'];
 
     $inina="bp".$bpid.".ini";
     $path='acher/bp';
@@ -43,18 +45,8 @@ if(file_exists($file)) {
     $iniFile->addItem('国家信息',['初始' => 123]);
     $iniFile->addCategory('国家信息', ['国家id' => $bpid, '国家等级' => $bpdj,'国家名字' => $bpmz,'首任君主' => $cbpmz,'首任君主id' => $cwjid,'现任君主' => $xbpmz,'现任君主id' => $xwjid,
         '辅助大臣' => $ccmz01,'辅助大臣id' => $ccid01, '军机大臣' => $ccmz02,'军机大臣id' => $ccid02, '财政大臣' => $ccmz03, '财政大臣id' => $ccid03, '工部大臣' => $ccmz04, '工部大臣id' => $ccid04,
-        '外交大臣' => $ccmz05,'外交大臣id' => $ccid05,'军团长' => $ccmz06,'军团长id' => $ccid06,'国家人数max' => $bprsmax,'国家经验max' => $bpjymax,'国家资金' => $bpyl,'国家声望' => $bpsw]);
-
-
-    include("bpp_ini.php");
-    $gjid=($iniFile->getCategory('序列'));
-    $m=count($gjid,0)-1;
-
-    $inina="bp".$bpid.".ini";
-    $path='acher/bp';
-    $file = $path."/".$inina;
-    $iniFile = new iniFile($file);
-    $iniFile->addCategory('国家信息', ['国家人数' => $m, '国家经验' => '0']);
+        '外交大臣' => $ccmz05,'外交大臣id' => $ccid05,'军团长' => $ccmz06,'军团长id' => $ccid06,'国家人数max' => $bprsmax,'国家经验max' => $bpjymax,
+        '国家资金' => $bpyl,'国家声望' => $bpsw, '国家经验' => $bpjy, '国家人数' => $bprs]);
 }
 
 $iniFile = new iniFile($file);

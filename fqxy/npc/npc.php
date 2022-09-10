@@ -1226,7 +1226,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>转门派<
 	echo "<font color=red>$npcname</font>"."<br>";
 
 
-	echo "<font color=red>攻城属于测试阶段，需要一段时间的测试，无任何问题后方可加入奖励（攻城积分排名，与奖励暂不开启）</font>"."<br>";
+	echo "<font color=red>攻城属于测试阶段，有问题请交流群反馈！</font>"."<br>";
 
 
 
@@ -1272,17 +1272,6 @@ $cdid[]=$cmid;
 $clj[]=20;
 $npc[]=156;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>传送至攻城战场</font></a>"."<br>";
-
-
-	echo "<font color=red>报名参战正在抓紧制作中</font>"."<br>";
-
-
-
-
-
-
-
-
 
 	echo "<br>";
 

@@ -417,9 +417,9 @@ if($zsspd==1&&$zsspd2==1){
                     $gj04  = DB::instance()->get('gz04', '*', ['wjid' => $wjid]);
                     if(!empty($gj04)){
                         //增加国家积分
-                        gz03_zj($obpid, 10);
+                        gz03_zj($obpid, 1);
                         //增加个人积分
-                        gz04_zj($wjid, 10);
+                        gz04_zj($wjid, 1);
                         echo "<font color=blue>击杀敌对国家玩家获得国家积分+10，个人积分+10</font>"."<br>";
                     } else{
                         echo "<font color=blue>不会获得任何积分（造成这种情况因为之前参加国战后没有出去过，请自行解决否则不会获得任何积分）</font>"."<br>";
@@ -485,9 +485,9 @@ if($zsspd==1&&$zsspd2==1){
                     // 增加对手积分
 
                     //增加国家积分
-                    gz03_zj($nbpid, 10);
+                    gz03_zj($nbpid, 1);
                     //增加个人积分
-                    gz04_zj($ckid, 10);
+                    gz04_zj($ckid, 1);
 
                     include("template/xy395.php");
                     //不走xy.php直接调用xy文件需要加pz01配置

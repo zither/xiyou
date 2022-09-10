@@ -227,10 +227,14 @@ function gz06()
     return $gz06;
 }
 
-function gz06_cz(int $gjid)
+function gz06_cz(int $gjid = 0)
 {
     $db = DB::instance();
-    $bpmz = $db->get('all_bp', 'bpmz', ['bpid' => $gjid]);
+    if ($gjid) {
+        $bpmz = $db->get('all_bp', 'bpmz', ['bpid' => $gjid]);
+    } else {
+        $bpmz = '';
+    }
     $data = [
         'fsgjid' => $gjid,
         'fsgj' => $bpmz,

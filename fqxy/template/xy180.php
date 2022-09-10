@@ -46,6 +46,7 @@ if($zsspd==1&&$zsspd2==1){
 		$bprspd=$bprs+1;
 
 		if($bprspd<=$bprsmax){
+		    DB::instance()->update('all_bp', ['bprs[+]' => 1], ['bpid' => $bpid]);
 			$iniFile->updItem('国家信息', ['国家人数'=> $bprspd]);
 			$wjid=$wjid1;
 			$q2="all_zt";
