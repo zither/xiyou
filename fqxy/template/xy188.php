@@ -12,7 +12,7 @@ echo "<font color=black>【国家积分规则】</font>"."<br>";
 echo "<font color=black>击杀神兽积分:10分,击杀官员1分，击杀帮众1分，击杀携带权杖玩家积分1分</font>"."<br>";
 
 echo "<font color=black>【奖励发放】</font>"."<br>";
-echo "<font color=black>日积分奖励攻城结束即可领取，周积分奖励需要在周六领取！</font>"."<br>";
+echo "<font color=black>日积分奖励攻城结束即可领取，周积分奖励需要在周六领取，周六过后将清空积分！</font>"."<br>";
 
 
 

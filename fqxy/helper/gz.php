@@ -275,3 +275,28 @@ function new_week(string $date, string $date2 = null)
     }
     return true;
 }
+
+/**
+ * 返回国战同周期的所有日期
+ *
+ * @return array
+ * @throws Exception
+ */
+function cjsj_arr()
+{
+    $monday = strtotime('monday this week');
+    $date = new DateTime();
+    $date->setTimestamp($monday);
+    $diff_days = [ -1, 0, 1, 2, 3, 4, ];
+    $cjsj_arr = [];
+    foreach ($diff_days as $v) {
+        $new_date = clone $date;
+        if ($v < 0) {
+            $new_date->sub(new DateInterval('P1D'));
+        } elseif ($v > 0) {
+            $new_date->add(new DateInterval(sprintf('P%dD', $v)));
+        }
+        $cjsj_arr[] = $new_date->format('Ymd');
+    }
+    return $cjsj_arr;
+}

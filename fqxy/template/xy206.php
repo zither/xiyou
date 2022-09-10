@@ -40,11 +40,17 @@ if($zsspd==1) {
             }
 
             $gz03 = $db->get('gz03', '*', ['gjid' => $bpid]);
+            if (empty($gz03['cjsj']) || new_week($gz03['cjsj'])) {
+                echo "<span style='color: red'>本次国战周期内未参与国战，没有奖励可供领取</span><br>";
+                goto FANHUI;
+            }
+
+
             $jf = $gz03[$key] ?? 0;
-            if (empty($jf)) {
-                echo "<span style='color: red'>国家积分为0，领取失败</span><br>";
-            } elseif ($gz03[$lqzd]) {
-                echo "<span style='color: red'>奖励已领取！</span><br>";
+            if (!empty($gz03[$lqzd])) {
+                echo "<span style='color: red'>奖励已领取，请勿操作！</span><br>";
+            } elseif (empty($jf)) {
+                echo "<span style='color: red'>国家积分为0，没有奖励可供领取</span><br>";
             } else {
                 //奖励占位，目前只增加国家经验和声望
                 $gxx = 0;//个人贡献
@@ -55,11 +61,16 @@ if($zsspd==1) {
             }
         } else {
             $gz04 = $db->get('gz04', '*', ['wjid' => $wjid]);
+            if (empty($gz04['cjsj']) || new_week($gz04['cjsj'])) {
+                echo "<span style='color: red'>本次国战周期内未参与国战，没有奖励可供领取</span><br>";
+                goto FANHUI;
+            }
+
             $jf = $gz04[$key] ?? 0;
-            if (empty($jf)) {
-                echo "<span style='color: red'>玩家积分为0，领取失败</span><br>";
-            } elseif ($gz04[$lqzd]) {
-                echo "<span style='color: red'>奖励已领取！</span><br>";
+            if (empty($gz04[$lqzd])) {
+                echo "<span style='color: red'>奖励已领取，请勿操作！</span><br>";
+            } elseif (empty($jf)) {
+                echo "<span style='color: red'>玩家积分为0，没有奖励可供领取</span><br>";
             } else {
                 //奖励占位
                 $gxx = $gz04[$key] * 10;//个人贡献
@@ -77,6 +88,7 @@ if($zsspd==1) {
 
         $tj = [
             "{$key}[>]" => 0,
+            'cjsj' => cjsj_arr(),
             'ORDER' => [$key => 'DESC'],
             'LIMIT' => $limit,
         ];
@@ -150,6 +162,7 @@ if($zsspd==1) {
             echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>玩家周榜</a> |";
             echo "玩家日榜<br>";
         }
+
         //国家积分榜单
         if ($fl == 1 || $fl == 2) {
             $gj_arr = $db->select('gz03', '*', $tj);
