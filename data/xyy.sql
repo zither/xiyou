@@ -59,7 +59,9 @@ CREATE TABLE `all_bp` (
   `bprsmax` int(11) NOT NULL,
   `bpjymax` int(11) NOT NULL,
   `bpyl` int(11) NOT NULL,
-  `bpsw` int(11) NOT NULL
+  `bpsw` int(11) NOT NULL,
+  `bpjy` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '帮派经验',
+  `bprs` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '帮派人数'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -592,6 +594,21 @@ CREATE TABLE `all_zt` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `bl`
+--
+
+DROP TABLE IF EXISTS `bl`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bl` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `fqid` int(10) unsigned NOT NULL DEFAULT 0,
+  `bll1` int(10) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `bp`
 --
 
@@ -872,7 +889,8 @@ CREATE TABLE `gz04` (
   `swcs` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '死亡次数',
   `swsj` timestamp NULL DEFAULT NULL COMMENT '死亡时间',
   `cjsj` char(8) NOT NULL DEFAULT '' COMMENT '参加时间',
-  `lq` int(11) NOT NULL DEFAULT 0 COMMENT '是否领取',
+  `zlq` int(11) NOT NULL DEFAULT 0 COMMENT '周领取',
+  `rlq` int(11) NOT NULL DEFAULT 0 COMMENT '日领取',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1099,6 +1117,27 @@ CREATE TABLE `wpp` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `wpxx`
+--
+
+DROP TABLE IF EXISTS `wpxx`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wpxx` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '物品编号',
+  `mz` varchar(32) NOT NULL DEFAULT '' COMMENT '物品名字',
+  `ms` varchar(100) NOT NULL DEFAULT '' COMMENT '描述',
+  `fl` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '分类',
+  `jd` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '金豆价格',
+  `jg` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '价格',
+  `dj` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '等级',
+  `zl` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '重量',
+  `bd` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '是否绑定',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `xl`
 --
 
@@ -1291,4 +1330,4 @@ CREATE TABLE `zzck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-08 21:06:17
+-- Dump completed on 2022-09-10 13:29:29
