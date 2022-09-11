@@ -70,7 +70,7 @@ if($zsspd==1){
                                                 foreach( $arr1 as $k=>$v) {
                                                     if($tmp1 == $v) unset($arr1[$k]);
                                                 }
-                                                $ltmax1=max($arr1);
+                                                $ltmax1= empty($arr1) ? 0 : (int)max($arr1);
                                                 if($ltmax1=="排序"){
                                                     $ltmax1=0;
                                                 }
