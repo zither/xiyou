@@ -1,0 +1,135 @@
+#!/usr/bin/env php
+
+<?php
+
+define('STATUS_MATCH_DTY', 1);
+define('STATUS_MATCH_NAME', 2);
+define('STATUS_MATCH_VIEW_MAP', 3);
+define('STATUS_MATCH_DESCRIPTION', 4);
+
+define('REGEX_MATCH_DTY', '/if\s*\(\s*\$dty\s*==\s*(\d+)/');
+define('REGEX_MATCH_NAME', '/echo\s*"<[^>]*>([^<]+)<[^>]*>.+刷新/');
+define('REGEX_MATCH_VIEW_MAP', '/查看地图/');
+define('REGEX_MATCH_DESCRIPTION', '/echo\s*"<font\scolor=black>([^<]*)/');
+
+include_once __DIR__ . '/../includes/constants.php';
+include XY_DIR . '/sql/mysql.php';
+
+try {
+    $db = DB::instance();
+    $dropTableSql = 'DROP TABLE IF EXISTS `xyy`.`map`';
+    $db->query($dropTableSql);
+
+    $createTableSql = <<<SQL
+CREATE TABLE `xyy`.`map` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `mz` varchar(32) NOT NULL DEFAULT '',
+  `ms` varchar(100) NOT NULL DEFAULT '',
+  `dtx` int(10) unsigned NOT NULL DEFAULT 0,
+  `dty` int(10) unsigned NOT NULL DEFAULT 0,
+  `dtxy` varchar(100) NOT NULL DEFAULT '',
+  `up` varchar(100) NOT NULL DEFAULT '',
+  `down` varchar(100) NOT NULL DEFAULT '',
+  `left` varchar(100) NOT NULL DEFAULT '',
+  `right` varchar(100) NOT NULL DEFAULT '',
+  `up_jump` varchar(100) NOT NULL DEFAULT '',
+  `down_jump` varchar(100) NOT NULL DEFAULT '',
+  `left_jump` varchar(100) NOT NULL DEFAULT '',
+  `right_jump` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `map_dtxy_IDX` (`dtxy`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+SQL;
+    $result = $db->query($createTableSql);
+}catch (PDOException $e){
+    echo "数据库创建失败，程序退出: {$e->getMessage()}\n";
+    exit;
+}
+echo "数据库创建成功成功，开始导入物品数据\n";
+
+
+$map = [];
+$saved_file = __DIR__ . '/data/mapinfo.json';
+
+$map_id_file = __DIR__ . '/data/mapid.json';
+if (!file_exists($map_id_file)) {
+    echo "地图编号数据不存在，请先运行 mapid 生成数据\n";
+    exit;
+}
+$count = 0;
+$ids = json_decode(file_get_contents($map_id_file));
+foreach ($ids as $id => $name) {
+    $path = __DIR__ . '/../fqxy/map';
+    $map_file = $path . '/' . $name;
+    if (!file_exists($path)) {
+        echo "地图文件不存在： . $map_file\n";
+        exit;
+    }
+    $file = fopen($map_file, 'r');
+    if ($file) {
+        //echo "当前匹配：{$map_file}\n";
+        $dtx = $id;
+        $dty = null;
+        $name = null;
+        $description = null;
+        $status = STATUS_MATCH_DTY;
+        while (($line = fgets($file)) !== false) {
+            if ($status === STATUS_MATCH_DTY) {
+                preg_match(REGEX_MATCH_DTY, $line, $matches);
+                if (empty($matches)) {
+                    continue;
+                }
+                $dty = $matches[1];
+                $status = STATUS_MATCH_NAME;
+            }else if ($status == STATUS_MATCH_NAME){
+                preg_match(REGEX_MATCH_NAME, $line, $matches);
+                if (empty($matches)) {
+                    continue;
+                }
+                $name = $matches[1];
+                $status = STATUS_MATCH_VIEW_MAP;
+            }else if ($status == STATUS_MATCH_VIEW_MAP){
+                preg_match(REGEX_MATCH_VIEW_MAP, $line, $matches);
+                if (empty($matches)) {
+                    continue;
+                }
+                $status = STATUS_MATCH_DESCRIPTION;
+            }else if ($status == STATUS_MATCH_DESCRIPTION){
+                preg_match(REGEX_MATCH_DESCRIPTION, $line, $matches);
+                if (empty($matches)) {
+                    continue;
+                }
+                $description = $matches[1];
+                $status = STATUS_MATCH_DTY;
+                $map[] = [
+                    'mz' => $name,
+                    'ms' => $description,
+                    'dtx' => $dtx,
+                    'dty' => $dty,
+                    'dtxy' => "{$dtx}_{$dty}"
+                ];
+
+                if (count($map) >= 20) {
+                    $result = $db->insert('map', $map);
+                    $count += $result->rowCount();
+                    $map = [];
+                    echo "地图信息入库成功，当前地图ID：{$name}({$dtx}_{$dty})\n";
+                }
+                $dty = $name = $description = null;
+            } else {
+                echo "状态错误\n";
+            }
+        }
+        fclose($file);
+    }
+}
+
+echo sprintf("地图信息匹配完毕，\n");
+
+//file_put_contents($saved_file, json_encode(
+//    (object)$map,
+//    JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT
+//));
+//echo sprintf("地图信息匹配完毕，请检查文件：%s\n", $saved_file);
+
+

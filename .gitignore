@@ -10,3 +10,5 @@
 fqxy/mb/mbmb*.php
 fqxy/mb/bhxt0x99999.php
 **/zlbp.php
+bin/data/*
+!bin/data/.gitkeep

@@ -4473,6 +4473,32 @@ $dty=14;
   echo "错误地图,编号：".$dty."<br>";
 }
 
+    $configs = include XY_DIR . '/config/config.php';
+    //地图连接获取代码
+    if ($configs['edit_map'] ?? false) {
+        $db = DB::instance();
+        $origin_xy = "{$ydtx}_{$ydty}";
+        $origin_room = $db->get('map', '*', ['dtxy' => $origin_xy]);
+        if (empty($origin_room)) {
+            echo "<span style='color: red'>数据库中未找到地图，请检查：$origin_xy</span><br>";
+        } else {
+            if ($ydty == $dty) {
+                echo "<span style='color: red'>坐标未移动，请检查：$origin_xy 左移后坐标未改变</span><br>";
+            } else {
+                $current_xy = "{$dtx}_{$dty}";
+                if ($ydtx !== $dtx) {
+                    echo "<span style='color: red'>区域已变动</span><br>";
+                    if (empty($origin_room['left_jump'])) {
+                        $db->update('map', ['left_jump' => $current_xy], ['dtxy' => $origin_xy]);
+                    }
+                } else {
+                    if (empty($origin_room['left'])) {
+                        $db->update('map', ['left' => $current_xy], ['dtxy' => $origin_xy]);
+                    }
+                }
+            }
+        }
+    }
 
 
 

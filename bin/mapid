@@ -1,0 +1,54 @@
+#!/usr/bin/env php
+
+<?php
+
+define('STATUS_MATCH_DTX', 1);
+define('STATUS_MATCH_MAP', 2);
+
+define('REGEX_MATCH_DTX', '/if\s*\(\s*\$dtx\s*==(\d+)\s*\)/');
+define('REGEX_MATCH_MAP', '/include\(\s*"(\w+\.php)"\s*\)/');
+
+$dtx_map = [];
+$saved_file = __DIR__ . '/data/mapid.json';
+
+$path = __DIR__ . '/../fqxy/map/mapid.php';
+if (!file_exists($path)) {
+    echo "地图文件不存在： . $path\n";
+    exit;
+}
+
+$file = fopen($path, 'r');
+if ($file) {
+    $dtx = null;
+    $map_id = null;
+    $status = STATUS_MATCH_DTX;
+    while (($line = fgets($file)) !== false) {
+        if ($status === STATUS_MATCH_DTX) {
+            preg_match(REGEX_MATCH_DTX, $line, $matches);
+            if (empty($matches)) {
+                continue;
+            }
+            $dtx = $matches[1];
+            $status = STATUS_MATCH_MAP;
+        } else {
+            preg_match(REGEX_MATCH_MAP, $line, $matches);
+            if (empty($matches)) {
+                continue;
+            }
+            $map_id = $matches[1];
+            $status = STATUS_MATCH_DTX;
+            $dtx_map["$dtx"] = $map_id;
+            $dtx = $map_id = null;
+        }
+    }
+    fclose($file);
+}
+
+file_put_contents($saved_file, json_encode(
+    (object)$dtx_map,
+    JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT
+));
+
+echo sprintf("成功匹配到地图区域%d个，已保存到 %s 中\n", count($dtx_map), $saved_file);
+
+
