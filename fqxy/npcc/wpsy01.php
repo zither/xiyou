@@ -65,9 +65,15 @@ $clj[]=333;
 $npc[]=$npcc;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>使用全部</font></a>"."<br>";
 
+$cmid=$cmid+1;
+$cdid[]=$cmid;
+$clj[]=37;
+$npc[]=$npcc;
+$formurl = sprintf('xy.php?uid=%d&cmd=%d&sid=%s', $wjid, $cmid, $a1);
+
 
 ?>
-<form  action="" method="post">
+<form  action="<?php echo $formurl?>" method="post">
     <input type="tel" name="sl" placeholder="请输入"id='search'onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"><br>
     <input  type="submit" name="submit"  value="使用" id="search1"><br>
 </form>
