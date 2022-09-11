@@ -264,7 +264,7 @@ if ($zsspd == 1) {
                 //先删除目录下的文件：
                 $dh = opendir($dir);
                 while ($file = readdir($dh)) {
-                    if ($file != "." && $file != "..") {
+                    if ($file != "." && $file != ".." && $file != '.gitkeep') {
                         $fullpath = $dir . "/" . $file;
                         if (!is_dir($fullpath)) {
                            _unlink($fullpath);
