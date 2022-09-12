@@ -355,93 +355,52 @@ if($zsspd==1){
 //cmd及超链接值
             $cmid=$cmid+1;
             $cdid[]=$cmid;
-            $clj[]=404;
-            $npc[]=0;
-            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻略</font></a>"."<br>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            $clj[]=123;
+            $npc[]=68;
+            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>国战</font></a>"."<br>";
 
 
             echo "<font color=black>----------------------</font>"."<br>";
-
-
-
-//基础功能
-            echo "<font color=black>基础功能</font>"."<br>";
-
-
-
-
-//cmd及超链接值
-            //$cmid=$cmid+1;
-            //$cdid[]=$cmid;
-            //$clj[]=301;
-            //$npc[]=0;
-            //echo "<a href='cz/index.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【充值】</font></a>";
-
-            /*
-            //cmd及超链接值
-            $cmid=$cmid+1;
-            $cdid[]=$cmid;
-            $clj[]=533;
-            $npc[]=0;
-            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【充值】</font></a>";
-            */
-            //cmd及超链接值
+            echo "<font color=black>攻略指引</font>"."<br>";
             $cmid=$cmid+1;
             $cdid[]=$cmid;
             $clj[]=489;
             $npc[]=0;
-            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【拍卖】</font></a>";
+            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>拍卖</font></a>";
             echo "<font color=black>◎</font>";
 
-
             if($sw!=2){
-
-//cmd及超链接值
                 $cmid=$cmid+1;
                 $cdid[]=$cmid;
                 $clj[]=668;
                 $npc[]=0;
-                echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【指引】</font></a>";
+                echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>指引</font></a>";
             } else{
-                echo "<font color=red>【指引】</font>";
+                echo "<font color=red>指引</font>";
 
             }
-
             echo "<font color=black>◎</font>";
+
+            $cmid=$cmid+1;
+            $cdid[]=$cmid;
+            $clj[]=404;
+            $npc[]=0;
+            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>攻略</font></a>";
+            echo "<font color=black>◎</font>";
+
             if($sw!=2){
-
-
-
-//cmd及超链接值
                 $cmid=$cmid+1;
                 $cdid[]=$cmid;
                 $clj[]=476;
                 $npc[]=0;
-                echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【腾云】</font></a>"."<br>";
+                echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>腾云</font></a>";
             } else{
-                echo "<font color=red>【腾云】</font>"."<br>";
-
+                echo "<font color=red>腾云</font>";
             }
+            echo "<br>";
 
-
-
-            echo "<font color=black>☆☆☆☆☆☆☆☆☆☆☆</font>"."<br>";
-//cmd及超链接值
+            echo "<font color=black>----------------------</font>"."<br>";
+            echo "<font color=black>基础功能</font>"."<br>";
             $cmid=$cmid+1;
             $cdid[]=$cmid;
             $clj[]=11;
