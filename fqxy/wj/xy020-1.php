@@ -482,6 +482,7 @@ if($csm ==100){
                                 'swcs' => $sw,
                                 'rjf' => 0,
                                 'cjsj' => date('Ymd'),
+                                'czwz' => 0,
                             ];
                             //一周开始，清空周积分
                             if ($week == 7) {

@@ -1,45 +1,24 @@
 <?php
 
 $zlbp = zlbp(zcid());
-
-include("./ini/wjxtbl_ini.php");
-$dzzx=($iniFile->getItem('国战变量','夺仗'));
-if($zlbp==$dzzx){
-    $gjqz=0;
-} else{
-    $iniFile->updItem('国战变量', ['夺仗' => $zlbp]);
-    $gjqz=1;
-}
-
-if($gjqz==1){
+$gz04 = gz04($wjid);
+//有人夺杖后所有人重置位置
+if(!empty($gz04['czwz'])){
     include("./ini/zt_ini.php");
-    $bpid=($iniFile->getItem('玩家信息','帮派id'));
-    echo "<font color=blue>【国家权杖】已被夺走了！！国家所有人员攻守位置进行调整！</font>"."<br>";
+    $bpid = ($iniFile->getItem('玩家信息', '帮派id'));
+    echo "<font color=blue>【国家权杖】已被夺走了！！国家所有人员攻守位置进行调整！</font>" . "<br>";
     echo "</br>";
-
-    $inina="gczc".$dtx."x".$dty.".ini";
-    $path='acher/map';
-    $ininame = $path."/".$inina;
-    _unlink($ininame); //删除文件
-
-    $inina="gczc".$ydtx."x".$ydty.".ini";
-    $path='acher/map';
-    $ininame = $path."/".$inina;
-    _unlink($ininame); //删除文件
-
-    if($zlbp==$bpid){
-        echo "<font color=blue>温馨提示：目前我的国家变更为守城方</font>"."<br>";
-        include("./ini/user_ini.php");//修改地图坐标
-        $dtx=74;
-        $dty=8;
-        $iniFile->updItem('地图坐标', ['x' => $dtx,'y' => $dty]);
-    } else{
-        echo "<font color=black>温馨提示：目前我的国家变更为进攻方</font>"."<br>";
-        include("./ini/user_ini.php");//修改地图坐标
-        $dtx=74;
-        $dty=27;
-        $iniFile->updItem('地图坐标', ['x' => $dtx,'y' => $dty]);
+    if ($zlbp == $bpid) {
+        echo "<font color=blue>温馨提示：目前我的国家变更为守城方</font>" . "<br>";
+        $dtx = 74;
+        $dty = 8;
+    } else {
+        echo "<font color=black>温馨提示：目前我的国家变更为进攻方</font>" . "<br>";
+        $dtx = 74;
+        $dty = 27;
     }
+    DB::instance()->update('gz04', ['czwz' => 0], ['wjid' => $wjid]);
+    wjyd($wjid, $dtx, $dty);
 
     include("template/xy388.php");
     include("./pz/pz01.php");

@@ -87,6 +87,8 @@ function zlzc(int $zcid, int $bpid, int $wjid)
     }
     $db->update('gz01', $data, ['zcid' => $zcid]);
     gz06_cz($bpxx['bpid']);
+    //增加重置位置判断值
+    $db->update('gz04', ['czwz' => 1], ['cjsj' => date('Ymd')]);
     return true;
 }
 
@@ -284,7 +286,12 @@ function new_week(string $date, string $date2 = null)
  */
 function cjsj_arr()
 {
-    $monday = strtotime('monday this week');
+    $is_sunday = date('w') == 0;
+    if ($is_sunday) {
+        $monday = strtotime('+1 day');
+    } else {
+        $monday = strtotime('monday this week');
+    }
     $date = new DateTime();
     $date->setTimestamp($monday);
     $diff_days = [ -1, 0, 1, 2, 3, 4, ];

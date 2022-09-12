@@ -108,7 +108,7 @@ if($bpid>=1){
             //增加玩家积分
             gz04_zj($wjid, 10);
             echo "<font color=black>获得国家积分+10</font>"."<br>";
-            gz06($bpid, $bpmz);
+            gz06_cz($bpid);
 
             $xtxx="【国家权杖】被".$bpmz."国家的".$uname."夺走了,现在".$bpmz."国家变更为防守方";
             include("./msg/msgg02.php");

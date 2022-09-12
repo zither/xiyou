@@ -891,6 +891,7 @@ CREATE TABLE `gz04` (
   `cjsj` char(8) NOT NULL DEFAULT '' COMMENT '参加时间',
   `zlq` int(11) NOT NULL DEFAULT 0 COMMENT '周领取',
   `rlq` int(11) NOT NULL DEFAULT 0 COMMENT '日领取',
+  `czwz` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '夺杖后重置战场位置'
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
