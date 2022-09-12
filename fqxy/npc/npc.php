@@ -6583,7 +6583,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>兑换</fo
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=20;
-	$npc[]=29;
+	$npc[]=144;
 	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>长安城</font></a>"."<br>";
 
 //cmd及超链接值
