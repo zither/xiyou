@@ -265,25 +265,25 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【巡天�
     echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>如意传送员(VIP练级区)</font></a>"."<br>";
 
 
-$img='pic/ts/ts1.png';
-	echo '<img src="'.$img.' "alt="图片"/〉';
-	echo "<br>";
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=7;
-$npc[]=1079;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗吴刚</font></a>"."<br>";
+    if (hdpd(1)) {
+        $img = 'pic/ts/ts1.png';
+        echo '<img src="' . $img . ' "alt="图片"/〉';
+        echo "<br>";
+        $cmid = $cmid + 1;
+        $cdid[] = $cmid;
+        $clj[] = 7;
+        $npc[] = 1079;//需要改动
+        echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗吴刚</font></a>" . "<br>";
 
-$img='pic/ts/ts1.png';
-	echo '<img src="'.$img.' "alt="图片"/〉';
-	echo "<br>";
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=7;
-$npc[]=1080;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗嫦娥姐姐</font></a>"."<br>";
+        $img = 'pic/ts/ts1.png';
+        echo '<img src="' . $img . ' "alt="图片"/〉';
+        echo "<br>";
+        $cmid = $cmid + 1;
+        $cdid[] = $cmid;
+        $clj[] = 7;
+        $npc[] = 1080;//需要改动
+        echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗嫦娥姐姐</font></a>" . "<br>";
+    }
 
 
 

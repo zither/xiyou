@@ -3,7 +3,6 @@
 //阻塞代码防止出现脏数据
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");
-include_once XY_DIR . '/helper/hdlq.php';
 if($zsspd==1){
     if ($npcc==1) {//vip练级卷每日领取
         include("./ini/zt_ini.php");

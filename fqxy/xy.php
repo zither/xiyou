@@ -47,6 +47,8 @@
     include_once XY_DIR . '/helper/show_message.php';
     include_once XY_DIR . '/helper/gz.php';
     include_once XY_DIR . '/helper/wj.php';
+    include_once XY_DIR . '/helper/hd.php';
+
 
     $file = sprintf("%s/ache/%s/user.ini", XY_DIR, $wjid);
     if ($wjid && file_exists($file)) {
