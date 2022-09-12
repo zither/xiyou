@@ -1,74 +1,86 @@
 <?php
 
+$manzu1 = "";
+$kcrl = 0;
+$wpdz1 = [];//初始
+$wpdz2 = [];//初始
+$wpdz3 = [];//初始
+$wpdz4 = [];//初始
+$wpdz5 = [];//初始
+
+$dlwpts = "";
+$xtgg = 1;
+
+$bz = rand(1, 3);
+$wpdz1[] = "【秘宝碎片】";//名字
+$wpdz2[] = 4;//物品分类
+$wpdz3[] = 738;//物品id
+$wpdz4[] = $bz;//	量
+$wpdz5[] = 1;//	重量
+$dlwpts = "【秘宝碎片】x" . $bz . $dlwpts;
+
+$bz = rand(1, 100);
+if ($bz >= 1 && $bz <= 10) {
+    $wpdz1[] = "【秘宝钥匙】";//名字
+    $wpdz2[] = 4;//物品分类
+    $wpdz3[] = 737;//物品id
+    $wpdz4[] = 1;//	量
+    $wpdz5[] = 1;//	重量
+    $dlwpts = "【秘宝钥匙】x1" . $dlwpts;
+    $xtgg = 2;
+}
+
+$bz = rand(1, 100);
+if ($bz >= 1 && $bz <= 5) {
+    $wpdz1[] = "〖时装碎片〗";//名字
+    $wpdz2[] = 2;//物品分类
+    $wpdz3[] = 818;//物品id
+    $wpdz4[] = 1;//	量
+    $wpdz5[] = 1;//	重量
+    $dlwpts = "〖时装碎片〗x2" . $dlwpts;
+    $xtgg = 2;
+}
+
+$bz = rand(1, 100);
+if ($bz >= 1 && $bz <= 5) {
+    $wpdz1[] = "〖时装契约〗";//名字
+    $wpdz2[] = 2;//物品分类
+    $wpdz3[] = 819;//物品id
+    $wpdz4[] = 1;//	量
+    $wpdz5[] = 1;//	重量
+    $dlwpts = "〖时装契约〗x2" . $dlwpts;
+    $xtgg = 2;
+}
+
+$bz = rand(1, 666);
+if ($bz >= 1 && $bz <= 5) {
+    $wpdz1[] = "〖时装凭证〗";//名字
+    $wpdz2[] = 2;//物品分类
+    $wpdz3[] = 819;//物品id
+    $wpdz4[] = 1;//	量
+    $wpdz5[] = 1;//	重量
+    $dlwpts = "〖时装凭证〗x2" . $dlwpts;
+    $xtgg = 2;
+}
+
+$bz = rand(1, 100);
+if ($bz >= 1 && $bz <= 5) {
+    $wpdz1[] = "【金秋的思念】";//名字
+    $wpdz2[] = 6;//物品分类
+    $wpdz3[] = 744;//物品id
+    $wpdz4[] = 1;//	量
+    $wpdz5[] = 1;//	重量
+    $dlwpts = "【金秋的思念】x2" . $dlwpts;
+    $xtgg = 2;
+}
+
+
 
 if (hdpd(1)) {
     $jry = date('m') * 1;
     $jrr = date('d') * 1;
     if ($jry == 9 && $jrr == 10) {
         echo "<font color=red>小轩：中秋节日快乐！游戏的同时别忘了多陪陪家人和孩子哦~~~~活动物品双倍掉落中~~~美滋滋~~~</font></a>" . "<br>";
-        /////////////////////////随机得物品///////////////////////
-        $manzu1 = "";
-        $kcrl = 0;
-        $wpdz1 = [];//初始
-        $wpdz2 = [];//初始
-        $wpdz3 = [];//初始
-        $wpdz4 = [];//初始
-        $wpdz5 = [];//初始
-
-        $dlwpts = "";
-        $xtgg = 1;
-
-        $bz = rand(1, 3);
-        $wpdz1[] = "【秘宝碎片】";//名字
-        $wpdz2[] = 4;//物品分类
-        $wpdz3[] = 738;//物品id
-        $wpdz4[] = $bz;//	量
-        $wpdz5[] = 1;//	重量
-        $dlwpts = "【秘宝碎片】x" . $bz . $dlwpts;
-
-        $bz = rand(1, 100);
-        if ($bz >= 1 && $bz <= 10) {
-            $wpdz1[] = "【秘宝钥匙】";//名字
-            $wpdz2[] = 4;//物品分类
-            $wpdz3[] = 737;//物品id
-            $wpdz4[] = 1;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "【秘宝钥匙】x1" . $dlwpts;
-            $xtgg = 2;
-        }
-
-        $bz = rand(1, 100);
-        if ($bz >= 1 && $bz <= 5) {
-            $wpdz1[] = "〖时装碎片〗";//名字
-            $wpdz2[] = 2;//物品分类
-            $wpdz3[] = 818;//物品id
-            $wpdz4[] = 1 * 2;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "〖时装碎片〗x2" . $dlwpts;
-            $xtgg = 2;
-        }
-
-        $bz = rand(1, 100);
-        if ($bz >= 1 && $bz <= 5) {
-            $wpdz1[] = "〖时装契约〗";//名字
-            $wpdz2[] = 2;//物品分类
-            $wpdz3[] = 819;//物品id
-            $wpdz4[] = 1 * 2;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "〖时装契约〗x2" . $dlwpts;
-            $xtgg = 2;
-        }
-
-        $bz = rand(1, 666);
-        if ($bz >= 1 && $bz <= 5) {
-            $wpdz1[] = "〖时装凭证〗";//名字
-            $wpdz2[] = 2;//物品分类
-            $wpdz3[] = 819;//物品id
-            $wpdz4[] = 1 * 2;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "〖时装凭证〗x2" . $dlwpts;
-            $xtgg = 2;
-        }
 
         $bz = rand(1, 100);
         if ($bz >= 1 && $bz <= 40) {
@@ -187,69 +199,6 @@ if (hdpd(1)) {
         include("./pz/ini_pzz023.php");
 
     } else {
-        $manzu1 = "";
-        $kcrl = 0;
-        $wpdz1 = [];//初始
-        $wpdz2 = [];//初始
-        $wpdz3 = [];//初始
-        $wpdz4 = [];//初始
-        $wpdz5 = [];//初始
-
-        $dlwpts = "";
-        $xtgg = 1;
-
-        $bz = rand(1, 3);
-        $wpdz1[] = "【秘宝碎片】";//名字
-        $wpdz2[] = 4;//物品分类
-        $wpdz3[] = 738;//物品id
-        $wpdz4[] = $bz;//	量
-        $wpdz5[] = 1;//	重量
-        $dlwpts = "【秘宝碎片】x" . $bz . $dlwpts;
-
-        $bz = rand(1, 100);
-        if ($bz >= 1 && $bz <= 10) {
-            $wpdz1[] = "【秘宝钥匙】";//名字
-            $wpdz2[] = 4;//物品分类
-            $wpdz3[] = 737;//物品id
-            $wpdz4[] = 1;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "【秘宝钥匙】x1" . $dlwpts;
-            $xtgg = 2;
-        }
-
-        $bz = rand(1, 100);
-        if ($bz >= 1 && $bz <= 5) {
-            $wpdz1[] = "〖时装碎片〗";//名字
-            $wpdz2[] = 2;//物品分类
-            $wpdz3[] = 818;//物品id
-            $wpdz4[] = 1;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "〖时装碎片〗" . $dlwpts;
-            $xtgg = 2;
-        }
-
-        $bz = rand(1, 100);
-        if ($bz >= 1 && $bz <= 5) {
-            $wpdz1[] = "〖时装契约〗";//名字
-            $wpdz2[] = 2;//物品分类
-            $wpdz3[] = 819;//物品id
-            $wpdz4[] = 1;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "〖时装契约〗" . $dlwpts;
-            $xtgg = 2;
-        }
-
-        $bz = rand(1, 666);
-        if ($bz >= 1 && $bz <= 5) {
-            $wpdz1[] = "〖时装凭证〗";//名字
-            $wpdz2[] = 2;//物品分类
-            $wpdz3[] = 819;//物品id
-            $wpdz4[] = 1;//	量
-            $wpdz5[] = 1;//	重量
-            $dlwpts = "〖时装凭证〗" . $dlwpts;
-            $xtgg = 2;
-        }
-
         $bz = rand(1, 100);
         if ($bz >= 1 && $bz <= 40) {
             $wpdz1[] = "【糯米粉】";//名字
@@ -359,13 +308,6 @@ if (hdpd(1)) {
             $dlwpts = "【秘宝宝箱】x1" . $dlwpts;
             $xtgg = 2;
         }
-        //物品加
-        include("./rwmap/rwget.php");
-
-        /////////////////////////随机得物品///////////////////////
-        $bz = rand(500000, 3000000);
-        $jy = $bz;
-        include("./pz/ini_pzz023.php");
     }
 }
 
@@ -1251,19 +1193,21 @@ $wpdz5[]=1;//	重量
 //include("./pz/ini_pzz023.php");
 
 
+//物品加
+if ($xtgg && !empty($wpdz1)) {
+    include("./rwmap/rwget.php");
+}
+
+//经验加
+$bz = rand(500000, 3000000);
+$jy = $bz;
+include("./pz/ini_pzz023.php");
+
 
 if($xtgg==2){
     include("./ini/zt_ini.php");
     $wjmz=($iniFile->getItem('玩家信息','玩家名字'));
     $xtxx="皇天不负有心人~~~恭喜玩家".$wjmz."寻得了【天降秘宝】~~~获得大量奖励";
     include("./msg/msgg02.php");
-}else{
 }
-
-
-
-
-
-?>
-
 
