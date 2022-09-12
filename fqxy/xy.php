@@ -40,7 +40,7 @@
     $a2 = "";
     $a1 = empty($_SESSION['sid']) ? '' : $_SESSION['sid'];
     $cmd = empty($_GET['cmd']) ? 0 : (int)$_GET['cmd'];
-    $wjid = empty($_SESSION['uid']) ? 0 : $_SESSION['uid'];
+    $wjid = empty($_SESSION['uid']) ? "0" : "{$_SESSION['uid']}";
 
     //调用iniclass文件
     include_once XY_DIR . '/class/iniclass.php';

@@ -39,7 +39,7 @@ $arr1=($iniFile->getCategory('排行榜值1'));
 //将ini值存入数组方便使用
 foreach(array_keys($arr1) as $key){
 $arr2[]=$arr1[$key];
-}	
+}
 include("./ini/zt_ini.php");
 $wjddj=($iniFile->getItem('玩家信息','等级'));
 
@@ -47,7 +47,7 @@ include("./ini/czjf_ini.php");
 $zhboss=($iniFile->getItem('召唤','初始'));
 $zhboss1=($iniFile->getItem('召唤1','初始'));
 if ($zhboss==2) {
-	
+
 if(in_array($wjid, $arr2, TRUE)){
 
 $bossid=11;
