@@ -97,8 +97,8 @@ echo "<font color=black>大厅</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&si
     
 
 
-include("./gw/sj.php");
-include("./gw/jdd.php");
+//include(XY_DIR . "./gw/sj.php");
+include(XY_DIR ."/gw/jdd.php");
 
 
 

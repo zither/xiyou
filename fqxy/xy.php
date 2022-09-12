@@ -217,7 +217,7 @@
                 include("xy05.php");
             } elseif ($cmdd >= 501 && $cmdd <= 600) {
                 include("xy06.php");
-            } elseif ($cmdd >= 601 && $cmdd <= 700) {
+            } elseif ($cmdd >= 601 && $cmdd <= 20000) {
                 include("xy07.php");
             } else {
                 //路径

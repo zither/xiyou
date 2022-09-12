@@ -281,8 +281,8 @@ if ($dtx==0) {
         include("zzg.php");
     } else{
     }
-    $inina="jsg".$dtx."x".$dty.".ini";
-    $ininalock="jsg".$dtx."x".$dty.".txt";
+    $inina="zzg".$dtx."x".$dty.".ini";
+    $ininalock="zzg".$dtx."x".$dty.".txt";
 } elseif ($dtx==31) {
 //跳转至天宫银河地图
     if ($fjmap!=92) {

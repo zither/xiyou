@@ -4482,7 +4482,7 @@ $dty=14;
         if (empty($origin_room)) {
             echo "<span style='color: red'>数据库中未找到地图，请检查：$origin_xy</span><br>";
         } else {
-            if ($ydty == $dty) {
+            if ($ydty == $dty && $ydtx == $dtx) {
                 echo "<span style='color: red'>坐标未移动，请检查：$origin_xy 左移后坐标未改变</span><br>";
             } else {
                 $current_xy = "{$dtx}_{$dty}";

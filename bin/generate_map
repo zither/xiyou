@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+
+<?php
+
+include_once __DIR__ . '/../includes/constants.php';
+include XY_DIR . '/sql/mysql.php';
+include_once XY_DIR . '/class/MapGenerator.php';
+
+$path = XY_DIR . '/xdt';
+$db = DB::instance();
+for ($i = 0; $i < 100; $i++) {
+    $dtxy = "{$i}_0";
+    $room = $db->get('map', '*', ['dtxy' => $dtxy]);
+    if (empty($room)) {
+        echo "未找打房间：$dtxy\n";
+        continue;
+    }
+    $generator = new MapGenerator($db, true);
+    $directions = $generator->generateMap($room, 101, 101);
+    $map_file = sprintf('%s/%d.php', $path, $i);
+    $codes = <<<CODES
+<?php
+if (defined('XY_DIR')) {
+    \$json = '%s'; 
+    return \$map_arr = json_decode(\$json, true);
+}
+
+CODES;
+
+    $json = json_encode($directions, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+    $codes = sprintf($codes, $json);
+    file_put_contents($map_file, $codes);
+    echo "成功导出地图：$i.php\n";
+}

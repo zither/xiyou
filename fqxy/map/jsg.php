@@ -552,8 +552,8 @@ echo "<font color=black>西门</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&si
   //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
-$clj[]=7;
-$npc[]=1;//需要改动
+$clj[]=20;
+$npc[]=135;//需要改动
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>进入【荆棘岭】</font></a>"."<br>";
   //出口
   echo "<font color=black>请选择出口</font>"."<br>";

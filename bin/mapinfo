@@ -121,6 +121,12 @@ foreach ($ids as $id => $name) {
             }
         }
         fclose($file);
+        if (!empty($map)) {
+            $result = $db->insert('map', $map);
+            $count += $result->rowCount();
+            $map = [];
+            echo "地图信息入库成功，当前地图ID：{$name}({$dtx}_{$dty})\n";
+        }
     }
 }
 
