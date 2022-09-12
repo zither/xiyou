@@ -33,6 +33,9 @@ if($zsspd==1){
     //执行谁获胜
     echo "<font color=black>国战已结束，请迅速离开战场</font><br>";
     echo "<br>";
+
+    wjyd($wjid, 1, 25);
+
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=2;
