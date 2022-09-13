@@ -86,31 +86,31 @@ if($bpzz01>=$bpcc01&&$bpzz02>=$bpcc02&&$bpzz03>=$bpcc03){
 $bpdj=$bpdj+1;
 if($bpdj==2){   
 $bpbb01=40;//国家人数max
-$bpbb02=5000;//国家经验max
+$bpbb02=10000;//国家经验max
 } elseif($bpdj==3){   
 $bpbb01=60;//国家人数max
-$bpbb02=10000;//国家经验max
+$bpbb02=15000;//国家经验max
 } elseif($bpdj==4){   
 $bpbb01=80;//国家人数max
-$bpbb02=15000;//国家经验max
+$bpbb02=20000;//国家经验max
 } elseif($bpdj==5){   
 $bpbb01=100;//国家人数max
-$bpbb02=20000;//国家经验max
+$bpbb02=25000;//国家经验max
 } elseif($bpdj==6){   
 $bpbb01=150;//国家人数max
-$bpbb02=20000;//国家经验max
+$bpbb02=25000;//国家经验max
 } elseif($bpdj==7){   
 $bpbb01=200;//国家人数max
-$bpbb02=25000;//国家经验max
+$bpbb02=30000;//国家经验max
 } elseif($bpdj==8){   
 $bpbb01=300;//国家人数max
-$bpbb02=30000;//国家经验max
+$bpbb02=50000;//国家经验max
 } elseif($bpdj==9){   
 $bpbb01=400;//国家人数max
-$bpbb02=50000;//国家经验max
+$bpbb02=100000;//国家经验max
 } elseif($bpdj==10){   
 $bpbb01=500;//国家人数max
-$bpbb02=100000;//国家经验max
+$bpbb02=150000;//国家经验max
 } else{
 $bpbb01=20;//国家人数max
 $bpbb02=5000;//国家经验max	

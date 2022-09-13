@@ -31,7 +31,7 @@ if($bpid==""||$bpid==0){
             $q2="all_bp";
             $sql = "insert into $q2 (bpid,bpdj,bpmz,cbpmz,cwjid,xbpmz,xwjid,ccmz01,ccid01,ccmz02,ccid02,
 ccmz03,ccid03,ccmz04,ccid04,ccmz05,ccid05,ccmz06,ccid06,bprsmax,bpjymax,bpyl,bpsw,bprs,bpjy)  values('$maxidd','1','$wjtake',
-'$wjmz','$wjid','$wjmz','$wjid','0','0','0','0','0','0','0','0','0','0','0','0','20','1000','0','0', '1', '0')";
+'$wjmz','$wjid','$wjmz','$wjid','0','0','0','0','0','0','0','0','0','0','0','0','20','5000','0','0', '1', '0')";
             if (!mysql_query($sql)) {
                 die('Error: ' . mysql_error());
             }
