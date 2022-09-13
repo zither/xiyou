@@ -6,6 +6,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>幻想西游</title>
     <link rel="shortcut icon" href="pic/ico/favicon.ico"/>
+    <style>
+        .map-loc {
+            display: inline-block;
+            max-width: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
@@ -303,5 +312,13 @@
 
     ?>
 </div>
+<script>
+  let wrapper = document.getElementById('map-wrapper');
+  let map = document.getElementById('map');
+  if (wrapper && map) {
+    wrapper.scrollLeft = (map.scrollWidth - wrapper.offsetWidth) / 2;
+
+  }
+</script>
 </body>
 </html>

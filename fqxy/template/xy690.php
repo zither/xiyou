@@ -16,7 +16,7 @@ if($zsspd==1) {
     } elseif ($npcc == 2) {
         $size -= 2;
     } else {
-        $size = 11;
+        $size = 9;
     }
     $iniFile->updItem('显示设置', ['地图尺寸' => $size]);
 
