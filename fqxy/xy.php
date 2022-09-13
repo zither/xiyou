@@ -317,7 +317,7 @@
   let wrapper = document.getElementById('map-wrapper');
   let map = document.getElementById('map');
   if (wrapper && map) {
-    let loc = document.getElementById('user-loc');
+    let user_loc = loc = document.getElementById('user-loc');
     let offset = 0;
     while (loc) {
       offset += loc.offsetLeft;
@@ -342,7 +342,7 @@
 
     let center = wrapper.offsetWidth / 2;
     // 需要加上地图块本身宽度的一半
-    offset = offset + (loc.offsetWidth / 2);
+    offset = offset + (user_loc.offsetWidth / 2);
     if (offset > center) {
       wrapper.scrollLeft = offset - center;
     }
