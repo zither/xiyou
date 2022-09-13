@@ -45,11 +45,20 @@ function ini_file(int $wjid, string $file, array $params = []): iniFile
     if (!empty($params)) {
         extract($params);
     }
-    if (file_exists($file)) {
-        include $file;
+    if (!file_exists($file)) {
+        throw new RuntimeException('#1 ini文件不存在');
     }
-    if (isset($iniFile)) {
-        return $iniFile;
+    include $file;
+    return $iniFile;
+}
+
+function wj_xtsz(string $key)
+{
+    static $iniFile = null;
+    if (is_null($iniFile)) {
+        $wjid = wjid();
+        $file = XY_DIR . '/ini/xtsz_ini.php';
+        $iniFile = ini_file($wjid, $file);
     }
-    return null;
+    return $iniFile->getItem('显示设置', $key);
 }

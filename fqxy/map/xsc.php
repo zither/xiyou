@@ -571,6 +571,8 @@ if ($dty==0) {
     $npc[]=0;
     echo "<font color=black>沙滩</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
 //npc
+
+    show_image('mapx/0_15.png', 1);
 //cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
@@ -688,6 +690,8 @@ if ($dty==0) {
     $clj[]=2;
     $npc[]=0;
     echo "<font color=black>沙滩(1,1)</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
+    show_image('mapx/0_15.png', 1);
+
     include XY_DIR . '/map/fznpc.php';
     include("./gw/xscst.php");
     echo "<font color=black>请选择出口</font>"."<br>";

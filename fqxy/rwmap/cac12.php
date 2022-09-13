@@ -110,7 +110,7 @@ echo "<font color=black>？</font>";
    
 
 }
-
+show_image('npc/1_12.png', 0);
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>游方僧人</font></a>"."<br>";
 }
 

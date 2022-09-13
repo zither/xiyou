@@ -120,23 +120,16 @@ if ($rid==392||$rid==393||$rid==394) {
 
 
 
-include("./rwmap/cac0_ts.php");//任务提示	
-
-
-
+include("./rwmap/cac0_ts.php");//任务提示
+show_image('npc/npc2.png');
 if ($m==1) {
-
 	$strr1=$xrwidd."_".$xrwfl."_".$npcc;
-
-//cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=43;
 	$npc[]=$strr1;
 	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>李白(活动传送)</font></a>"."<br>";
 } else {
-
-	//cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=7;

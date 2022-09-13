@@ -3094,7 +3094,7 @@ echo "<font color=black>封榜堂</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&
  ///////////////////////////////////////插入图片 /////////////////////////////
 if ($tpbl==1) {
 $img='pic/mapx/map5.png';
-	echo '<img src="'.$img.' "alt="图片"/〉';
+	echo '<img src="'.$img.' "alt="图片"/>';
 	echo "<br>";
 	echo "<br>";
 	echo "<br>";
@@ -5977,6 +5977,8 @@ $cdid[]=$cmid;
 $clj[]=2;
 $npc[]=0;
 echo "<font color=black>秦府正厅</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
+
+show_image('mapx/1_77.png', 1);
   //npc
 //cmd及超链接值
 $cmid=$cmid+1;
@@ -6276,16 +6278,7 @@ $clj[]=2;
 $npc[]=0;
 echo "<font color=black>望南街</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
  ///////////////////////////////////////插入图片 /////////////////////////////
-if ($tpbl==1) {
-$img='pic/mapx/map25.png';
-	echo '<img src="'.$img.' "alt="图片"/〉';
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-} else{
-
-}
-  //////////////////////////////////////插入图片  //////////////////////////
+    show_image('mapx/map20.png', 1);
 
   //npc
 include("rwmap/cac83.php");

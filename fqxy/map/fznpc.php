@@ -1,5 +1,7 @@
 <?php
 
+//放置NPC
+
 //当前坐标
 $dtx = $dtx ?? 0;
 $dty = $dty ?? 1;
