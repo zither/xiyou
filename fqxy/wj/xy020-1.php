@@ -481,6 +481,7 @@ if($csm ==100){
                             $data = [
                                 'swcs' => $sw,
                                 'rjf' => 0,
+                                'rlq' => 0,
                                 'cjsj' => date('Ymd'),
                                 'czwz' => 0,
                             ];
