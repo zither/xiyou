@@ -75,6 +75,7 @@ function hdpd(int $id): bool
                 $end =  strtotime($v['jssj']);
                 return $now < $end;
             }
+            return true;
         }
     }
     return false;
