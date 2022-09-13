@@ -227,29 +227,22 @@ if($zsspd==1){
 
     echo "<font color=black>===================</font>"."<br>";
 
-
-//cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=14;
     $npc[]=0;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>快捷键设置</font></a>"."<br>";
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>快捷键设置</font></a><br>";
+
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=2;
+    $npc[]=0;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>退出战斗</font></a><br>";
+
     echo "<br>";
-
-
-
-
-
     echo "<font color=black>----------------------</font>"."<br>";
-//cmd及超链接值
     include("fhgame.php");
-
-
-} else{
 }
+
 //解锁当前使用的ini
 include("./ini/jsini.php");
-//解锁当前使用的ini
-
-
-?>
