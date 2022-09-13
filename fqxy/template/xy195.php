@@ -19,9 +19,7 @@ if($bpid>=1){
     $gj03=($iniFile->getItem('国家日积分',$bpid));
 
     $week=zcid();
-
-
-    zlzc($week, $bpid, $wjid);
+    //zlzc($week, $bpid, $wjid);
 
     $zlgjxx = gz01($week);
     $zlgj = $zlgjxx['zlgj'];

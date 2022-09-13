@@ -94,17 +94,17 @@ if($zsspd==1) {
         ];
 
         if ($fl == 1) {
-            echo "国家周榜 | ";
+            echo "国家周榜|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '2';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家日榜</a> |";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家日榜</a>|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '3';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>玩家周榜</a> |";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>玩家周榜</a>|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
@@ -115,13 +115,13 @@ if($zsspd==1) {
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '1';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家周榜</a> |";
-            echo "国家日榜 | ";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家周榜</a>|";
+            echo "国家日榜|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '3';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>玩家周榜</a> |";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>玩家周榜</a>|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
@@ -132,13 +132,13 @@ if($zsspd==1) {
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '1';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家周榜</a> |";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家周榜</a>|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '2';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家日榜</a> |";
-            echo "玩家周榜 | ";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家日榜</a>|";
+            echo "玩家周榜|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
@@ -149,17 +149,17 @@ if($zsspd==1) {
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '1';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家周榜</a> |";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家周榜</a>|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '2';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家日榜</a> |";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>国家日榜</a>|";
             $cmid = $cmid + 1;
             $cdid[] = $cmid;
             $clj[] = 206;
             $npc[] = '3';
-            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>玩家周榜</a> |";
+            echo "<a href='xy.php?uid={$wjid}&cmd={$cmid}&sid={$a1}'>玩家周榜</a>|";
             echo "玩家日榜<br>";
         }
 
