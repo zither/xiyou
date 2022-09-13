@@ -355,8 +355,8 @@ if($zsspd==1){
 //cmd及超链接值
             $cmid=$cmid+1;
             $cdid[]=$cmid;
-            $clj[]=123;
-            $npc[]=68;
+            $clj[]=691;
+            $npc[]="1_25";
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>国战</font></a>"."<br>";
 
 
@@ -369,6 +369,13 @@ if($zsspd==1){
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>拍卖</font></a>";
             echo "<font color=black>◎</font>";
 
+            $cmid=$cmid+1;
+            $cdid[]=$cmid;
+            $clj[]=404;
+            $npc[]=0;
+            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>攻略</font></a>";
+            echo "<font color=black>◎</font>";
+
             if($sw!=2){
                 $cmid=$cmid+1;
                 $cdid[]=$cmid;
@@ -379,13 +386,6 @@ if($zsspd==1){
                 echo "<font color=red>指引</font>";
 
             }
-            echo "<font color=black>◎</font>";
-
-            $cmid=$cmid+1;
-            $cdid[]=$cmid;
-            $clj[]=404;
-            $npc[]=0;
-            echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>攻略</font></a>";
             echo "<font color=black>◎</font>";
 
             if($sw!=2){
