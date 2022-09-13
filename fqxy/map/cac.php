@@ -6322,21 +6322,7 @@ $npc[]=0;
 echo "<font color=black>望南街</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
 
  ///////////////////////////////////////插入图片 /////////////////////////////
-if ($tpbl==1) {
-$img='pic/mapx/map20.png';
-	echo '<img src="'.$img.' "alt="图片"/〉';
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-} else{
-
-}
-  //////////////////////////////////////插入图片  //////////////////////////
-
-
-
-
-  //npc
+    show_image('mapx/map20.png', 1);
 
   //出口
  echo "<font color=black>请选择出口</font>"."<br>";
@@ -6379,16 +6365,7 @@ $npc[]=0;
 echo "<font color=black>望南街</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
 
  ///////////////////////////////////////插入图片 /////////////////////////////
-if ($tpbl==1) {
-$img='pic/mapx/map21.png';
-	echo '<img src="'.$img.' "alt="图片"/〉';
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-} else{
-
-}
-  //////////////////////////////////////插入图片  //////////////////////////
+    show_image('mapx/map20.png', 1);
 
   //npc
   
