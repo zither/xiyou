@@ -240,10 +240,6 @@
                 echo "特征4";
             }
 
-            if ($wjid == 10000001) {
-                echo "当前页面id(cmid值/$cmdd)：" . $cmdd . "<br>";
-            }
-
             include __DIR__ . '/ini/user_ini.php';
             //最大值
             $a5 = $cmid;
@@ -286,11 +282,15 @@
 
         include __DIR__ . '/ini/user_ini.php';
         $yymid = ($iniFile->getItem('最后页面id', '页面id'));
+        $yynpc = ($iniFile->getItem('最后页面id', 'npcid'));
         $symid = ($iniFile->getItem('验证信息', 'cmid值'));
+        $synpc= ($iniFile->getItem('验证信息', 'npc值'));
         if ($wjid == 10000001) {//gm号可看
             echo "<font color=red>----------调试信息-----------</font>" . "<br>";
             echo "<font color=black>上次页面ID(最后页面id-页面id)：" . $yymid . "</font>" . "<br>";
-            echo "<font color=black>本次页面ID(cmid值)：" . $symid . "</font>" . "<br>";
+            echo "<font color=black>上次页面参数(最后页面id-npcid)：" . $yymid . "</font>" . "<br>";
+            echo "<font color=black>本次页面ID(验证信息-cmid值)：" . $symid . "</font>" . "<br>";
+            echo "<font color=black>本次页面参数(验证信息-npc值)：" . $symid . "</font>" . "<br>";
             echo "<font color=red>----------调试信息-----------</font>" . "<br>";
         }
 

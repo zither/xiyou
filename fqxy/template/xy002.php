@@ -505,9 +505,6 @@ if($zsspd==1){
 
             echo "<font color=black>◎</font>";
 
-
-
-//cmd及超链接值
             $cmid=$cmid+1;
             $cdid[]=$cmid;
             $clj[]=225;
@@ -515,20 +512,11 @@ if($zsspd==1){
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>挂售</font></a>";
             echo "<font color=black>◎</font>";
 
-//cmd及超链接值
             $cmid=$cmid+1;
             $cdid[]=$cmid;
             $clj[]=57;
             $npc[]=0;
             echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>排行</font></a>"."<br>";
-
-
-            ////cmd及超链接值
-            //$cmid=$cmid+1;
-            //$cdid[]=$cmid;
-            //$clj[]=301;
-            //$npc[]=0;
-            //echo "<a href='cz/index.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>充值</font></a>";
 
             //cmd及超链接值
             $cmid=$cmid+1;
