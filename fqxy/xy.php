@@ -312,13 +312,42 @@
 
     ?>
 </div>
+<?php if ($cljid == 8 || $cljid == 690): ?>
 <script>
   let wrapper = document.getElementById('map-wrapper');
   let map = document.getElementById('map');
   if (wrapper && map) {
-    wrapper.scrollLeft = (map.scrollWidth - wrapper.offsetWidth) / 2;
+    let loc = document.getElementById('user-loc');
+    let offset = 0;
+    while (loc) {
+      offset += loc.offsetLeft;
+      let parent = loc.offsetParent;
+      if (parent.id === map.id) {
+        break;
+      }
+      loc = parent;
+    }
+    //      画框中心点
+    // |--------*-------| 地图画框
+    //          |----| 想要玩家位置剧中，画框需要滚动的长度
+    // |-------------*-------------| 实际地图大小
+    //            玩家位置
 
+
+    //           画框中心点
+    //      |--------*-------| 地图画框
+    // |----|
+    // |-------------*-------------| 实际地图大小
+    //            玩家位置
+
+    let center = wrapper.offsetWidth / 2;
+    // 需要加上地图块本身宽度的一半
+    offset = offset + (loc.offsetWidth / 2);
+    if (offset > center) {
+      wrapper.scrollLeft = offset - center;
+    }
   }
 </script>
+<?php endif;?>
 </body>
 </html>

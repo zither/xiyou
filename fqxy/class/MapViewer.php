@@ -72,7 +72,7 @@ class MapViewer
                                     <?php if (is_array($v)): ?>
                                         <div style="background-color: #942900" title="<?=$v['dtxy']?>">
                                             <?php if ($v['dtxy'] == $dtxy):?>
-                                                <span class="map-loc" style="color: #0befe7;"><?=$v['mz']?></span>
+                                                <span id="user-loc" class="map-loc" style="color: #0befe7;"><?=$v['mz']?></span>
                                             <?php elseif($v['is_jump']) :?>
                                                 <span class="map-loc" style="color: #86e2e2;"><?=$v['mz']?></span>
                                             <?php else:?>
