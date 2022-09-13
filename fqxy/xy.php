@@ -287,10 +287,8 @@
         $synpc= ($iniFile->getItem('验证信息', 'npc值'));
         if ($wjid == 10000001) {//gm号可看
             echo "<font color=red>----------调试信息-----------</font>" . "<br>";
-            echo "<font color=black>上次页面ID(最后页面id-页面id)：" . $yymid . "</font>" . "<br>";
-            echo "<font color=black>上次页面参数(最后页面id-npcid)：" . $yymid . "</font>" . "<br>";
-            echo "<font color=black>本次页面ID(验证信息-cmid值)：" . $symid . "</font>" . "<br>";
-            echo "<font color=black>本次页面参数(验证信息-npc值)：" . $symid . "</font>" . "<br>";
+            echo "<font color=black>上次页面ID(最后页面id-页面id/npcid)：{$yymid}/{$yynpct }</font>" . "<br>";
+            echo "<font color=black>本次页面参数(验证信息-cmid值/npc值)：{$symid}/{$synpc}</font>" . "<br>";
             echo "<font color=red>----------调试信息-----------</font>" . "<br>";
         }
 
