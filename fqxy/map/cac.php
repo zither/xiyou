@@ -691,7 +691,7 @@ $npc[]=1316;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗重阳婆婆（保留三天）</font></a>"."<br>";
 
 */
-/*
+
 $img='pic/ts/ts1.png';
 echo '<img src="'.$img.' "alt="图片"/>';
 //cmd及超链接值
@@ -700,7 +700,7 @@ $cdid[]=$cmid;
 $clj[]=658;
 $npc[]=0;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗农场</font></a>"."<br>";
-*/
+
 /*
 $img='pic/ts/ts1.png';
 echo '<img src="'.$img.' "alt="图片"/>';
