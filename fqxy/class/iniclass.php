@@ -32,11 +32,10 @@ class iniFile
     {
         if (!isset($this->iniFileHandle[$category_name])) {
             $this->iniFileHandle[$category_name] = [];
-        } else {
-            if (!empty($item)) {
-                foreach ($item as $key => $value) {
-                    $this->iniFileHandle[$category_name][$key] = $value;
-                }
+        }
+        if (!empty($item)) {
+            foreach ($item as $key => $value) {
+                $this->iniFileHandle[$category_name][$key] = $value;
             }
         }
         $this->save();

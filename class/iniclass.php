@@ -27,13 +27,12 @@ class iniFile
 	public function addCategory($category_name,array $item = []){
 		if (!isset($this->iniFileHandle[$category_name])) {
 			$this->iniFileHandle[$category_name] = [];
-		}else{
-			if (!empty($item)) {
-				foreach ($item as $key => $value) {
-					$this->iniFileHandle[$category_name][$key] = $value;
-				}
-			}
-		}
+        }
+        if (!empty($item)) {
+            foreach ($item as $key => $value) {
+                $this->iniFileHandle[$category_name][$key] = $value;
+            }
+        }
 		$this->save();
 	}
 	//增加子项[可在添加分类的同时添加子项]
