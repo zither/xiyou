@@ -42,7 +42,7 @@ echo "<font color=black>恭喜你！！将".$wpmz."从星盘上卸下！！</fon
 
 include("./sql/mysql.php");//调用数据库连接 
 $q2="xp";
-$strsql = "update $q2 set xpid=0 where wjid=$wjid and id=$xpid";//物品id号必改值
+$strsql = "update $q2 set xpid=0 where wjid=$wjid and seq=$xpid";//物品id号必改值
 $result = mysql_query($strsql);
 
 //更新缓存数据
