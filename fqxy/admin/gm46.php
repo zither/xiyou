@@ -20,7 +20,7 @@ include("./ini/all_lock.php");
 
 if($zsspd==1&&$all_lock2==1){
 
-echo "<font color=red>【小轩西游红包管理】</font>"."<br>";
+echo "<font color=red>【幻想西游红包管理】</font>"."<br>";
 include("./sql/mysql.php");//调用数据库连接 
 $q2="all_xjhb";
 mysql_query("set names utf8");

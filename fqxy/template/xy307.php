@@ -6,7 +6,7 @@ $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");
 if($zsspd==1){
 	
-echo "<font color=red>小轩西游福利中心</font>"."<br>";	
+echo "<font color=red>幻想西游福利中心</font>"."<br>";
 	
 echo "<font color=black>每日福利|</font>";	
 //cmd及超链接值

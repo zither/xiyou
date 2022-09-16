@@ -1,6 +1,6 @@
 <?php
 
-echo "<font color=red>【小轩西游充值管理】</font>"."<br>";
+echo "<font color=red>【幻想西游充值管理】</font>"."<br>";
 include("./sql/mysql.php");//调用数据库连接 
 $q2="all_cz";
 mysql_query("set names utf8");

@@ -1,6 +1,6 @@
 <?php
 
-echo "<font color=red>【小轩西游充值订单】</font>"."<br>";
+echo "<font color=red>【幻想西游充值订单】</font>"."<br>";
 
 
 echo "<font color=black>【订单已清空】</font>"."<br>";

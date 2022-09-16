@@ -7,7 +7,7 @@ if($zsspd==1){
 
 
 
-echo "<font color=red>小轩西游福利中心</font>"."<br>";	
+echo "<font color=red>幻想西游福利中心</font>"."<br>";
 	
 
 

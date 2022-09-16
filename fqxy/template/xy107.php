@@ -19,31 +19,31 @@ if($ckid ==1){
 
 echo "<font color=black>古典神话类手机网游，自动任务，自动打怪，丰富的装备升级系统，手持神兵利器，身骑五爪金龙，携爱行走西游路！</font><br>";
 } elseif($ckid ==2){
-echo "<font color=black>小轩西游简便的操作让你游戏更加的轻松！</font><br>";
+echo "<font color=black>幻想西游简便的操作让你游戏更加的轻松！</font><br>";
 
 } elseif($ckid ==3){
-echo "<font color=black>小轩西游有五大门派，将军府、方寸山、龙宫、月宫、普陀山，都有各自特有的技能和天赋！</font><br>";
+echo "<font color=black>幻想西游有五大门派，将军府、方寸山、龙宫、月宫、普陀山，都有各自特有的技能和天赋！</font><br>";
 
 
 } elseif($ckid ==4){
-echo "<font color=black>小轩西游以长安城为中心城市，不但有天宫、地府、十八层地狱、水帘洞等普通区域，也有宝象国、乌鸡国、车迟国、女儿国、祭赛国、朱紫国等取经路过的区域，还有非常特色的副本、挑战、阵法区域，特殊区域中的恶魔广场、洞天福地更是万人云集之处！</font><br>";
+echo "<font color=black>幻想西游以长安城为中心城市，不但有天宫、地府、十八层地狱、水帘洞等普通区域，也有宝象国、乌鸡国、车迟国、女儿国、祭赛国、朱紫国等取经路过的区域，还有非常特色的副本、挑战、阵法区域，特殊区域中的恶魔广场、洞天福地更是万人云集之处！</font><br>";
 
 } elseif($ckid ==5){
-echo "<font color=black>小轩西游中有各种稀有装备、套装、结婚饰品、法宝、坐骑，丰富的装备合成、升级、打孔镶嵌等系统让你惊喜不断！</font><br>";
+echo "<font color=black>幻想西游中有各种稀有装备、套装、结婚饰品、法宝、坐骑，丰富的装备合成、升级、打孔镶嵌等系统让你惊喜不断！</font><br>";
 
 } elseif($ckid ==6){
-echo "<font color=black>小轩西游中的道具类型多种多样，自动回复的药品、记录地点传送的卷轴、召唤神仙一起组队的符咒、多倍经验掉宝攻击防御的祝福道具、永久增加属性的仙丹，让你目不暇接！</font><br>";
+echo "<font color=black>幻想西游中的道具类型多种多样，自动回复的药品、记录地点传送的卷轴、召唤神仙一起组队的符咒、多倍经验掉宝攻击防御的祝福道具、永久增加属性的仙丹，让你目不暇接！</font><br>";
 
 } elseif($ckid ==7){
-echo "<font color=black>小轩西游的任务丰富无比，主线剧情，转职任务，区域任务，每日任务，隐藏任务，护送任务，挑战任务，副本任务，答题任务等各种任务类型让你不断有新鲜感受！</font><br>";
+echo "<font color=black>幻想西游的任务丰富无比，主线剧情，转职任务，区域任务，每日任务，隐藏任务，护送任务，挑战任务，副本任务，答题任务等各种任务类型让你不断有新鲜感受！</font><br>";
 
 } elseif($ckid ==8){
-echo "<font color=black>小轩西游除了普通的打怪、PK等战斗外，还有大型的攻城战、全服国家帮派争霸大赛、全服个人天下争霸比武擂台等多种竞技赛事！</font><br>";
+echo "<font color=black>幻想西游除了普通的打怪、PK等战斗外，还有大型的攻城战、全服国家帮派争霸大赛、全服个人天下争霸比武擂台等多种竞技赛事！</font><br>";
 
 } elseif($ckid ==9){
-echo "<font color=black>小轩西游内测说明</font><br>";
+echo "<font color=black>幻想西游内测说明</font><br>";
 echo "<br>";
-echo "<font color=black>1.经过了一段时间的开发小轩西游终于如期与大家见面了，人无完人游戏中可能或多或少存在一些
+echo "<font color=black>1.经过了一段时间的开发幻想西游终于如期与大家见面了，人无完人游戏中可能或多或少存在一些
 BUG，相信一定逃不过大家的火眼精金的！</font><br>";
 echo "<br>";
 echo "<font color=black>2.参与内测人员不要只顾着玩，一定要善于发现BUG，为游戏正常上线奠定坚实的基础，提供未知的BUG待游戏正常上线后按量奖励金豆</font><br>";
@@ -60,7 +60,7 @@ echo "<font color=black>6.感谢广大新老玩家的支持特此这次内测提
 echo "<br>";
 
 } elseif($ckid ==10){
-echo "<font color=black>小轩西游公测活动如下：</font><br>";
+echo "<font color=black>幻想西游公测活动如下：</font><br>";
 echo "<font color=red>冲榜活动（6.23-7.1晚上18：00结束）奖励统计完毕后发放</font><br>";
 echo "<font color=black>血，攻，魔攻，防御，等级，充值，六大排行榜排名奖励</font><br>";
 
@@ -644,7 +644,7 @@ echo "<font color=black>6.充值消费赠送5孔〖强化打孔器〗祝你在�
 	echo "<br>";
 	
 } elseif($ckid ==12){
-echo "<font color=black>小轩西游推广计划</font>";	
+echo "<font color=black>幻想西游推广计划</font>";
 echo "<font color=red>此活动长期有效</font><br>";
 echo "<font color=black>1.每日在其他WAP游戏群发布宣传语截图并且到管理员，得【西游宣传礼包】x1</font><br>";
 echo "<font color=black>2.邀请新人进群并且注册游戏，邀请人得【西游邀请礼包】x1，被邀请人得【西游新人礼包】x1</font><br>";
@@ -673,7 +673,7 @@ echo "<font color=black>正在紧张统计中明日发放！！</font><br>";
 
 } elseif($ckid ==14){
 
-echo "<font color=black>小轩西游开区由下面三位大佬的鼎力相助（小轩提供游戏技术支持）</font><br>";
+echo "<font color=black>幻想西游开区由下面三位大佬的鼎力相助（小轩提供游戏技术支持）</font><br>";
 echo "<font color=red>【小果】</font>";
 echo "<font color=black>|</font>";
 $cmid=$cmid+1;
@@ -703,7 +703,7 @@ echo "<br>";
 echo "<br>";
 } elseif($ckid ==15){
 
-echo "<font color=black>小轩西游开区由下面三位大佬的鼎力相助（小轩提供游戏技术支持）</font><br>";
+echo "<font color=black>幻想西游开区由下面三位大佬的鼎力相助（小轩提供游戏技术支持）</font><br>";
 
 $cmid=$cmid+1;
 $cdid[]=$cmid;
@@ -731,7 +731,7 @@ echo "<br>";
 
 } elseif($ckid ==16){
 
-echo "<font color=black>小轩西游开区由下面三位大佬的鼎力相助（小轩提供游戏技术支持）</font><br>";
+echo "<font color=black>幻想西游开区由下面三位大佬的鼎力相助（小轩提供游戏技术支持）</font><br>";
 
 $cmid=$cmid+1;
 $cdid[]=$cmid;
@@ -759,7 +759,7 @@ echo "<br>";
 
 } elseif($ckid ==17){
 
-echo "<font color=black>小轩西游更新计划列表</font><br>";
+echo "<font color=black>幻想西游更新计划列表</font><br>";
 
 echo "<font color=red>以下编写任务一个个来，还有就是不要没事给我找事做（明明是没问题就不要来烦我--影响我编写进度，什么事都干不了光为你服务了，有问题你提供给我我会及时处理，）</font><br>";
 echo "<br>";
@@ -833,7 +833,7 @@ echo "<font color=red>PS:老夫子的试炼:如果都没有完成的，可适当
 	
 echo "<font color=red>活动时间2018.7.14-2018.7.24晚8点</font><br>";
 echo "<font color=black>1.娱乐界面新增疯狂摇点分两类黄金和铂金场奖池分别为金豆奖池和银两初始为1000豆，2000豆，50亿，100亿（不定期开启不固定时间）</font><br>";		
-echo "<font color=black>2.暑期活动第二波次集齐“【清】【凉】【一】【夏】”四字可在玄武大街唐三藏处兑换【清凉宝箱】宝箱随机开出【1万法宝经验】，【1万西游声望】（小轩西游各个副本和通天塔均有掉落）</font><br>";		
+echo "<font color=black>2.暑期活动第二波次集齐“【清】【凉】【一】【夏】”四字可在玄武大街唐三藏处兑换【清凉宝箱】宝箱随机开出【1万法宝经验】，【1万西游声望】（幻想西游各个副本和通天塔均有掉落）</font><br>";
 echo "<font color=black>3.活动期间充值赠送每满10元〖万能字〗x10</font><br>";
 
 
@@ -1000,7 +1000,7 @@ echo "<br>";
 echo "<font color=red>活动时间2018.7.27-2018.8.3——0点结束</font><br>";
 echo "<font color=black>1.疯狂摇点（第二期）分两类黄金和铂金场奖池分别为金豆奖池和银两初始为500豆，1000豆，25亿，50亿（不定期开启不固定时间）</font><br>";		
 echo "<br>";
-echo "<font color=black>2.暑期活动第三波次每个“【喜鹊蛋】”有一定概率孵化出【小喜鹊】，【喜鹊蛋】【小喜鹊】都能兑换超值的物品哦（小轩西游各个副本和通天塔均有掉落）</font><br>";		
+echo "<font color=black>2.暑期活动第三波次每个“【喜鹊蛋】”有一定概率孵化出【小喜鹊】，【喜鹊蛋】【小喜鹊】都能兑换超值的物品哦（幻想西游各个副本和通天塔均有掉落）</font><br>";
 echo "<br>";
 echo "<font color=black>3.活动期间单次20元以上赠送</font>";
 //cmd及超链接值
@@ -1166,7 +1166,7 @@ echo "<br>";
 	
 } elseif($ckid ==21){		
 echo "<font color=black>紫霞仙子：我的意中人是个盖世英雄，有一天他会踩着七彩祥云来娶我，我猜中了开头，可是我猜不着这结局……</font><br>";	
-echo "<font color=black>紫霞仙子和青霞现在来到了小轩西游，全图副本通天地狱掉落圣衣,祥云,眼泪,紧箍咒可找到紫霞仙子换取月光宝盒</font><br>";	
+echo "<font color=black>紫霞仙子和青霞现在来到了幻想西游，全图副本通天地狱掉落圣衣,祥云,眼泪,紧箍咒可找到紫霞仙子换取月光宝盒</font><br>";
 		
 	
 echo "<font color=black>至尊宝：曾经有一份真诚的爱情放在我面前，我没有珍惜，等我失去的时候我才后悔莫及，人世间最痛苦的事莫过于此。如果上天能够给我一个再来一次的机会，我会对那个女孩子说三个字：我爱你</font><br>";	
@@ -1746,7 +1746,7 @@ echo "<br>";
 
 } elseif($ckid ==26){
 
-echo "<font color=black>小轩西游公测活动如下：</font><br>";
+echo "<font color=black>幻想西游公测活动如下：</font><br>";
 echo "<font color=red>冲榜活动奖励统计完毕后发放</font><br>";
 echo "<font color=black>血，攻，魔攻，防御，等级，充值，六大排行榜排名奖励</font><br>";
 
@@ -2463,7 +2463,7 @@ echo "<br>";
 
 echo "<font color=red>活动时间2018.10.10-2018.10.16</font><br>";	
 echo "<br>";
-echo "<font color=black>小轩西游半岁啦~~特此感谢大家一如既往的支持</font><br>";	
+echo "<font color=black>幻想西游半岁啦~~特此感谢大家一如既往的支持</font><br>";
 echo "<br>";
 echo "<font color=black>1.从开区到现在各位大佬不甘示弱来到了长安请您品尝下他们的手艺</font><br>";	
 echo "<br>";
@@ -2796,7 +2796,7 @@ echo "<font color=red>2000元：充值金豆返利200%</font><br>";
 
 } elseif($ckid ==32){
 echo "<font color=red>活动时间2018.11.02-2018.11.15</font><br>";	
-echo "<font color=black>小轩西游新区乌鸡国活动如下：</font><br>";
+echo "<font color=black>幻想西游新区乌鸡国活动如下：</font><br>";
 echo "<font color=red>冲榜活动奖励统计完毕后发放</font><br>";
 echo "<font color=black>血，攻，魔攻，防御，等级，充值，六大排行榜排名奖励</font><br>";
 
@@ -3642,7 +3642,7 @@ echo "<font color=black>第10名〖云梯石〗x10〖护身符〗x10</font><br>"
 
 } elseif($ckid ==34){
 echo "<font color=red>活动时间11-26~~~12-02(23:50)</font><br>";	
-echo "<font color=black>小轩西游补充值区【傲来国】活动如下：</font><br>";
+echo "<font color=black>幻想西游补充值区【傲来国】活动如下：</font><br>";
 echo "<font color=red>冲榜活动奖励统计完毕后发放</font><br>";
 echo "<font color=black>血，攻，魔攻，防御，等级，充值，六大排行榜排名奖励</font><br>";
 echo "<font color=red>温馨提示：此区【傲来国】全部0起步不做任何赠送只做充值补偿</font><br>";
@@ -4367,7 +4367,7 @@ echo "<font color=red>---------------等级榜-------------</font><br>";
 
 } elseif($ckid ==35){
 echo "<font color=red>活动时间11-26~~~12-02(23:50)</font><br>";	
-echo "<font color=black>小轩西游纯净新区【宝象国】活动如下：</font><br>";
+echo "<font color=black>幻想西游纯净新区【宝象国】活动如下：</font><br>";
 echo "<font color=red>冲榜活动奖励统计完毕后发放</font><br>";
 echo "<font color=black>血，攻，魔攻，防御，等级，充值，六大排行榜排名奖励</font><br>";
 echo "<font color=red>温馨提示：此区【宝象国】赠送新区SDK码一张一人一张严禁小号作弊封停并追回违规所得（具体SDK物品参照游戏内SDK兑换）</font><br>";

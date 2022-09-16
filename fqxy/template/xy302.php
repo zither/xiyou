@@ -1397,6 +1397,11 @@ if($zsspd==1){
             echo "<font color=red>对不起！你今日已经签到过了</font></br>";
         }
 
+        $cmid = $cmid+1;
+        $cdid[] = $cmid;
+        $clj[] = 409;
+        $npc[] = 0;
+        echo "<a href='xy.php?uid=$wjid&cmd=$cmid&sid=$a1'>返回签到</a><br>";
 
 
 

@@ -93,7 +93,7 @@ echo "<br>";
 
 
 <?php
-echo "<font color=red>小轩西游2018年11月5日新区（乌鸡国）即将火热开启，我们不见不散</font><br>";
+echo "<font color=red>幻想西游2018年11月5日新区（乌鸡国）即将火热开启，我们不见不散</font><br>";
 echo "<font color=red>进群填写我的邀请游戏ID：".$wjid."</font><br>";
 echo "<font color=red>填写邀请ID即可领取超值新区（乌鸡国）SDK码包含如下福利奖励</font><br>";
 echo "<font color=red>【50元充值卡】x1</font><br>";

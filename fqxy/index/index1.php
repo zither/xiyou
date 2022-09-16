@@ -9,7 +9,7 @@ header("Content-type: text/html; charset=utf-8");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <!-- TemplateBeginEditable name="doctitle" -->
-<title>小轩西游提示</title>
+<title>幻想西游提示</title>
 <!-- TemplateEndEditable -->
 <!-- TemplateBeginEditable name="head" -->
 <!-- TemplateEndEditable -->

@@ -41,7 +41,7 @@ if($zsspd==1){
     $ym=$wpid['初始'];
     $km=0;
     if($m>=1){
-        echo "<font color=red>尊敬的玩家你好！小轩西游充值或者奖励发放都在这里领取</font>"."<br>";
+        echo "<font color=red>尊敬的玩家你好！幻想西游充值或者奖励发放都在这里领取</font>"."<br>";
         foreach(array_keys($wpmz) as $key){
             $keywpmz[]=$wpmz[$key];
         }

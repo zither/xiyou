@@ -1,6 +1,6 @@
 <?php
 echo "<font color=black>尊贵VIP详细介绍：</font>"."<br>";
-echo "<font color=black>尊贵VIP是小轩西游专属提升实力的重要武器享受以下特权</font>"."<br>";
+echo "<font color=black>尊贵VIP是幻想西游专属提升实力的重要武器享受以下特权</font>"."<br>";
 echo "<font color=black>1.人物状态以及被查看状态动态的专属尊贵vip图标</font>"."<br>";
 echo "<font color=black>2.效果：</font>";
 $img='pic/vip/zgvip.gif';

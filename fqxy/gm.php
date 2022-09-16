@@ -141,12 +141,12 @@
                 include("admin/gm42.php");//【全服发奖励】
 
             } elseif($gid==43){
-                include("admin/gm43.php");//【小轩西游充值管理】
+                include("admin/gm43.php");//【幻想西游充值管理】
             } elseif($gid==44){
                 include("admin/gm44.php");//【订单清空】
 
             } elseif($gid==45){
-                include("admin/gm45.php");//【小轩西游红包管理】
+                include("admin/gm45.php");//【幻想西游红包管理】
 
             } elseif($gid==46){
                 include("admin/gm46.php");//【清理红包】
@@ -165,7 +165,7 @@
                 include("admin/gm51.php");//【充值100元红包】
 
             } elseif($gid==52){
-                include("admin/gm52.php");//【小轩西游娱乐统计】
+                include("admin/gm52.php");//【幻想西游娱乐统计】
 
             } elseif($gid==53){
                 include("admin/gm53.php");//【天降财神统计】

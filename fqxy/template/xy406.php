@@ -3,8 +3,8 @@
 
 
 
-echo "<font color=red>小轩西游攻略-装备篇</font>"."<br>";
-echo "<font color=black>小轩西游共有3个层次的装备：1.新手套装；2.师门套装；3.幻想套装</font>"."<br>";
+echo "<font color=red>幻想西游攻略-装备篇</font>"."<br>";
+echo "<font color=black>幻想西游共有3个层次的装备：1.新手套装；2.师门套装；3.幻想套装</font>"."<br>";
 echo "<font color=black>1.新手套装：新手套装即〖玄冰套装〗，1级可用，不能升级。</font>"."<br>";
 echo "<font color=black>2.师门套装：各师门打造，60级可用，可以升级，十字张果老处传送至相应的门派。</font>"."<br>";
 echo "<font color=black>（1）将军府：【白虎套装】在将军府白发老人（装备打造）处打造。</font>"."<br>";

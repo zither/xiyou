@@ -1,5 +1,5 @@
 <?php
-echo "<font color=red>小轩西游福利中心</font>"."<br>";	
+echo "<font color=red>幻想西游福利中心</font>"."<br>";
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
@@ -70,7 +70,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>至尊皇�
 
 
 
-echo "<font color=black>小轩西游推广计划</font>";	
+echo "<font color=black>幻想西游推广计划</font>";
 echo "<font color=red>此活动长期有效</font><br>";
 echo "<font color=black>1.每日在其他WAP游戏群发布宣传语截图并且到管理员，得【西游宣传礼包】x1</font><br>";
 echo "<font color=black>2.邀请新人进群并且注册游戏，邀请人得【西游邀请礼包】x1，被邀请人得【西游新人礼包】x1</font><br>";

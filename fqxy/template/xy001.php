@@ -369,28 +369,28 @@ if ($zsspd == 1) {
     $cdid[]=$cmid;
     $clj[]=107;
     $npc[]=11;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>小轩西游充值消费一览（by小轩）</font></a>"."<br>";
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>幻想西游充值消费一览（by小轩）</font></a>"."<br>";
 
     //cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=107;
     $npc[]=10;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>小轩西游冲榜活动奖励一览（by小轩）</font></a>"."<br>";
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>幻想西游冲榜活动奖励一览（by小轩）</font></a>"."<br>";
 
     //cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=107;
     $npc[]=12;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>小轩西游推广计划奖励一览（by小轩）</font></a>"."<br>";
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>幻想西游推广计划奖励一览（by小轩）</font></a>"."<br>";
 
     //cmd及超链接值
     $cmid=$cmid+1;
     $cdid[]=$cmid;
     $clj[]=107;
     $npc[]=13;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>小轩西游内测奖励一览（by小轩）</font></a>"."<br>";
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>幻想西游内测奖励一览（by小轩）</font></a>"."<br>";
 
 
     */
@@ -486,7 +486,7 @@ if ($zsspd == 1) {
     $cdid[]=$cmid;
     $clj[]=107;
     $npc[]=14;
-    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【小轩西游公测开区元老】</font></a>"."<br>";
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【幻想西游公测开区元老】</font></a>"."<br>";
     */
 
 

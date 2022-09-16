@@ -10906,7 +10906,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>一键提�
 	$npcc=$npcc1;
 	$npcname="〖活动〗姝菟（抢积分榜）";
 	echo "<font color=red>$npcname</font>"."<br>";
-	$npctake="姝菟：小轩西游2000元开区首充，为游戏打下了坚实的基础";
+	$npctake="姝菟：幻想西游2000元开区首充，为游戏打下了坚实的基础";
 	echo "<font color=black>$npctake</font>"."<br>";
 
 
