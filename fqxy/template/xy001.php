@@ -11,8 +11,6 @@ for ($x = 0; $x <= 30; $x++) {
     $fp = fopen($gglockname, "w+");
     if (flock($fp, LOCK_EX | LOCK_NB)) {
         $zsspd = 1;
-        //usleep(800);
-        flock($fp, LOCK_EX);
         break;
     } else {
         //排队等待
@@ -67,7 +65,6 @@ if ($zsspd == 1) {
 
                 //改写ip
                 $nowtime = date('Y-m-d H:i:s');
-                include("./sql/mysql.php");//调用数据库连接
                 $q2 = "all_ip";
                 $strsql = "delete from $q2 where wjid='$wjid'";//物品id号必改值
                 $result = mysql_query($strsql);
@@ -94,9 +91,7 @@ if ($zsspd == 1) {
             $ip3 = ($iniFile->getItem('ip地址', $ip0));
 
             if ($ip3 == "") {
-
                 $nowtime = date('Y-m-d H:i:s');
-                include("./sql/mysql.php");//调用数据库连接
                 $q2 = "all_ip";
                 $sql = "insert into $q2 (ip,iptime,wjid,wjname)  values('$ip1','$nowtime','$wjid','$wjname')";
                 if (!mysql_query($sql, $conn)) {
@@ -113,9 +108,6 @@ if ($zsspd == 1) {
             } else {
 
             }
-
-
-            include("./sql/mysql.php");//调用数据库连接
 
             $q2 = "all_ip";
             $str = "select ip from $q2";
@@ -156,7 +148,6 @@ if ($zsspd == 1) {
         $hdid = 5;
         $npcc = $hdid;
         include("./ini/hd_ini.php");
-
         $hdtime = ($iniFile->getItem('活动时间', $hdid));
         $hdcs = ($iniFile->getItem('活动次数', $hdid));
         if ($hdtime == "") {//如果没有值则添加新数据
@@ -165,18 +156,14 @@ if ($zsspd == 1) {
             $hdtime = ($iniFile->getItem('活动时间', $hdid));
             $hdcs = ($iniFile->getItem('活动次数', $hdid));
             $hdlq = 2;
-
-        } else {
         }
 
         $hdlq = 2;
-
         //如果跨天则重置次数和时间
         $nowtime = date('Y-m-d H:i:s');
         $hdtime1 = substr($hdtime, 0, 10);
         $nowtime1 = substr($nowtime, 0, 10);
         if ($hdtime1 != $nowtime1 && $hdtime1 != "" && $wjid != 10000001 || $hdlq == 2 && $wjid != 10000001) {//今天不是今天数据验证
-            include("./sql/mysql.php");//调用数据库连接
             $q2 = "hd";
             $strsql = "update $q2 set hdtime='$nowtime',hdcs=0 where wjid=$wjid and hdid=$hdid";//物品id号必改值
             $result = mysql_query($strsql);
@@ -184,110 +171,83 @@ if ($zsspd == 1) {
             $iniFile->updItem('活动时间', [$hdid => $nowtime]);
             $iniFile->updItem('活动次数', [$hdid => '0']);
             $hdcs = 0;
-
-            //更新
-            include("./ini/zt_ini.php");
-
-
-            $wjmz = ($iniFile->getItem('玩家信息', '玩家名字'));
-            $vip = ($iniFile->getItem('玩家信息', 'vip等级'));
-            $wjdj = ($iniFile->getItem('玩家信息', '等级'));
-            $vipjy = ($iniFile->getItem('玩家信息', 'vip经验'));
-            include("./wj/ztt.php");
-
-
-            include("./ini/sc_ini.php");
-            $jdd = ($iniFile->getItem('商城数量', '127'));
-            if ($jdd >= 1) {
-            } else {
-                $jdd = 0;
-            }
-            include("./ini/yl_ini.php");
-            $yl = ($iniFile->getItem('背包仓库银两', '背包银两'));
-            if ($yl >= 1) {
-
-            } else {
-                $yl = 0;
-            }
-
-
-            $phb1 = $wjxx1['血'];
-            $phb2 = $wjxx1['max攻击'];
-            $phb3 = $wjxx1['max魔攻'];
-            $phb4 = $wjxx1['max防御'];
-
-            $phb5 = $wjdj;
-            $phb6 = $yl;
-            $phb7 = $jdd;
-            $phb8 = $vipjy;
-
-            include(__DIR__ . "/../sql/mysql.php");//调用数据库连接
-            $q2 = "all_phb";
-            $sql1 = mysql_query("select wjid from $q2 where wjid=$wjid", $conn);
-            $info1 = @mysql_fetch_array($sql1);
-            $phwjid = $info1['wjid'];
-
-            if ($phwjid == "") {
-                //获取最大值
-                $q2 = "all_phb";
-                $sql1 = mysql_query("select MAX(id) from $q2");
-                $abc = mysql_fetch_array($sql1);
-                $maxid = $abc[0];
-                if ($maxid == "") {
-                    $maxid = 0;
-                    $maxidd = $maxid + 1;
-                } else {
-                    $maxidd = $maxid + 1;
-                }
-
-                $q2 = "all_phb";
-                $sql = "insert into $q2 (id,wjid,wjmz,vip,phb1,phb2,phb3,phb4,phb5,phb6,phb7,phb8)  values('$maxidd','$wjid','$wjmz','$vip','$phb1','$phb2','$phb3','$phb4','$phb5','$phb6','$phb7','$phb8')";
-                if (!mysql_query($sql, $conn)) {
-                    die('Error: ' . mysql_error());
-                }
-            } else {
-                $q2 = "all_phb";
-                $strsql = "update $q2 set phb1='$phb1',phb2='$phb2',phb3='$phb3',phb4='$phb4',phb5='$phb5',phb6='$phb6',phb7='$phb7',phb8='$phb8',vip='$vip' where wjid=$wjid";//物品id号必改值
-                $result = mysql_query($strsql);
-            }
-
-            //路径
-            //$inina = "phb1.ini";
-            //$path = './acher/phb';
-            ////判断ini文件是否存在
-            //$ininame = $path . "/" . $inina;
-            //if (file_exists($ininame)) {
-            //   _unlink($ininame); //删除文件
-            //}
-            function deldir($dir)
-            {
-                //先删除目录下的文件：
-                $dh = opendir($dir);
-                while ($file = readdir($dh)) {
-                    if ($file != "." && $file != ".." && $file != '.gitkeep') {
-                        $fullpath = $dir . "/" . $file;
-                        if (!is_dir($fullpath)) {
-                           _unlink($fullpath);
-                        } else {
-                            deldir($fullpath);
-                        }
-                    }
-                }
-
-                closedir($dh);
-
-            }
-            $path = './acher/phb';
-            deldir($path);
-        } else {
-
         }
 
+        //更新
+        include("./ini/zt_ini.php");
+        $wjmz = ($iniFile->getItem('玩家信息', '玩家名字'));
+        $vip = ($iniFile->getItem('玩家信息', 'vip等级'));
+        $wjdj = ($iniFile->getItem('玩家信息', '等级'));
+        $vipjy = ($iniFile->getItem('玩家信息', 'vip经验'));
+        include("./wj/ztt.php");
+        include("./ini/sc_ini.php");
+        $jdd = ($iniFile->getItem('商城数量', '127'));
+        if ($jdd >= 1) {
+        } else {
+            $jdd = 0;
+        }
+        include("./ini/yl_ini.php");
+        $yl = ($iniFile->getItem('背包仓库银两', '背包银两'));
+        if ($yl >= 1) {
+        } else {
+            $yl = 0;
+        }
 
-    } else {
+        $phb1 = $wjxx1['血'];
+        $phb2 = $wjxx1['max攻击'];
+        $phb3 = $wjxx1['max魔攻'];
+        $phb4 = $wjxx1['max防御'];
 
+        $phb5 = $wjdj;
+        $phb6 = $yl;
+        $phb7 = $jdd;
+        $phb8 = $vipjy;
+
+        $q2 = "all_phb";
+        $sql1 = mysql_query("select wjid from $q2 where wjid=$wjid");
+        $info1 = @mysql_fetch_array($sql1);
+        $phwjid = $info1['wjid'];
+        if ($phwjid == "") {
+            //获取最大值
+            $q2 = "all_phb";
+            $sql1 = mysql_query("select MAX(id) from $q2");
+            $abc = mysql_fetch_array($sql1);
+            $maxid = $abc[0];
+            if ($maxid == "") {
+                $maxid = 0;
+                $maxidd = $maxid + 1;
+            } else {
+                $maxidd = $maxid + 1;
+            }
+            $q2 = "all_phb";
+            $sql = "insert into $q2 (id,wjid,wjmz,vip,phb1,phb2,phb3,phb4,phb5,phb6,phb7,phb8)  values('$maxidd','$wjid','$wjmz','$vip','$phb1','$phb2','$phb3','$phb4','$phb5','$phb6','$phb7','$phb8')";
+            if (!mysql_query($sql, $conn)) {
+                die('Error: ' . mysql_error());
+            }
+        } else {
+            $q2 = "all_phb";
+            $strsql = "update $q2 set phb1='$phb1',phb2='$phb2',phb3='$phb3',phb4='$phb4',phb5='$phb5',phb6='$phb6',phb7='$phb7',phb8='$phb8',vip='$vip' where wjid=$wjid";//物品id号必改值
+            $result = mysql_query($strsql);
+        }
+
+        function deldir($dir) {
+            //先删除目录下的文件：
+            $dh = opendir($dir);
+            while ($file = readdir($dh)) {
+                if ($file != "." && $file != ".." && $file != '.gitkeep') {
+                    $fullpath = $dir . "/" . $file;
+                    if (!is_dir($fullpath)) {
+                        _unlink($fullpath);
+                    } else {
+                        deldir($fullpath);
+                    }
+                }
+            }
+            closedir($dh);
+        }
+        $path = './acher/phb';
+        deldir($path);
     }
-
 
     echo "<font color=black>古典神话网游，持神兵利器，降五爪金龙，携爱行走西游路……</font>" . "<br>";
     echo "<font color=black>【游戏选项】</font>" . "<br>";
