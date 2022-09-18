@@ -323,9 +323,9 @@ echo "<br>";
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
-$clj[]=2;//626
+$clj[]=626;//626
 $npc[]=0;
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>9.【幸运大富翁】(关闭)</font></a>";
+echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>9.【幸运大富翁】</font></a>";
 echo "<font color=red>☯</font>";
 //cmd及超链接值
 $cmid=$cmid+1;
