@@ -11,53 +11,32 @@
     <?php
     include_once __DIR__ . '/../includes/constants.php';
     $configs = include JY_CONFIG_DIR . '/config.php';
-
     error_reporting(E_ALL & ~E_NOTICE);
-    $wjid = $_GET['wjid'] ?? '';
-    $password = $_GET['pass'] ?? '';
 
-    if (empty($wjid) || empty($password)) {
+    session_start();
+    if (empty($_SESSION['admin'])) {
         header('location: login.php', true, 302);
         exit;
     }
 
-    //ini文件名字
-    $inina="user2.ini";
-    //路径
-    $path='../ache/gm';
-    //判断ini文件是否存在
-    $ininame = $path."/".$inina;
-    $filename = $ininame;
-    if(file_exists($filename)){
-        include("../class/iniclass.php");//调用iniclass文件
-        //调用user.ini是否存在
-        include("../ini/user2_ini.php");
-        # 获取一个分类下某个子项的值
-        $pass=($iniFile->getItem('验证信息','玩家验证'));
-        if($pass!=""||$password!=""){
-        }else{
-            $pass=1;
-        }
-        if($pass==$password){
-            $name=($iniFile->getItem('验证信息','玩家昵称'));
-            $xxjyurl = $configs['jy_url'];
-            echo "<font color=red>【请选择你需要要管理的项目】</font>"."<br>";
-            echo "<a href=".$xxjyurl."/admin/gm01.php?wjid=$wjid&pass=$password><font color=blue>社区管理（总站）</font></a>"."<br>";
-            echo "<br>";
-            foreach ($configs['urls'] as $i => $v) {
-                if ($v['status'] == 0) {
-                    continue;
-                }
-                echo "<a href=" . $v['url'] . "/fqxy/gm.php?wjid=$wjid&pass=$password&gid=1><font color=blue>" . ($i + 1) . ".{$v['name']}</font></a>" . "<br>";
-                echo "<br>";
-            }
-        } else {
-            $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
-        }
-    } else {
-        $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
+    $uid = $_GET['uid'] ?? null;
+    $password = $_GET['password'] ?? null;
+    if (!$uid || !$password) {
+        $uid = $_SESSION['admin'];
+        $password = $_SESSION['admin_password'];
     }
-    echo $zcxx;
+
+    $xxjyurl = $configs['jy_url'];
+    echo "<font color=red>【请选择你需要要管理的项目】</font>"."<br>";
+    echo "<a href=".$xxjyurl."/admin/gm01.php><font color=blue>社区管理（总站）</font></a>"."<br>";
+    echo "<br>";
+    foreach ($configs['urls'] as $i => $v) {
+        if ($v['status'] == 0) {
+            continue;
+        }
+        echo "<a href=" . $v['url'] . "/fqxy/gm.php?uid=$uid&password=$password&gid=1><font color=blue>" . ($i + 1) . ".{$v['name']}</font></a>" . "<br>";
+        echo "<br>";
+    }
     ?>
 </div>
 

@@ -6,6 +6,7 @@ session_start();
 $message = empty($_SESSION['message']) ? '' : $_SESSION['message'];
 $error = empty($_SESSION['error']) ? '' : $_SESSION['error'];
 $_SESSION = [];
+$db = DB::instance();
 
 if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
     try {
@@ -24,9 +25,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         $zczh3 = $_POST['zc3'];
         $zczh4 = $_POST['zc4'];
 
-        $user=0;
-        $sql=mysql_query("select * from o_user_list where username='$zczh1'");
-        $info1=@mysql_fetch_array($sql);
+        $info1 = $db->get('o_user_list', '*', ['username' => $zczh1]);
         if (empty($info1)) {
             throw new InvalidArgumentException('帐号不存在');
         }
@@ -41,16 +40,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         }
 
         $pass3=md5($zczh3.'ALL_PS');
-        $q2="o_user_list";
-        $strsql = "update $q2 set password='$pass3',ma='$pass3' where username='$zczh1'";//物品id号必改值
-        $result = mysql_query($strsql);
-
-        include("../class/iniclass.php");//调用iniclass文件
-        //调用user.ini是否存在
-        include("../ini/user_ini.php");
-        //修改user缓存
-        # 修改一个分类下子项的值(也可以修改多个)
-        $iniFile->updItem('验证信息', ['玩家验证' => $pass3]);
+        $db->update('o_user_list', ['password' => $pass3, 'ma' => ''], ['uid' => $uid]);
         $_SESSION['message'] = '密码找回成功，请重新登录';
         header("location: index.php", true, 302);
         exit;

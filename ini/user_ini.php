@@ -14,12 +14,10 @@ if(file_exists($file)){
     if (!file_exists($path)){
         mkdir ($path,0777,true);
     }
-    //连接数据库
-    include("../sql/mysql.php");//调用数据库连接
-
     //判断wjid的合法性
-    $sql=mysql_query("select uid,password,name from o_user_list where uid='$wjuid'", $conn);
+    $sql=mysql_query("select uid,password,name from o_user_list where uid='$wjuid'");
     $info1=@mysql_fetch_array($sql);
+
     $pass1=$info1['password'];
     $uid=$info1['uid'];
     $pass=md5($password.'ALL_PS');

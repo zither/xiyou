@@ -1,12 +1,7 @@
 <?php
 
-//连接数据库
-include(__DIR__ . "/../sql/mysql.php");//调用数据库连接
-
-$sqid = $wjid . "_" . $xxjy_qy;
-$q2 = "o_user_list";
-$sql = mysql_query("select uid,password from $q2 where sqid='$sqid'", $conn);
-$info1 = @mysql_fetch_array($sql);
+$sqid = ($uid + 10000000) . "_" . $xxjy_qy;
+$info1 = DB::instance()->get('o_user_list', ['uid', 'password'], ['sqid' => $sqid]);
 
 $uid = $info1['uid'];
 $pass1 = $info1['password'];

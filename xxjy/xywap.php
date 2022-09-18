@@ -1,17 +1,15 @@
 <?php
 include_once __DIR__ . '/../includes/constants.php';
 include_once ROOT . '/sql/mysql.php';
-include_once ROOT . '/class/iniclass.php';
 
-$wjid = $_GET['wjid'];
-$password = $_GET['pass'];
+$db = DB::instance();
+$uid = $_GET['uid'];
+$token = $_GET['token'];
 $xxjyurl = '';
-if ($wjid != "" && $password != "") {
-    include ROOT . '/ini/user_ini.php';
-    $pass = ($iniFile->getItem('验证信息', '玩家验证'));
-    if ($pass == $password && $password != "" && $pass != "") {
-        $name = ($iniFile->getItem('验证信息', '玩家昵称'));
-        $xxjyurl = "?wjid=" . $wjid . "&pass=" . $password;
+if ($uid != "" && $token != "") {
+    $ma = $db->get('o_user_list', 'ma', ['uid' => $uid]);
+    if (hash_equals($token, $ma)) {
+        $xxjyurl = "?uid=" . $uid. "&token=" . $token;
     }
 }
 

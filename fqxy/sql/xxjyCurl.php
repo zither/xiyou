@@ -7,7 +7,7 @@ $configs = include XY_CONFIG_DIR . '/config.php';
 
 $url = $configs['xy_url'];
 //准备好要发送给服务器的数据
-$post_data = $wjid . '|' . $password . '|' . $url . '|' . $qy;
+$post_data = $uid. '|' . $token. '|' . $url . '|' . $qy;
 
 //初始化 curl
 $ch = curl_init();

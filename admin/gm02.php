@@ -11,77 +11,44 @@
     <?php
     error_reporting(E_ALL & ~E_NOTICE);
 
+    session_start();
+    if (empty($_SESSION['admin'])) {
+        header('location: login.php', true, 302);
+        exit;
+    }
+
     include_once __DIR__ . '/../includes/constants.php';
+    include_once ROOT . '/includes/functions.php';
+    include(ROOT . "/sql/mysql.php");//调用数据库连接
     $configs = include JY_CONFIG_DIR . '/config.php';
     $xxjyurl = $configs['jy_url'];
 
-
-    $wjid=$_GET['wjid'];
-    $password=$_GET['pass'];
-    //ini文件名字
-    $inina="user2.ini";
-    //路径
-    $path='../ache/gm';
-    //判断ini文件是否存在
-    $ininame = $path."/".$inina;
-    $filename = $ininame;
-    if(file_exists($filename)){
-        include("../class/iniclass.php");//调用iniclass文件
-        //调用user.ini是否存在
-        include("../ini/user2_ini.php");
-        $pass=($iniFile->getItem('验证信息','玩家验证'));
-        if($pass!=""||$password!=""){
-        }else{
-            $pass=1;
-        }
-        if($pass==$password){
-            $name=($iniFile->getItem('验证信息','玩家昵称'));
-            include("../sql/mysql.php");//调用数据库连接
-            echo "<font color=red>【提取成功】</font>"."<br>";
-
-            //随机产生一个玩家的特征码写入数据库验证网址信息
-            function randomkeys($length) {
-                $returnStr='';
-                $pattern = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ';
-                for($i = 0; $i < $length; $i ++) {
-                    $returnStr .= $pattern {mt_rand ( 0, 61 )}; //生成php随机数
-                }
-                return $returnStr;
-            }
-            $a1=randomkeys(35);
-            $a2="【小|轩|家|园|注册码|】[".$a1."]";
-            //获取最大值
-            $q2="zem";
-            $sql1=mysql_query("select MAX(id) from $q2");
-            $abc=mysql_fetch_array($sql1);
-            $maxid=$abc[0];
-
-            if($maxid ==""){
-                $maxid=0;
-                $maxidd=$maxid+1;
-            } else{
-                $maxidd=$maxid+1;
-            }
-            $q2="zem";
-            $sql = "insert into $q2 (id,zem,sy)  values('$maxidd','$a2','1')";
-            if (!mysql_query($sql,$conn)) {
-                die('Error: ' . mysql_error());
-            }
-            echo "<font color=black>【注册码】</font>"."<br>";
-            echo "<font color=red>恭喜你成功提取到一条注册码</font>"."<br>";
-            echo "<font color=red>请复制以下注册码进行注册:</font>"."<br>";
-            echo "<font color=black>$a2</font>"."<br>";
-            echo "<br>";
-            echo "<font color=black>---------------------</font>"."<br>";
-            echo "<a href=".$xxjyurl."/admin/index.php?wjid=$wjid&&pass=$password><font color=blue>返回GM管理平台</font></a>"."<br>";
-        } else {
-            $xyurl= $xxjyurl."/admin/login.php";
-            $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
-        }
-    } else {
-        $xyurl=$xxjyurl."/admin/login.php";
-        $zcxx="<font color=red>当前验证信息失效,请重新登录</font>"."<br><br><a href='login.php'><font color=blue>返回GM登录</font></a>"."<br>";
+    //随机产生一个玩家的特征码写入数据库验证网址信息
+    $a1=str_rand(35);
+    $a2="【幻想西游注册码】[".$a1."]";
+    //获取最大值
+    $q2="zem";
+    $sql1=mysql_query("select MAX(id) from $q2");
+    $abc=mysql_fetch_array($sql1);
+    $maxid=$abc[0];
+    if($maxid ==""){
+        $maxid=0;
+        $maxidd=$maxid+1;
+    } else{
+        $maxidd=$maxid+1;
     }
+    $q2="zem";
+    $sql = "insert into $q2 (id,zem,sy)  values('$maxidd','$a2','1')";
+    if (!mysql_query($sql)) {
+        die('Error: ' . mysql_error());
+    }
+    echo "<font color=black>【注册码】</font>"."<br>";
+    echo "<font color=red>恭喜你成功提取到一条注册码</font>"."<br>";
+    echo "<font color=red>请复制以下注册码进行注册:</font>"."<br>";
+    echo "<font color=black>$a2</font>"."<br>";
+    echo "<br>";
+    echo "<font color=black>---------------------</font>"."<br>";
+    echo "<a href=".$xxjyurl."/admin/index.php><font color=blue>返回GM管理平台</font></a>"."<br>";
     ?>
 </div>
 

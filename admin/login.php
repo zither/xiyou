@@ -17,8 +17,12 @@
 
 <?php
 include_once __DIR__ . '/../includes/constants.php';
+include ROOT . '/sql/mysql.php';
 $configs = include JY_CONFIG_DIR . '/config.php';
 
+session_start();
+
+$db = DB::instance();
 $user=0;
 $zcxx = '';
 error_reporting(E_ALL & ~E_NOTICE);
@@ -34,10 +38,7 @@ try {
         }
         $password = $_POST['password'];
 
-        //连接数据库
-        include("../sql/mysql.php");//调用数据库连接
-        $sql = mysql_query("select uid,password,name from gmuser where username='$username'", $conn);
-        $info1 = mysql_fetch_array($sql);
+        $info1 = $db->get('gmuser', ['uid', 'password', 'name'], ['username' => $username]);
         if (empty($info1)) {
             throw new InvalidArgumentException('帐号不存在');
         }
@@ -46,21 +47,18 @@ try {
         $uid = $info1['uid'];
         $pass = md5($password . 'ALL_PS');
         $name = $info1['name'];
-
         if (!hash_equals($pass, $pass1)) {
             throw new InvalidArgumentException('用户名或密码错误');
         }
-        //玩家ini
-        $wjid = $uid + 10000000;
-        //写入本地ini缓存
-        include("../class/iniclass.php");//调用iniclass文件
-        //调用user.ini是否存在
-        include("../ini/user2_ini.php");
-        //成功登录游戏
-        //拼接网址
+
+        $_SESSION['admin'] = $uid;
+        $_SESSION['admin_password'] = $password;
+
+
         $xxjyurl = $configs['jy_url'];
-        $xyurl = $xxjyurl . "/admin/index.php?wjid=$wjid&pass=$pass1";
+        $xyurl = $xxjyurl . "/admin/index.php?uid=$uid&password=$pass1";
         echo "<META HTTP-EQUIV=REFRESH CONTENT='0;URL=$xyurl'>";
+        exit;
     }
 } catch (InvalidArgumentException $e) {
     $zcxx = sprintf('<span style="color: red">%s</span>', $e->getMessage());

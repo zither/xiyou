@@ -2,7 +2,7 @@
 
 //$d = dirname(dirname(__DIR__));
 $inina = "user.ini";
-$path = __DIR__ . '/../ache/' . $wjid;
+$path = XY_DIR . '/ache/' . $wjid;
 
 if (!file_exists($path)) {
     mkdir($path, 0755, true);
@@ -32,7 +32,6 @@ if (file_exists($file)) {
     $ki = date('i');
     $ks = date('s');
     $iniFile = new iniFile($file);
-    # 添加一个子项(如果子项存在，则覆盖;)
     $iniFile->addItem('验证信息', ['玩家id' => $wjid, '玩家验证' => $wjid, '玩家游戏码' => $ka1, 'cmid值' => $kcmid, 'xcmid值' => $ka4, 'dcmid值' => $ka5, '年' => $ky, '月' => $km, '日' => $kd, '时' => $kh, '分' => $ki, '秒' => $ks]);
 } else {
     $ka1 = randomkeys(30);

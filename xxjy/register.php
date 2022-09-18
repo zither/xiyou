@@ -1,11 +1,13 @@
 <?php
 include_once __DIR__ . '/../includes/constants.php';
+include_once ROOT . '/includes/functions.php';
 include_once ROOT . '/sql/mysql.php';
 
 session_start();
 $message = empty($_SESSION['message']) ? '' : $_SESSION['message'];
 $error = empty($_SESSION['error']) ? '' : $_SESSION['error'];
 $_SESSION = [];
+$db = DB::instance();
 
 if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
     try {
@@ -38,16 +40,11 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         $zczh4 = $_POST['zc4']; // 安全码
 
         //查询账号是否已占有
-        $q2 = "o_user_list";
-        $sql1 = mysql_query("select uid from $q2 where username='$zczh1'");
-        $info1 = mysql_fetch_array($sql1);
+        $info1 = $db->get('o_user_list', 'uid', ['username' => $zczh1]);
         if (!empty($info1)) {
             throw new InvalidArgumentException('对不起该账号已存在了');
         }
-
-        $q2 = "o_user_list";
-        $sql1 = mysql_query("select name from $q2 where name='$zczh6'");
-        $info1 = mysql_fetch_array($sql1);
+        $info1 = $db->get('o_user_list', 'uid', ['name' => $zczh6]);
         if (!empty($info1)) {
             throw new InvalidArgumentException('对不起！这个昵称太火了换一个吧');
         }
@@ -59,7 +56,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         $maxid = empty($abc) ? 0 : $abc['i'];
         $maxidd = $maxid + 1;
 
-        $ma = md5($zczh2 . 'ALL_PS');;
+        // 默认token
+        $ma = str_rand();
         $aqm = md5($zczh4 . 'ALL_PS');
         $zczh2 = md5($zczh2 . 'ALL_PS');
         $y = date('Y') * 1;
@@ -74,13 +72,6 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         if (!mysql_query($sql)) {
             throw new InvalidArgumentException('帐号创建失败，请联系管理员！');
         }
-
-        $mysql002 = $maxidd + 10000000;
-        $path = '../ache/' . $mysql002;
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
-        }
-
         $_SESSION['message'] = '注册成功，请登录游戏';
         header("location: index.php", true, 302);
         exit;

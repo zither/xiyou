@@ -1,6 +1,8 @@
 <?php
 include_once __DIR__ . '/../includes/constants.php';
+include_once ROOT . '/includes/functions.php';
 include_once ROOT . '/sql/mysql.php';
+
 
 session_start();
 $message = empty($_SESSION['message']) ? '' : $_SESSION['message'];
@@ -12,9 +14,9 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
         if (empty($_POST['username']) || empty($_POST['password']) || !preg_match('/^[0-9a-zA-Z]{6,}$/', $_POST['username'])) {
             throw new InvalidArgumentException('无效用户名或密码');
         }
+        $db = DB::instance();
         $username = $_POST['username'];
-        $sql = mysql_query("select uid,password,name from o_user_list where username='$username'");
-        $info1 = mysql_fetch_array($sql);
+        $info1 = $db->get('o_user_list', ['uid', 'password', 'name'], ['username' => $username]);
         if (empty($info1)) {
             throw new InvalidArgumentException('无效用户名或密码');
         }
@@ -27,16 +29,13 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST') {
             throw new InvalidArgumentException('无效用户名或密码');
         }
 
-        //玩家ini
-        $wjid = $uid + 10000000;
-        //写入本地ini缓存
-        include("../class/iniclass.php");//调用iniclass文件
-        //调用user.ini是否存在
-        include("../ini/user1_ini.php");
-        //成功登录游戏
+        // 更新随机令牌，用于分区验证
+        $token = str_rand();
+        $db->update('o_user_list', ['ma' => $token], ['uid' => $info1['uid']]);
 
-        //分区页面
-        $xyurl = "xywap.php?wjid=$wjid&&pass=$pass1";
+        //成功登录游戏
+        //分区页面，使用随机令牌替代原来的密码
+        $xyurl = "xywap.php?uid=$uid&token=$token";
         header("location: $xyurl", true, 302);
         exit;
     } catch (Exception $e) {
