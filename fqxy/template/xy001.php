@@ -180,6 +180,10 @@ if ($zsspd == 1) {
         $wjdj = ($iniFile->getItem('玩家信息', '等级'));
         $vipjy = ($iniFile->getItem('玩家信息', 'vip经验'));
         include("./wj/ztt.php");
+
+        //排行榜数据是否加入动态祝福待考虑
+        //include(XY_DIR . "/wj/zfzt.php");
+
         include("./ini/sc_ini.php");
         $jdd = ($iniFile->getItem('商城数量', '127'));
         if ($jdd >= 1) {
