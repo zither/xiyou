@@ -13,7 +13,7 @@ if($zsspd==1){
     include("./wp/wpxx.php");
     if($wjdj>=$wpdj){//背包书卷
         //使用物品
-        include("pz/pz02.php");//判断是否为批量使用id
+        include(XY_DIR . "/pz/pz02.php");//判断是否为批量使用id
         if ($mmd1==2) {
             include("./wp/wpxx.php");
             if($wpfl==1){//背包书卷
