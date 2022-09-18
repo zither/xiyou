@@ -52,7 +52,7 @@ try {
         }
 
         $_SESSION['admin'] = $uid;
-        $_SESSION['admin_password'] = $password;
+        $_SESSION['admin_password'] = $pass;
 
 
         $xxjyurl = $configs['jy_url'];

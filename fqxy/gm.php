@@ -10,6 +10,7 @@
     <?php
 
     include __DIR__ . '/../includes/constants.php';
+    $configs = include XY_CONFIG_DIR . '/config.php';
 
     session_start();
 
@@ -42,7 +43,6 @@
         $_SESSION['admin_password'] = $password;
     }
 
-    $configs = include XY_CONFIG_DIR . '/config.php';
     include_once ROOT . '/includes/wrappers.php';
     include_once XY_DIR . '/class/iniclass.php';
 
