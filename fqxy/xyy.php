@@ -40,16 +40,21 @@
 
         $sqid = ($uid + 10000000) . "_" . $qy;
         $fquid = DB::instance()->get('o_user_list', 'uid', ['sqid' => $sqid]);
+
         // 帐号不存在，直接生成对应帐号
         if (empty($fquid)) {
             include XY_DIR . '/xxsql/xxsql.php';
         }
-
-        //存在用户的信息
-        $wjid = $fquid + 10000000;
+        // 再次检查
+        if (empty($fquid)) {
+            throw new RuntimeException('帐号信息初始化失败');
+        }
+        // 检查分区wjid
+        if (empty($wjid)) {
+            $wjid = $fquid + 10000000;
+        }
         include XY_DIR . '/ini/xuser_ini.php';
         $a10 = ($iniFile->getItem('验证信息', '玩家游戏码'));
-
         $img = 'pic/login/1.jpg';
         echo '<img src="' . $img . ' "alt="图片"/〉';
         echo "<br>";
