@@ -126,13 +126,18 @@ echo "<font color=black>".$nname."：哈~哈~哈~干得不错！（只见师门�
 echo "<font color=black>".$name."：师门祖师，你……</font>"."<br>";
 
 
+} elseif ($rid==46) {
+    echo "<font color=black>阴曹地府20层击败【阎罗王】</font>"."<br>";
+    echo "<font color=black>回地府寻找阎罗王</font>"."<br>";
 
-
-
-
-
-
-
+} elseif ($rid==48) {
+    $nname = '太上老君';
+    echo "<font color=black>".$nname."：李世民的灵魂在阴曹地府 【菩提老祖】三十层BOSS手中，你去把他的灵魂带回来。</font>"."<br>";
+    echo "<font color=black>提示：（击败阴曹地府 【菩提老祖】三十层BOSS）</font>"."<br>";
+} elseif ($rid==49) {
+    $nname = '太上老君';
+    echo "<font color=black>".$nname."：李世民的灵魂在阴曹地府 【菩提老祖】三十层BOSS手中，你去把他的灵魂带回来。</font>"."<br>";
+    echo "<font color=black>提示：（天宫-{$nname}）</font>"."<br>";
 
 } else{
 echo "<font color=black>没有这个任务变量：".$rid."请尝试联系gm解决此问题！！</font><br>";

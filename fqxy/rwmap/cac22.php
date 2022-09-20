@@ -13,6 +13,7 @@ include("./ini/zxrw_ini.php");
 ////////////////////任务属性//////////////
 $rwidd=1;//任务的id
 $rwfl=1;//任务的分类1主线2支线5日常4活动
+include XY_DIR . "/rwmap/rwpd.php";
 
 
 //第一个必须加变量转换
@@ -23,15 +24,13 @@ $xrwfl=$rwfl;
 ////////////////////任务属性//////////////
 
 
+
 $rw1=($iniFile->getCategory('任务id'));
 $rw2=($iniFile->getCategory('任务变量'));
 $rw3=($iniFile->getCategory('已杀怪'));
 $rw4=($iniFile->getCategory('要杀怪'));
 $rw5=($iniFile->getCategory('任务分类'));
 $rw6=($iniFile->getCategory('任务名字'));
-
-
-include("./rwmap/rwpdd.php");//调用任务判断
 
 
 include("./rwmap/cac22_ts.php");//任务提示	
@@ -56,6 +55,23 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>杨中顺�
 }
 
 
+////////////////////任务属性//////////////
+$rwidd=1;//任务的id
+$rwfl=2;//任务的分类1主线2支线5日常4活动
+include XY_DIR . "/rwmap/rwpd.php";
+
+$rwstr=$rwidd."_".$rwfl;
+$rid=$rw2[$rwstr];
+if ($rid == 52) {
+    $strr1=$rwidd."_".$rwfl."_".$npcc;
+    show_image('ts/ts1.png');
+    //cmd及超链接值
+    $cmid=$cmid+1;
+    $cdid[]=$cmid;
+    $clj[]=43;
+    $npc[]=$strr1;
+    echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>大事不妙了大仙！</font></a>"."<br>";
+}
 
 
 
