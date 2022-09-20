@@ -24,8 +24,14 @@
 
     include_once __DIR__ . '/../includes/constants.php';
     $configs = include XY_CONFIG_DIR . '/config.php';
-    $error_reporting_level = $configs['debug'] ? E_ALL & ~E_NOTICE : 0;
-    error_reporting($error_reporting_level);
+
+    if ($configs['debug'] ?? false) {
+        ini_set('display_errors', '1');
+        ini_set('display_startup_errors', '1');
+        error_reporting(E_ALL & ~E_NOTICE);
+    } else {
+        error_reporting(0);
+    }
 
     ini_set("date.timezone", "PRC");//时间效准代码
 
@@ -90,6 +96,8 @@
             if ($wjid > 10000000) {
                 //调用user.ini是否存在
                 include(XY_DIR . "/ini/user_ini.php");
+                $ydtx = $iniFile->getItem('地图坐标', 'x');
+                $ydty = $iniFile->getItem('地图坐标', 'y');
 
                 //来源页面信息
                 $kcmid = $iniFile->getItem('验证信息', 'cmid值');

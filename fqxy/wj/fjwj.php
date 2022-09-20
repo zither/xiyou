@@ -3,23 +3,13 @@
 //阻塞代码防止出现脏数据
 $zspd=0;
 $zsspd=0;
-
-//@TODO REMOVED
-//flock($fp, LOCK_NB);
 //路径
 $path='acher/map';
 $gglockname=$path."/".$ininalock;
-
 for($x=0;$x<=30;$x++){
-
 	$fp = fopen($gglockname, "w+");
 	if(flock($fp,LOCK_EX | LOCK_NB)){
 		$zsspd=1;
-		//usleep(800);
-
-
-		flock($fp,LOCK_EX);
-
 		break;
 	}else{
 		//排队等待
@@ -29,52 +19,27 @@ for($x=0;$x<=30;$x++){
 		if($zspd>=25){
 			$zsspd=2;
 			break;
-		} else{
 		}
-
 	}
-
 }
 
-
-
-
 if($zsspd==1){
-
-
-
-
-
-
-//路径
 	$path='acher/map';
-
 	$dir = $path;
-	//$dir = iconv("UTF-8", "GBK", "$path");
 	if (!file_exists($dir)){
 		mkdir ($dir,0777,true);
-	} else {
 	}
-	//判断ini文件是否存在	
 	$ininame = $path."/".$inina;
-
-
 	$filename = $ininame;
-
-
 	if(!file_exists($filename)){
 		$counter_file=$ininame;//文件名及路径,在当前目录下新建aa.txt文件
 		$fopen=fopen($counter_file,   'wb ');//新建文件命令
 		fputs($fopen,   '[地图信息]');//向文件中写入内容;
-# 实例化ini文件操作类，并载入 .ini文件
 		$iniFile = new iniFile($ininame);
 		fclose($fopen);
 	} else {
-# 实例化ini文件操作类，并载入 .ini文件
 		$iniFile = new iniFile($ininame);
 	}
-
-
 	////////玩家id值
 
 

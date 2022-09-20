@@ -194,14 +194,16 @@ if($zsspd==1){
         if($blzd1==1&&$blzd2==1&&$blzd3==1&&$blzd4==1){
             include("./ini/zt_ini.php");
             $bpid=($iniFile->getItem('玩家信息','帮派id'));
+            $bpmz = $bpzw = '';
             if($bpid>=1){
                 $bpmz=($iniFile->getItem('玩家信息','帮派名字'));
                 $bpzw=($iniFile->getItem('玩家信息','帮派职务'));
             }
 
             //游戏首页页面模板
-            include("./map/mapid.php");
+            include(XY_DIR . "/map/mapid.php");
 
+            $fjwjpd = 1;
             //通天塔不需要附近玩家
             if($dtx==78&&$ydtx==78||$dtx==79&&$ydtx==79){
                 $fjwjpd=2;
@@ -248,48 +250,22 @@ if($zsspd==1){
                         //echo $inina;
 
                     }
-
-
                     include("./wj/zzwj.php");
-
-
-                } else{
-
                 }
-
-
-
-
-
                 if($dtx!=71&&$dtx!=72&&$dtx!=73&&$ydtx!=71&&$ydtx!=72&&$ydtx!=73){
-
-
                     if($dtx==74){
-
-
                         include("./wj/gzwj.php");
-
                     } else{
                         include("./wj/fjwj.php");
                     }
-
-
-
-
                 } else{
-
                     if($dtx==1&&$ydtx==71||$dtx==1&&$ydtx==72||$dtx==1&&$ydtx==73){
-
                         $inina="cac".$dtx."x".$dty.".ini";
                         $ininalock="cac".$dtx."x".$dty.".txt";
                         include("./wj/fjwj.php");
                     } else{
 
                     }
-
-
-
-
                 }
 
             } else{
@@ -323,7 +299,7 @@ if($zsspd==1){
 
 
 
-
+            $sw = $sw ?? 0;
             if($sw!=2){
 
 //cmd及超链接值
