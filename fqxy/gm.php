@@ -43,20 +43,25 @@
         $_SESSION['admin_password'] = $password;
     }
 
-    include_once ROOT . '/includes/wrappers.php';
-    include_once XY_DIR . '/class/iniclass.php';
-
-    ini_set("error_reporting","E_ALL");//防止报错代码
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
     ini_set("date.timezone","PRC");//时间效准代码
 
-    $gid=$_GET['gid'];
-    $wjid=$_GET['user'];
-    $wpid=$_GET['wpid'];
-    $wpsl=$_GET['wpsl'];
-    $wpmz=$_GET['wpmz'];
-    $wpfl=$_GET['wpfl'];
-    $wjname=$_GET['wjname'];
-    $hbid=$_GET['hbid'];
+    include XY_DIR . '/sql/mysql.php';
+    include_once ROOT . '/includes/wrappers.php';
+    include_once XY_DIR . '/class/iniclass.php';
+    include_once XY_DIR . '/helper/common.php';
+
+
+    $gid=$_GET['gid'] ?? null;
+    $wjid=$_GET['user'] ?? null;
+    $wpid=$_GET['wpid'] ?? null;
+    $wpsl=$_GET['wpsl'] ?? null;
+    $wpmz=$_GET['wpmz'] ?? null;
+    $wpfl=$_GET['wpfl'] ?? null;
+    $wjname=$_GET['wjname'] ?? null;
+    $hbid=$_GET['hbid'] ?? null;
 
     $xxjyurl = $configs['jy_url'];
     $url = $configs['xy_url'];
