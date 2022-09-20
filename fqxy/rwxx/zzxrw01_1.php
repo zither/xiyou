@@ -139,6 +139,80 @@ echo "<font color=black>".$name."：师门祖师，你……</font>"."<br>";
     echo "<font color=black>".$nname."：李世民的灵魂在阴曹地府 【菩提老祖】三十层BOSS手中，你去把他的灵魂带回来。</font>"."<br>";
     echo "<font color=black>提示：（天宫-{$nname}）</font>"."<br>";
 
+} elseif ($rid==55) {
+    $nname = '杨中顺';
+    echo "<font color=black>".$nname."：大仙你来的正好，这几位病人的症状分明是中了瘟疫，但是任凭怎么给他们喂服治疗瘟疫的药也是不能痊愈，真是奇怪。</font>"."<br>";
+    echo "<font color=black>".$name."：你走近一看，发现这些病人手臂上都有一个淡淡的仙桃状黑印。你心想，袁天罡见多识广，于是前往天监台</font>"."<br>";
+    $ydx=1;
+    $ydy=23;
+    $ydfy=5000000;
+    include(XY_DIR . "/rw/ksrw.php");
+} elseif ($rid==57) {
+    $nname = '袁天罡';
+    echo "<font color=black>".$nname."：盘古封印果然被冲破，大仙你立刻去【瑶池】（副本）铲除这棵蟠桃树！（传送至【瑶池】（副本），击败蟠桃树）</font>"."<br>";
+    $ydx=23;//移动坐标x
+    $ydy=23;//移动坐标y
+    $ydfy=5000000;//传送费用
+    include("./rw/ksrw.php");
+
+} elseif ($rid==58) {
+    $nname = '瑶池圣母';
+    echo "<font color=black>".$nname."：大胆妖孽竟敢拔我蟠桃树，拿命来！（瑶池圣母一掌将你击倒在地上。幸好你有仙气护体，免于一死）</font>"."<br>";
+    $ydx=23;//移动坐标x
+    $ydy=0;//移动坐标y
+    $ydfy=5000000;//传送费用
+    include("./rw/ksrw.php");
+
+} elseif ($rid==59) {
+    $nname = '瑶池圣母';
+    echo "<font color=black>".$nname."：大胆妖孽竟敢拔我蟠桃树，拿命来！（瑶池圣母一掌将你击倒在地上。幸好你有仙气护体，免于一死）</font>"."<br>";
+    $ydx=23;//移动坐标x
+    $ydy=0;//移动坐标y
+    $ydfy=5000000;//传送费用
+    include("./rw/ksrw.php");
+
+
+} elseif ($rid==60) {
+    $nname = '接引仙子';
+    echo "<font color=black>".$nname."：完了完了，瑶池圣母重现，欺骗玉帝吃下了有毒的蟠桃，并扬言要灭世。现在玉帝被邪灵入侵，仙灵被带到了【通天塔】30层，你快去救他。（击败【通天塔】30层怪物）</font>"."<br>";
+    //$ydx=78;//移动坐标x
+    //$ydy=59;//移动坐标y
+    //$ydfy=100000;//传送费用
+    //include("./rw/ksrw.php");
+
+} elseif ($rid==61) {
+    $nname = '接引仙子';
+    echo "<font color=black>".$nname."：完了完了，瑶池圣母重现，欺骗玉帝吃下了有毒的蟠桃，并扬言要灭世。现在玉帝被邪灵入侵，仙灵被带到了【通天塔】30层，你快去救他。（击败【通天塔】30层怪物）</font>"."<br>";
+    echo "<font color=black>提示：（天宫-{$nname}）</font>"."<br>";
+    $ydx=23;//移动坐标x
+    $ydy=0;//移动坐标y
+    $ydfy=100000;//传送费用
+    include("./rw/ksrw.php");
+
+} elseif ($rid==62 || $rid == 63) {
+    $nname = '接引仙子';
+    echo "<font color=black>".$nname."：玉帝告诉了你盘古封印的秘密，并命你去“伏羲阵”处击败【如来佛祖】x10。（玩家击败【如来佛祖】x10）</font>"."<br>";
+    $ydx=1;//移动坐标x
+    $ydy=10;//移动坐标y
+    $ydfy=100000;//传送费用
+    include("./rw/ksrw.php");
+
+} elseif ($rid==64) {
+    $nname = '接引仙子';
+    echo "<font color=black>".$nname."：玉帝告诉了你盘古封印的秘密，并命你去“伏羲阵”处击败【如来佛祖】x10。（玩家击败【如来佛祖】x10）</font>"."<br>";
+    echo "<font color=black>提示：（天宫-{$nname}）</font>"."<br>";
+    $ydx=23;//移动坐标x
+    $ydy=0;//移动坐标y
+    $ydfy=100000;//传送费用
+    include("./rw/ksrw.php");
+
+} elseif ($rid==65) {
+    $nname = '接引仙子';
+    echo "<font color=black>".$nname."：修补成功：只见立刻风气云涌，大地间响起了【盘古族咒】，瑶池圣母痛不欲生，请立即前往菩提师祖处领取仙20解封丹</font>"."<br>";
+
+} elseif ($rid==66) {
+    echo "<font color=black>菩提祖师(转职):这里赠与你一颗【伏羲仙丹】祝你以后西游路上劈荆斩刺</font>"."<br>";
+
 } else{
 echo "<font color=black>没有这个任务变量：".$rid."请尝试联系gm解决此问题！！</font><br>";
 }
