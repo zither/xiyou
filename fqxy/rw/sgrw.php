@@ -471,7 +471,7 @@ $iniFile->updItem('任务变量', [$rwcurl => $rwbl]);
 
 
 $ydx=10;//移动坐标x
-$ydy=3;//移动坐标y
+$ydy=4;//移动坐标y
 $ydfy=10000;//传送费用
 //数字转汉字
 $yl=$ydfy;
