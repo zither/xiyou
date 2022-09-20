@@ -245,7 +245,7 @@ _unlink($ininame); //删除文件
 
 //调用msg.ini是否存在
 $wjtake="恭喜你！！充值已经到账请在首页的增值仓库领取，感谢您对幻想西游的大力支持！";
-include("msg_ini.php");
+include(XY_DIR . "/ini/msg_ini.php");
 
 $inina="msg.ini";
 $path='ache/'.$wjid;
