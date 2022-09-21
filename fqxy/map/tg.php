@@ -97,7 +97,7 @@ echo "<font color=red>【如意财神爷】（还未召唤）</font>"."<br>";
 
     if ($tpbl==1) {
         $img='pic/gz/gz11-1.gif';
-        echo '<img src="'.$img.' "alt="图片"/〉';
+        echo '<img src="'.$img.' "alt="图片"/>';
     }
     //cmd及超链接值
     $cmid=$cmid+1;
@@ -107,16 +107,13 @@ echo "<font color=red>【如意财神爷】（还未召唤）</font>"."<br>";
     echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【钟灵毓秀】（仙）</font></a>";
     if ($tpbl==1) {
         $img='pic/gz/gz11-2.gif';
-        echo '<img src="'.$img.' "alt="图片"/〉';
+        echo '<img src="'.$img.' "alt="图片"/>';
     }
-
-    echo "</br>";
-    echo "</br>";
+    echo "<br>";
 
     if ($tpbl==1) {
         $img='pic/gz/gz11-1.gif';
-        echo '<img src="'.$img.' "alt="图片"/〉';
-        echo "<br>";
+        echo '<img src="'.$img.' "alt="图片"/>';
     }
     //cmd及超链接值
     $cmid=$cmid+1;
