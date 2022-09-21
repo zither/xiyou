@@ -75,7 +75,7 @@ if ($wjddj<=159) {
 	
 
 	
-if(in_array($wjid, $arr2, TRUE)){
+if(in_array($wjid, $arr2)){
 $bossid=12;
 $bossmz="【如意财神爷】（世界boss）";
 $vipqytime=60;//多少时间更新boss6小时
