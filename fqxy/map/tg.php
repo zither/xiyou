@@ -34,7 +34,7 @@ $cdid[]=$cmid;
 $clj[]=556;
 $npc[]=0;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【查看全服累计财神能量】(召唤财神)(9.2结束)</font></a>"."<br>";
-include("./ini/phb14_ini.php");
+include XY_DIR . "/ini/phb14_ini.php";
 $arr1=($iniFile->getCategory('排行榜值1'));
 //将ini值存入数组方便使用
 foreach(array_keys($arr1) as $key){
@@ -48,7 +48,7 @@ $zhboss=($iniFile->getItem('召唤','初始'));
 $zhboss1=($iniFile->getItem('召唤1','初始'));
 if ($zhboss==2) {
 
-if(in_array($wjid, $arr2, TRUE)){
+if(in_array($wjid, $arr2)){
 
 $bossid=11;
 $bossmz="【欢喜财神爷】（世界boss）";
