@@ -692,14 +692,15 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动�
 
 */
 
-$img='pic/ts/ts1.png';
-echo '<img src="'.$img.' "alt="图片"/>';
-//cmd及超链接值
+
+/*
+show_image('ts/ts1.png');
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=658;
 $npc[]=0;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>〖活动〗农场</font></a>"."<br>";
+*/
 
 /*
 $img='pic/ts/ts1.png';
