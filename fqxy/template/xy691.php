@@ -1,11 +1,14 @@
 <?php
 
+/**
+ * 传送玩家到指定坐标
+ */
+
 //阻塞代码防止出现脏数据
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");
 
 if($zsspd==1) {
-    //传送玩家到指定坐标
     $kknpcc = $npcc;
     $arr = explode('_', $npcc);
     if (count($arr) == 2) {

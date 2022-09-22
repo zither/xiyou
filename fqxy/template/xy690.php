@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 小地图缩放操作
+ */
+
 //阻塞代码防止出现脏数据
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");

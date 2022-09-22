@@ -4351,8 +4351,8 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
-	$clj[]=20;
-	$npc[]=42;
+	$clj[]=691;
+	$npc[]="70_0";
 	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>开封府(待续)</font></a>"."<br>";
 
 //cmd及超链接值
@@ -4937,9 +4937,9 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
-	$clj[]=20;
-	$npc[]=48;
-	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>开封府(免费)（待续）</font></a>"."<br>";
+	$clj[]=691;
+	$npc[]="70_0";
+	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>开封府(免费)</font></a>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
@@ -5134,12 +5134,12 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 	$clj[]=20;
 	$npc[]=37;
 	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>枉死城(副本)</font></a>"."<br>";
-//cmd及超链接值
-	$cmid=$cmid+1;
-	$cdid[]=$cmid;
-	$clj[]=20;
-	$npc[]=38;
-	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>鸟嘴元帅府</font></a>"."<br>";
+////cmd及超链接值
+//	$cmid=$cmid+1;
+//	$cdid[]=$cmid;
+//	$clj[]=20;
+//	$npc[]=38;
+//	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>鸟嘴元帅府</font></a>"."<br>";
 
 
 
@@ -5435,9 +5435,9 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
-	$clj[]=20;
-	$npc[]=51;
-	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>开封府（待续）</font></a>"."<br>";
+	$clj[]=691;
+	$npc[]="70_0";
+	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>开封府</font></a>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
@@ -6286,8 +6286,8 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>兑换</fo
 //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
-	$clj[]=20;
-	$npc[]=25;
+	$clj[]=691;
+	$npc[]="25_0";
 	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>宝象国</font></a>"."<br>";
 //cmd及超链接值
 	$cmid=$cmid+1;
