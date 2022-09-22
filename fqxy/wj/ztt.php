@@ -273,7 +273,6 @@ if(file_exists($file)){
 
 
 
-	$m=count($jjid,0)-1;
 	$i=0;
 	$jjhpsx=0;
 	$jjgjsx=0;
@@ -286,41 +285,36 @@ if(file_exists($file)){
 	$jjhfsx=0;
 	$jjlfsx=0;
 
-	if($m>=1){
-		foreach(array_keys($jjid) as $key){
-			$keyjjid[]=$jjid[$key];
+	$keyjjid = [];
+	foreach(array_keys($jjid) as $key){
+		if ($key == '初始') {
+			continue;
 		}
-
-		for($d=0;$d<$m;$d++){
-			$i=$i+1;
-			$jjid=$keyjjid[$i];
-			$jjidbf=($iniFile->getItem('家具摆放',$jjid));
-
-			if($jjidbf==2){
-				$jjdj=($iniFile->getItem('家具等级',$jjid));
-				include("./wp/jjsx.php");
-				$jjhpsx=$jjhpsx+$jjhp;//家具血
-				$jjgjsx=$jjgjsx+$jjgj;//家具攻击
-				$jjmgsx=$jjmgsx+$jjmg;//家具魔攻
-				$jjfysx=$jjgjsx+$jjfy;//家具防御
-				$jjbgsx=$jjbgsx+$jjbg;
-				$jjhgsx=$jjhgsx+$jjhg;
-				$jjlgsx=$jjlgsx+$jjlg;
-				$jjbfsx=$jjbfsx+$jjbf;
-				$jjhfsx=$jjhfsx+$jjhf;
-				$jjlfsx=$jjlfsx+$jjlf;
-			} else{
-
-			}
-
-		}
-
-
-
-
-	} else{
-
+		$keyjjid[]=$jjid[$key];
 	}
+
+	$m = count($keyjjid);
+	for($d=0;$d<$m;$d++){
+		$i=$i+1;
+		$jjid=$keyjjid[$i];
+		$jjidbf=($iniFile->getItem('家具摆放',$jjid));
+
+		if($jjidbf==2) {
+			$jjdj=($iniFile->getItem('家具等级',$jjid));
+			include("./wp/jjsx.php");
+			$jjhpsx=$jjhpsx+$jjhp;//家具血
+			$jjgjsx=$jjgjsx+$jjgj;//家具攻击
+			$jjmgsx=$jjmgsx+$jjmg;//家具魔攻
+			$jjfysx=$jjgjsx+$jjfy;//家具防御
+			$jjbgsx=$jjbgsx+$jjbg;
+			$jjhgsx=$jjhgsx+$jjhg;
+			$jjlgsx=$jjlgsx+$jjlg;
+			$jjbfsx=$jjbfsx+$jjbf;
+			$jjhfsx=$jjhfsx+$jjhf;
+			$jjlfsx=$jjlfsx+$jjlf;
+		}
+	}
+
 
 
 
