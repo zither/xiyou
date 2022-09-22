@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 功能说明：小地图绘制时操作房间距离
+ */
+
 //阻塞代码防止出现脏数据
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");

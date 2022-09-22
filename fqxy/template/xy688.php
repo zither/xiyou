@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 功能说明：中秋活动，中秋积分兑换桂花糕
+ */
+
 //阻塞代码防止出现脏数据
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");

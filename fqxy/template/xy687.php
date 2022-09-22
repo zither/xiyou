@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 功能说明：退出登录
+ */
+
 $_SESSION = [];
 unset($_SESSION);
 session_destroy();

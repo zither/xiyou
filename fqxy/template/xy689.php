@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 功能说明：一键任务材料兑换西游声望
+ */
+
 //阻塞代码防止出现脏数据
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");

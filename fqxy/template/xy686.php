@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * 功能说明：新任务系统入口
+ */
+
 //阻塞代码防止出现脏数据
 $ininalock=$wjid."_lock".".txt";
 include("./ini/zsini.php");
