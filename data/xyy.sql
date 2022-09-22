@@ -229,14 +229,15 @@ DROP TABLE IF EXISTS `all_jdjc`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `all_jdjc` (
-  `id` int(11) NOT NULL DEFAULT 0 COMMENT '编号id',
-  `wjid` int(11) NOT NULL DEFAULT 0 COMMENT '玩家id',
-  `vip` int(11) NOT NULL DEFAULT 0 COMMENT 'vip等级',
-  `wjmz` text NOT NULL COMMENT '玩家名字',
-  `jcjg` text NOT NULL COMMENT '竞猜价格',
-  `cq` int(11) NOT NULL DEFAULT 0 COMMENT '出拳',
-  `timex` text NOT NULL COMMENT '竞猜时间'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `wjid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '玩家ID',
+  `vip` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '玩家VIP',
+  `wjmz` varchar(32) NOT NULL DEFAULT '' COMMENT '玩家名字',
+  `jcjg` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '竞猜价格',
+  `cq` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '出拳',
+  `timex` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -573,25 +574,25 @@ DROP TABLE IF EXISTS `all_zt`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `all_zt` (
   `wjid` int(11) NOT NULL COMMENT '玩家id',
-  `username` text NOT NULL COMMENT '玩家名字',
+  `username` varchar(16) NOT NULL COMMENT '玩家名字',
   `sex` int(11) NOT NULL COMMENT '玩家性别',
-  `tx` text NOT NULL COMMENT '玩家头衔',
-  `peiou` text NOT NULL,
-  `peiouid` int(11) NOT NULL,
-  `zzmz` text NOT NULL,
-  `zzid` int(11) NOT NULL,
-  `zzfl` int(11) NOT NULL,
+  `tx` varchar(64) NOT NULL COMMENT '玩家头衔',
+  `peiou` varchar(32) NOT NULL COMMENT '配偶名字',
+  `peiouid` int(11) NOT NULL COMMENT '配偶ID',
+  `zzmz` varchar(32) NOT NULL COMMENT '住宅名字',
+  `zzid` int(11) NOT NULL COMMENT '住宅ID',
+  `zzfl` int(11) NOT NULL COMMENT '住宅分类',
   `dj` int(11) NOT NULL COMMENT '玩家等级',
-  `mpp` int(11) NOT NULL,
-  `bpmz` text NOT NULL,
-  `bpid` int(11) NOT NULL,
-  `vip` int(11) NOT NULL,
-  `vipjy` int(11) NOT NULL,
-  `gsrl` int(11) NOT NULL,
-  `bbrl` int(11) NOT NULL,
-  `ckrl` int(11) NOT NULL,
-  `emz` int(11) NOT NULL,
-  `lh` int(11) NOT NULL
+  `mpp` int(11) NOT NULL COMMENT '门派',
+  `bpmz` varchar(32) NOT NULL COMMENT '帮派名字',
+  `bpid` int(11) NOT NULL COMMENT '帮派ID',
+  `vip` int(11) NOT NULL COMMENT 'VIP等级',
+  `vipjy` int(11) NOT NULL COMMENT 'VIP经验',
+  `gsrl` int(11) NOT NULL COMMENT '挂售容量',
+  `bbrl` int(11) NOT NULL COMMENT '背包容量',
+  `ckrl` int(11) NOT NULL COMMENT '仓库容量',
+  `emz` int(11) NOT NULL COMMENT '恶名值',
+  `lh` int(11) NOT NULL COMMENT '靓号'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1131,6 +1132,33 @@ CREATE TABLE `tx` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `wjid` int(10) unsigned NOT NULL DEFAULT 0,
+  `yxm` varchar(64) NOT NULL DEFAULT '' COMMENT '游戏码',
+  `cmid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '游戏页面',
+  `npc` varchar(100) NOT NULL DEFAULT '' COMMENT '参数',
+  `xcmid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '最小命令数值',
+  `dcmid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '最大命令数值',
+  `ycmid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '上一个页面值',
+  `ynpc` varchar(100) NOT NULL DEFAULT '' COMMENT '上一个参数值',
+  `x` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '地图区域编号',
+  `y` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '地图编号',
+  `cwmz` varchar(32) NOT NULL DEFAULT '' COMMENT '宠物名字',
+  `ckid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '对象编号',
+  `time` timestamp NOT NULL DEFAULT current_timestamp() COMMENT '时间',
+  `cmds` varchar(10000) NOT NULL DEFAULT '' COMMENT '链接数组',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `wp`
 --
 
@@ -1405,4 +1433,4 @@ CREATE TABLE `zzck` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-18 22:51:02
+-- Dump completed on 2022-09-22 20:47:29
