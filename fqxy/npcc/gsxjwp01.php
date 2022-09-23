@@ -18,16 +18,15 @@ if($dqwp==1){
 
 echo "<font color=red>你最多可下架".$wpmz."x".$wpsl."</font>"."<br>";
 echo "<font color=black>请输入你要下架多少".$wpmz."呢？</font>"."<br>";
-/*
+
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
 $clj[]=293;
 $npc[]=$npcc;
 echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>下架全部</font></a>"."<br>";
-*/
 
-echo "<font color=blue>下架全部（后续更新）</font>"."<br>";
+//echo "<font color=blue>下架全部（后续更新）</font>"."<br>";
 //cmd及超链接值
 $cmid=$cmid+1;
 $cdid[]=$cmid;
