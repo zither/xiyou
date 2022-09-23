@@ -814,7 +814,7 @@ if ($npcc==1) {
 
 
 } elseif ($npcc==42) {
-//cmd及超链接值
+    //cmd及超链接值
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;

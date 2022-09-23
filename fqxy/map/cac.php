@@ -2096,14 +2096,6 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=red>【天降�
 } else{
 }
 /////////////////////////////////////////////////天降秘宝活动////////////////////////////////
-  
-//cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=7;
-$npc[]=42;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【天然居】</font></a>"."<br>";
-
    include("rwmap/cac13.php");
   //出口
 echo "<font color=black>请选择出口</font>"."<br>";
