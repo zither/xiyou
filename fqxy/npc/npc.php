@@ -1232,7 +1232,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>转门派<
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;
 	$clj[]=10;
-	$npc[]=0;
+	$npc[]=62;
 	echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
 
 	echo "<font color=black>$npctake</font>"."<br>";
