@@ -52,7 +52,7 @@ function rwbl(int $wjid, int $rwid, int $rwfl, array &$rwxx = [])
 
 function rwxx(int $rwid)
 {
-    $rwsz = include __DIR__ . '/../rw/rwsz.php';
+    $rwsz = include __DIR__ . '/../data/rw.php';
     foreach ($rwsz as $v) {
         if ($v['id'] == $rwid) {
             return $v;
