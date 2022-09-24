@@ -179,7 +179,7 @@ function npc_ts($wjid, $npc_id)
 {
     $ts = '';
     //获取 npc 所有任务
-    $rwnpc = include XY_DIR . '/npc/rwnpc.php';
+    $rwnpc = include XY_DIR . '/data/npcrw.php';
     //没有任务直接返回空
     if (empty($rwnpc[$npc_id])) {
         return $ts;
@@ -270,7 +270,7 @@ function npc_rw(int $wjid, int $npc_id, string $a1, int &$cmid, array &$cdid, ar
     //任务列表
     $rwlb = '';
     //获取 npc 所有任务
-    $rwnpc = include XY_DIR . '/npc/rwnpc.php';
+    $rwnpc = include XY_DIR . '/data/npcrw.php';
     //没有任务直接返回空
     if (empty($rwnpc[$npc_id])) {
         return $rwlb;
