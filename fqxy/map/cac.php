@@ -3579,11 +3579,11 @@ $npc[]=0;
 echo "<font color=black>金豆大厅</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
   //npc
 //cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=7;
-$npc[]=72;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【金豆商城】</font></a>"."<br>";
+//$cmid=$cmid+1;
+//$cdid[]=$cmid;
+//$clj[]=7;
+//$npc[]=72;//需要改动
+//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【金豆商城】</font></a>"."<br>";
   //出口
 echo "<font color=black>请选择出口</font>"."<br>";
 $cmid=$cmid+1;
@@ -3612,11 +3612,11 @@ $npc[]=0;
 echo "<font color=black>皇族花园</font>"."<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>刷新</font></a>"."<br>";
   //npc
 //cmd及超链接值
-$cmid=$cmid+1;
-$cdid[]=$cmid;
-$clj[]=7;
-$npc[]=73;//需要改动
-echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【君临天下】</font></a>"."<br>";
+//$cmid=$cmid+1;
+//$cdid[]=$cmid;
+//$clj[]=7;
+//$npc[]=73;//需要改动
+//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【君临天下】</font></a>"."<br>";
   //出口
 echo "<font color=black>请选择出口</font>"."<br>";
 $cmid=$cmid+1;

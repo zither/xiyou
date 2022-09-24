@@ -928,15 +928,8 @@ if ($npcc==1) {
 } elseif ($npcc==47) {
 	$npcname="【九天居】";
 	$npctake="【九天居】设计中";
-	echo "<font color=red>$npcname</font>"."<br>";
-	echo "<font color=black>$npctake</font>"."<br>";
-//cmd及超链接值
-	$cmid=$cmid+1;
-	$cdid[]=$cmid;
-	$clj[]=10;
-	$npc[]=0;
-//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
-//
+	//echo "<font color=red>$npcname</font>"."<br>";
+	//echo "<font color=black>$npctake</font>"."<br>";
 
 
 
@@ -5607,15 +5600,8 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 } elseif ($npcc==260) {
 	$npcname="【三生三世】";
 	$npctake="【三生三世】设计中";
-	echo "<font color=red>$npcname</font>"."<br>";
-	echo "<font color=black>$npctake</font>"."<br>";
-//cmd及超链接值
-	$cmid=$cmid+1;
-	$cdid[]=$cmid;
-	$clj[]=10;
-	$npc[]=0;
-//echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>攻击$npcname</font></a>"."<br>";
-//
+	//echo "<font color=red>$npcname</font>"."<br>";
+	//echo "<font color=black>$npctake</font>"."<br>";
 
 
 
