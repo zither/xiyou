@@ -13004,7 +13004,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>领取练�
 
 } else {
 
-	$npcsz = include XY_DIR . '/npc/npcsz.php';
+	$npcsz = include XY_DIR . '/data/npc.php';
 	$npcxx = [];
 	foreach ($npcsz as $v) {
 		if ($npcc == $v['id']) {

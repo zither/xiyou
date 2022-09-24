@@ -10,7 +10,7 @@ $dty = $dty ?? 1;
 $zb = sprintf('%d_%d', $dtx, $dty);
 $mapnpc = include XY_DIR . '/map/mapnpc.php';
 if (!empty($mapnpc[$zb])) {
-    $npcsz = include XY_DIR . '/npc/npcsz.php';
+    $npcsz = include XY_DIR . '/data/npc.php';
     $ids = $mapnpc[$zb];
     foreach ($ids as $v) {
         $xx = [];

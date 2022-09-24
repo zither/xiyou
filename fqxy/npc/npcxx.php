@@ -35,7 +35,7 @@ include("npcxx14.php");
 } elseif($npcc ==5196||$npcc==5197){//主线任务特殊npc
 
 } else{
-    $npcsz = include XY_DIR . '/npc/npcsz.php';
+    $npcsz = include XY_DIR . '/data/npc.php';
     $npcxx = [];
     foreach ($npcsz as $v) {
         if ($npcc == $v['id']) {
