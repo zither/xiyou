@@ -3,7 +3,7 @@
 if (!function_exists('jnxx')) {
     function jnxx(int $id, int $fl = 0)
     {
-        $jnxxsz = include XY_DIR . '/wj/jnxxsz.php';
+        $jnxxsz = include XY_DIR . '/data/jnxx.php';
         foreach ($jnxxsz as $v) {
             if ($id == $v['jnid']) {
                 if ($fl && $fl != $v['jnfl']) {
