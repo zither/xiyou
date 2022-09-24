@@ -33,7 +33,14 @@ $rw5=($iniFile->getCategory('任务分类'));
 $rw6=($iniFile->getCategory('任务名字'));
 
 
-include("./rwmap/cac22_ts.php");//任务提示	
+include(XY_DIR . "/rwmap/cac22_ts.php");//任务提示
+
+$rwstr=$rwidd."_".$rwfl;
+$rid=$rw2[$rwstr];
+// 任务与杨中顺无关，不做任何操作
+if ($rid < 47 || $rid > 58) {
+    $m = 0;
+}
 
 if ($m==1) {
 	
