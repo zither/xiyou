@@ -99,9 +99,20 @@ $zflf=$zflf+200;
 }
 
 
-
-
-
+//占领城市提供的属性祝福，后期可以调整为和国家声望挂钩
+$zczf = wj_zczf((int)$wjid);
+if (!empty($zczf)) {
+    $zfhp += $zczf['hp'];
+    $zffy += $zczf['fy'];
+    $zfgj += $zczf['gj'];
+    $zfmg += $zczf['mg'];
+    $zfbg += $zczf['bg'];
+    $zfbf += $zczf['bf'];
+    $zfhg += $zczf['hg'];
+    $zfhf += $zczf['hf'];
+    $zflg += $zczf['lg'];
+    $zflf += $zczf['lf'];
+}
 
 
 if($zfhp>0){

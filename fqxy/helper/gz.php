@@ -307,3 +307,52 @@ function cjsj_arr()
     }
     return $cjsj_arr;
 }
+
+function zczf(): array
+{
+    return include XY_DIR . '/data/zczf.php';
+}
+
+function wj_zczf(int $wjid): array
+{
+    $db = DB::instance();
+    $bpid = $db->get('all_zt', 'bpid', ['wjid' => $wjid]);
+    if (!$bpid) {
+        return  [];
+    }
+    $zcids = $db->select('gz01', 'zcid', ['zlgjid' => $bpid]);
+    if (empty($zcids)) {
+        return [];
+    }
+
+    $zf = [
+        'hp' => 0,
+        'fy' => 0,
+        'gj' => 0,
+        'mg' => 0,
+        'bg' => 0,
+        'bf' => 0,
+        'hg' => 0,
+        'hf' => 0,
+        'lg' => 0,
+        'lf' => 0,
+    ];
+    $zf_arr = zczf();
+    foreach ($zcids as $id) {
+        if (!empty($zf_arr[$id])) {
+            $v = $zf_arr[$id];
+            $zf['hp'] += $v['hp'];
+            $zf['fy'] += $v['fy'];
+            $zf['gj'] += $v['gj'];
+            $zf['mg'] += $v['mg'];
+            $zf['bg'] += $v['bg'];
+            $zf['bf'] += $v['bf'];
+            $zf['hg'] += $v['hg'];
+            $zf['hf'] += $v['hf'];
+            $zf['lg'] += $v['lg'];
+            $zf['lf'] += $v['lf'];
+        }
+    }
+
+    return $zf;
+}
