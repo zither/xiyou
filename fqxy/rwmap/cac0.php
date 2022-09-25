@@ -21,51 +21,15 @@ include("./rwmap/rwpd.php");
 //第一个必须加变量转换
 $xrwidd=$rwidd;
 $xrwfl=$rwfl;
-//第一个必须加变量转换
 
 
-$zt_ini = ini_file($wjid, XY_DIR . '/ini/zt_ini.php');
-if ($zt_ini) {
-	$wjdj =  $zt_ini->getItem('玩家信息', '等级');
-	if ($wjdj >= 150) {
-		////////////////////任务属性//////////////
-		$rwidd=1;//任务的id
-		$rwfl=2;//任务的分类1主线2支线5日常4活动
-		$rwmz="159转职任务〖关键〗";
-		include XY_DIR . "/rwmap/rwpd.php";
-	}
-}
 
-
-/*
-//首次接取任务	
-////////////////////任务属性//////////////
-$rwidd=1;//任务的id
-$rwfl=4;//任务的分类1主线2支线5日常4活动
-$rwmz="活动任务";
-include("./rwmap/rwpd.php");
-////////////////////任务属性//////////////
-//首次接取任务	
-
-
-//首次接取任务	
-////////////////////任务属性//////////////
-$rwidd=1;//任务的id
-$rwfl=5;//任务的分类1主线2支线5日常4活动
-$rwmz="日常任务";
-include("./rwmap/rwpd.php");
-////////////////////任务属性//////////////
-//首次接取任务	
-
-//首次接取任务	
 ////////////////////任务属性//////////////
 $rwidd=1;//任务的id
 $rwfl=2;//任务的分类1主线2支线5日常4活动
-$rwmz="支线任务";
-include("./rwmap/rwpd.php");
-////////////////////任务属性//////////////
-//首次接取任务	
-*/
+$rwmz="159转职任务〖关键〗";
+include XY_DIR . "/rwmap/rwpd.php";
+
 
 
 $rw1=($iniFile->getCategory('任务id'));
@@ -76,9 +40,11 @@ $rw5=($iniFile->getCategory('任务分类'));
 $rw6=($iniFile->getCategory('任务名字'));
 
 
-include("./rwmap/rwpdd.php");//调用任务判断
-
+$xrwpd = 0;
+//主线任务检查
+$rid = $rw2["1_1"] ?? 0;
 if ($rid==392||$rid==393||$rid==394) {
+    $xrwpd = 1;
 	//Fixed: 修正任务分类，这里只能是主线任务，分类为1
     $xrwfl = 1;
 	$strr1=$xrwidd."_".$xrwfl."_5196";
@@ -115,14 +81,21 @@ if ($rid==392||$rid==393||$rid==394) {
 }
 
 
-
-
-
-
+//直线任务检查
+$zt_ini = ini_file($wjid, XY_DIR . '/ini/zt_ini.php');
+$wjdj =  $zt_ini->getItem('玩家信息', '等级');
+$rid = $rw2["1_2"] ?? 0;
+if (in_array($rid, [1, 2, 3]) && isset($wjdj) && $wjdj >= 150) {
+	if ($xrwpd == 0) {
+		$xrwidd = 1;
+		$xrwfl = 2;
+	}
+	$xrwpd = 1;
+}
 
 include("./rwmap/cac0_ts.php");//任务提示
 show_image('npc/npc2.png');
-if ($m==1) {
+if ($xrwpd == 1) {
 	$strr1=$xrwidd."_".$xrwfl."_".$npcc;
 	$cmid=$cmid+1;
 	$cdid[]=$cmid;

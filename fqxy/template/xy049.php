@@ -21,13 +21,13 @@ if ($zsspd == 1) {
     // 老任务系统任务
     if ($rw1 < 1000) {
         if ($rw5 == 1) {
-            include("./rwxx/zxrwxx.php");//主线
+            include XY_DIR . "/rwxx/zxrwxx.php";//主线
         } elseif ($rw5 == 2) {
-            include("./rwxx/zzxrwxx.php");//支线
+            include XY_DIR . "/rwxx/zzxrwxx.php";//支线
         } elseif ($rw5 == 5) {
-            include("./rwxx/rcrwxx.php");//日常
+            include XY_DIR . "/rwxx/rcrwxx.php";//日常
         } elseif ($rw5 == 4) {
-            include("./rwxx/hdrwxx.php");//活动
+            include XY_DIR . "/rwxx/hdrwxx.php";//活动
         } else {
             echo "<font color=black>没有这个任务分类编号" . $rw5 . "请尝试联系gm解决此问题！！</font><br>";
         }

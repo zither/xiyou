@@ -65,10 +65,11 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>杨中顺�
 ////////////////////任务属性//////////////
 $rwidd=1;//任务的id
 $rwfl=2;//任务的分类1主线2支线5日常4活动
+$rwmz="159转职任务〖关键〗";
 include XY_DIR . "/rwmap/rwpd.php";
 
 $rwstr=$rwidd."_".$rwfl;
-$rid=$rw2[$rwstr];
+$rid=$rw2[$rwstr] ?? 0;
 if ($rid == 52) {
     $strr1=$rwidd."_".$rwfl."_".$npcc;
     show_image('ts/ts1.png');

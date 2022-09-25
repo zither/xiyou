@@ -17,7 +17,7 @@ if ($rwpd=="") {
         die('Error: ' . mysql_error());
     }
 
-    include("./ini/zxrw_ini.php");
+    include XY_DIR . "/ini/zxrw_ini.php";
 } else {
 
 }

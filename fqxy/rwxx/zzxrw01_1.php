@@ -1,8 +1,9 @@
 <?php
 
-if ($rid==2) {
-echo "<font color=black>李白：小仙卿，老夫看你仙风道骨，背后有一道淡淡的仙气，理应在天上处理天庭杂务，莫非是天仙下凡，体察民间疾苦？</font>"."<br>";
-echo "<font color=black>".$name."：啊？李白老夫子，我只是一介武夫，并不是神仙啊！</font>"."<br>";
+if ($rid==2 || $rid == 1) {
+    echo "<font color=black>李白：小仙卿，老夫看你仙风道骨，背后有一道淡淡的仙气，理应在天上处理天庭杂务，莫非是天仙下凡，体察民间疾苦？</font>"."<br>";
+    echo "<font color=black>".$name."：啊？李白老夫子，我只是一介武夫，并不是神仙啊！</font>"."<br>";
+    echo "<font color=black>提示：（满159级找李白转职）</font>"."<br>";
 
 } elseif ($rid==3) {
 
