@@ -3273,7 +3273,7 @@ echo "<a href='xy.php?uid=$wjid&&cmd=$cmid&&sid=$a1'><font color=blue>【我要�
 		include("wj/ztt.php");
 		include("wj/zfzt.php");
 		include("./ini/zt_ini.php");
-		$iniFile->updItem('玩家信息', ['红' => $wjxx1['血']]);
+		$iniFile->updItem('玩家信息', ['红' => $wjxx1['血'], '蓝' => $wjxx1['蓝']]);
 		echo "<font color=black>你花了500两银子，往床上一躺，睡了一会，只觉精力充沛！	</font>"."<br>";
 	} else{
 		echo "<font color=black>对不起！休息需要500银两哦！</font>"."<br>";
