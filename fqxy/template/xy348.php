@@ -22,7 +22,6 @@ if($zsspd==1){
         include("./npc/npcxx.php");
     }
 
-    //include("./wp/jnxx.php");
     include XY_DIR . '/helper/jn.php';
     $dgts="<font color=black>你对".$nname."使用了一招".$jnmz."</font>"."<br>";
 
@@ -71,21 +70,20 @@ if($zsspd==1){
         include("./ini/npc_ini.php");
         $yymid=($iniFile->getItem('怪物2号属性','初始'));
         $cljpost=$yymid;
-        //获取返回战斗页面
-
         if ($cljpost==130){//世界boss
             include("template/xy130.php");
-            //不走xy.php直接调用xy文件需要加pz01配置
             include("./pz/pz01.php");
         } else{
             include("template/xy010.php");
-            //不走xy.php直接调用xy文件需要加pz01配置
             include("./pz/pz01.php");
         }
     } else{
         if($mppppd==1){
-            include("template/xy130.php");
-            //不走xy.php直接调用xy文件需要加pz01配置
+            if ($cljpost==130){//世界boss
+                include("template/xy130.php");
+            } else{
+                include("template/xy010.php");
+            }
             include("./pz/pz01.php");
         } else{
             echo "<font color=black>对不起！战斗信息有误！联系GM解决</font>"."<br>";
