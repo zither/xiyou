@@ -22,7 +22,7 @@ if($zsspd==1){
     } elseif($npcc>=301&&$npcc<=400){
         include XY_DIR . "/zbdz/zbsj04.php";//装备描述
     } elseif($npcc>=401&&$npcc<=500){
-        include XY_DIR . "./zbdz/zbsj05.php";//装备描述
+        include XY_DIR . "/zbdz/zbsj05.php";//装备描述
     } elseif($npcc>=501&&$npcc<=600){
         include XY_DIR . "/zbdz/zbsj06.php";//装备描述
     } elseif($npcc>=601&&$npcc<=700){
