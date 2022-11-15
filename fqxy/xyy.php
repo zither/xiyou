@@ -56,7 +56,7 @@
         include XY_DIR . '/ini/xuser_ini.php';
         $a10 = ($iniFile->getItem('验证信息', '玩家游戏码'));
         $img = 'pic/login/1.jpg';
-        echo '<img src="' . $img . ' "alt="图片"/〉';
+        echo '<img src="' . $img . ' "alt="图片"/>';
         echo "<br>";
         echo "<br>";
         echo "<br>";
