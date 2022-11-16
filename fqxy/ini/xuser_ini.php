@@ -9,19 +9,9 @@ if (!file_exists($path)) {
 }
 
 $file = $path . "/" . $inina;
-//随机产生一个玩家的特征码写入数据库验证网址信息
-function randomkeys($length)
-{
-    $returnStr = '';
-    $pattern = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ';
-    for ($i = 0; $i < $length; $i++) {
-        $returnStr .= $pattern{mt_rand(0, 61)}; //生成php随机数
-    }
-    return $returnStr;
-}
 
 if (file_exists($file)) {
-    $ka1 = randomkeys(30);
+    $ka1 = str_rand(30);
     $kcmid = 0;
     $ka4 = 1;
     $ka5 = 1;
@@ -34,7 +24,7 @@ if (file_exists($file)) {
     $iniFile = new iniFile($file);
     $iniFile->addItem('验证信息', ['玩家id' => $wjid, '玩家验证' => $wjid, '玩家游戏码' => $ka1, 'cmid值' => $kcmid, 'xcmid值' => $ka4, 'dcmid值' => $ka5, '年' => $ky, '月' => $km, '日' => $kd, '时' => $kh, '分' => $ki, '秒' => $ks]);
 } else {
-    $ka1 = randomkeys(30);
+    $ka1 = str_rand(30);
     $kcmid = 0;
     $ka4 = 1;
     $ka5 = 1;

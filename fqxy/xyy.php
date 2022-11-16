@@ -11,6 +11,7 @@
 <div style='width: device-width;display:block;word-break: break-all;word-wrap: break-word;'>
     <?php
     include_once __DIR__ . '/../includes/constants.php';
+    include_once ROOT . '/includes/functions.php';
     include_once XY_DIR . '/class/iniclass.php';
     include XY_DIR . '/sql/mysql.php';
     date_default_timezone_set("PRC");
