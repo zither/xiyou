@@ -11,7 +11,11 @@ $gglockname=$path."/".$ininalock;
 $zspd=0;
 $zsspd=0;
 for($x=0;$x<=30;$x++){
-    $fp = fopen($gglockname, "w+");
+    $fp = @fopen($gglockname, "w+");
+    if (!is_resource($fp)) {
+        $zsspd=2;
+        break;
+    }
     if(flock($fp,LOCK_EX | LOCK_NB)){
         $zsspd=1;
         break;
@@ -23,7 +27,6 @@ for($x=0;$x<=30;$x++){
         if($zspd>=25){
             $zsspd=2;
             break;
-        } else{
         }
     }
 }
