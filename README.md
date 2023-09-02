@@ -8,9 +8,6 @@
  - 删除家园页面
  - 更多修改请查看 [Commits](https://github.com/zither/xiyou/commits/master) 信息
  
-## 代码演示
- - http://81.68.206.179:81
-
 ## 运行环境
 - php 7.4
 - mysql 5.7+
